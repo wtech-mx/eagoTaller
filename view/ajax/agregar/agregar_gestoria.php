@@ -1,0 +1,87 @@
+<?php
+	include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
+	if (empty($_POST['nombre'])) {
+            $errors[] = "Nombre está vacío.";
+        }  elseif (empty($_POST['apellido'])) {
+            $errors[] = "Apellido está vacío.";
+        }  elseif (empty($_POST['vehiculo'])) {
+            $errors[] = "Vehiculo está vacío.";
+        }  elseif (empty($_POST['datos'])) {
+            $errors[] = "Datos... está vacío.";
+        }/* elseif (empty($_POST['kind'])) {
+            $errors[] = "Kind está vacío.";
+        }*/ elseif (
+        	!empty($_POST['nombre'])
+        	&& !empty($_POST['apellido'])
+			&& !empty($_POST['vehiculo'])
+			&& !empty($_POST['datos'])
+			/*&& !empty($_POST['kind'])*/
+        ){
+		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
+			
+			// escaping, additionally removing everything that could be (html/javascript-) code
+            $nombre = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
+            $apellido = mysqli_real_escape_string($con,(strip_tags($_POST["apellido"],ENT_QUOTES)));
+            $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
+            $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
+
+            $aplaca = mysqli_real_escape_string($con,(strip_tags($_POST["aplaca"],ENT_QUOTES)));
+            $bplaca = mysqli_real_escape_string($con,(strip_tags($_POST["bplaca"],ENT_QUOTES)));
+            $rplaca = mysqli_real_escape_string($con,(strip_tags($_POST["rplaca"],ENT_QUOTES)));
+            $tarjeta = mysqli_real_escape_string($con,(strip_tags($_POST["tarjeta"],ENT_QUOTES)));
+            $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
+            $fecha = mysqli_real_escape_string($con,(strip_tags($_POST["fecha"],ENT_QUOTES)));
+           /* $kind = mysqli_real_escape_string($con,(strip_tags($_POST["kind"],ENT_QUOTES)));*/
+			
+
+			//Write register in to database 
+			$sql = "INSERT INTO gestoria (nombre, apellido, vehiculo, datos, aplaca, bplaca, rplaca, tarjeta, otro, fecha) VALUES('".$nombre."','".$apellido."','".$vehiculo."','".$datos."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$otro."','".$fecha."');";
+			$query_new = mysqli_query($con,$sql);
+            // si se ha agregado con éxito
+            if ($query_new) {
+
+            		$numeroMaximo="select max(id) as nuevo_gestoria from gestoria";
+            		$idusernew_sql=mysqli_query($con,$numeroMaximo);
+            		$idusernew_rw=mysqli_fetch_array($idusernew_sql);
+            		$idusernew=$idusernew_rw['nuevo_gestoria'];	
+            		//agrego los permisos by amner saucedo sosa
+            		$num_element=0;
+					$sw=true;
+
+                $messages[] = "Servicio ha sido agregado con éxito.";
+            } else {
+                $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
+            }
+		} else {
+			$errors[] = "desconocido.";	
+		}
+
+if (isset($errors)){
+			
+			?>
+			<div class="alert alert-danger" role="alert">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Error!</strong> 
+					<?php
+						foreach ($errors as $error) {
+								echo $error;
+							}
+						?>
+			</div>
+			<?php
+			}
+			if (isset($messages)){
+				
+				?>
+				<div class="alert alert-success" role="alert">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<strong>¡Bien hecho!</strong>
+						<?php
+							foreach ($messages as $message) {
+									echo $message;
+								}
+							?>
+				</div>
+				<?php
+			}
+?>			
