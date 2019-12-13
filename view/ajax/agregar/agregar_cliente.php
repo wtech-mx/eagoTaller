@@ -4,50 +4,55 @@
             $errors[] = "Nombre está vacío.";
         }  elseif (empty($_POST['apellido'])) {
             $errors[] = "Apellido está vacío.";
-        }  elseif (empty($_POST['vehiculo'])) {
-            $errors[] = "Vehiculo está vacío.";
-        }  elseif (empty($_POST['datos'])) {
-            $errors[] = "Dato... está vacío.";
-        }   /* elseif (empty($_POST['kind'])) {
+        }  elseif (empty($_POST['telefono'])) {
+            $errors[] = "Telefono está vacío.";
+        }  elseif (empty($_POST['correo'])) {
+            $errors[] = "Correo Electronico está vacío.";
+        }  elseif (empty($_POST['edad'])) {
+            $errors[] = "Edad está vacío.";
+        }  /* elseif (empty($_POST['kind'])) {
             $errors[] = "Kind está vacío.";
         }*/ elseif (
-            && !empty($_POST['nombre'])
+            !empty($_POST['nombre'])
             && !empty($_POST['apellido'])
-            && !empty($_POST['vehiculo'])
-            && !empty($_POST['datos'])
-            /*&& !empty($_POST['kind'])*/
+            && !empty($_POST['telefono'])
+            && !empty($_POST['correo'])
+            && !empty($_POST['edad'])
         ){
         require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
             
             // escaping, additionally removing everything that could be (html/javascript-) code
             $nombre = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
-            $apellido = mysqli_real_escape_string($con,(strip_tags($_POST["apellido"],ENT_QUOTES)));
-            $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
-            $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
+    $apellido = mysqli_real_escape_string($con,(strip_tags($_POST["apellido"],ENT_QUOTES)));
+    $telefono = mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
+    $correo = mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
+    $edad = mysqli_real_escape_string($con,(strip_tags($_POST["edad"],ENT_QUOTES)));
 
-            $fecha = mysqli_real_escape_string($con,(strip_tags($_POST["fecha"],ENT_QUOTES)));
-            $aplaca = mysqli_real_escape_string($con,(strip_tags($_POST["aplaca"],ENT_QUOTES)));
-            $bplaca = mysqli_real_escape_string($con,(strip_tags($_POST["bplaca"],ENT_QUOTES)));
-            $rplaca = mysqli_real_escape_string($con,(strip_tags($_POST["rplaca"],ENT_QUOTES)));
-            $tarjeta = mysqli_real_escape_string($con,(strip_tags($_POST["tarjeta"],ENT_QUOTES)));
-            $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
+    $manejo = mysqli_real_escape_string($con,(strip_tags($_POST["manejo"],ENT_QUOTES)));
+    $colTrabajo = mysqli_real_escape_string($con,(strip_tags($_POST["colTrabajo"],ENT_QUOTES)));
+    $colCasa = mysqli_real_escape_string($con,(strip_tags($_POST["colCasa"],ENT_QUOTES)));
+    $cpTrabajo = mysqli_real_escape_string($con,(strip_tags($_POST["cpTrabajo"],ENT_QUOTES)));
+    $cpCasa = mysqli_real_escape_string($con,(strip_tags($_POST["cpCasa"],ENT_QUOTES)));
+    $km = mysqli_real_escape_string($con,(strip_tags($_POST["km"],ENT_QUOTES)));
+    $entidad = mysqli_real_escape_string($con,(strip_tags($_POST["entidad"],ENT_QUOTES)));
+    $tipo = mysqli_real_escape_string($con,(strip_tags($_POST["tipo"],ENT_QUOTES)));
            /* $kind = mysqli_real_escape_string($con,(strip_tags($_POST["kind"],ENT_QUOTES)));*/
 
             //Write register in to database 
-            $sql = "INSERT INTO gestoria (nombre, apellido, vehiculo, datos, fecha, aplaca, bplaca, rplaca, tarjeta, otro) VALUES('".$nombre."','".$apellido."','".$vehiculo."','".$datos."','".$fecha."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$otro."');";
+            $sql = "INSERT INTO cliente (nombre, apellido, telefono, correo, edad, manejo, colTrabajo, colCasa, cpTrabajo, cpCasa, km, entidad, tipo ) VALUES('".$nombre."','".$apellido."','".$telefono."','".$correo."','".$edad."','".$manejo."','".$colTrabajo."','".$colCasa."','".$cpTrabajo."','".$cpCasa."','".$km."','".$entidad."','".$tipo."');";
             $query_new = mysqli_query($con,$sql);
             // si se ha agregado con éxito
             if ($query_new) {
 
-                    $numeroMaximo="select max(id) as nuevo_gestoria from gestoria";
+                    $numeroMaximo="select max(id) as nuevo_cliente from cliente";
                     $idusernew_sql=mysqli_query($con,$numeroMaximo);
                     $idusernew_rw=mysqli_fetch_array($idusernew_sql);
-                    $idusernew=$idusernew_rw['nuevo_gestoria']; 
+                    $idusernew=$idusernew_rw['nuevo_cliente']; 
                     //agrego los permisos by amner saucedo sosa
                     $num_element=0;
                     $sw=true;
 
-                $messages[] = "Servicio ha sido agregado con éxito.";
+                $messages[] = "Cliente ha sido agregado con éxito.";
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
             }
