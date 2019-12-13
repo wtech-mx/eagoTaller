@@ -129,7 +129,7 @@
                     <?php } ?>
                     
                     <li class="<?php if(isset($active5)){echo $active5;}?>">
-                        <a href="./?view=servicios"><i class="fa fa-wrench"></i><span>Servicios</span></a>
+                        <a href="./?view=servicios"><i class="fa fa-wrench" data-toggle="dropdown"></i><span>Servicios</span></a>
                         <ul>
                             <li><a href="./?view=mantenimiento"><i class="fa fa-cog"></i>Mantenimiento</li></a>
                             <li><a href="./?view=estetica"><i class="fa fa-tint"></i>Estética</li></a>
@@ -138,6 +138,7 @@
                             <li><a href="./?view=traslados"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
                     </li>
+
 
                     
                     <li class="<?php if(isset($active6)){echo $active6;}?>">
