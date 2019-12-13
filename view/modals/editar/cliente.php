@@ -89,6 +89,12 @@
     </div>
 </div>
 <div class="form-group">
+    <label for="km" class="col-sm-2 control-label">km: </label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="km" name="km" value="<?php echo $km;?>" placeholder="km ">
+    </div>
+</div>
+<div class="form-group">
     <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
     <div class="col-sm-10">
         <input type="text" class="form-control" id="entidad" name="entidad" value="<?php echo $entidad;?>" placeholder="Entidad ">
