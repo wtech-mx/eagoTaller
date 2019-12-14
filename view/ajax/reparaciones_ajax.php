@@ -55,7 +55,8 @@ if($action == 'ajax'){
         <thead>
             <tr>
                 <th>#ID</th>
-                <th>Fecha Reparación</th>
+                <th>Fecha de Mantenimiento</th>
+                <th>Cliente</th>
                 <th>Descripcion</th>
                 <th>Vehiculo</th>
                 <th>Taller</th>
@@ -69,6 +70,11 @@ if($action == 'ajax'){
 				$id=$row['id'];
 				$fecha_repa=$row['fecha_repa'];
 				$descripcion=$row['descripcion'];
+
+				$idcliente=$row['idcliente'];
+				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+				$cliente_rw=mysqli_fetch_array($clientes);
+				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
 				$idvehiculo=$row['idvehiculo'];
 				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
@@ -92,6 +98,7 @@ if($action == 'ajax'){
             <tr>
                 <td><?php echo $id ?></td>
                 <td><?php echo $fecha_repa ?></td>
+                <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo substr($descripcion,0,50) ?></td>
                 <td><?php echo $patente_vehiculo ?></td>
                 <td><?php echo $nombre_taller ?></td>

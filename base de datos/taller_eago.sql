@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-12-2019 a las 05:17:27
+-- Tiempo de generación: 14-12-2019 a las 21:06:16
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `choque` (
   `id` int(11) NOT NULL,
   `choque_code` varchar(100) NOT NULL,
+  `idcliente` int(11) NOT NULL,
   `fecha_choque` date NOT NULL,
   `idvehiculo` int(11) NOT NULL,
   `idempleado` int(11) NOT NULL,
@@ -58,8 +59,8 @@ CREATE TABLE `choque` (
 -- Volcado de datos para la tabla `choque`
 --
 
-INSERT INTO `choque` (`id`, `choque_code`, `fecha_choque`, `idvehiculo`, `idempleado`, `descripcion`, `nombre_ter`, `dni_ter`, `registro_ter`, `domicilio_ter`, `localidad_ter`, `patente_ter`, `marca_modelo_ter`, `color_ter`, `seguro_ter`, `poliza_ter`, `telefono_ter`, `celular_ter`, `fecha_carga`, `foto1`, `foto2`, `foto3`, `foto4`) VALUES
-(1, '1', '2019-11-06', 1, 2, 'faros no funcionan', 'rayan', '432334', '2018-07-08', 'av san juan', 'colchester', '233', 'hyundai', 'black', '2332', '0054', '233445', '233', '2019-11-15 03:48:22', 'view/resources/images/1573855470_choque.jpg', 'view/resources/images/1573855482_carro-chocado.png', 'view/resources/images/1573855487_arreglado2.jpg', 'view/resources/images/1573855505_carro1.jpg');
+INSERT INTO `choque` (`id`, `choque_code`, `idcliente`, `fecha_choque`, `idvehiculo`, `idempleado`, `descripcion`, `nombre_ter`, `dni_ter`, `registro_ter`, `domicilio_ter`, `localidad_ter`, `patente_ter`, `marca_modelo_ter`, `color_ter`, `seguro_ter`, `poliza_ter`, `telefono_ter`, `celular_ter`, `fecha_carga`, `foto1`, `foto2`, `foto3`, `foto4`) VALUES
+(1, '1', 2, '2019-11-06', 1, 2, 'faros no funcionan', 'rayan', '432334', '2018-07-08', 'av san juan', 'colchester', '243', 'hyundai', 'black', '897', '0054', '5678', '243', '2019-11-15 03:48:22', 'view/resources/images/1573855470_choque.jpg', 'view/resources/images/1573855482_carro-chocado.png', 'view/resources/images/1573855487_arreglado2.jpg', 'view/resources/images/1573855505_carro1.jpg');
 
 -- --------------------------------------------------------
 
@@ -82,6 +83,7 @@ CREATE TABLE `cliente` (
   `km` float NOT NULL,
   `entidad` varchar(50) NOT NULL,
   `tipo` varchar(30) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   `foto1` varchar(255) CHARACTER SET latin1 NOT NULL,
   `foto2` varchar(255) CHARACTER SET latin1 NOT NULL,
   `foto3` varchar(255) CHARACTER SET latin1 NOT NULL,
@@ -92,9 +94,10 @@ CREATE TABLE `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `foto1`, `foto2`, `foto3`, `foto4`) VALUES
-(1, 'Dayanna', 'Espinosa', '5538807266', 'dayanna@gmail.com', 22, '2019-12-09', 'lindavista', 'Casas Aleman', 7590, 7580, 90, 'estudiante', 'trabajo', '', '', '', ''),
-(2, 'Itzel', 'verplancken', '5560984629', 'itzel@gmail.com', 25, '2019-12-10', 'zaragoza', '', 7540, 0, 80, 'trabajo', 'estudiante', '', '', '', '');
+INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`, `foto1`, `foto2`, `foto3`, `foto4`) VALUES
+(1, 'Dayanna', 'Espinosa Verplancken', '5538807266', 'dayanna@gmail.com', 22, '2019-12-09', 'lindavista', 'Casas Aleman', 7590, 7580, 60, 'estudiante', 'trabajo', 1, '', '', '', ''),
+(2, 'Itzel', 'verplancken', '5560984629', 'itzel@gmail.com', 25, '2019-12-10', 'zaragoza', '', 7540, 0, 80, 'trabajo', 'estudiante', 1, '', '', '', ''),
+(5, 'karla', 'Espinosa', '(553) 990-5333', 'karla@gmail.com', 20, '2019-12-12', 'srf', '', 7580, 0, 43, 'erf', 'sre', 1, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -357,6 +360,7 @@ INSERT INTO `permisos` (`id`, `nombre`) VALUES
 CREATE TABLE `reparaciones` (
   `id` int(11) NOT NULL,
   `fecha_repa` date NOT NULL,
+  `idcliente` int(11) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
   `idvehiculo` int(11) NOT NULL,
   `idtaller` int(11) NOT NULL,
@@ -367,8 +371,9 @@ CREATE TABLE `reparaciones` (
 -- Volcado de datos para la tabla `reparaciones`
 --
 
-INSERT INTO `reparaciones` (`id`, `fecha_repa`, `descripcion`, `idvehiculo`, `idtaller`, `fecha_carga`) VALUES
-(1, '2019-09-15', 'faros fallando', 1, 1, '2019-09-05 03:48:18');
+INSERT INTO `reparaciones` (`id`, `fecha_repa`, `idcliente`, `descripcion`, `idvehiculo`, `idtaller`, `fecha_carga`) VALUES
+(1, '2019-09-15', 5, 'faros fallando', 1, 1, '2019-09-05 03:48:18'),
+(2, '2019-12-01', 2, 'mantenimiento en los frenos', 1, 1, '2019-12-14 20:58:48');
 
 -- --------------------------------------------------------
 
@@ -666,13 +671,13 @@ ALTER TABLE `verificacion`
 -- AUTO_INCREMENT de la tabla `choque`
 --
 ALTER TABLE `choque`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `configuracion`
@@ -738,7 +743,7 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `reparaciones`
 --
 ALTER TABLE `reparaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `sector`

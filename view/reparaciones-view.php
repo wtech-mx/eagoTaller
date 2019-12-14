@@ -12,19 +12,19 @@
                         <!--breadcrumbs start -->
                         <ul class="breadcrumb  pull-right">
                             <li><a href="./?view=dashboard">Dashboard</a></li>
-                            <li class="active">Reparaciones</li>
+                            <li class="active">Mantenimiento</li>
                         </ul>
                         <!--breadcrumbs end -->
                         <br>
-                    <h1 class="h1">Reparaciones</h1>
+                    <h1 class="h1">Mantenimiento</h1>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-xs-3">
-                    <span class="text-muted">Busca por fecha de reparación</span>
+                    <span class="text-muted">Busca por fecha de mantenimiento</span>
                     <div class="input-group">
-                        <input type="date" class="form-control" placeholder="Buscar por fecha de reparacion" id='q' onkeyup="load(1);">
+                        <input type="date" class="form-control" placeholder="Buscar por fecha de mantenimiento" id='q' onkeyup="load(1);">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                       </span>
@@ -66,7 +66,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Datos de las Reparaciones</h3>
+                            <h3 class="panel-title">Datos de los Servicios</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -118,7 +118,7 @@
 </script>
 <script>
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente la reparacion \n\n Desea continuar?')){
+        if(confirm('Esta acción  eliminará de forma permanente el servicio \n\n Desea continuar?')){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();

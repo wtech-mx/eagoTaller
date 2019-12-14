@@ -8,14 +8,31 @@
             <form class="form-horizontal" role="form" method="post" id="new_register" name="new_register">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel"> Nueva Reparación</h4>
+                    <h4 class="modal-title" id="myModalLabel"> Nuevo Servicio</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="fecha_repa" class="col-sm-2 control-label">Fecha Reparación: </label>
+                        <label for="fecha_repa" class="col-sm-2 control-label">Fecha Mantenimeinto: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="fecha_repa" name="fecha_repa" placeholder="Fecha Reparación: ">
+                            <input type="date" required class="form-control" id="fecha_repa" name="fecha_repa" placeholder="Fecha Mantenimeinto: ">
                         </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="cliente" id="cliente" required>
+                                            <?php 
+                                                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                                                while ($rw=mysqli_fetch_array($sql_clientes)){
+                                                    $idcliente=$rw['id'];
+                                                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+                                                ?>
+                                                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
                     </div>
                     <div class="form-group">
                         <label for="descripcion" class="col-sm-2 control-label">Descripción: </label>

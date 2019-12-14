@@ -1,29 +1,47 @@
 <?php
-	session_start();
-	require_once ("../../../config/config.php");
-	if (isset($_GET["id"])){
-		$id=$_GET["id"];
-		$id=intval($id);
-		$sql="select * from reparaciones where id='$id'";
-		$query=mysqli_query($con,$sql);
-		$num=mysqli_num_rows($query);
-		if ($num==1){
-			$rw=mysqli_fetch_array($query);
-			$id=$rw['id'];
+    session_start();
+    require_once ("../../../config/config.php");
+    if (isset($_GET["id"])){
+        $id=$_GET["id"];
+        $id=intval($id);
+        $sql="select * from reparaciones where id='$id'";
+        $query=mysqli_query($con,$sql);
+        $num=mysqli_num_rows($query);
+        if ($num==1){
+            $rw=mysqli_fetch_array($query);
+            $id=$rw['id'];
             $fecha_repa=$rw['fecha_repa'];
+            $idcliente=$rw['idcliente'];
             $descripcion=$rw['descripcion'];
             $idvehiculo=$rw['idvehiculo'];
             $idtaller=$rw['idtaller'];
             $created_at=$rw['fecha_carga'];
-		}
-	}	
-	else{exit;}
+        }
+    }   
+    else{exit;}
 ?>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 <div class="form-group">
-    <label for="fecha_repa" class="col-sm-2 control-label">Fecha Reparación: </label>
+    <label for="fecha_repa" class="col-sm-2 control-label">Fecha Mantenimiento: </label>
     <div class="col-sm-10">
-        <input type="date" required class="form-control" id="fecha_repa" name="fecha_repa" placeholder="Fecha Reparación: " value="<?php echo $fecha_repa ?>">
+        <input type="date" required class="form-control" id="fecha_repa" name="fecha_repa" placeholder="Fecha Mantenimiento: " value="<?php echo $fecha_repa ?>">
+    </div>
+</div>
+<div class="form-group">
+<label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+    <div class="col-sm-4">
+        <select class="form-control" name="cliente" id="cliente" required>
+            <?php 
+                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                while ($rw=mysqli_fetch_array($sql_clientes)){
+                    $idcliente=$rw['id'];
+                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+                ?>
+                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+                <?php
+                }
+            ?>
+        </select>    
     </div>
 </div>
 <div class="form-group">
