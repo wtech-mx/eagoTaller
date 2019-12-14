@@ -1,6 +1,5 @@
     <button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
 
-
     <!-- Form Modal -->
     <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -12,38 +11,52 @@
                     <h4 class="modal-title" id="myModalLabel"> Nuevo Servicio</h4>
                 </div>
                 <div class="modal-body">
-            
                     <div class="form-group">
-                        <label for="nombre" class="col-sm-2 control-label">Nombre: </label>
+                        <label for="fecha_tras" class="col-sm-2 control-label">Fecha Traslado: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="Nombre: ">
+                            <input type="date" required class="form-control" id="fecha_tras" name="fecha_tras" placeholder="Fecha Traslado: ">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="apellido" class="col-sm-2 control-label">Apellido: </label>
-                        <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="apellido" name="apellido" placeholder="Apellido: ">
-                        </div>
+                    <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="cliente" id="cliente" required>
+                                            <?php 
+                                                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                                                while ($rw=mysqli_fetch_array($sql_clientes)){
+                                                    $idcliente=$rw['id'];
+                                                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+                                                ?>
+                                                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
                     </div>
                     <div class="form-group">
                         <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="vehiculo" name="vehiculo" placeholder="Vehiculo ">
+                            <select class="form-control selectpicker" data-live-search="true" name="vehiculo" id="vehiculo">
+                               <!--  <option value="">--- SELECCIONA ---</option> -->
+                            <?php
+                                require_once ("config/config.php");
+                                $vehiculos=mysqli_query($con,"select * from vehiculo where estado=1");
+                                while ($rw=mysqli_fetch_array($vehiculos)) {
+                            ?>
+                                <option value="<?php echo $rw['id']?>"><?php echo $rw['patente']?></option>
+                            <?php 
+                                }
+                            ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="datos" class="col-sm-2 control-label">Datos: </label>
                         <div class="col-sm-10">
-                            <input type="datos" required class="form-control" id="datos" name="datos" placeholder="Datos ">
+                            <input type="text" required class="form-control" id="datos" name="datos" placeholder="Datos">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="fecha" class="col-sm-2 control-label">Fecha: </label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" id="fecha" name="fecha" placeholder="Fecha ">
-                        </div>
-                    </div>
-                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

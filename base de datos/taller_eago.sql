@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2019 a las 22:11:15
+-- Tiempo de generación: 14-12-2019 a las 22:31:10
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -470,19 +470,20 @@ INSERT INTO `tarjeta` (`id`, `numero`, `vencimiento`, `idvehiculo`, `fecha_carga
 
 CREATE TABLE `traslados` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(20) CHARACTER SET latin1 NOT NULL,
-  `apellido` varchar(20) CHARACTER SET latin1 NOT NULL,
-  `fecha` date NOT NULL,
-  `vehiculo` varchar(20) CHARACTER SET latin1 NOT NULL,
-  `datos` varchar(30) CHARACTER SET latin1 NOT NULL
+  `fecha_tras` date NOT NULL,
+  `idcliente` int(11) NOT NULL,
+  `idvehiculo` int(11) NOT NULL,
+  `datos` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `traslados`
 --
 
-INSERT INTO `traslados` (`id`, `nombre`, `apellido`, `fecha`, `vehiculo`, `datos`) VALUES
-(1, 'dayanna', 'Espinosa', '2019-12-13', 'audi 2020', 'lofs');
+INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`) VALUES
+(1, '2019-12-06', 2, 1, 'jaja', '2019-12-14 15:26:21'),
+(2, '2019-12-24', 5, 1, 'pko', '2019-12-14 22:30:52');
 
 -- --------------------------------------------------------
 
@@ -774,7 +775,7 @@ ALTER TABLE `tarjeta`
 -- AUTO_INCREMENT de la tabla `traslados`
 --
 ALTER TABLE `traslados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
