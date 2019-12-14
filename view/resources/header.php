@@ -129,10 +129,10 @@
                     <?php } ?>
                     
                     <li class="<?php if(isset($active5)){echo $active5;}?>">
-                        <a href="./?view=servicios"><i class="fa fa-wrench" data-toggle="dropdown"></i><span>Servicios</span></a>
-                        <ul>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="./?view=servicios"><i class="fa fa-wrench"></i><span>Servicios</span></a>
+                        <ul  class="">
                             <li><a href="./?view=mantenimiento"><i class="fa fa-cog"></i>Mantenimiento</li></a>
-                        <?php if ($_SESSION['choque']==1) { ?>
+                         <?php if ($_SESSION['choque']==1) { ?>
                             <li class="<?php if(isset($active11)){echo $active11;}?>">
                                 <a href="./?view=choques"><i class="fa fa-code-fork"></i><span>Estética</span></a>
                             </li>
@@ -142,6 +142,7 @@
                             <li><a href="./?view=traslados"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
                     </li>
+
 
 
                     
