@@ -1,48 +1,35 @@
 <?php
 	include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
-	if (empty($_POST['nombre'])) {
-            $errors[] = "Nombre está vacío.";
-        }  elseif (empty($_POST['apellido'])) {
-            $errors[] = "Apellido está vacío.";
+	if (empty($_POST['fecha_veri'])){
+			$errors[] = "Fecha de verificación está vacío.";
+		}  elseif (empty($_POST['cliente'])) {
+            $errors[] = "Cliente está vacío.";
         }  elseif (empty($_POST['vehiculo'])) {
             $errors[] = "Vehiculo está vacío.";
-        }  elseif (empty($_POST['datos'])) {
-            $errors[] = "Datos... está vacío.";
-        }/* elseif (empty($_POST['kind'])) {
-            $errors[] = "Kind está vacío.";
-        }*/ elseif (
-        	!empty($_POST['nombre'])
-        	&& !empty($_POST['apellido'])
-			&& !empty($_POST['vehiculo'])
-			&& !empty($_POST['datos'])
-			/*&& !empty($_POST['kind'])*/
+        } elseif (empty($_POST['datos'])) {
+            $errors[] = "Datos está vacío.";
+        }  elseif (
+        	!empty($_POST['fecha_veri'])
+        	&& !empty($_POST['cliente'])
+        	&& !empty($_POST['vehiculo'])
+        	&& !empty($_POST['datos'])
         ){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 			
 			// escaping, additionally removing everything that could be (html/javascript-) code
-            $nombre = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
-            $apellido = mysqli_real_escape_string($con,(strip_tags($_POST["apellido"],ENT_QUOTES)));
+            $fecha_veri = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_veri"],ENT_QUOTES)));
+            $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
             $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
-            $fecha = mysqli_real_escape_string($con,(strip_tags($_POST["fecha"],ENT_QUOTES)));
-           /* $kind = mysqli_real_escape_string($con,(strip_tags($_POST["kind"],ENT_QUOTES)));*/
-			
+			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO verificacion (nombre, apellido, vehiculo, datos, fecha) VALUES('".$nombre."','".$apellido."','".$vehiculo."','".$datos."','".$fecha."');";
+			$sql = "INSERT INTO verificacion (fecha_veri, idcliente, idvehiculo, datos, fecha_carga) VALUES('".$fecha_veri."','".$cliente."','".$vehiculo."','".$datos."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
-            // si se ha agregado con éxito
+            // if has been added successfully
             if ($query_new) {
-
-            		$numeroMaximo="select max(id) as nuevo_verificacion from verificacion";
-            		$idusernew_sql=mysqli_query($con,$numeroMaximo);
-            		$idusernew_rw=mysqli_fetch_array($idusernew_sql);
-            		$idusernew=$idusernew_rw['nuevo_verificacion'];	
-            		//agrego los permisos by amner saucedo sosa
-            		$num_element=0;
-					$sw=true;
-
-                $messages[] = "Servicio ha sido agregado con éxito.";
+                $messages[] = "Verificación ha sido agregado con éxito.";
+				//save_log('Categorías','Registro de categoría',$_SESSION['user_id']);
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
             }

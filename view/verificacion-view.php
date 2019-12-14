@@ -1,4 +1,4 @@
-<?php  
+<?php 
     include "resources/header.php";
 ?>
     <!--main content start-->
@@ -19,10 +19,11 @@
             
             <div class="row">
                 <div class="col-xs-3">
+                    <span class="text-muted">Busca por fecha de verificación</span>
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Buscar por nombre" id='q' onkeyup="load(1);">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
+                        <input type="date" class="form-control" placeholder="Buscar por fecha de verificación" id='q' onkeyup="load(1);">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                       </span>
                     </div><!-- /input-group -->
                 </div>
@@ -80,7 +81,7 @@
 
         </section>
     </section><!--main content end-->
-<?php
+<?php 
     include "resources/footer.php";
 ?>
 <script>
@@ -202,8 +203,8 @@
                 }
             })
     }
-    
-    function mostrar(id){
+
+function mostrar(id){
         var parametros = {"action":"ajax","id":id};
         $.ajax({
                 url:'view/modals/mostrar/verificacion.php',

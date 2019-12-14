@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2019 a las 21:06:16
+-- Tiempo de generación: 14-12-2019 a las 22:11:15
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -521,19 +521,20 @@ INSERT INTO `vehiculo` (`id`, `vehiculo_code`, `patente`, `marca`, `modelo`, `nr
 
 CREATE TABLE `verificacion` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(20) CHARACTER SET latin1 NOT NULL,
-  `apellido` varchar(20) CHARACTER SET latin1 NOT NULL,
-  `vehiculo` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `fecha` date NOT NULL,
-  `datos` varchar(30) CHARACTER SET latin1 NOT NULL
+  `fecha_veri` date NOT NULL,
+  `idcliente` int(11) NOT NULL,
+  `idvehiculo` int(11) NOT NULL,
+  `datos` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `verificacion`
 --
 
-INSERT INTO `verificacion` (`id`, `nombre`, `apellido`, `vehiculo`, `fecha`, `datos`) VALUES
-(1, 'dayanna', 'Espinosa', 'audi 2020', '2019-12-12', 'jdf');
+INSERT INTO `verificacion` (`id`, `fecha_veri`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`) VALUES
+(1, '2019-12-03', 1, 1, 'jdf', '2019-12-12 05:12:12'),
+(2, '2019-11-13', 2, 1, 'kñ', '2019-12-14 22:06:17');
 
 --
 -- Índices para tablas volcadas
@@ -785,7 +786,7 @@ ALTER TABLE `vehiculo`
 -- AUTO_INCREMENT de la tabla `verificacion`
 --
 ALTER TABLE `verificacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
