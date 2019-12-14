@@ -132,7 +132,11 @@
                         <a href="./?view=servicios"><i class="fa fa-wrench" data-toggle="dropdown"></i><span>Servicios</span></a>
                         <ul>
                             <li><a href="./?view=mantenimiento"><i class="fa fa-cog"></i>Mantenimiento</li></a>
-                            <li><a href="./?view=estetica"><i class="fa fa-tint"></i>Estética</li></a>
+                        <?php if ($_SESSION['choque']==1) { ?>
+                            <li class="<?php if(isset($active11)){echo $active11;}?>">
+                                <a href="./?view=choques"><i class="fa fa-code-fork"></i><span>Estética</span></a>
+                            </li>
+                        <?php } ?>
                             <li><a href="./?view=gestoria"><i class="fa fa-user"></i>Gestoría</li></a>
                             <li><a href="./?view=verificacion"><i class="fa fa-search"></i>Verificación</li></a>
                             <li><a href="./?view=traslados"><i class="fa fa-truck"></i>Traslados</li></a>
@@ -173,12 +177,6 @@
                     <?php if ($_SESSION['reparaciones']==1) { ?>
                     <!--<li class="<?php if(isset($active10)){echo $active10;}?>">
                         <a href="./?view=reparaciones"><i class="fa fa-gavel"></i><span>Reparaciones</span></a>
-                    </li>-->
-                    <?php } ?>
-
-                    <?php if ($_SESSION['choque']==1) { ?>
-                    <!--<li class="<?php if(isset($active11)){echo $active11;}?>">
-                        <a href="./?view=choques"><i class="fa fa-code-fork"></i><span>Choque</span></a>
                     </li>-->
                     <?php } ?>
 

@@ -7,7 +7,7 @@
         $choque_code=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/choques.png";
-        $insert=mysqli_query($con,"INSERT INTO choque (id, choque_code, fecha_choque, idvehiculo, idempleado, descripcion, nombre_ter, dni_ter, registro_ter, domicilio_ter, localidad_ter, patente_ter, marca_modelo_ter, color_ter, seguro_ter, poliza_ter, telefono_ter, celular_ter, fecha_carga, foto1, foto2, foto3, foto4) VALUES (NULL, '$choque_code', '', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '$created_at','$target_dir','$target_dir','$target_dir','$target_dir' ); ");
+        $insert=mysqli_query($con,"INSERT INTO choque (id, choque_code, fecha_choque, idvehiculo, idempleado, idcliente, descripcion, nombre_ter, registro_ter, patente_ter, marca_modelo_ter, color_ter, seguro_ter, poliza_ter, telefono_ter, celular_ter, fecha_carga, foto1, foto2, foto3, foto4) VALUES (NULL, '$choque_code', '', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '$created_at','$target_dir','$target_dir','$target_dir','$target_dir' ); ");
         $sql_choque=mysqli_query($con,"select * from choque where  choque_code='$choque_code'");
         $rw_choque=mysqli_fetch_array($sql_choque);
         $id_choque=$rw_choque['id'];
@@ -25,12 +25,12 @@
                         <!--breadcrumbs start -->
                         <ul class="breadcrumb  pull-right">
                             <li><a href="./?view=dashboard">Dashboard</a></li>
-                            <li class=""><a href="./?view=choques">Choques</a></li>
-                            <li class="active">Nuevo Choque</li>
+                            <li class=""><a href="./?view=choques">Servicio</a></li>
+                            <li class="active">Nuevo Servicio</li>
                         </ul>
                         <!--breadcrumbs end -->
                         <br>
-                    <h1 class="h1">Nuevo Choque</h1>
+                    <h1 class="h1">Nuevo Servicio</h1>
                 </div>
             </div>
             
@@ -73,7 +73,7 @@
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Datos del Choque</h3>
+                            <h3 class="panel-title">Datos del Servicio</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -88,9 +88,9 @@
                                 <input type="hidden"  id="id" name="id"  value="<?php echo $id_choque;?>" >
 
                                 <div class="form-group">
-                                    <label for="fecha_choque" class="col-sm-2 control-label">Fecha Choque: </label>
+                                    <label for="fecha_choque" class="col-sm-2 control-label">Fecha Registro: </label>
                                     <div class="col-sm-4">
-                                        <input type="date" required name="fecha_choque" class="form-control" id="fecha_choque" placeholder="Fecha Choque: ">
+                                        <input type="date" required name="fecha_choque" class="form-control" id="fecha_choque" placeholder="Fecha Registro: ">
                                     </div>
                                     <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
                                     <div class="col-sm-4">
@@ -124,36 +124,34 @@
                                             ?>
                                         </select>    
                                     </div>
+                                    <label for="cliente" class="col-sm-2 control-label">cliente: </label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="cliente" id="cliente" required>
+                                            <?php 
+                                                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                                                while ($rw=mysqli_fetch_array($sql_clientes)){
+                                                    $idcliente=$rw['id'];
+                                                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+                                                ?>
+                                                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
                                     <label for="descripcion" class="col-sm-2 control-label">Descripción: </label>
                                     <div class="col-sm-4">
                                         <textarea type="text" required name="descripcion" class="form-control" id="descripcion" placeholder="Descripción: "></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="nombre" class="col-sm-2 control-label">Nombre : </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="nombre" class="form-control" id="nombre" placeholder="Nombre : ">
-                                    </div>
-                                    <label for="dni" class="col-sm-2 control-label">Dni : </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="dni" class="form-control" id="dni" placeholder="Dni : ">
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="registro" class="col-sm-2 control-label">Registro : </label>
                                     <div class="col-sm-4">
                                         <input type="date" required name="registro" class="form-control" id="registro" placeholder="Registro : ">
                                     </div>
-                                    <label for="domicilio" class="col-sm-2 control-label">Domicilio : </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="domicilio" class="form-control" id="domicilio" placeholder="Domicilio : ">
-                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="localidad" class="col-sm-2 control-label">Localidad : </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="localidad" class="form-control" id="localidad" placeholder="Localidad : ">
-                                    </div>
                                     <label for="patente" class="col-sm-2 control-label">Patente : </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="patente" class="form-control" id="patente" placeholder="Patente : ">

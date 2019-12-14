@@ -14,12 +14,9 @@
             $fecha_choque=$row['fecha_choque'];
             $idvehiculo=$row['idvehiculo'];
             $idempleado=$row['idempleado'];
+            $idcliente=$row['idcliente'];
             $descripcion=$row['descripcion'];
-            $nombre_ter=$row['nombre_ter'];
-            $dni_ter=$row['dni_ter'];
             $registro_ter=$row['registro_ter'];
-            $domicilio_ter=$row['domicilio_ter'];
-            $localidad_ter=$row['localidad_ter'];
             $patente_ter=$row['patente_ter'];
             $marca_modelo_ter=$row['marca_modelo_ter'];
             $color_ter=$row['color_ter'];
@@ -47,12 +44,12 @@
                         <!--breadcrumbs start -->
                         <ul class="breadcrumb  pull-right">
                             <li><a href="./?view=dashboard">Dashboard</a></li>
-                            <li class=""><a href="./?view=choques">Choques</a></li>
-                            <li class="active">Editar Choque</li>
+                            <li class=""><a href="./?view=choques">Servicio</a></li>
+                            <li class="active">Editar Servicio</li>
                         </ul>
                         <!--breadcrumbs end -->
                         <br>
-                    <h1 class="h1">Editar Choque</h1>
+                    <h1 class="h1">Editar Servicio</h1>
                 </div>
             </div>
             
@@ -147,7 +144,7 @@
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Datos del Choque</h3>
+                            <h3 class="panel-title">Datos del Servicio</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -162,9 +159,9 @@
                                 <input type="hidden"  id="id" name="id"  value="<?php echo $choque_id;?>" >
 
                                 <div class="form-group">
-                                    <label for="fecha_choque" class="col-sm-2 control-label">Fecha Choque: </label>
+                                    <label for="fecha_choque" class="col-sm-2 control-label">Fecha Registro: </label>
                                     <div class="col-sm-4">
-                                        <input type="date" required name="fecha_choque" class="form-control" id="fecha_choque" placeholder="Fecha Choque: " value="<?php echo $fecha_choque ?>">
+                                        <input type="date" required name="fecha_choque" class="form-control" id="fecha_choque" placeholder="Fecha Registro: " value="<?php echo $fecha_choque ?>">
                                     </div>
                                     <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
                                     <div class="col-sm-4">
@@ -201,43 +198,43 @@
                                             ?>
                                         </select>    
                                     </div>
+                                    <label for="cliente" class="col-sm-2 control-label">cliente: </label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="cliente" id="cliente" required>
+                                            <?php 
+                                                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                                                while ($rw=mysqli_fetch_array($sql_clientes)){
+                                                    $idcliente2=$rw['id'];
+                                                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+                                                    if ($idcliente==$idcliente2){$selected1="selected";}else{$selected1="";}
+                                                ?>
+                                                <option value="<?php echo $idcliente2;?>" <?php echo $selected1;?>>
+                                            <?php echo $nombre_cliente;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group">
                                     <label for="descripcion" class="col-sm-2 control-label">Descripción: </label>
                                     <div class="col-sm-4">
                                         <textarea type="text" required name="descripcion" class="form-control" id="descripcion" placeholder="Descripción: "><?php echo $descripcion ?></textarea>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nombre" class="col-sm-2 control-label">Nombre : </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="nombre" class="form-control" id="nombre" placeholder="Nombre : " value="<?php echo $nombre_ter ?>">
-                                    </div>
-                                    <label for="dni" class="col-sm-2 control-label">Dni : </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="dni" class="form-control" id="dni" placeholder="Dni : " value="<?php echo $dni_ter ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="registro" class="col-sm-2 control-label">Registro : </label>
                                     <div class="col-sm-4">
                                         <input type="date" required name="registro" class="form-control" id="registro" placeholder="Registro : " value="<?php echo $registro_ter ?>">
                                     </div>
-                                    <label for="domicilio" class="col-sm-2 control-label">Domicilio : </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="domicilio" class="form-control" id="domicilio" placeholder="Domicilio : " value="<?php echo $domicilio_ter ?>">
-                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="localidad" class="col-sm-2 control-label">Localidad : </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="localidad" class="form-control" id="localidad" placeholder="Localidad : " value="<?php echo $localidad_ter ?>">
-                                    </div>
                                     <label for="patente" class="col-sm-2 control-label">Patente : </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="patente" class="form-control" id="patente" placeholder="Patente : " value="<?php echo $patente_ter ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="marca_modelo" class="col-sm-2 control-label">Marca Modelo : </label>
+                                    <label for="marca_modelo" class="col-sm-2 control-label">Marca Modelo: </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="marca_modelo" class="form-control" id="marca_modelo" placeholder="Marca Modelo : " value="<?php echo $marca_modelo_ter ?>">
                                     </div>

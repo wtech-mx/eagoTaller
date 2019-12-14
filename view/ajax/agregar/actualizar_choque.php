@@ -10,20 +10,12 @@
 		$errors[] = "Vehiculo está vacío";
 	} else if (empty($_POST['empleado'])){
 		$errors[] = "Empleado está vacío";
-	} else if (empty($_POST['descripcion'])){
+	} else if (empty($_POST['cliente'])){
+		$errors[] = "Cliente está vacío";
+	}else if (empty($_POST['descripcion'])){
 		$errors[] = "Descripcion está vacío";
-	} else if (empty($_POST['nombre'])){
-		$errors[] = "Nombre está vacío";
-	} else if (empty($_POST['dni'])){
-		$errors[] = "DNI está vacío";
-	}  else if (empty($_POST['registro'])){
+	} else if (empty($_POST['registro'])){
 		$errors[] = "Registro está vacío";
-	}  else if (empty($_POST['domicilio'])){
-		$errors[] = "Domicilio está vacío";
-	}   else if (empty($_POST['localidad'])){
-		$errors[] = "Localidad está vacío";
-	}  else if (empty($_POST['patente'])){
-		$errors[] = "Patente está vacío";
 	}   else if (empty($_POST['marca_modelo'])){
 		$errors[] = "Marca Modelo está vacío";
 	}   else if (empty($_POST['color'])){
@@ -34,26 +26,20 @@
 		$errors[] = "Poliza está vacío";
 	}   else if (empty($_POST['telefono'])){
 		$errors[] = "telefono está vacío";
-	}   else if (empty($_POST['celular'])){
-		$errors[] = "Celular está vacío";
-	}  elseif (
+	}   elseif (
 		!empty($_POST['id'])
 		&& !empty($_POST['choque_code'])
 		&& !empty($_POST['fecha_choque'])
 		&& !empty($_POST['vehiculo'])
 		&& !empty($_POST['empleado'])
+		&& !empty($_POST['cliente'])
 		&& !empty($_POST['descripcion'])
-		&& !empty($_POST['nombre'])
-		&& !empty($_POST['dni'])
 		&& !empty($_POST['registro'])
-		&& !empty($_POST['domicilio'])
-		&& !empty($_POST['patente'])
 		&& !empty($_POST['marca_modelo'])
 		&& !empty($_POST['color'])
 		&& !empty($_POST['seguro'])
 		&& !empty($_POST['poliza'])
 		&& !empty($_POST['telefono'])
-		&& !empty($_POST['celular'])
 		) {
 	
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
@@ -64,12 +50,9 @@
 		$fecha_choque = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_choque"],ENT_QUOTES)));
 		$vehiculo= mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
 		$empleado= mysqli_real_escape_string($con,$_POST["empleado"]);
+		$cliente= mysqli_real_escape_string($con,$_POST["cliente"]);
 		$descripcion= mysqli_real_escape_string($con,(strip_tags($_POST["descripcion"],ENT_QUOTES)));
-		$nombre= mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
-		$dni= mysqli_real_escape_string($con,(strip_tags($_POST["dni"],ENT_QUOTES)));
 		$registro= mysqli_real_escape_string($con,(strip_tags($_POST["registro"],ENT_QUOTES)));
-		$domicilio= mysqli_real_escape_string($con,(strip_tags($_POST["domicilio"],ENT_QUOTES)));
-		$localidad= mysqli_real_escape_string($con,(strip_tags($_POST["localidad"],ENT_QUOTES)));
 		$patente= mysqli_real_escape_string($con,(strip_tags($_POST["patente"],ENT_QUOTES)));
 		$marca_modelo= mysqli_real_escape_string($con,(strip_tags($_POST["marca_modelo"],ENT_QUOTES)));
 		$color= mysqli_real_escape_string($con,(strip_tags($_POST["color"],ENT_QUOTES)));
@@ -79,7 +62,7 @@
 		$celular= mysqli_real_escape_string($con,(strip_tags($_POST["celular"],ENT_QUOTES)));
 			
 		// update data
-        $sql = "UPDATE choque SET choque_code='".$choque_code."', fecha_choque='".$fecha_choque."', idvehiculo='".$vehiculo."', idempleado='".$empleado."', descripcion='".$descripcion."',nombre_ter='".$nombre."', dni_ter='".$dni."', registro_ter='".$registro."', domicilio_ter='".$domicilio."', localidad_ter='".$localidad."', patente_ter='".$patente."', marca_modelo_ter='".$marca_modelo."', color_ter='".$color."', seguro_ter='".$seguro."', poliza_ter='".$poliza."', telefono_ter='".$telefono."', celular_ter='".$patente."' WHERE id='$id' ";
+        $sql = "UPDATE choque SET choque_code='".$choque_code."', fecha_choque='".$fecha_choque."', idvehiculo='".$vehiculo."', idempleado='".$empleado."', idcliente='".$cliente."', descripcion='".$descripcion."', registro_ter='".$registro."', patente_ter='".$patente."', marca_modelo_ter='".$marca_modelo."', color_ter='".$color."', seguro_ter='".$seguro."', poliza_ter='".$poliza."', telefono_ter='".$telefono."', celular_ter='".$patente."' WHERE id='$id' ";
         $query = mysqli_query($con,$sql);
 
         // if user has been update successfully

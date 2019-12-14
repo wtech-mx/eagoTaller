@@ -15,17 +15,17 @@
                         <!--breadcrumbs start -->
                         <ul class="breadcrumb  pull-right">
                             <li><a href="./?view=dashboard">Dashboard</a></li>
-                            <li class="active">Choques</li>
+                            <li class="active">Estetica/Reparación</li>
                         </ul>
                         <!--breadcrumbs end -->
                         <br>
-                    <h1 class="h1">Choques</h1>
+                    <h1 class="h1">Estetica/Reparación</h1>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-xs-3">
-                    <span class="text-muted">Busca Por Fecha De Choque</span>
+                    <span class="text-muted">Busca Por Fecha De Registro</span>
                     <div class="input-group">
                         <input type="date" class="form-control" placeholder="Buscar por Fecha" id='q' onkeyup="load(1);">
                         <span class="input-group-btn">
@@ -70,7 +70,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Registros de los Choques</h3>
+                            <h3 class="panel-title">Registros del Servicio</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -123,7 +123,7 @@
 </script>
 <script>
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente el choque \n\n Desea continuar?')){
+        if(confirm('Esta acción  eliminará de forma permanente el servicio \n\n Desea continuar?')){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();

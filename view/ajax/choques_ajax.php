@@ -58,11 +58,10 @@ if($action == 'ajax'){
         <thead>
             <tr>
                 <th>#ID</th>
-                <th>Fecha Choque</th>
+                <th>Fecha Registro</th>
                 <th>Vehiculo</th>
                 <th>Empleado</th>
-                <th>Dni</th>
-                <th>Seguro</th>
+                <th>Cliente</th>
                 <th>Celular</th>
                 <th>Fecha Carga</th>
                 <th></th>
@@ -85,12 +84,13 @@ if($action == 'ajax'){
 				$rw_empleado=mysqli_fetch_array($empleados);
 				$nombre_empleado=$rw_empleado['nombre']." ".$rw_empleado['apellido'];
 
+				$idcliente=$row['idcliente'];
+				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente and status=1");
+				$rw_cliente=mysqli_fetch_array($clientes);
+				$nombre_cliente=$rw_cliente['nombre']." ".$rw_cliente['apellido'];
+
 				$descripcion=$row['descripcion'];
-				$nombre_ter=$row['nombre_ter'];
-				$dni_ter=$row['dni_ter'];
 				$registro_ter=$row['registro_ter'];
-				$domicilio_ter=$row['domicilio_ter'];
-				$localidad_ter=$row['localidad_ter'];
 				$patente_ter=$row['patente_ter'];
 				$marca_modelo_ter=$row['marca_modelo_ter'];
 				$color_ter=$row['color_ter'];
@@ -120,8 +120,7 @@ if($action == 'ajax'){
                 <td><?php echo $fecha_choques ?></td>
                 <td><?php echo $patente_vehiculo ?></td>
                 <td><?php echo $nombre_empleado ?></td>
-                <td><?php echo $dni_ter ?></td>
-                <td><?php echo $seguro_ter ?></td>
+                <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $celular_ter ?></td>
                 <td><?php echo $fecha_cargas ?></td>
                 <td class="text-right">
