@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2019 a las 22:31:10
+-- Tiempo de generación: 14-12-2019 a las 23:24:23
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -474,6 +474,12 @@ CREATE TABLE `traslados` (
   `idcliente` int(11) NOT NULL,
   `idvehiculo` int(11) NOT NULL,
   `datos` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `gasolina` int(20) NOT NULL,
+  `casetas` int(20) NOT NULL,
+  `trasladistas` text NOT NULL,
+  `vendedor` text NOT NULL,
+  `subtotal` float NOT NULL,
+  `total` float NOT NULL,
   `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -481,9 +487,9 @@ CREATE TABLE `traslados` (
 -- Volcado de datos para la tabla `traslados`
 --
 
-INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`) VALUES
-(1, '2019-12-06', 2, 1, 'jaja', '2019-12-14 15:26:21'),
-(2, '2019-12-24', 5, 1, 'pko', '2019-12-14 22:30:52');
+INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `gasolina`, `casetas`, `trasladistas`, `vendedor`, `subtotal`, `total`, `fecha_carga`) VALUES
+(1, '2019-12-06', 1, 1, 'jaja', 500, 208, 'Josue Adrian', 'Charls Verplancken', 708, 908, '2019-12-14 15:26:21'),
+(2, '2019-12-24', 5, 1, 'pko', 0, 0, '', '', 0, 0, '2019-12-14 22:30:52');
 
 -- --------------------------------------------------------
 

@@ -14,6 +14,12 @@
             $idcliente=$rw['idcliente'];
             $idvehiculo=$rw['idvehiculo'];
             $datos=$rw['datos'];
+            $gasolina=$rw['gasolina'];
+            $casetas=$rw['casetas'];
+            $trasladistas=$rw['trasladistas'];
+            $vendedor=$rw['vendedor'];
+            $subtotal=$rw['subtotal'];
+            $total=$rw['total'];
             $created_at=$rw['fecha_carga'];
         }
     }   
@@ -64,6 +70,42 @@
     <label for="datos" class="col-sm-2 control-label">Datos: </label>
     <div class="col-sm-10">
         <textarea type="text" required class="form-control" id="datos" name="datos" placeholder="Datos "><?php echo $datos ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="gasolina" class="col-sm-2 control-label">Gasolina: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina "><?php echo $gasolina ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="casetas" class="col-sm-2 control-label">Casetas: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="casetas" name="casetas" placeholder="Casetas "><?php echo $casetas ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="trasladistas" class="col-sm-2 control-label">Trasladistas: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="trasladistas" name="trasladistas" placeholder="Trasladistas "><?php echo $trasladistas ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="vendedor" class="col-sm-2 control-label">Vendedor: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor "><?php echo $vendedor ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal "><?php echo $subtotal ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="total" class="col-sm-2 control-label">Total: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="total" name="total" placeholder="Total "><?php echo $total ?></textarea>
     </div>
 </div>
 
