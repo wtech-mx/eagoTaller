@@ -23,7 +23,7 @@ if($action == 'ajax'){
 	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
 	$tables="estetica";
 	$campos="*";
-	$sWhere=" nombre LIKE '%".$query."%'";
+	$sWhere=" fecha_rep LIKE '%".$query."%'";
 	include 'pagination.php'; //include pagination file
 	//pagination variables
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
@@ -55,9 +55,10 @@ if($action == 'ajax'){
         <thead>
             <tr>
                 <th>#ID</th>
-                <th>Nombre</th>
+                <th>Fecha de Servicio</th>
+                <th>Cliente</th>
                 <th>Vehiculo</th>
-                <th>Datos...</th>
+                <th>Descripción</th>
                 <th>Fecha</th>
                 <th></th>
             </tr>
@@ -66,19 +67,34 @@ if($action == 'ajax'){
 			$finales=0;
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id'];
-				$nombre=$row['nombre'];
-				$apellido=$row['apellido'];
-				$vehiculo=$row['vehiculo'];
+				$fecha_rep=$row['fecha_rep'];
+
+				$idcliente=$row['idcliente'];
+				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+				$cliente_rw=mysqli_fetch_array($clientes);
+				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
+
+				$idvehiculo=$row['idvehiculo'];
+				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
+				$vehiculo_rw=mysqli_fetch_array($vehiculos);
+				$patente_vehiculo=$vehiculo_rw['patente'];
+
 				$datos=$row['datos'];
-				$fecha=$row['fecha'];
+
+				$created_at=$row['fecha_carga'];
+				list($date,$hora)=explode(" ",$created_at);
+				list($Y,$m,$d)=explode("-",$date);
+				$fecha=$d."-".$m."-".$Y;
 				
 				$finales++;
+			
 		?>	
         <tbody>
             <tr>
                 <td><?php echo $id ?></td>
-                <td><?php echo $nombre." ".$apellido ?></td>
-                <td><?php echo $vehiculo ?></td>
+                <td><?php echo $fecha_rep ?></td>
+                <td><?php echo $nombre_cliente ?></td>
+                <td><?php echo $patente_vehiculo ?></td>
                 <td><?php echo $datos ?></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">
@@ -88,7 +104,6 @@ if($action == 'ajax'){
                     <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $id;?>')"><i class="fa fa-trash-o"></i></button>
 
                     <button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button>
-                    
                 </td>
             </tr>
         </tbody>

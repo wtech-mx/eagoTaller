@@ -60,13 +60,13 @@
                     <div class="form-group">
                         <label for="gasolina" class="col-sm-2 control-label">Gasolina: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina">
+                            <input type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="casetas" class="col-sm-2 control-label">Casetas: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="casetas" name="casetas" placeholder="Casetas">
+                            <input type="number" required class="form-control" id="casetas" name="casetas" placeholder="Casetas">
                         </div>
                     </div>
                     <div class="form-group">
@@ -84,13 +84,13 @@
                     <div class="form-group">
                         <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal">
+                            <input type="number" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="total" class="col-sm-2 control-label">Total: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="total" name="total" placeholder="Total">
+                            <input type="number" required class="form-control" id="total" name="total" placeholder="Total">
                         </div>
                     </div>
                 </div>

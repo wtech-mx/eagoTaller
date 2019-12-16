@@ -9,11 +9,11 @@
                         <!--breadcrumbs start -->
                         <ul class="breadcrumb  pull-right">
                             <li><a href="./?view=dashboard">Dashboard</a></li>
-                            <li class="active">Estética</li>
+                            <li class="active">Estética/Mecanica</li>
                         </ul>
                         <!--breadcrumbs end -->
                         <br>
-                    <h1 class="h1">Estética</h1>
+                    <h1 class="h1">Estética/Mecanica</h1>
                 </div>
             </div>
             

@@ -75,13 +75,13 @@
 <div class="form-group">
     <label for="gasolina" class="col-sm-2 control-label">Gasolina: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina "><?php echo $gasolina ?></textarea>
+        <textarea type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina "><?php echo $gasolina ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="casetas" class="col-sm-2 control-label">Casetas: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="casetas" name="casetas" placeholder="Casetas "><?php echo $casetas ?></textarea>
+        <textarea type="number" required class="form-control" id="casetas" name="casetas" placeholder="Casetas "><?php echo $casetas ?></textarea>
     </div>
 </div>
 <div class="form-group">
@@ -99,13 +99,13 @@
 <div class="form-group">
     <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal "><?php echo $subtotal ?></textarea>
+        <textarea type="number" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal "><?php echo $subtotal ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="total" class="col-sm-2 control-label">Total: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="total" name="total" placeholder="Total "><?php echo $total ?></textarea>
+        <textarea type="number" required class="form-control" id="total" name="total" placeholder="Total "><?php echo $total ?></textarea>
     </div>
 </div>
 

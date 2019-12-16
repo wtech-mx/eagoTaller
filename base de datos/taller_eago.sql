@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2019 a las 23:24:23
+-- Tiempo de generación: 16-12-2019 a las 21:54:14
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -39,12 +39,8 @@ CREATE TABLE `choque` (
   `nombre_ter` varchar(255) NOT NULL,
   `dni_ter` varchar(20) NOT NULL,
   `registro_ter` date NOT NULL,
-  `domicilio_ter` varchar(255) NOT NULL,
-  `localidad_ter` varchar(255) NOT NULL,
   `patente_ter` varchar(30) NOT NULL,
   `marca_modelo_ter` varchar(255) NOT NULL,
-  `color_ter` varchar(255) NOT NULL,
-  `seguro_ter` varchar(255) NOT NULL,
   `poliza_ter` varchar(50) NOT NULL,
   `telefono_ter` varchar(50) NOT NULL,
   `celular_ter` varchar(50) NOT NULL,
@@ -59,8 +55,8 @@ CREATE TABLE `choque` (
 -- Volcado de datos para la tabla `choque`
 --
 
-INSERT INTO `choque` (`id`, `choque_code`, `idcliente`, `fecha_choque`, `idvehiculo`, `idempleado`, `descripcion`, `nombre_ter`, `dni_ter`, `registro_ter`, `domicilio_ter`, `localidad_ter`, `patente_ter`, `marca_modelo_ter`, `color_ter`, `seguro_ter`, `poliza_ter`, `telefono_ter`, `celular_ter`, `fecha_carga`, `foto1`, `foto2`, `foto3`, `foto4`) VALUES
-(1, '1', 2, '2019-11-06', 1, 2, 'faros no funcionan', 'rayan', '432334', '2018-07-08', 'av san juan', 'colchester', '243', 'hyundai', 'black', '897', '0054', '5678', '243', '2019-11-15 03:48:22', 'view/resources/images/1573855470_choque.jpg', 'view/resources/images/1573855482_carro-chocado.png', 'view/resources/images/1573855487_arreglado2.jpg', 'view/resources/images/1573855505_carro1.jpg');
+INSERT INTO `choque` (`id`, `choque_code`, `idcliente`, `fecha_choque`, `idvehiculo`, `idempleado`, `descripcion`, `nombre_ter`, `dni_ter`, `registro_ter`, `patente_ter`, `marca_modelo_ter`, `poliza_ter`, `telefono_ter`, `celular_ter`, `fecha_carga`, `foto1`, `foto2`, `foto3`, `foto4`) VALUES
+(1, '1', 2, '2019-11-06', 1, 2, 'faros no funcionan', 'rayan', '432334', '2018-07-08', '243', 'hyundai', '0054', '5678', '243', '2019-11-15 03:48:22', 'view/resources/images/1573855470_choque.jpg', 'view/resources/images/1573855482_carro-chocado.png', 'view/resources/images/1573855487_arreglado2.jpg', 'view/resources/images/1573855505_carro1.jpg');
 
 -- --------------------------------------------------------
 
@@ -248,19 +244,27 @@ INSERT INTO `empresa` (`id`, `nombre`, `cuit`, `estado`, `fecha_carga`) VALUES
 
 CREATE TABLE `estetica` (
   `id` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `nombre` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `apellido` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `vehiculo` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `datos` varchar(30) CHARACTER SET latin1 NOT NULL
+  `fecha_rep` date NOT NULL,
+  `idcliente` int(11) NOT NULL,
+  `idvehiculo` int(11) NOT NULL,
+  `datos` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `trasladistas` varchar(40) NOT NULL,
+  `gasolina` float NOT NULL,
+  `otros` varchar(40) NOT NULL,
+  `vendedor` varchar(40) NOT NULL,
+  `subtotal` float NOT NULL,
+  `eago` float NOT NULL,
+  `total` float NOT NULL,
+  `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `estetica`
 --
 
-INSERT INTO `estetica` (`id`, `fecha`, `nombre`, `apellido`, `vehiculo`, `datos`) VALUES
-(1, '2019-12-12', 'dayanna', 'Espinosa', 'audi 2020', 'jeje');
+INSERT INTO `estetica` (`id`, `fecha_rep`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `subtotal`, `eago`, `total`, `fecha_carga`) VALUES
+(1, '2019-12-12', 1, 1, 'cambio de llantas y cambio de aceite', 'Jose', 50, '30', 'pepe', 80, 80, 160, '2019-12-16 13:45:42'),
+(2, '2019-12-17', 1, 1, 'arreglo de faros', 'jorge', 90, '20', 'pablo', 110, 50, 160, '2019-12-16 21:39:59');
 
 -- --------------------------------------------------------
 
@@ -532,16 +536,23 @@ CREATE TABLE `verificacion` (
   `idcliente` int(11) NOT NULL,
   `idvehiculo` int(11) NOT NULL,
   `datos` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `fecha_carga` datetime NOT NULL
+  `fecha_carga` datetime NOT NULL,
+  `derechos` varchar(50) NOT NULL,
+  `otros` varchar(50) NOT NULL,
+  `trasladistas` varchar(40) NOT NULL,
+  `vendedor` varchar(40) NOT NULL,
+  `subtotal` double NOT NULL,
+  `eago` double NOT NULL,
+  `total` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `verificacion`
 --
 
-INSERT INTO `verificacion` (`id`, `fecha_veri`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`) VALUES
-(1, '2019-12-03', 1, 1, 'jdf', '2019-12-12 05:12:12'),
-(2, '2019-11-13', 2, 1, 'kñ', '2019-12-14 22:06:17');
+INSERT INTO `verificacion` (`id`, `fecha_veri`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`, `derechos`, `otros`, `trasladistas`, `vendedor`, `subtotal`, `eago`, `total`) VALUES
+(1, '2019-12-03', 1, 1, 'jdf', '2019-12-12 05:12:12', 'jkds', 'opad', 'Jose ', 'Carlos', 200, 500, 700),
+(2, '2019-11-13', 2, 1, 'kñ', '2019-12-14 22:06:17', 'mlk', 'pl', 'Daniel', 'Gerardo', 1000, 300, 1300);
 
 --
 -- Índices para tablas volcadas
@@ -721,7 +732,7 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de la tabla `estetica`
 --
 ALTER TABLE `estetica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `gestoria`
