@@ -55,7 +55,7 @@
         <select class="form-control" name="vehiculo" id="vehiculo">
             <option value="">--- SELECCIONA ---</option>
         <?php
-            $vehiculos=mysqli_query($con,"select * from vehiculo where estado=1");
+            $vehiculos=mysqli_query($con,"select * from vehiculo");
             while ($rw=mysqli_fetch_array($vehiculos)) {
                 if ($idvehiculo==$rw['id']){$selected1="selected";}else{$selected1="";}
         ?>

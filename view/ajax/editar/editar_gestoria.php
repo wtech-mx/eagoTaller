@@ -1,47 +1,42 @@
 <?php
     include("../is_logged.php");//Archivo comprueba si el usuario esta logueado	
-	if (empty($_POST['nombre'])) {
-            $errors[] = "Nombre está vacío.";
-        }  elseif (empty($_POST['apellido'])) {
-            $errors[] = "Apellido está vacío.";
-        }  elseif (empty($_POST['vehiculo'])) {
+	if (empty($_POST['fecha_ges'])){
+			$errors[] = "Fecha de verificación está vacío.";
+		}  elseif (empty($_POST['cliente'])) {
+            $errors[] = "cliente está vacío.";
+        }	elseif (empty($_POST['vehiculo'])) {
             $errors[] = "Vehiculo está vacío.";
-        }  elseif (empty($_POST['datos'])) {
-            $errors[] = "Datos... está vacío.";
-        }/* elseif (empty($_POST['kind'])) {
-            $errors[] = "Kind está vacío.";
-        }*/ elseif (
-        	!empty($_POST['nombre'])
-        	&& !empty($_POST['apellido'])
-			&& !empty($_POST['vehiculo'])
-			&& !empty($_POST['datos'])
-			/*&& !empty($_POST['kind'])*/
+        } elseif (empty($_POST['datos'])) {
+            $errors[] = "Datos está vacío.";
+        }  elseif (
+        	!empty($_POST['fecha_ges'])
+        	&& !empty($_POST['cliente'])
+        	&& !empty($_POST['vehiculo'])
+        	&& !empty($_POST['datos'])
         ){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 
-	// escaping, additionally removing everything that could be (html/javascript-) code
-    $nombre = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
-    $apellido = mysqli_real_escape_string($con,(strip_tags($_POST["apellido"],ENT_QUOTES)));
-    $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
-    $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
-
-    $fecha = mysqli_real_escape_string($con,(strip_tags($_POST["fehca"],ENT_QUOTES)));
-    $aplaca = mysqli_real_escape_string($con,(strip_tags($_POST["aplaca"],ENT_QUOTES)));
-    $bplaca = mysqli_real_escape_string($con,(strip_tags($_POST["bplaca"],ENT_QUOTES)));
-    $rplaca = mysqli_real_escape_string($con,(strip_tags($_POST["rplaca"],ENT_QUOTES)));
-    $tarjeta = mysqli_real_escape_string($con,(strip_tags($_POST["tarjeta"],ENT_QUOTES)));
-    $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
-	$id=intval($_POST['id']);
-    
-
-
+       // escaping, additionally removing everything that could be (html/javascript-) code
+        $fecha_ges = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_ges"],ENT_QUOTES)));
+        $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
+        $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
+        $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
+        $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
+        $gasolina = mysqli_real_escape_string($con,(strip_tags($_POST["gasolina"],ENT_QUOTES)));
+        $aplaca = mysqli_real_escape_string($con,(strip_tags($_POST["aplaca"],ENT_QUOTES)));
+        $bplaca = mysqli_real_escape_string($con,(strip_tags($_POST["bplaca"],ENT_QUOTES)));
+        $rplaca = mysqli_real_escape_string($con,(strip_tags($_POST["rplaca"],ENT_QUOTES)));
+        $tarjeta = mysqli_real_escape_string($con,(strip_tags($_POST["tarjeta"],ENT_QUOTES)));
+        $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
+        $subtotal = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal"],ENT_QUOTES)));
+        $eago = mysqli_real_escape_string($con,(strip_tags($_POST["eago"],ENT_QUOTES)));
+        $total = mysqli_real_escape_string($con,(strip_tags($_POST["total"],ENT_QUOTES)));
+        $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE gestoria SET nombre='".$nombre."', apellido='".$apellido."', vehiculo='".$vehiculo."', datos='".$datos."', fecha='".$fecha."', aplaca='".$aplaca."', bplaca='".$bplaca."', rplaca='".$rplaca."', tarjeta='".$tarjeta."', otro='".$otro."' WHERE id='".$id."' ";
+    $sql = "UPDATE gestoria SET fecha_ges='".$fecha_ges."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', otro='".$otro."', gasolina='".$gasolina."', trasladistas='".$trasladistas."', subtotal='".$subtotal."', eago='".$eago."', total='".$total."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
-
-    if($query){
-
+    if ($query) {
         $messages[] = "El servicio ha sido actualizado con éxito.";
     } else {
         $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";

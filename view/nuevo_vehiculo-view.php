@@ -4,10 +4,11 @@
 
     if ($_SESSION['vehiculo']==1){
 
+        $cliente=time()."-".$_SESSION['user_id'];
         $vehiculo_code=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
-        $target_dir="view/resources/images/vehiculo.png";
-        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, vehiculo_code, patente, marca, modelo, nro_chasis, nro_motor, vto_vtv, idseguro, color, estado, imagen, fecha_carga) VALUES (NULL, '$vehiculo_code', '', '', '', '', '', '', '0', '','1','$target_dir', '$created_at'); ");
+        $target_dir="view/resources/images/vehiculo.jpg";
+        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, idcliente, vehiculo_code, patente, marca, modelo, nro_chasis, nro_motor, vto_vtv, idseguro, color, imagen, fecha_carga) VALUES (NULL, '".$cliente."' ,'$vehiculo_code', '', '', '', '', '', '', '0', '','$target_dir', '$created_at'); ");
         $sql_vehiculo=mysqli_query($con,"select * from vehiculo where  vehiculo_code='$vehiculo_code'");
         $rw_vehiculo=mysqli_fetch_array($sql_vehiculo);
         $id_vehiculo=$rw_vehiculo['id'];
@@ -39,7 +40,7 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img">
-                                <img class=" img-responsive" src="view/resources/images/vehiculo.png" alt="Bussines profile picture">
+                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Bussines profile picture">
                             </div>
                             <h3 class="profile-username text-center">Imagen</h3>
                             <p class="text-muted text-center mail-text"></p>
@@ -64,7 +65,25 @@
                                 <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_codes;?>" >
                                 <input type="hidden"  id="id" name="id"  value="<?php echo $id_vehiculo;?>" >
 
+
                                 <div class="form-group">
+
+<label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+<div class="col-sm-4">
+    <select class="form-control" name="cliente" id="cliente" required>
+        <?php 
+            $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+            while ($rw=mysqli_fetch_array($sql_clientes)){
+                $idcliente=$rw['id'];
+                $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+            ?>
+            <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+            <?php
+            }
+        ?>
+    </select>    
+</div>
+
                                     <label for="patente" class="col-sm-2 control-label">Patente: </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="patente" class="form-control" id="patente" placeholder="Patente: ">
@@ -111,13 +130,7 @@
                                             ?>
                                         </select>    
                                     </div>
-                                    <label for="estado" class="col-sm-2 control-label">Estado: </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-control" name="estado" id="estado" required>
-                                            <option value="1">Activo</option>
-                                            <option value="2">Inactivo</option>
-                                        </select>
-                                    </div>
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label for="color" class="col-sm-2 control-label">Color: </label>

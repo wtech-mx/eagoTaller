@@ -11,6 +11,7 @@
             $rw=mysqli_fetch_array($sql_vehiculo);
 
             $vehiculo_code=$rw['vehiculo_code'];
+            $idcliente=$rw['idcliente'];
             $patente=$rw['patente'];
             $marca=$rw['marca'];
             $modelo=$rw['modelo'];
@@ -19,7 +20,6 @@
             $vto_vtv=$rw['vto_vtv'];
             $idseguro=$rw['idseguro'];
             $color=$rw['color'];
-            $estado=$rw['estado'];
             $imagen=$rw['imagen'];
             $fecha_carga=$rw['fecha_carga'];
         }
@@ -89,10 +89,27 @@
                                 <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_code;?>" >
                                 <input type="hidden"  id="id" name="id"  value="<?php echo $vehiculo_id;?>" >
 
-                                <div class="form-group">
-                                    <label for="patente" class="col-sm-2 control-label">Patente: </label>
+     <div class="form-group">
+
+        <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+    <div class="col-sm-4">
+        <select class="form-control" name="cliente" id="cliente" required>
+            <?php 
+                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                while ($rw=mysqli_fetch_array($sql_clientes)){
+                    $idcliente=$rw['id'];
+                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+                ?>
+                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+                <?php
+                }
+            ?>
+        </select>    
+    </div>
+
+                                    <label for="patente" class="col-sm-2 control-label">Placas: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" required name="patente" class="form-control" id="patente" placeholder="Patente: " value="<?php echo $patente ?>">
+                                        <input type="text" required name="patente" class="form-control" id="patente" placeholder="Placas " value="<?php echo $patente ?>">
                                     </div>
                                     <label for="marca" class="col-sm-2 control-label">Marca: </label>
                                     <div class="col-sm-4">
@@ -136,13 +153,6 @@
                                                 }
                                             ?>
                                         </select>    
-                                    </div>
-                                    <label for="estado" class="col-sm-2 control-label">Estado: </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-control" name="estado" id="estado" required>
-                                            <option value="1" <?php if ($estado==1){echo "selected";}?>>Activo</option>
-                                            <option value="2" <?php if ($estado==0){echo "selected";}?>>Inactivo</option>
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">

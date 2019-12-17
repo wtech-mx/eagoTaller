@@ -1,54 +1,45 @@
 <?php
 	include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
-	if (empty($_POST['nombre'])) {
-            $errors[] = "Nombre está vacío.";
-        }  elseif (empty($_POST['apellido'])) {
-            $errors[] = "Apellido está vacío.";
+	if (empty($_POST['fecha_ges'])){
+			$errors[] = "Fecha de verificación está vacío.";
+		}  elseif (empty($_POST['cliente'])) {
+            $errors[] = "Cliente está vacío.";
         }  elseif (empty($_POST['vehiculo'])) {
             $errors[] = "Vehiculo está vacío.";
-        }  elseif (empty($_POST['datos'])) {
-            $errors[] = "Datos... está vacío.";
-        }/* elseif (empty($_POST['kind'])) {
-            $errors[] = "Kind está vacío.";
-        }*/ elseif (
-        	!empty($_POST['nombre'])
-        	&& !empty($_POST['apellido'])
-			&& !empty($_POST['vehiculo'])
-			&& !empty($_POST['datos'])
-			/*&& !empty($_POST['kind'])*/
+        } elseif (empty($_POST['datos'])) {
+            $errors[] = "Datos está vacío.";
+        }  elseif (
+        	!empty($_POST['fecha_ges'])
+        	&& !empty($_POST['cliente'])
+        	&& !empty($_POST['vehiculo'])
+        	&& !empty($_POST['datos'])
         ){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 			
 			// escaping, additionally removing everything that could be (html/javascript-) code
-            $nombre = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
-            $apellido = mysqli_real_escape_string($con,(strip_tags($_POST["apellido"],ENT_QUOTES)));
+            $fecha_ges = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_ges"],ENT_QUOTES)));
+            $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
             $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
-
+            $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
+            $gasolina = mysqli_real_escape_string($con,(strip_tags($_POST["gasolina"],ENT_QUOTES)));
             $aplaca = mysqli_real_escape_string($con,(strip_tags($_POST["aplaca"],ENT_QUOTES)));
             $bplaca = mysqli_real_escape_string($con,(strip_tags($_POST["bplaca"],ENT_QUOTES)));
             $rplaca = mysqli_real_escape_string($con,(strip_tags($_POST["rplaca"],ENT_QUOTES)));
             $tarjeta = mysqli_real_escape_string($con,(strip_tags($_POST["tarjeta"],ENT_QUOTES)));
-            $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
-            $fecha = mysqli_real_escape_string($con,(strip_tags($_POST["fecha"],ENT_QUOTES)));
-           /* $kind = mysqli_real_escape_string($con,(strip_tags($_POST["kind"],ENT_QUOTES)));*/
-			
+            $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
+            $subtotal = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal"],ENT_QUOTES)));
+            $eago = mysqli_real_escape_string($con,(strip_tags($_POST["eago"],ENT_QUOTES)));
+            $total = mysqli_real_escape_string($con,(strip_tags($_POST["total"],ENT_QUOTES)));
+			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO gestoria (nombre, apellido, vehiculo, datos, aplaca, bplaca, rplaca, tarjeta, otro, fecha) VALUES('".$nombre."','".$apellido."','".$vehiculo."','".$datos."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$otro."','".$fecha."');";
+			$sql = "INSERT INTO gestoria (fecha_ges, idcliente, idvehiculo, datos, otros, gasolina, aplaca, bplaca, rplaca, tarjeta, trasladistas, vendedor, subtotal, eago, total, fecha_carga) VALUES('".$fecha_ges."','".$cliente."','".$vehiculo."','".$datos."','".$otros."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$trasladistas."','".$subtotal."','".$eago."','".$total."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
-            // si se ha agregado con éxito
+            // if has been added successfully
             if ($query_new) {
-
-            		$numeroMaximo="select max(id) as nuevo_gestoria from gestoria";
-            		$idusernew_sql=mysqli_query($con,$numeroMaximo);
-            		$idusernew_rw=mysqli_fetch_array($idusernew_sql);
-            		$idusernew=$idusernew_rw['nuevo_gestoria'];	
-            		//agrego los permisos by amner saucedo sosa
-            		$num_element=0;
-					$sw=true;
-
-                $messages[] = "Servicio ha sido agregado con éxito.";
+                $messages[] = "El servicio ha sido agregado con éxito.";
+				//save_log('Categorías','Registro de categoría',$_SESSION['user_id']);
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
             }

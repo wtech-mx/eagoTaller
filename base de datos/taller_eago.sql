@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-12-2019 a las 21:54:14
+-- Tiempo de generación: 17-12-2019 a las 08:30:26
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -79,21 +79,17 @@ CREATE TABLE `cliente` (
   `km` float NOT NULL,
   `entidad` varchar(50) NOT NULL,
   `tipo` varchar(30) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 0,
-  `foto1` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `foto2` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `foto3` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `foto4` varchar(255) CHARACTER SET latin1 NOT NULL
+  `status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`, `foto1`, `foto2`, `foto3`, `foto4`) VALUES
-(1, 'Dayanna', 'Espinosa Verplancken', '5538807266', 'dayanna@gmail.com', 22, '2019-12-09', 'lindavista', 'Casas Aleman', 7590, 7580, 60, 'estudiante', 'trabajo', 1, '', '', '', ''),
-(2, 'Itzel', 'verplancken', '5560984629', 'itzel@gmail.com', 25, '2019-12-10', 'zaragoza', '', 7540, 0, 80, 'trabajo', 'estudiante', 1, '', '', '', ''),
-(5, 'karla', 'Espinosa', '(553) 990-5333', 'karla@gmail.com', 20, '2019-12-12', 'srf', '', 7580, 0, 43, 'erf', 'sre', 1, '', '', '', '');
+INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`) VALUES
+(1, 'Dayanna', 'Espinosa Verplancken', '5538807266', 'dayanna@gmail.com', 22, '2019-12-09', 'lindavista', 'Casas Aleman', 7590, 7580, 60, 'estudiante', 'trabajo', 1),
+(2, 'Itzel', 'verplancken', '5560984629', 'itzel@gmail.com', 25, '2019-12-10', 'zaragoza', '', 7540, 0, 80, 'trabajo', 'estudiante', 1),
+(5, 'karla', 'Espinosa', '(553) 990-5333', 'karla@gmail.com', 20, '2019-12-12', 'srf', '', 7580, 0, 43, 'erf', 'sre', 1);
 
 -- --------------------------------------------------------
 
@@ -274,25 +270,30 @@ INSERT INTO `estetica` (`id`, `fecha_rep`, `idcliente`, `idvehiculo`, `datos`, `
 
 CREATE TABLE `gestoria` (
   `id` int(11) NOT NULL,
-  `nombre` text CHARACTER SET latin1 NOT NULL,
-  `apellido` text CHARACTER SET latin1 NOT NULL,
-  `vehiculo` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `idcliente` int(11) NOT NULL,
+  `idvehiculo` int(11) NOT NULL,
   `datos` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `fecha` date NOT NULL,
+  `fecha_ges` date NOT NULL,
   `aplaca` date NOT NULL,
   `bplaca` date NOT NULL,
   `rplaca` date NOT NULL,
   `tarjeta` date NOT NULL,
-  `otro` varchar(50) CHARACTER SET latin1 NOT NULL
+  `otro` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `trasladistas` varchar(50) NOT NULL,
+  `gasolina` float NOT NULL,
+  `subtotal` float NOT NULL,
+  `eago` float NOT NULL,
+  `total` float NOT NULL,
+  `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `gestoria`
 --
 
-INSERT INTO `gestoria` (`id`, `nombre`, `apellido`, `vehiculo`, `datos`, `fecha`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`) VALUES
-(1, 'Ricacrdo', 'Reyes', 'atitud 2019', 'hdkasj', '2019-12-11', '2019-11-05', '2019-11-25', '2019-12-04', '2019-12-07', 'gyq'),
-(3, 'dayanna', 'Espinosa', 'audi 2020', 'jeje', '2019-12-11', '2019-08-04', '2019-07-08', '2019-03-08', '2019-04-08', '´pa');
+INSERT INTO `gestoria` (`id`, `idcliente`, `idvehiculo`, `datos`, `fecha_ges`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`, `trasladistas`, `gasolina`, `subtotal`, `eago`, `total`, `fecha_carga`) VALUES
+(1, 1, 28, 'hdkasj', '2019-12-11', '2019-11-05', '2019-11-25', '2019-12-04', '2019-12-07', '40', 'Carlos', 40, 80, 20, 100, '2019-12-16 06:31:38'),
+(3, 5, 1, 'gestoria', '2019-12-13', '2019-08-04', '2019-07-08', '2019-03-08', '2019-04-08', '40', 'jose', 90, 130, 70, 200, '2019-12-03 10:16:08');
 
 -- --------------------------------------------------------
 
@@ -313,19 +314,27 @@ CREATE TABLE `kind` (
 
 CREATE TABLE `mantenimiento` (
   `id` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `nombre` text NOT NULL,
-  `apellido` text NOT NULL,
-  `vehiculo` varchar(30) NOT NULL,
-  `datos` varchar(30) NOT NULL
+  `fecha_man` date NOT NULL,
+  `idcliente` int(11) NOT NULL,
+  `idvehiculo` int(11) NOT NULL,
+  `datos` varchar(30) NOT NULL,
+  `trasladistas` varchar(50) NOT NULL,
+  `gasolina` float NOT NULL,
+  `otros` varchar(50) NOT NULL,
+  `vendedor` varchar(50) NOT NULL,
+  `subtotal` float NOT NULL,
+  `eago` float NOT NULL,
+  `total` float NOT NULL,
+  `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `mantenimiento`
 --
 
-INSERT INTO `mantenimiento` (`id`, `fecha`, `nombre`, `apellido`, `vehiculo`, `datos`) VALUES
-(1, '2019-12-12', 'dayanna', 'Espinosa', 'audi 2020', 'lol');
+INSERT INTO `mantenimiento` (`id`, `fecha_man`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `subtotal`, `eago`, `total`, `fecha_carga`) VALUES
+(1, '2019-12-12', 1, 1, 'motor, parabrisas', 'jose', 30, '20', 'carlos', 50, 20, 70, '2019-12-16 15:24:14'),
+(2, '2019-12-16', 2, 28, 'asientos', 'jorge', 15, '10', 'carlos', 25, 60, 85, '2019-12-16 23:24:12');
 
 -- --------------------------------------------------------
 
@@ -503,6 +512,7 @@ INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`,
 
 CREATE TABLE `vehiculo` (
   `id` int(11) NOT NULL,
+  `idcliente` int(11) NOT NULL,
   `vehiculo_code` varchar(100) NOT NULL,
   `patente` varchar(40) NOT NULL,
   `marca` varchar(255) NOT NULL,
@@ -512,7 +522,6 @@ CREATE TABLE `vehiculo` (
   `vto_vtv` date NOT NULL,
   `idseguro` int(11) NOT NULL,
   `color` varchar(30) NOT NULL,
-  `estado` tinyint(4) NOT NULL,
   `imagen` varchar(255) NOT NULL,
   `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -521,8 +530,9 @@ CREATE TABLE `vehiculo` (
 -- Volcado de datos para la tabla `vehiculo`
 --
 
-INSERT INTO `vehiculo` (`id`, `vehiculo_code`, `patente`, `marca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `idseguro`, `color`, `estado`, `imagen`, `fecha_carga`) VALUES
-(1, '1', '1231', 'hyundai', '21332', 'xcdds23', 'xvcvrerx3', '2019-10-10', 1, 'black', 1, 'view/resources/images/1573855092_carro1.jpg', '2019-11-25 03:46:37');
+INSERT INTO `vehiculo` (`id`, `idcliente`, `vehiculo_code`, `patente`, `marca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `idseguro`, `color`, `imagen`, `fecha_carga`) VALUES
+(1, 5, '1', 'KM-120', 'hyundai', '21332', 'xcdds23', 'xvcvrerx3', '2019-10-10', 1, 'blanco', 'view/resources/images/1576562865_2.jpg', '2019-11-25 03:46:37'),
+(28, 2, '2', 'LO-300', 'audi', '2016', 'pñl', '0932', '2019-03-17', 1, 'negro', 'view/resources/images/1576562772_4.jpg', '2019-12-17 07:05:38');
 
 -- --------------------------------------------------------
 
@@ -612,9 +622,7 @@ ALTER TABLE `estetica`
 -- Indices de la tabla `gestoria`
 --
 ALTER TABLE `gestoria`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idnombre` (`nombre`(768)),
-  ADD KEY `idapellido` (`apellido`(768));
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `kind`
@@ -750,7 +758,7 @@ ALTER TABLE `kind`
 -- AUTO_INCREMENT de la tabla `mantenimiento`
 --
 ALTER TABLE `mantenimiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
@@ -798,7 +806,7 @@ ALTER TABLE `traslados`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `verificacion`

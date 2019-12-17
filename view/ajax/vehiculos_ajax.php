@@ -78,11 +78,11 @@ if($action == 'ajax'){
         <thead>
             <tr>
                 <th>#ID</th>
+                <th>Cliente</th>
                 <th>Imagen</th>
-                <th>Patente</th>
+                <th>Placas</th>
                 <th>Marca</th>
                 <th>Modelo</th>
-                <th>Estado</th>
                 <th>Color</th>
                 <th>Fecha</th>
                 <th></th>
@@ -92,40 +92,36 @@ if($action == 'ajax'){
 			$finales=0;
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id'];
+
+				$idcliente=$row['idcliente'];
+				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+				$cliente_rw=mysqli_fetch_array($clientes);
+				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
+
 				$vehiculo_code=$row['vehiculo_code'];
 				$patente=$row['patente'];
 				$marca=$row['marca'];
 				$modelo=$row['modelo'];
 				$imagen=$row['imagen'];
-				$estado=$row['estado'];
 				$created_at=$row['fecha_carga'];
 				$color=$row['color'];
 
 				list($date,$hora)=explode(" ",$created_at);
 				list($Y,$m,$d)=explode("-",$date);
 				$fecha=$d."-".$m."-".$Y;
-
-
-				if ($estado==1){
-					$lbl_status="Activo";
-					$lbl_class='label label-success';
-				}else {
-					$lbl_status="Inactivo";
-					$lbl_class='label label-danger';
-				}
 				
 				$finales++;
 		?>	
         <tbody>
             <tr>
                 <td><?php echo $vehiculo_code ?></td>
+                <td><?php echo $nombre_cliente ?></td>
                 <td class='text-center'>
                 	<img src="<?php echo $imagen;?>" alt="<?php echo $patente;?>" class='img-rounded' width="60">
                 </td>
                 <td><?php echo $patente ?></td>
                 <td><?php echo $marca ?></td>
                 <td><?php echo $modelo ?></td>
-                <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td><?php echo $color ?></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">

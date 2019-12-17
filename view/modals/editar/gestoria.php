@@ -9,78 +9,131 @@
         $num=mysqli_num_rows($query);
         if ($num==1){
             $rw=mysqli_fetch_array($query);
-            $nombre=$rw['nombre'];
-            $apellido=$rw['apellido'];
-            $vehiculo=$rw['vehiculo'];
+            $id=$rw['id'];
+            $fecha_ges=$rw['fecha_ges'];
+            $idcliente=$rw['idcliente'];
+            $idvehiculo=$rw['idvehiculo'];
             $datos=$rw['datos'];
-            $fecha=$rw['fecha'];
+            $trasladistas=$rw['trasladistas'];
+            $gasolina=$rw['gasolina'];
+            $otro=$rw['otro'];
             $aplaca=$rw['aplaca'];
             $bplaca=$rw['bplaca'];
             $rplaca=$rw['rplaca'];
             $tarjeta=$rw['tarjeta'];
-            $otro=$rw['otro'];
+            $subtotal=$rw['subtotal'];
+            $eago=$rw['eago'];
+            $total=$rw['total'];
+            $created_at=$rw['fecha_carga'];
         }
     }   
     else{exit;}
 ?>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 <div class="form-group">
-    <label for="nombre" class="col-sm-2 control-label">Nombre: </label>
+    <label for="fecha_ges" class="col-sm-2 control-label">Fecha Servicio: </label>
     <div class="col-sm-10">
-        <input type="text" required class="form-control" id="nombre" name="nombre" value="<?php echo $nombre;?>" placeholder="Nombre: ">
+        <input type="date" required class="form-control" id="fecha_ges" name="fecha_ges" placeholder="Fecha Servicio " value="<?php echo $fecha_ges ?>">
     </div>
 </div>
 <div class="form-group">
-    <label for="apellido" class="col-sm-2 control-label">Apellido: </label>
-    <div class="col-sm-10">
-        <input type="text" required class="form-control" id="apellido" name="apellido" value="<?php echo $apellido;?>" placeholder="Apellido: ">
+<label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+    <div class="col-sm-4">
+        <select class="form-control" name="cliente" id="cliente" required>
+            <?php 
+                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                while ($rw=mysqli_fetch_array($sql_clientes)){
+                    $idcliente=$rw['id'];
+                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+                ?>
+                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+                <?php
+                }
+            ?>
+        </select>    
     </div>
 </div>
 <div class="form-group">
     <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
     <div class="col-sm-10">
-        <input type="text" required class="form-control" id="vehiculo" name="vehiculo" value="<?php echo $vehiculo;?>" placeholder="Vehiculo ">
+        <select class="form-control" name="vehiculo" id="vehiculo">
+            <option value="">--- SELECCIONA ---</option>
+        <?php
+            $vehiculos=mysqli_query($con,"select * from vehiculo");
+            while ($rw=mysqli_fetch_array($vehiculos)) {
+                if ($idvehiculo==$rw['id']){$selected1="selected";}else{$selected1="";}
+        ?>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['patente']?></option>
+        <?php 
+            }
+        ?>
+        </select>
     </div>
 </div>
 <div class="form-group">
-    <label for="datos" class="col-sm-2 control-label">Datos...: </label>
+    <label for="datos" class="col-sm-2 control-label">Descripción: </label>
     <div class="col-sm-10">
-        <input type="datos" required class="form-control" id="datos" name="datos" value="<?php echo $datos;?>" placeholder="Datos... ">
+        <textarea type="text" required class="form-control" id="datos" name="datos" placeholder="Descripción "><?php echo $datos ?></textarea>
     </div>
 </div>
 <div class="form-group">
-    <label for="fecha" class="col-sm-2 control-label">fecha de registro: </label>
+    <label for="trasladistas" class="col-sm-2 control-label">Trasladistas: </label>
     <div class="col-sm-10">
-        <input type="date" class="form-control" id="fecha" name="fecha" value="<?php echo $fecha;?>" placeholder="fecha de registro ">
+        <textarea type="text" required class="form-control" id="trasladistas" name="trasladistas" placeholder="Trasladistas "><?php echo $trasladistas ?></textarea>
     </div>
 </div>
 <div class="form-group">
-    <label for="aplaca" class="col-sm-2 control-label">Alta de placas: </label>
+    <label for="gasolina" class="col-sm-2 control-label">Gasolina: </label>
     <div class="col-sm-10">
-        <input type="date" class="form-control" id="aplaca" name="aplaca" value="<?php echo $aplaca;?>" placeholder="Alta de placas ">
-    </div>
-</div>
-<div class="form-group">
-    <label for="bplaca" class="col-sm-2 control-label">Baja de placas</label>
-    <div class="col-sm-10">
-        <input type="date" required class="form-control" id="bplaca" name="bplaca" value="<?php echo $bplaca;?>" placeholder="Baja de placas">
-    </div>
-</div>
-<div class="form-group">
-    <label for="rplaca" class="col-sm-2 control-label">Reposición de placas: </label>
-    <div class="col-sm-10">
-        <input type="date" required class="form-control" id="rplaca" name="rplaca" value="<?php echo $rplaca;?>" placeholder="Reposición de placas ">
-    </div>
-</div>
-<div class="form-group">
-    <label for="tarjeta" class="col-sm-2 control-label">Reposición de tarjeta: </label>
-    <div class="col-sm-10">
-        <input type="date" class="form-control" id="tarjeta" name="tarjeta" value="<?php echo $tarjeta;?>" placeholder="Reposición de tarjeta ">
+        <textarea type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina "><?php echo $gasolina ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="otro" class="col-sm-2 control-label">Otro: </label>
     <div class="col-sm-10">
-        <input type="otro" required class="form-control" id="otro" name="otro" value="<?php echo $otro;?>" placeholder="Otro ">
+        <textarea type="text" required class="form-control" id="otro" name="otro" placeholder="Otro "><?php echo $otro ?></textarea>
     </div>
 </div>
+<div class="form-group">
+    <label for="aplaca" class="col-sm-2 control-label">Alta placa: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="aplaca" name="aplaca" placeholder="Alta placa "><?php echo $aplaca ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="bplaca" class="col-sm-2 control-label">Baja placa: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="bplaca" name="bplaca" placeholder="Baja placa "><?php echo $bplaca ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="rplaca" class="col-sm-2 control-label">Reposición placa: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="rplaca" name="rplaca" placeholder="Reposición placa "><?php echo $rplaca ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="tarjeta" class="col-sm-2 control-label">Reposición tarjeta: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta "><?php echo $tarjeta ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
+    <div class="col-sm-10">
+        <textarea type="number" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal "><?php echo $subtotal ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="eago" class="col-sm-2 control-label">EAGO: </label>
+    <div class="col-sm-10">
+        <textarea type="number" required class="form-control" id="eago" name="eago" placeholder="EAGO "><?php echo $eago ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="total" class="col-sm-2 control-label">Total: </label>
+    <div class="col-sm-10">
+        <textarea type="number" required class="form-control" id="total" name="total" placeholder="Total "><?php echo $total ?></textarea>
+    </div>
+</div>
+
