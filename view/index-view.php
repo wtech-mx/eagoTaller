@@ -76,7 +76,15 @@
         <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/plugins/waypoints/waypoints.min.js"></script>
         <script src="assets/plugins/nanoScroller/jquery.nanoscroller.min.js"></script>
+
+        <script src="assets/plugins/sw2/sweetalert2.all.js"></script>
+        <script src="assets/plugins/sw2/sweetalert2.all.min.js"></script>
+        <script src="assets/plugins/sw2/sweetalert2.css"></script>
+        <script src="assets/plugins/sw2/sweetalert2.min.css"></script>
+        <script src="assets/plugins/sw2/sweetalert2.min.css"></script>
+        <script src="assets/plugins/sw2/sweetalert2.min.js"></script>
         <script src="assets/js/application.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

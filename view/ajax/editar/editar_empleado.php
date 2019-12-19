@@ -113,7 +113,6 @@ if (isset($errors)){
 			<?php
 			}
 			if (isset($messages)){
-				
 				?>
 				<div class="alert alert-success" role="alert">
 						<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -124,6 +123,17 @@ if (isset($errors)){
 								}
 							?>
 				</div>
+ <!--           <script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
+            swal({
+          title: "¡ERROR!",
+          text: "¡Ocurrió un error al ingresar con Facebook, vuelve a intentarlo!",
+          type: "error",
+          confirmButtonText: "Cerrar",
+          closeOnConfirm: false
+          )};
+            </script>
+-->
+
 				<?php
 			}
 ?>			

@@ -14,9 +14,23 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="submit" id="actualizar_datos" class="btn btn-success">Actualizar</button>
+
             </div>
         </div>
     </form>
     </div>
 </div>
 <!-- End Form Modal -->
+<!--
+<script type="text/javascript">
+                $(#actualizar_datos).click(function(){
+                Swal.fire({
+                  position: 'top-start',
+                  icon: 'success',
+                  title: 'fhtjt',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+            });-->
+
+</script>
