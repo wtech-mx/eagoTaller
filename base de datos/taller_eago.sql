@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-12-2019 a las 06:29:53
--- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.10
+-- Tiempo de generación: 19-12-2019 a las 17:08:57
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `taller_eago`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `articulo`
+--
+
+CREATE TABLE `articulo` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(250) DEFAULT NULL,
+  `extracto` varchar(250) DEFAULT NULL,
+  `fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `texto` text,
+  `thumb` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `articulo`
+--
+
+INSERT INTO `articulo` (`id`, `titulo`, `extracto`, `fecha`, `texto`, `thumb`) VALUES
+(1, 'Titulo PRIMER post', 'ï¿½Quï¿½ es Lorem Ipsum?Lorem Ipsum es simplemente...', '2019-12-19 06:44:40', 'ï¿½Quï¿½ es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estï¿½ndar de las industrias desde el aï¿½o 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usï¿½ una galerï¿½a de textos y los mezclï¿½ de tal manera que logrï¿½ hacer un libro de textos especimen', '2.png'),
+(2, 'Titulo segundo post', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de ', '2019-12-19 06:44:19', 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen', '3.PNG');
 
 -- --------------------------------------------------------
 
@@ -80,7 +103,7 @@ CREATE TABLE `cliente` (
   `km` float NOT NULL,
   `entidad` varchar(50) NOT NULL,
   `tipo` varchar(30) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 0
+  `status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -161,8 +184,8 @@ CREATE TABLE `empleado` (
   `telefono` varchar(20) DEFAULT NULL,
   `celular` varchar(20) DEFAULT NULL,
   `registro` varchar(20) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 0,
-  `kind` tinyint(1) NOT NULL DEFAULT 0,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `kind` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -171,8 +194,8 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id`, `dni`, `imagen`, `nombre`, `apellido`, `username`, `email`, `password`, `domicilio`, `localidad`, `telefono`, `celular`, `registro`, `status`, `kind`, `created_at`) VALUES
-(1, '543434', 'view/resources/images/1573849686_logoCar.png', 'Escuderia', 'AGO', 'admin', 'eago@gmail.com', '95ff079df7e19594fbaf65ecddb6f611c8ebdc25', 'AV SAN ANDRES', 'colchester', '9544534', '5533445340', '1', 1, 0, '2019-11-14 03:00:00'),
-(2, '456576', 'view/resources/images/default.png', 'Richard', 'Stallman', 'Empleado', 'empleado@gmail.com', 'e27648bb570a44840960a403eafbeae8c4fdb172', 'av san juan', 'silcon valley', '323445', '552344565', '3', 1, 0, '2019-11-15 03:44:17');
+(1, '543434', 'view/resources/images/1573849686_logoCar.png', 'ale', 'AGO', 'admin', 'eago@gmail.com', '95ff079df7e19594fbaf65ecddb6f611c8ebdc25', 'AV SAN ANDRES', 'colchester', '9544534', '5533445340', '1', 1, 0, '2019-11-14 03:00:00'),
+(2, '456576', 'view/resources/images/default.png', 'aa', 'Stallman', 'Empleado', 'empleado@gmail.com', '67a74306b06d0c01624fe0d0249a570f4d093747', 'av san juan', 'silcon valley', '323445', '552344565', '3', 1, 0, '2019-11-15 03:44:17');
 
 -- --------------------------------------------------------
 
@@ -191,26 +214,26 @@ CREATE TABLE `empleado_permisos` (
 --
 
 INSERT INTO `empleado_permisos` (`idempleado_permiso`, `idempleado`, `idpermiso`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 1, 3),
-(4, 1, 4),
-(5, 1, 5),
-(6, 1, 6),
-(7, 1, 7),
-(8, 1, 8),
-(9, 1, 9),
-(10, 1, 10),
-(11, 1, 11),
-(22, 2, 1),
-(23, 2, 3),
-(24, 2, 4),
-(25, 2, 5),
-(26, 2, 6),
-(27, 2, 7),
-(28, 2, 8),
-(29, 2, 9),
-(30, 2, 10);
+(339, 2, 1),
+(340, 2, 3),
+(341, 2, 4),
+(342, 2, 5),
+(343, 2, 6),
+(344, 2, 7),
+(345, 2, 8),
+(346, 2, 9),
+(347, 2, 10),
+(436, 1, 1),
+(437, 1, 2),
+(438, 1, 3),
+(439, 1, 4),
+(440, 1, 5),
+(441, 1, 6),
+(442, 1, 7),
+(443, 1, 8),
+(444, 1, 9),
+(445, 1, 10),
+(446, 1, 11);
 
 -- --------------------------------------------------------
 
@@ -374,7 +397,8 @@ INSERT INTO `permisos` (`id`, `nombre`) VALUES
 (8, 'Tarjeta'),
 (9, 'Reparaciones'),
 (10, 'Choque'),
-(11, 'Configuracion');
+(11, 'Configuracion'),
+(12, 'blog');
 
 -- --------------------------------------------------------
 
@@ -589,6 +613,12 @@ INSERT INTO `verificacion` (`id`, `fecha_veri`, `idcliente`, `idvehiculo`, `dato
 --
 
 --
+-- Indices de la tabla `articulo`
+--
+ALTER TABLE `articulo`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `choque`
 --
 ALTER TABLE `choque`
@@ -715,10 +745,16 @@ ALTER TABLE `verificacion`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `articulo`
+--
+ALTER TABLE `articulo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `choque`
 --
 ALTER TABLE `choque`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
@@ -748,7 +784,7 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `empleado_permisos`
 --
 ALTER TABLE `empleado_permisos`
-  MODIFY `idempleado_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `idempleado_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=447;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
@@ -784,7 +820,7 @@ ALTER TABLE `mantenimiento`
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `reparaciones`
@@ -826,13 +862,13 @@ ALTER TABLE `traslados`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `verificacion`
 --
 ALTER TABLE `verificacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
