@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-12-2019 a las 03:49:59
+-- Tiempo de generación: 19-12-2019 a las 06:29:53
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -286,7 +286,7 @@ CREATE TABLE `gestoria` (
   `eago` float NOT NULL,
   `total` float NOT NULL,
   `gestion` varchar(50) NOT NULL,
-  `idplaca` int(11) NOT NULL,
+  `idcarro` int(11) NOT NULL,
   `gastos` float NOT NULL,
   `mensajeria` varchar(50) NOT NULL,
   `mesa` varchar(50) NOT NULL,
@@ -302,40 +302,10 @@ CREATE TABLE `gestoria` (
 -- Volcado de datos para la tabla `gestoria`
 --
 
-INSERT INTO `gestoria` (`id`, `idcliente`, `idvehiculo`, `datos`, `fecha_ges`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`, `trasladistas`, `gasolina`, `subtotal`, `eago`, `total`, `gestion`, `idplaca`, `gastos`, `mensajeria`, `mesa`, `vendedor`, `general`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
+INSERT INTO `gestoria` (`id`, `idcliente`, `idvehiculo`, `datos`, `fecha_ges`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`, `trasladistas`, `gasolina`, `subtotal`, `eago`, `total`, `gestion`, `idcarro`, `gastos`, `mensajeria`, `mesa`, `vendedor`, `general`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
 (1, 1, 28, 'hdkasj', '2019-12-11', '2019-11-05', '2019-11-25', '2019-12-04', '2019-12-07', '80', 'Carlos', 10, 80, 20, 100, 'uhfe', 1, 20, 'ijio', '', 'hui', 'huih', 30, 40, 80, '2019-12-16 06:31:38'),
-(3, 5, 1, 'gestoria', '2019-12-13', '2019-08-04', '2019-07-08', '2019-03-08', '2019-04-08', '40', 'jose', 90, 130, 70, 200, 'hfsj', 5, 20, 'hkjsd', '', 'fjsd', 'sfudh', 50, 60, 80, '2019-12-03 10:16:08');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ges_admin`
---
-
-CREATE TABLE `ges_admin` (
-  `id` int(11) NOT NULL,
-  `idcliente` int(11) NOT NULL,
-  `idfecha_ges` int(11) NOT NULL,
-  `idplaca` int(11) NOT NULL,
-  `idvehiculo` int(11) NOT NULL,
-  `idaplaca` int(11) NOT NULL,
-  `gestion` varchar(50) NOT NULL,
-  `gastos` float NOT NULL,
-  `mensajeria` varchar(50) NOT NULL,
-  `vendedor` varchar(50) NOT NULL,
-  `general` varchar(50) NOT NULL,
-  `subtotal` float NOT NULL,
-  `eago` float NOT NULL,
-  `total` float NOT NULL,
-  `fecha_carga` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `ges_admin`
---
-
-INSERT INTO `ges_admin` (`id`, `idcliente`, `idfecha_ges`, `idplaca`, `idvehiculo`, `idaplaca`, `gestion`, `gastos`, `mensajeria`, `vendedor`, `general`, `subtotal`, `eago`, `total`, `fecha_carga`) VALUES
-(1, 1, 1, 1, 1, 1, 'klo', 210, '90', 'carls', '20', 310, 50, 370, '2019-12-16 12:12:11');
+(3, 5, 1, 'gestoria', '2019-12-13', '2019-08-04', '2019-07-08', '2019-03-08', '2019-04-08', '40', 'jose', 90, 130, 70, 200, 'hfsj', 5, 20, 'hkjsd', '', 'fjsd', 'sfudh', 50, 60, 80, '2019-12-03 10:16:08'),
+(7, 2, 28, 'kmfklsd', '2019-04-09', '2019-05-31', '2019-05-04', '2019-12-31', '2019-05-04', '345', 'sfg', 546, 12, 123, 4534, 'gdh', 2, 5, 'dfg', '', 'sd', 'sdg', 90, 50, 40, '2019-12-19 04:46:02');
 
 -- --------------------------------------------------------
 
@@ -535,6 +505,14 @@ CREATE TABLE `traslados` (
   `vendedor` text NOT NULL,
   `subtotal` float NOT NULL,
   `total` float NOT NULL,
+  `autobus` varchar(50) NOT NULL,
+  `gasolina_admin` float NOT NULL,
+  `casetas_admin` float NOT NULL,
+  `trasladistas_admin` varchar(50) NOT NULL,
+  `vendedor_admin` varchar(50) NOT NULL,
+  `subtotal_admin` float NOT NULL,
+  `eago_admin` float NOT NULL,
+  `total_admin` float NOT NULL,
   `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -542,9 +520,9 @@ CREATE TABLE `traslados` (
 -- Volcado de datos para la tabla `traslados`
 --
 
-INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `gasolina`, `casetas`, `trasladistas`, `vendedor`, `subtotal`, `total`, `fecha_carga`) VALUES
-(1, '2019-12-06', 1, 1, 'jaja', 500, 208, 'Josue Adrian', 'Charls Verplancken', 708, 908, '2019-12-14 15:26:21'),
-(2, '2019-12-24', 5, 1, 'pko', 0, 0, '', '', 0, 0, '2019-12-14 22:30:52');
+INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `gasolina`, `casetas`, `trasladistas`, `vendedor`, `subtotal`, `total`, `autobus`, `gasolina_admin`, `casetas_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
+(1, '2019-12-06', 1, 1, 'jaja', 500, 208, 'Josue Adrian', 'Charls Verplancken', 708, 908, '498', 12, 50, 'klsdf, kmskd, sdf', 'sdf', 80, 30, 1500, '2019-12-14 15:26:21'),
+(2, '2019-12-24', 5, 1, 'pko', 0, 0, '', '', 0, 0, '', 0, 0, '', '', 0, 0, 0, '2019-12-14 22:30:52');
 
 -- --------------------------------------------------------
 
@@ -664,12 +642,6 @@ ALTER TABLE `estetica`
 -- Indices de la tabla `gestoria`
 --
 ALTER TABLE `gestoria`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `ges_admin`
---
-ALTER TABLE `ges_admin`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -794,13 +766,7 @@ ALTER TABLE `estetica`
 -- AUTO_INCREMENT de la tabla `gestoria`
 --
 ALTER TABLE `gestoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `ges_admin`
---
-ALTER TABLE `ges_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `kind`
