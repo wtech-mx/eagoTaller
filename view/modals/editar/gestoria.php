@@ -17,6 +17,7 @@
             $trasladistas=$rw['trasladistas'];
             $gasolina=$rw['gasolina'];
             $otro=$rw['otro'];
+            $idcarro=$rw['idcarro'];
             $aplaca=$rw['aplaca'];
             $bplaca=$rw['bplaca'];
             $rplaca=$rw['rplaca'];
@@ -64,6 +65,23 @@
                 if ($idvehiculo==$rw['id']){$selected1="selected";}else{$selected1="";}
         ?>
             <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['marca']?></option>
+        <?php 
+            }
+        ?>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="carro" class="col-sm-2 control-label">Placa: </label>
+    <div class="col-sm-10">
+        <select class="form-control" name="carro" id="carro">
+            <option value="">--- SELECCIONA ---</option>
+        <?php
+            $carros=mysqli_query($con,"select * from cliente");
+            while ($rw=mysqli_fetch_array($carros)) {
+                if ($idcarro==$rw['id']){$selected1="selected";}else{$selected1="";}
+        ?>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['placa']?></option>
         <?php 
             }
         ?>

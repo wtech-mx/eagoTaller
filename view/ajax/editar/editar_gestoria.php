@@ -1,7 +1,7 @@
 <?php
     include("../is_logged.php");//Archivo comprueba si el usuario esta logueado	
 	if (empty($_POST['fecha_ges'])){
-			$errors[] = "Fecha de verificación está vacío.";
+			$errors[] = "Fecha de gestoria está vacío.";
 		}  elseif (empty($_POST['cliente'])) {
             $errors[] = "cliente está vacío.";
         }	elseif (empty($_POST['vehiculo'])) {
@@ -31,9 +31,10 @@
         $subtotal = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal"],ENT_QUOTES)));
         $eago = mysqli_real_escape_string($con,(strip_tags($_POST["eago"],ENT_QUOTES)));
         $total = mysqli_real_escape_string($con,(strip_tags($_POST["total"],ENT_QUOTES)));
+        $carro = mysqli_real_escape_string($con,(strip_tags($_POST["carro"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE gestoria SET fecha_ges='".$fecha_ges."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', otro='".$otro."', gasolina='".$gasolina."', trasladistas='".$trasladistas."', subtotal='".$subtotal."', eago='".$eago."', total='".$total."' WHERE id='".$id."' ";
+    $sql = "UPDATE gestoria SET fecha_ges='".$fecha_ges."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', otro='".$otro."', idcarro='".$carro."', gasolina='".$gasolina."', trasladistas='".$trasladistas."', subtotal='".$subtotal."', eago='".$eago."', total='".$total."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

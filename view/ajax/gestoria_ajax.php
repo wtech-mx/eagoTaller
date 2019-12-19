@@ -35,7 +35,7 @@ if($action == 'ajax'){
 	if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 	else {echo mysqli_error($con);}
 	$total_pages = ceil($numrows/$per_page);
-	$reload = './verificacion-view.php';
+	$reload = './gestoria-view.php';
 	//main query to fetch the data
 	$query = mysqli_query($con,"SELECT $campos FROM  $tables where $sWhere LIMIT $offset,$per_page");
 	//loop through fetched data
@@ -77,7 +77,7 @@ if($action == 'ajax'){
 				$idvehiculo=$row['idvehiculo'];
 				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
 				$vehiculo_rw=mysqli_fetch_array($vehiculos);
-				$patente_vehiculo=$vehiculo_rw['marca'];
+				$marca_vehiculo=$vehiculo_rw['marca'];
 
 				$datos=$row['datos'];
 
@@ -94,7 +94,7 @@ if($action == 'ajax'){
                 <td><?php echo $id ?></td>
                 <td><?php echo $fecha_ges ?></td>
                 <td><?php echo $nombre_cliente ?></td>
-                <td><?php echo $patente_vehiculo ?></td>
+                <td><?php echo $marca_vehiculo ?></td>
                 <td><?php echo $datos ?></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">

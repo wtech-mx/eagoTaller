@@ -1,16 +1,13 @@
 <?php
 	include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
-	if (empty($_POST['fecha_ges'])){
-			$errors[] = "Fecha de verificación está vacío.";
-		}  elseif (empty($_POST['cliente'])) {
+	if (empty($_POST['cliente'])) {
             $errors[] = "Cliente está vacío.";
         }  elseif (empty($_POST['vehiculo'])) {
             $errors[] = "Vehiculo está vacío.";
         } elseif (empty($_POST['datos'])) {
             $errors[] = "Datos está vacío.";
         }  elseif (
-        	!empty($_POST['fecha_ges'])
-        	&& !empty($_POST['cliente'])
+        	!empty($_POST['cliente'])
         	&& !empty($_POST['vehiculo'])
         	&& !empty($_POST['datos'])
         ){
@@ -21,20 +18,22 @@
             $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
             $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
-            $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
+           $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
             $gasolina = mysqli_real_escape_string($con,(strip_tags($_POST["gasolina"],ENT_QUOTES)));
+            $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
             $aplaca = mysqli_real_escape_string($con,(strip_tags($_POST["aplaca"],ENT_QUOTES)));
             $bplaca = mysqli_real_escape_string($con,(strip_tags($_POST["bplaca"],ENT_QUOTES)));
             $rplaca = mysqli_real_escape_string($con,(strip_tags($_POST["rplaca"],ENT_QUOTES)));
             $tarjeta = mysqli_real_escape_string($con,(strip_tags($_POST["tarjeta"],ENT_QUOTES)));
-            $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
+            $carro = mysqli_real_escape_string($con,(strip_tags($_POST["carro"],ENT_QUOTES)));
+            
             $subtotal = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal"],ENT_QUOTES)));
             $eago = mysqli_real_escape_string($con,(strip_tags($_POST["eago"],ENT_QUOTES)));
             $total = mysqli_real_escape_string($con,(strip_tags($_POST["total"],ENT_QUOTES)));
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO gestoria (fecha_ges, idcliente, idvehiculo, datos, otros, gasolina, aplaca, bplaca, rplaca, tarjeta, trasladistas, vendedor, subtotal, eago, total, fecha_carga) VALUES('".$fecha_ges."','".$cliente."','".$vehiculo."','".$datos."','".$otros."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$trasladistas."','".$subtotal."','".$eago."','".$total."','".$fecha_carga."');";
+			$sql = "INSERT INTO gestoria (fecha_ges, idcliente, idvehiculo, datos, trasladistas, gasolina, otro, aplaca, bplaca, rplaca, tarjeta, idcarro, subtotal, eago, total, fecha_carga) VALUES('".$fecha_ges."','".$cliente."','".$vehiculo."','".$datos."','".$trasladistas."','".$gasolina."','".$otro."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$carro."','".$subtotal."','".$eago."','".$total."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

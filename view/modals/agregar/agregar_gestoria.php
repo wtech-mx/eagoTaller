@@ -36,20 +36,37 @@
                     </div>
                     <div class="form-group">
                         <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
-                        <div class="col-sm-10">
-                            <select class="form-control selectpicker" data-live-search="true" name="vehiculo" id="vehiculo">
-                               <!--  <option value="">--- SELECCIONA ---</option> -->
-                            <?php
-                                require_once ("config/config.php");
-                                $vehiculos=mysqli_query($con,"select * from vehiculo");
-                                while ($rw=mysqli_fetch_array($vehiculos)) {
-                            ?>
-                                <option value="<?php echo $rw['id']?>"><?php echo $rw['marca']?></option>
-                            <?php 
-                                }
-                            ?>
-                            </select>
-                        </div>
+                        <div class="col-sm-4">
+                                        <select class="form-control" name="vehiculo" id="vehiculo" required>
+                                            <?php 
+                                            $sql_vehiculos=mysqli_query($con,"select * from vehiculo");
+                                                while ($rw=mysqli_fetch_array($sql_vehiculos)){
+                                                    $idvehiculo=$rw['id'];
+                                                    $marca_vehiculo=$rw['marca'];
+                                                ?>
+                                                <option value="<?php echo $idvehiculo;?>"><?php echo $marca_vehiculo;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="carro" class="col-sm-2 control-label">Placa: </label>
+                        <div class="col-sm-4">
+                                        <select class="form-control" name="carro" id="carro" required>
+                                            <?php 
+                                            $sql_carros=mysqli_query($con,"select * from cliente");
+                                                while ($rw=mysqli_fetch_array($sql_carros)){
+                                                    $idcarro=$rw['id'];
+                                                    $placa_carro=$rw['placa'];
+                                                ?>
+                                                <option value="<?php echo $idcarro;?>"><?php echo $placa_carro;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
                     </div>
                     <div class="form-group">
                         <label for="datos" class="col-sm-2 control-label">Descripción: </label>

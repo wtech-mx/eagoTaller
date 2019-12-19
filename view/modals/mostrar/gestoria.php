@@ -20,6 +20,11 @@
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $patente_vehiculo=$vehiculo_rw['marca'];
 
+                $idcarro=$rw['idcarro'];
+                $carros=mysqli_query($con, "select * from cliente where id=$idcarro");
+                $carro_rw=mysqli_fetch_array($carros);
+                $placa_carro=$carro_rw['placa'];
+
                 $datos=$rw['datos'];
                 $trasladistas=$rw['trasladistas'];
                 $gasolina=$rw['gasolina'];
@@ -53,6 +58,12 @@
     <label for="datos" class="col-sm-4 control-label">Descripción: </label>
     <div class="col-sm-8">
        <?php echo $datos;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="carro" class="col-sm-4 control-label">Placa: </label>
+    <div class="col-sm-8">
+       <?php echo $placa_carro;?>
     </div>
 </div>
 <div class="form-group">
