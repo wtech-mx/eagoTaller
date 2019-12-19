@@ -12,9 +12,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="fecha_ges" class="col-sm-2 control-label">Fecha Servicio: </label>
+                        <label for="fecha_man" class="col-sm-2 control-label">Fecha Servicio: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="fecha_ges" name="fecha_ges" placeholder="Fecha Servicio ">
+                            <input type="date" required class="form-control" id="fecha_man" name="fecha_man" placeholder="Fecha Servicio ">
                         </div>
                     </div>
                     <div class="form-group">
@@ -44,7 +44,58 @@
                                 $vehiculos=mysqli_query($con,"select * from vehiculo");
                                 while ($rw=mysqli_fetch_array($vehiculos)) {
                             ?>
-                                <option value="<?php echo $rw['id']?>"><?php echo $rw['marca']?></option>
+                                <option value="<?php echo $rw['id']?>"><?php echo $rw['patente']?></option>
+                            <?php 
+                                }
+                            ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
+                        <div class="col-sm-10">
+                            <select class="form-control selectpicker" data-live-search="true" name="vehiculo" id="vehiculo">
+                               <!--  <option value="">--- SELECCIONA ---</option> -->
+                            <?php
+                                require_once ("config/config.php");
+                                $vehiculos=mysqli_query($con,"select * from vehiculo");
+                                while ($rw=mysqli_fetch_array($vehiculos)) {
+                            ?>
+                                <option value="<?php echo $rw['id']?>"><?php echo $rw['patente']?></option>
+                            <?php 
+                                }
+                            ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
+                        <div class="col-sm-10">
+                            <select class="form-control selectpicker" data-live-search="true" name="vehiculo" id="vehiculo">
+                               <!--  <option value="">--- SELECCIONA ---</option> -->
+                            <?php
+                                require_once ("config/config.php");
+                                $vehiculos=mysqli_query($con,"select * from vehiculo");
+                                while ($rw=mysqli_fetch_array($vehiculos)) {
+                            ?>
+                                <option value="<?php echo $rw['id']?>"><?php echo $rw['patente']?></option>
+                            <?php 
+                                }
+                            ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
+                        <div class="col-sm-10">
+                            <select class="form-control selectpicker" data-live-search="true" name="vehiculo" id="vehiculo">
+                               <!--  <option value="">--- SELECCIONA ---</option> -->
+                            <?php
+                                require_once ("config/config.php");
+                                $vehiculos=mysqli_query($con,"select * from vehiculo");
+                                while ($rw=mysqli_fetch_array($vehiculos)) {
+                            ?>
+                                <option value="<?php echo $rw['id']?>"><?php echo $rw['patente']?></option>
                             <?php 
                                 }
                             ?>
@@ -78,25 +129,25 @@
                     <div class="form-group">
                         <label for="aplaca" class="col-sm-2 control-label">Alta placa: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="aplaca" name="aplaca" placeholder="Alta placa">
+                            <input type="text" required class="form-control" id="aplaca" name="aplaca" placeholder="Alta placa">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="bplaca" class="col-sm-2 control-label">Baja placa: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="bplaca" name="bplaca" placeholder="Baja placa">
+                            <input type="text" required class="form-control" id="bplaca" name="bplaca" placeholder="Baja placa">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="rplaca" class="col-sm-2 control-label">Reposición placa: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="rplaca" name="rplaca" placeholder="Reposición placa">
+                            <input type="text" required class="form-control" id="rplaca" name="rplaca" placeholder="Reposición placa">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="tarjeta" class="col-sm-2 control-label">Reposición tarjeta: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta">
+                            <input type="text" required class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta">
                         </div>
                     </div>
                     

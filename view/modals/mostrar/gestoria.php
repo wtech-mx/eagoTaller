@@ -18,7 +18,7 @@
                 $idvehiculo=$rw['idvehiculo'];
                 $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
-                $patente_vehiculo=$vehiculo_rw['patente'];
+                $patente_vehiculo=$vehiculo_rw['marca'];
 
                 $datos=$rw['datos'];
                 $trasladistas=$rw['trasladistas'];

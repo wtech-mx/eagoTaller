@@ -63,7 +63,7 @@
             while ($rw=mysqli_fetch_array($vehiculos)) {
                 if ($idvehiculo==$rw['id']){$selected1="selected";}else{$selected1="";}
         ?>
-            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['patente']?></option>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['marca']?></option>
         <?php 
             }
         ?>

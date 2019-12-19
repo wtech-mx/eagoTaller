@@ -107,7 +107,7 @@
                     </li>
                     <?php } ?>
 
-                    <?php if ($_SESSION['vehiculo']==1) { ?>
+                    
                     <li class="<?php if(isset($active2)){echo $active2;}?>">
                         <a href="./?view=vehiculos"><i class="fa fa-truck"></i><span>Vehiculo</span></a>
                         <ul>
@@ -115,7 +115,7 @@
                             <li><a href="./?view=seguros"><i class="fa fa-key"></i>Seguro</li></a>
                         </ul>
                     </li>
-                    <?php } ?>
+                  
                     
                     <li class="<?php if(isset($active3)){echo $active3;}?>">
                         <a href="./?view=datCliente"><i class="fa fa-mobile"></i>Datos Cliente</a>
@@ -153,17 +153,27 @@
                     </li>
                     <?php } ?>
 
+                    <?php if ($_SESSION['sector']==1) { ?>
+                     <li class="<?php if(isset($active7)){echo $active7;}?>">
+                        <a href="./?view=sectores"><i class="fa fa-road"></i><span>Sector</span></a>
+                            <ul>
+                                                   
+                            <li><a href="./?view=estetica"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
+                            </li>                       
+                            <li><a href="./?view=gesadmin"><i class="fa fa-user"></i>Gestoría</li></a>
+                            <li><a href="./?view=verificacion"><i class="fa fa-search"></i>Verificación</li></a>
+                            <li><a href="./?view=traslados"><i class="fa fa-truck"></i>Traslados</li></a>
+                        </ul>
+                    </li>                     
+                    <?php } ?>
+
                     <?php if ($_SESSION['seguro']==1) { ?>
                     <!--<li class="<?php if(isset($active5)){echo $active5;}?>">
                         <a href="./?view=seguros"><i class="fa fa-lock"></i><span>Seguro</span></a>
                     </li>-->                   
                     <?php } ?>
 
-                    <?php if ($_SESSION['sector']==1) { ?>
-                    <!--<li class="<?php if(isset($active7)){echo $active7;}?>">
-                        <a href="./?view=sectores"><i class="fa fa-road"></i><span>Sector</span></a>
-                    </li>-->                    
-                    <?php } ?>
+                    
 
                     <?php if ($_SESSION['tarjeta']==1) { ?>
                     <!--<li class="<?php if(isset($active9)){echo $active9;}?>">

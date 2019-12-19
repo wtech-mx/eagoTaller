@@ -35,7 +35,7 @@ if($action == 'ajax'){
 	if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 	else {echo mysqli_error($con);}
 	$total_pages = ceil($numrows/$per_page);
-	$reload = './verificacion-view.php';
+	$reload = './gesadmin-view.php';
 	//main query to fetch the data
 	$query = mysqli_query($con,"SELECT $campos FROM  $tables where $sWhere LIMIT $offset,$per_page");
 	//loop through fetched data
@@ -55,11 +55,11 @@ if($action == 'ajax'){
         <thead>
             <tr>
                 <th>#ID</th>
-                <th>Fecha de servicio</th>
+                <th>Fecha de Servicio</th>
                 <th>Cliente</th>
                 <th>Vehiculo</th>
-                <th>Datos</th>
-                <th>Fecha</th>
+                <th>Placa</th>
+                <th>Alta de placa</th>
                 <th></th>
             </tr>
         </thead>
@@ -67,6 +67,7 @@ if($action == 'ajax'){
 			$finales=0;
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id'];
+
 				$fecha_ges=$row['fecha_ges'];
 
 				$idcliente=$row['idcliente'];
@@ -79,12 +80,12 @@ if($action == 'ajax'){
 				$vehiculo_rw=mysqli_fetch_array($vehiculos);
 				$patente_vehiculo=$vehiculo_rw['marca'];
 
-				$datos=$row['datos'];
+				$idplaca=$row['idplaca'];
+				$placas=mysqli_query($con, "select * from cliente where id=$idplaca");
+				$placa_rw=mysqli_fetch_array($placas);
+				$clave_placa=$placa_rw['placa'];
 
-				$created_at=$row['fecha_carga'];
-				list($date,$hora)=explode(" ",$created_at);
-				list($Y,$m,$d)=explode("-",$date);
-				$fecha=$d."-".$m."-".$Y;
+				$aplaca=$row['aplaca'];
 				
 				$finales++;
 			
@@ -95,8 +96,8 @@ if($action == 'ajax'){
                 <td><?php echo $fecha_ges ?></td>
                 <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $patente_vehiculo ?></td>
-                <td><?php echo $datos ?></td>
-                <td><?php echo $fecha ?></td>
+                <td><?php echo $clave_placa ?></td>
+                <td><?php echo $aplaca ?></td>
                 <td class="text-right">
 
                     <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>
