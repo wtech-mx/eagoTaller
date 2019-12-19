@@ -59,9 +59,15 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="manejo" class="col-sm-2 control-label">Manejo: </label>
+    <label for="manejo" class="col-sm-2 control-label">Vencimiento de licencia de manejo: </label>
     <div class="col-sm-10">
         <input type="date" class="form-control" id="manejo" name="manejo" value="<?php echo $manejo;?>" placeholder="Manejo ">
+    </div>
+</div>
+<div class="form-group">
+    <label for="tipo" class="col-sm-2 control-label">Tipo de licencia: </label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="tipo" name="tipo" value="<?php echo $tipo;?>" placeholder="Tipo ">
     </div>
 </div>
 <div class="form-group">
@@ -98,11 +104,5 @@
     <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
     <div class="col-sm-10">
         <input type="text" class="form-control" id="entidad" name="entidad" value="<?php echo $entidad;?>" placeholder="Entidad ">
-    </div>
-</div>
-<div class="form-group">
-    <label for="tipo" class="col-sm-2 control-label">Tipo: </label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" id="tipo" name="tipo" value="<?php echo $tipo;?>" placeholder="Tipo ">
     </div>
 </div>

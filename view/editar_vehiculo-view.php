@@ -131,7 +131,7 @@
                                     <div class="col-sm-4">
                                         <input type="text" required name="motor" class="form-control" id="motor" placeholder="Numero Motor: " value="<?php echo $nro_motor ?>">
                                     </div>
-                                    <label for="vto_vtv" class="col-sm-2 control-label">Vto Vtv: </label>
+                                    <label for="vto_vtv" class="col-sm-2 control-label">Vencimiento de Tarjeta de circulación: </label>
                                     <div class="col-sm-4">
                                         <input type="date" required name="vto_vtv" class="form-control" id="vto_vtv" placeholder="Vto Vtv: " value="<?php echo $vto_vtv ?>">
                                     </div>

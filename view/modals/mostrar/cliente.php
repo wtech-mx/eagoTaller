@@ -1,15 +1,15 @@
 <?php
-	session_start();
-	require_once ("../../../config/config.php");
-	if (isset($_GET["id"])){
-		$id=$_GET["id"];
-		$id=intval($id);
-		$sql="select * from cliente where id='$id'";
-		$query=mysqli_query($con,$sql);
-		$num=mysqli_num_rows($query);
-		if ($num==1){
-			$rw=mysqli_fetch_array($query);
-			$nombre=$rw['nombre'];
+    session_start();
+    require_once ("../../../config/config.php");
+    if (isset($_GET["id"])){
+        $id=$_GET["id"];
+        $id=intval($id);
+        $sql="select * from cliente where id='$id'";
+        $query=mysqli_query($con,$sql);
+        $num=mysqli_num_rows($query);
+        if ($num==1){
+            $rw=mysqli_fetch_array($query);
+            $nombre=$rw['nombre'];
             $apellido=$rw['apellido'];
             $telefono=$rw['telefono'];
             $correo=$rw['correo'];
@@ -22,13 +22,9 @@
             $km=$rw['km'];
             $entidad=$rw['entidad'];
             $tipo=$rw['tipo'];
-            $foto1=$rw['foto1'];
-            $foto2=$rw['foto2'];
-            $foto3=$rw['foto3'];
-            $foto4=$rw['foto4'];
-		}
-	}	
-	else{exit;}
+        }
+    }   
+    else{exit;}
 ?>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 <div class="form-group">
@@ -62,9 +58,15 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="manejo" class="col-sm-4 control-label">Licencia de Manejo: </label>
+    <label for="manejo" class="col-sm-4 control-label">Vencimiento de licencia de manejo: </label>
     <div class="col-sm-8">
         <?php echo $manejo;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="tipo" class="col-sm-4 control-label">Tipo de licencia: </label>
+    <div class="col-sm-8">
+        <?php echo $tipo;?>
     </div>
 </div>
 <!-- <div class="form-group">
@@ -105,38 +107,9 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="tipo" class="col-sm-4 control-label">Tipo: </label>
-    <div class="col-sm-8">
-        <?php echo $tipo;?>
-    </div>
-</div>
-<div class="form-group">
     <label for="km" class="col-sm-4 control-label">Km por semana: </label>
     <div class="col-sm-8">
         <?php echo $km;?>
     </div>
 </div>
-<div class="form-group">
-    <label for="foto1" class="col-sm-4 control-label">foto1: </label>
-    <div class="col-sm-8">
-        <?php echo $foto1;?>
-    </div>
-</div>
-<div class="form-group">
-    <label for="foto2" class="col-sm-4 control-label">foto2: </label>
-    <div class="col-sm-8">
-        <?php echo $foto2;?>
-    </div>
-</div>
-<div class="form-group">
-    <label for="foto3" class="col-sm-4 control-label">foto3: </label>
-    <div class="col-sm-8">
-        <?php echo $foto3;?>
-    </div>
-</div>
-<div class="form-group">
-    <label for="foto4" class="col-sm-4 control-label">foto4: </label>
-    <div class="col-sm-8">
-        <?php echo $foto4;?>
-    </div>
 </div>

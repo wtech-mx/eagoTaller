@@ -54,21 +54,21 @@
      ==========================================================================================-->
 
                     <div class="form-group">
-                        <label for="manejo" class="col-sm-2 control-label">Lic. Manejo: </label>
+                        <label for="manejo" class="col-sm-2 control-label">Vencimiento de licencia de manejo: </label>
                         <div class="col-sm-10">
                             <input type="date" required class="form-control" id="manejo" name="manejo" placeholder="Licencia de Manejo ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo" class="col-sm-2 control-label">Tipo de licencia: </label>
+                        <div class="col-sm-10">
+                            <input type="text" required class="form-control" id="tipo" name="tipo" placeholder="Tipo">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="entidad" name="entidad" placeholder="Entidad ">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tipo" class="col-sm-2 control-label">Tipo: </label>
-                        <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="tipo" name="tipo" placeholder="Tipo">
                         </div>
                     </div>
                     <div class="form-group">
@@ -103,26 +103,7 @@
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                                    <label for="foto1" class="col-sm-2 control-label">Foto 1: </label>
-                                    <div class="col-sm-4">
-                                        <input type="file" name="foto1" class="form-control" id="foto1" onchange="upload_foto1(<?php echo $id_cliente; ?>);">
-                                    </div>
-                                    <label for="foto2" class="col-sm-2 control-label">Foto 2: </label>
-                                    <div class="col-sm-4">
-                                        <input type="file" name="foto2" class="form-control" id="foto2" onchange="upload_foto2(<?php echo $id_cliente; ?>);">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="foto3" class="col-sm-2 control-label">Foto 3: </label>
-                                    <div class="col-sm-4">
-                                        <input type="file" name="foto3" class="form-control" id="foto3" onchange="upload_foto3(<?php echo $id_cliente; ?>);">
-                                    </div>
-                                    <label for="foto4" class="col-sm-2 control-label">Foto 4: </label>
-                                    <div class="col-sm-4">
-                                        <input type="file" name="foto4" class="form-control" id="foto4" onchange="upload_foto4(<?php echo $id_cliente; ?>);">
-                                    </div>
-                                </div>
+                    
                     
                 </div>
                 <div class="modal-footer">
