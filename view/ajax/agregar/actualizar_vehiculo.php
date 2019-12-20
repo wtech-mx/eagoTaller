@@ -46,11 +46,12 @@
 		$motor= mysqli_real_escape_string($con,(strip_tags($_POST["motor"],ENT_QUOTES)));
 		$vto_vtv= mysqli_real_escape_string($con,(strip_tags($_POST["vto_vtv"],ENT_QUOTES)));
 		$seguro=intval($_POST['seguro']);
+		$estado= mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));
 		$color= mysqli_real_escape_string($con,(strip_tags($_POST["color"],ENT_QUOTES)));
 		$id=intval($_POST['id']);
 			
 		// update data
-        $sql = "UPDATE vehiculo SET idcliente='".$cliente."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', marca='".$marca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', idseguro='".$seguro."', color='".$color."' WHERE id='$id' ";
+        $sql = "UPDATE vehiculo SET idcliente='".$cliente."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', marca='".$marca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', idseguro='".$seguro."', estado='".$estado."', color='".$color."' WHERE id='$id' ";
         $query = mysqli_query($con,$sql);
 
         // if user has been update successfully
