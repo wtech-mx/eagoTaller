@@ -159,7 +159,7 @@
                             <li><a href="./?view=esteadmin"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
                             </li>                       
                             <li><a href="./?view=gestoria"><i class="fa fa-user"></i>Gestoría</li></a>
-                            <li><a href="./?view=verificacion"><i class="fa fa-search"></i>Verificación</li></a>
+                            <li><a href="./?view=veriadmin"><i class="fa fa-search"></i>Verificación</li></a>
                             <li><a href="./?view=trasadmin"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
                     </li>                     
