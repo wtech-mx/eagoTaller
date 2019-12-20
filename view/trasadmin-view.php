@@ -121,7 +121,7 @@
             var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id":id};
             
             $.ajax({
-                url:'view/ajax/gesadmin_ajax.php',
+                url:'view/ajax/trasadmin_ajax.php',
                 data: parametros,
                  beforeSend: function(objeto){
                 $("#loader").html("<img src='./assets/img/ajax-loader.gif'>");

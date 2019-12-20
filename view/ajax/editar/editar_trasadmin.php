@@ -7,7 +7,7 @@
         }  elseif (empty($_POST['casetas_admin'])) {
             $errors[] = "Casetas está vacío.";
         } elseif (empty($_POST['trasladistas_admin'])) {
-            $errors[] = "Trasladistas está vacío.";
+            $errors[] = "Datos está vacío.";
         }  elseif (
         	!empty($_POST['autobus'])
         	&& !empty($_POST['gasolina_admin'])

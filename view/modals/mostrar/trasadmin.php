@@ -22,15 +22,16 @@
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $patente_vehiculo=$vehiculo_rw['marca'];
 
+                $datos=$rw['datos'];
 
-            $autobus=$rw['autobus'];
-            $gasolina_admin=$rw['gasolina_admin'];
-            $casetas_admin=$rw['casetas_admin'];
-            $trasladistas_admin=$rw['trasladistas_admin'];
-            $vendedor_admin=$rw['vendedor_admin'];
-            $subtotal_admin=$rw['subtotal_admin'];
-            $eago_admin=$rw['eago_admin'];
-            $total_admin=$rw['total_admin'];
+                $autobus=$rw['autobus'];
+                $gasolina_admin=$rw['gasolina_admin'];
+                $casetas_admin=$rw['casetas_admin'];
+                $trasladistas_admin=$rw['trasladistas_admin'];
+                $vendedor_admin=$rw['vendedor_admin'];
+                $subtotal_admin=$rw['subtotal_admin'];
+                $eago_admin=$rw['eago_admin'];
+                $total_admin=$rw['total_admin'];
         }
     }   
     else{exit;}
@@ -52,6 +53,12 @@
     <label for="idvehiculo" class="col-sm-4 control-label">Vehiculo: </label>
     <div class="col-sm-8">
         <?php echo $patente_vehiculo;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="datos" class="col-sm-4 control-label">Datos: </label>
+    <div class="col-sm-8">
+       <?php echo $datos;?>
     </div>
 </div>
 <div class="form-group">
@@ -79,7 +86,7 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="vendedor_admin" class="col-sm-4 control-label">Vendedor: </label>
+    <label for="vendedor_admin" class="col-sm-4 control-label">vendedor: </label>
     <div class="col-sm-8">
        <?php echo $vendedor_admin;?>
     </div>

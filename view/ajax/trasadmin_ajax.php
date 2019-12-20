@@ -57,8 +57,8 @@ if($action == 'ajax'){
                 <th>#ID</th>
                 <th>Fecha de Servicio</th>
                 <th>Cliente</th>
-                <th>Vendedor</th>
-                <th>Trasladista</th>
+                <th>Vehiculo</th>
+                <th>Datos</th>
                 <th></th>
             </tr>
         </thead>
@@ -67,15 +67,19 @@ if($action == 'ajax'){
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id'];
 
-				$fecha_ges=$row['fecha_tras'];
+				$fecha_tras=$row['fecha_tras'];
 
 				$idcliente=$row['idcliente'];
 				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
 				$cliente_rw=mysqli_fetch_array($clientes);
 				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
-				$vendedor=$row['vendedor'];
-				$trasladistas=$row['trasladistas'];
+				$idvehiculo=$row['idvehiculo'];
+				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
+				$vehiculo_rw=mysqli_fetch_array($vehiculos);
+				$patente_vehiculo=$vehiculo_rw['marca'];
+
+				$datos=$row['datos'];
 				
 				$finales++;
 			
@@ -83,10 +87,10 @@ if($action == 'ajax'){
         <tbody>
             <tr>
                 <td><?php echo $id ?></td>
-                <td><?php echo $fecha_ges ?></td>
+                <td><?php echo $fecha_tras ?></td>
                 <td><?php echo $nombre_cliente ?></td>
-                <td><?php echo $vendedor ?></td>
-                <td><?php echo $trasladistas ?></td>
+                <td><?php echo $patente_vehiculo ?></td>
+                <td><?php echo $datos ?></td>
                 <td class="text-right">
 
                     <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>
