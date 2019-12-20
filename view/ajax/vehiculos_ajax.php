@@ -84,6 +84,7 @@ if($action == 'ajax'){
                 <th>Marca</th>
                 <th>Modelo</th>
                 <th>Color</th>
+                <th>Estado</th>
                 <th>Fecha</th>
                 <th></th>
             </tr>
@@ -102,13 +103,22 @@ if($action == 'ajax'){
 				$patente=$row['patente'];
 				$marca=$row['marca'];
 				$modelo=$row['modelo'];
-				$imagen=$row['imagen'];
+				$foto4=$row['foto4'];
 				$created_at=$row['fecha_carga'];
 				$color=$row['color'];
+				$estado=$row['estado'];
 
 				list($date,$hora)=explode(" ",$created_at);
 				list($Y,$m,$d)=explode("-",$date);
 				$fecha=$d."-".$m."-".$Y;
+
+				if ($estado==1){
+					$lbl_status="Activo";
+					$lbl_class='label label-success';
+				}else {
+					$lbl_status="Inactivo";
+					$lbl_class='label label-danger';
+				}
 				
 				$finales++;
 		?>	
@@ -117,12 +127,13 @@ if($action == 'ajax'){
                 <td><?php echo $vehiculo_code ?></td>
                 <td><?php echo $nombre_cliente ?></td>
                 <td class='text-center'>
-                	<img src="<?php echo $imagen;?>" alt="<?php echo $patente;?>" class='img-rounded' width="60">
+                	<img src="<?php echo $foto4;?>" alt="<?php echo $patente;?>" class='img-rounded' width="60">
                 </td>
                 <td><?php echo $patente ?></td>
                 <td><?php echo $marca ?></td>
                 <td><?php echo $modelo ?></td>
                 <td><?php echo $color ?></td>
+                <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">
 

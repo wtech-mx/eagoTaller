@@ -6,9 +6,10 @@
 
         $cliente=time()."-".$_SESSION['user_id'];
         $vehiculo_code=time()."-".$_SESSION['user_id'];
+        $estado=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/vehiculo.jpg";
-        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, idcliente, vehiculo_code, patente, marca, modelo, nro_chasis, nro_motor, vto_vtv, idseguro, color, imagen, fecha_carga) VALUES (NULL, '".$cliente."' ,'$vehiculo_code', '', '', '', '', '', '', '0', '','$target_dir', '$created_at'); ");
+        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, idcliente, vehiculo_code, patente, marca, modelo, nro_chasis, nro_motor, vto_vtv, idseguro, color, foto4, foto1, foto2, foto3, estado, fecha_carga) VALUES (NULL, '".$cliente."' ,'$vehiculo_code', '', '', '', '', '', '', '0', '','$target_dir','$target_dir','$target_dir','$target_dir','$estado', '$created_at'); ");
         $sql_vehiculo=mysqli_query($con,"select * from vehiculo where  vehiculo_code='$vehiculo_code'");
         $rw_vehiculo=mysqli_fetch_array($sql_vehiculo);
         $id_vehiculo=$rw_vehiculo['id'];
@@ -40,10 +41,39 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img">
-                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Bussines profile picture">
+                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
                             </div>
-                            <h3 class="profile-username text-center">Imagen</h3>
-                            <p class="text-muted text-center mail-text"></p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img2">
+                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img3">
+                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img4">
+                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -139,10 +169,34 @@
                                     </div>
                                     <label for="imagefile" class="col-sm-2 control-label">Imagen: </label>
                                     <div class="col-sm-4">
-                                        <input type="file" name="imagefile" class="form-control" id="imagefile" onchange="upload_image(<?php echo $id_vehiculo; ?>);">
+                                        <input type="file" name="imagefile" class="form-control" id="imagefile" onchange="upload_image4(<?php echo $id_vehiculo; ?>);">
                                     </div>
                                 </div>
-                                
+                                <div class="form-group">
+                                    <label for="imagefile1" class="col-sm-2 control-label">foto1: </label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="imagefile1" class="form-control" id="imagefile1" onchange="upload_image1(<?php echo $id_vehiculo; ?>);">
+                                    </div>
+                                    <label for="imagefile2" class="col-sm-2 control-label">foto2: </label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="imagefile2" class="form-control" id="imagefile2" onchange="upload_image2(<?php echo $id_vehiculo; ?>);">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="imagefile3" class="col-sm-2 control-label">foto3: </label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="imagefile3" class="form-control" id="imagefile3" onchange="upload_image3(<?php echo $id_vehiculo; ?>);">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                        <label for="estado" class="col-sm-2 control-label">Estado: </label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="estado" id="estado">
+                                <option value="1">Activo</option>
+                                <option value="2">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
 
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">

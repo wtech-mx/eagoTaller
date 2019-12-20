@@ -20,7 +20,11 @@
             $vto_vtv=$rw['vto_vtv'];
             $idseguro=$rw['idseguro'];
             $color=$rw['color'];
-            $imagen=$rw['imagen'];
+            $status=$rw['estado'];
+            $foto4=$rw['foto4'];
+            $foto1=$rw['foto1'];
+            $foto2=$rw['foto2'];
+            $foto3=$rw['foto3'];
             $fecha_carga=$rw['fecha_carga'];
         }
         
@@ -50,11 +54,11 @@
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
-                            <div id="load_img">
-                                <img class=" img-responsive" src="<?php echo  $imagen;?>" alt="Foto del Vehiculo" data-toggle="modal" data-target="#myModal" style='cursor:pointer'>
+                            <div id="load_img4">
+                                <img class=" img-responsive" src="<?php echo  $foto4;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
                             </div>
-                            <h3 class="profile-username text-center"><?php echo $patente;?></h3>
-                            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <br>
+                            <div id="myModal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -62,7 +66,70 @@
                                             <h4 class="modal-title">&nbsp;</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="<?php echo $imagen;?>" class="img-responsive">
+                                            <img src="<?php echo $foto4;?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img">
+                                <img class=" img-responsive" src="<?php echo  $foto1;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
+                            </div>
+                           <br>
+                            <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">&nbsp;</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="<?php echo $foto1;?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img2">
+                                <img class=" img-responsive" src="<?php echo  $foto2;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
+                            </div>
+                            <br>
+                            <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">&nbsp;</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="<?php echo $foto2;?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img3">
+                                <img class=" img-responsive" src="<?php echo  $foto3;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
+                            </div>
+                            <br>
+                            <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">&nbsp;</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="<?php echo $foto3;?>" class="img-responsive">
                                         </div>
                                     </div>
                                 </div>
@@ -160,13 +227,36 @@
                                     <div class="col-sm-4">
                                         <input type="text" required name="color" class="form-control" id="color" placeholder="Color: " value="<?php echo $color ?>">
                                     </div>
-                                    <label for="imagefile" class="col-sm-2 control-label">Imagen: </label>
+                                    <label for="estado" class="col-sm-2 control-label">Estado: </label>
                                     <div class="col-sm-4">
-                                        <input type="file" name="imagefile" class="form-control" id="imagefile" onchange="upload_image(<?php echo $vehiculo_id; ?>);">
+                                        <select class="form-control" name="estado" id="estado">
+                                            <option value="1" <?php if ($status==1){echo "selected";}?>>Activo</option>
+                                            <option value="2" <?php if ($status==2){echo "selected";}?>>Inactivo</option>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="imagefile" class="col-sm-2 control-label">Foto 1: </label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="imagefile" class="form-control" id="imagefile" onchange="upload_foto1(<?php echo $vehiculo_id; ?>);">
+                                    </div>
+                                    <label for="imagefile2" class="col-sm-2 control-label">Foto 2: </label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="imagefile2" class="form-control" id="imagefile2" onchange="upload_foto2(<?php echo $vehiculo_id; ?>);">
                                     </div>
                                 </div>
-                                
-
+                                <div class="form-group">
+                                    <label for="imagefile3" class="col-sm-2 control-label">Foto 3: </label>
+                                    <div class="col-sm-4">
+                                <input type="file" name="imagefile3" class="form-control" id="imagefile3" onchange="upload_foto3(<?php echo $vehiculo_id; ?>);">
+                                    </div>
+                                    <label for="imagefile4" class="col-sm-2 control-label">Foto 4: </label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="imagefile4" class="form-control" id="imagefile4" onchange="upload_foto4(<?php echo $vehiculo_id; ?>);">
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <button type="submit" class="btn btn-primary actualizar_datos">Guardar datos</button>
@@ -182,29 +272,94 @@
     </section><!--main content end-->
 <?php  include "resources/footer.php" ?>
 <script>
-    function upload_image(vehiculo_id){
-            $("#load_img").text('Cargando...');
-            var inputFileImage = document.getElementById("imagefile");
-            var file = inputFileImage.files[0];
-            var data = new FormData();
-            data.append('imagefile',file);
-            data.append('id',vehiculo_id);
-            
-            $.ajax({
-                url: "view/ajax/images/image_vehiculo_ajax.php",        // Url to which the request is send
-                type: "POST",             // Type of request to be send, called as method
-                data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
-                contentType: false,       // The content type used when sending data to the server.
-                cache: false,             // To unable request pages to be cached
-                processData:false,        // To send DOMDocument or non processed data file it is set to false
-                success: function(data)   // A function to be called if request succeeds
-                {
-                    $("#load_img").html(data);
-                    
-                }
-            });
-            
-        }
+    function upload_foto1(vehiculo_id){
+        $("#load_img").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto1_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img").html(data);
+                
+            }
+        });
+    }
+    function upload_foto2(vehiculo_id){
+        $("#load_img2").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile2");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile2',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto2_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img2").html(data);
+                
+            }
+        });
+    }
+    function upload_foto3(vehiculo_id){
+        $("#load_img3").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile3");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile3',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto3_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img3").html(data);
+                
+            }
+        });
+    }
+    function upload_foto4(vehiculo_id){
+        $("#load_img4").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile4");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile4',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto4_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img4").html(data);
+                
+            }
+        });
+    }
 </script>
 <script>
     $( "#update_register" ).submit(function( event ) {
