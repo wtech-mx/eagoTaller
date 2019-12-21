@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-12-2019 a las 17:08:57
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Tiempo de generación: 21-12-2019 a las 05:37:19
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,8 +32,8 @@ CREATE TABLE `articulo` (
   `id` int(11) NOT NULL,
   `titulo` varchar(250) DEFAULT NULL,
   `extracto` varchar(250) DEFAULT NULL,
-  `fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `texto` text,
+  `fecha` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `texto` text DEFAULT NULL,
   `thumb` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,8 +42,8 @@ CREATE TABLE `articulo` (
 --
 
 INSERT INTO `articulo` (`id`, `titulo`, `extracto`, `fecha`, `texto`, `thumb`) VALUES
-(1, 'Titulo PRIMER post', 'ï¿½Quï¿½ es Lorem Ipsum?Lorem Ipsum es simplemente...', '2019-12-19 06:44:40', 'ï¿½Quï¿½ es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estï¿½ndar de las industrias desde el aï¿½o 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usï¿½ una galerï¿½a de textos y los mezclï¿½ de tal manera que logrï¿½ hacer un libro de textos especimen', '2.png'),
-(2, 'Titulo segundo post', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de ', '2019-12-19 06:44:19', 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen', '3.PNG');
+(1, 'Titulo PRIMER post', 'ï¿½Quï¿½ es Lorem Ipsum?Lorem Ipsum es simplemente...', '2019-12-19 12:44:40', 'ï¿½Quï¿½ es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estï¿½ndar de las industrias desde el aï¿½o 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usï¿½ una galerï¿½a de textos y los mezclï¿½ de tal manera que logrï¿½ hacer un libro de textos especimen', '2.png'),
+(2, 'Titulo segundo post', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de ', '2019-12-19 12:44:19', 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen', '3.PNG');
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,7 @@ CREATE TABLE `cliente` (
   `km` float NOT NULL,
   `entidad` varchar(50) NOT NULL,
   `tipo` varchar(30) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0'
+  `status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -146,23 +146,26 @@ INSERT INTO `configuracion` (`id`, `nombre`, `dni`, `actividad_economica`, `emai
 
 CREATE TABLE `documentacion` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `apellido` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `vehiculo` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `documento` varchar(30) NOT NULL,
-  `facturaO` varchar(30) NOT NULL,
-  `factura1` varchar(30) NOT NULL,
-  `factura2` varchar(30) NOT NULL,
-  `factura3` varchar(30) NOT NULL,
-  `tenencia` varchar(30) NOT NULL
+  `idcliente` int(11) NOT NULL,
+  `idvehiculo` int(11) NOT NULL,
+  `documento_code` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `foto1` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `foto2` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `foto3` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `foto4` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `foto5` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `foto6` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `documentacion`
 --
 
-INSERT INTO `documentacion` (`id`, `nombre`, `apellido`, `vehiculo`, `documento`, `facturaO`, `factura1`, `factura2`, `factura3`, `tenencia`) VALUES
-(1, 'dayanna', 'Espinosa', 'audi 2020', 'lsd', 'adf', 'ds', 'gf', 'dfg', 'dgh');
+INSERT INTO `documentacion` (`id`, `idcliente`, `idvehiculo`, `documento_code`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `fecha_carga`) VALUES
+(27, 1, 1, '3', 'view/resources/images/1576900847_bicycle-1869176_1280.jpg', 'view/resources/images/1576900759_5dccf4af52288.png', 'view/resources/images/1576900753_foto_3.jpg', 'view/resources/images/1576900764_5dccf3a66f463.png', 'view/resources/images/1576900781_person-731492_1280.jpg', 'view/resources/images/1576900777_2.jpg', '2019-12-21 04:58:58'),
+(36, 1, 28, '7', 'view/resources/images/1576902349_bicycle-1869176_1280.jpg', 'view/resources/images/1576902315_5dccf3a66f463.png', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 05:25:08'),
+(38, 1576902953, 1576902953, '1576902953-1', 'view/resources/images/1576902958_3.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 05:35:53');
 
 -- --------------------------------------------------------
 
@@ -184,8 +187,8 @@ CREATE TABLE `empleado` (
   `telefono` varchar(20) DEFAULT NULL,
   `celular` varchar(20) DEFAULT NULL,
   `registro` varchar(20) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
-  `kind` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `kind` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -194,8 +197,8 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id`, `dni`, `imagen`, `nombre`, `apellido`, `username`, `email`, `password`, `domicilio`, `localidad`, `telefono`, `celular`, `registro`, `status`, `kind`, `created_at`) VALUES
-(1, '543434', 'view/resources/images/1573849686_logoCar.png', 'ale', 'AGO', 'admin', 'eago@gmail.com', '95ff079df7e19594fbaf65ecddb6f611c8ebdc25', 'AV SAN ANDRES', 'colchester', '9544534', '5533445340', '1', 1, 0, '2019-11-14 03:00:00'),
-(2, '456576', 'view/resources/images/default.png', 'aa', 'Stallman', 'Empleado', 'empleado@gmail.com', '67a74306b06d0c01624fe0d0249a570f4d093747', 'av san juan', 'silcon valley', '323445', '552344565', '3', 1, 0, '2019-11-15 03:44:17');
+(1, '543434', 'view/resources/images/1573849686_logoCar.png', 'Escuderia', 'AGO', 'admin', 'eago@gmail.com', '95ff079df7e19594fbaf65ecddb6f611c8ebdc25', 'AV SAN ANDRES', 'colchester', '9544534', '5533445340', '1', 1, 0, '2019-11-14 03:00:00'),
+(2, '456576', 'view/resources/images/default.png', 'Richard', 'Stallman', 'Empleado', 'empleado@gmail.com', 'e27648bb570a44840960a403eafbeae8c4fdb172', 'av san juan', 'silcon valley', '323445', '552344565', '3', 1, 0, '2019-11-15 03:44:17');
 
 -- --------------------------------------------------------
 
@@ -214,6 +217,26 @@ CREATE TABLE `empleado_permisos` (
 --
 
 INSERT INTO `empleado_permisos` (`idempleado_permiso`, `idempleado`, `idpermiso`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5),
+(6, 1, 6),
+(7, 1, 7),
+(8, 1, 8),
+(9, 1, 9),
+(10, 1, 10),
+(11, 1, 11),
+(22, 2, 1),
+(23, 2, 3),
+(24, 2, 4),
+(25, 2, 5),
+(26, 2, 6),
+(27, 2, 7),
+(28, 2, 8),
+(29, 2, 9),
+(30, 2, 10),
 (339, 2, 1),
 (340, 2, 3),
 (341, 2, 4),
@@ -275,16 +298,25 @@ CREATE TABLE `estetica` (
   `subtotal` float NOT NULL,
   `eago` float NOT NULL,
   `total` float NOT NULL,
-  `fecha_carga` datetime NOT NULL
+  `fecha_carga` datetime NOT NULL,
+  `reparacion` varchar(50) NOT NULL,
+  `trasladistas_admin` varchar(50) NOT NULL,
+  `gasolina_admin` float NOT NULL,
+  `otros_admin` varchar(50) NOT NULL,
+  `asesor` varchar(50) NOT NULL,
+  `vendedor_admin` varchar(50) NOT NULL,
+  `subtotal_admin` float NOT NULL,
+  `eago_admin` float NOT NULL,
+  `total_admin` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `estetica`
 --
 
-INSERT INTO `estetica` (`id`, `fecha_rep`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `subtotal`, `eago`, `total`, `fecha_carga`) VALUES
-(1, '2019-12-12', 1, 1, 'cambio de llantas y cambio de aceite', 'Jose', 50, '30', 'pepe', 80, 80, 160, '2019-12-16 13:45:42'),
-(2, '2019-12-17', 1, 1, 'arreglo de faros', 'jorge', 90, '20', 'pablo', 110, 50, 160, '2019-12-16 21:39:59');
+INSERT INTO `estetica` (`id`, `fecha_rep`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `subtotal`, `eago`, `total`, `fecha_carga`, `reparacion`, `trasladistas_admin`, `gasolina_admin`, `otros_admin`, `asesor`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`) VALUES
+(1, '2019-12-12', 1, 1, 'cambio de llantas y cambio de aceite', 'Jose', 50, '30', 'pepe', 80, 80, 160, '2019-12-16 13:45:42', '', '', 0, '', '', '', 0, 0, 0),
+(2, '2019-12-17', 2, 28, 'arreglo de faros', 'jorge', 90, '20', 'pablo', 110, 50, 160, '2019-12-16 21:39:59', '', '', 0, '', '', '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -488,7 +520,8 @@ CREATE TABLE `taller` (
 --
 
 INSERT INTO `taller` (`id`, `nombre`, `cuit`, `direccion`, `localidad`, `telefono`, `celular`, `estado`, `fecha_carga`) VALUES
-(1, 'electronica', '22', 'av san andres', 'sillcon valley', '324354', '943546534', 1, '2019-11-14 03:45:04');
+(1, 'electronica', '22', 'av san andres', 'sillcon valley', '324354', '943546534', 1, '2019-11-14 03:45:04'),
+(2, 'Escuderia', 'sf', 'montevideo', 'lindavista', '55779204', '5533445340', 2, '2019-12-20 00:27:17');
 
 -- --------------------------------------------------------
 
@@ -545,8 +578,8 @@ CREATE TABLE `traslados` (
 --
 
 INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `gasolina`, `casetas`, `trasladistas`, `vendedor`, `subtotal`, `total`, `autobus`, `gasolina_admin`, `casetas_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
-(1, '2019-12-06', 1, 1, 'jaja', 500, 208, 'Josue Adrian', 'Charls Verplancken', 708, 908, '498', 12, 50, 'klsdf, kmskd, sdf', 'sdf', 80, 30, 1500, '2019-12-14 15:26:21'),
-(2, '2019-12-24', 5, 1, 'pko', 0, 0, '', '', 0, 0, '', 0, 0, '', '', 0, 0, 0, '2019-12-14 22:30:52');
+(1, '2019-12-06', 1, 1, 'jaja', 500, 208, 'Josue Adrian', 'Charls Verplancken', 708, 908, '498', 12, 50, 'Brandon', 'sdf', 80, 30, 1500, '2019-12-14 15:26:21'),
+(2, '2019-12-24', 1, 1, 'pko', 90, 234, 'Joel', 'Diana', 312, 4342, '', 0, 0, '', '', 0, 0, 0, '2019-12-14 22:30:52');
 
 -- --------------------------------------------------------
 
@@ -566,7 +599,11 @@ CREATE TABLE `vehiculo` (
   `vto_vtv` date NOT NULL,
   `idseguro` int(11) NOT NULL,
   `color` varchar(30) NOT NULL,
-  `imagen` varchar(255) NOT NULL,
+  `foto4` varchar(255) NOT NULL,
+  `estado` tinyint(4) NOT NULL,
+  `foto1` varchar(255) NOT NULL,
+  `foto2` varchar(255) NOT NULL,
+  `foto3` varchar(255) NOT NULL,
   `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -574,9 +611,12 @@ CREATE TABLE `vehiculo` (
 -- Volcado de datos para la tabla `vehiculo`
 --
 
-INSERT INTO `vehiculo` (`id`, `idcliente`, `vehiculo_code`, `patente`, `marca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `idseguro`, `color`, `imagen`, `fecha_carga`) VALUES
-(1, 5, '1', 'KM-120', 'hyundai', '21332', 'xcdds23', 'xvcvrerx3', '2019-10-10', 1, 'blanco', 'view/resources/images/1576562865_2.jpg', '2019-11-25 03:46:37'),
-(28, 2, '2', 'LO-300', 'audi', '2016', 'pñl', '0932', '2019-03-17', 1, 'negro', 'view/resources/images/1576562772_4.jpg', '2019-12-17 07:05:38');
+INSERT INTO `vehiculo` (`id`, `idcliente`, `vehiculo_code`, `patente`, `marca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `idseguro`, `color`, `foto4`, `estado`, `foto1`, `foto2`, `foto3`, `fecha_carga`) VALUES
+(1, 1, '1', 'KM-120', 'hyundai', '21332', 'xcdds23', 'xvcvrerx3', '2019-10-10', 1, 'blanco', 'view/resources/images/1576820475_person-731492_1280.jpg', 1, 'view/resources/images/1576820460_snow-3066167_1280.jpg', 'view/resources/images/1576820469_foto_3.jpg', 'view/resources/images/1576820464_sign-741813_1280.jpg', '2019-11-25 03:46:37'),
+(28, 2, '2', 'LO-300', 'audi', '2016', 'pñl', '0932', '2019-03-17', 1, 'negro', 'view/resources/images/1576820433_bicycle-1869176_1280.jpg', 2, 'view/resources/images/1576820439_LogosinF.png', 'view/resources/images/1576820430_foto_1.jpg', 'view/resources/images/1576820445_sign-741813_1280.jpg', '2019-12-17 07:05:38'),
+(51, 5, '6', 'dfg', 'jjkdgf', 'jfd', 'sdg', 'sdfg', '2019-08-14', 1, 'todos', 'view/resources/images/1576820401_3.jpg', 1, 'view/resources/images/1576820319_2.jpg', 'view/resources/images/1576820394_5dccf4af52288.png', 'view/resources/images/1576820390_4.jpg', '2019-12-20 05:58:40'),
+(54, 5, '4', 'gfhj', 'fg', 'dgfh', 'dfg', 'dg', '2019-03-14', 1, 'negro', 'view/resources/images/vehiculo.jpg', 1, 'view/resources/images/1576890436_5dccf4af52288.png', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 02:06:21'),
+(60, 5, '5', '976', 'audi', '2016', 'kl.s', '00099', '2019-09-12', 1, 'azul', 'view/resources/images/1576891852_5dccf3a66f463.png', 1, 'view/resources/images/1576891860_4.jpg', 'view/resources/images/1576891856_foto_2.jpg', 'view/resources/images/1576891864_bicycle-1869176_1280.jpg', '2019-12-21 02:30:47');
 
 -- --------------------------------------------------------
 
@@ -595,18 +635,26 @@ CREATE TABLE `verificacion` (
   `otros` varchar(50) NOT NULL,
   `trasladistas` varchar(40) NOT NULL,
   `vendedor` varchar(40) NOT NULL,
+  `idcarro` int(11) NOT NULL,
   `subtotal` double NOT NULL,
   `eago` double NOT NULL,
-  `total` double NOT NULL
+  `total` double NOT NULL,
+  `derechos_admin` varchar(30) NOT NULL,
+  `otros_admin` varchar(30) NOT NULL,
+  `trasladistas_admin` varchar(30) NOT NULL,
+  `vendedor_admin` varchar(30) NOT NULL,
+  `subtotal_admin` float NOT NULL,
+  `eago_admin` float NOT NULL,
+  `total_admin` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `verificacion`
 --
 
-INSERT INTO `verificacion` (`id`, `fecha_veri`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`, `derechos`, `otros`, `trasladistas`, `vendedor`, `subtotal`, `eago`, `total`) VALUES
-(1, '2019-12-03', 1, 1, 'jdf', '2019-12-12 05:12:12', 'jkds', 'opad', 'Jose ', 'Carlos', 200, 500, 700),
-(2, '2019-11-13', 2, 1, 'kñ', '2019-12-14 22:06:17', 'mlk', 'pl', 'Daniel', 'Gerardo', 1000, 300, 1300);
+INSERT INTO `verificacion` (`id`, `fecha_veri`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`, `derechos`, `otros`, `trasladistas`, `vendedor`, `idcarro`, `subtotal`, `eago`, `total`, `derechos_admin`, `otros_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`) VALUES
+(1, '2019-12-03', 1, 1, 'jdf', '2019-12-12 05:12:12', 'jkds', 'opad', 'Jose ', 'Carlos', 1, 200, 500, 700, 'rer', '34', 'gfhd', 'dfg', 345, 3453, 24565),
+(2, '2019-11-13', 2, 1, 'kñ', '2019-12-14 22:06:17', 'mlk', 'pl', 'Daniel', 'Gerardo', 2, 1000, 300, 1300, '', '', '', '', 0, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -772,7 +820,7 @@ ALTER TABLE `configuracion`
 -- AUTO_INCREMENT de la tabla `documentacion`
 --
 ALTER TABLE `documentacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -844,7 +892,7 @@ ALTER TABLE `seguro`
 -- AUTO_INCREMENT de la tabla `taller`
 --
 ALTER TABLE `taller`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tarjeta`
@@ -862,7 +910,7 @@ ALTER TABLE `traslados`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT de la tabla `verificacion`
