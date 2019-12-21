@@ -5,6 +5,7 @@
 	if (isset($_REQUEST["id"])){//codigo para eliminar 
 	$id=$_REQUEST["id"];
 	$id=intval($id);
+
 	if($delete=mysqli_query($con, "DELETE FROM documentacion WHERE id='$id'")){
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
@@ -16,6 +17,8 @@
 		$classM="alert alert-danger";
 		$times="&times;";					
 	}
+
+		
 }
 
 $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
@@ -23,7 +26,7 @@ if($action == 'ajax'){
 	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
 	$tables="documentacion";
 	$campos="*";
-	$sWhere=" nombre LIKE '%".$query."%'";
+	$sWhere=" fecha_carga LIKE '%".$query."%'";
 	include 'pagination.php'; //include pagination file
 	//pagination variables
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
@@ -55,9 +58,9 @@ if($action == 'ajax'){
         <thead>
             <tr>
                 <th>#ID</th>
-                <th>Nombre</th>
+                <th>Cliente</th>
                 <th>Vehiculo</th>
-                <th>Documentacion</th>
+                <th>Fecha Carga</th>
                 <th></th>
             </tr>
         </thead>
@@ -65,26 +68,46 @@ if($action == 'ajax'){
 			$finales=0;
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id'];
-				$nombre=$row['nombre'];
-				$apellido=$row['apellido'];
-				$vehiculo=$row['vehiculo'];
-				$documento=$row['documento'];
+				$documento_code=$row['documento_code'];
+
+				$idcliente=$row['idcliente'];
+				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+				$cliente_rw=mysqli_fetch_array($clientes);
+				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
+
+				$idvehiculo=$row['idvehiculo'];
+				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
+				$vehiculo_rw=mysqli_fetch_array($vehiculos);
+				$marca_vehiculo=$vehiculo_rw['marca'];
+
 				
-			$finales++;
+				$fecha_carga=$row['fecha_carga'];
+				$foto1=$row['foto1'];
+				$foto2=$row['foto2'];
+				$foto3=$row['foto3'];
+				$foto4=$row['foto4'];
+				$foto5=$row['foto5'];
+				$foto6=$row['foto6'];
+
+				list($date,$hora)=explode(" ",$fecha_carga);
+				list($Y,$m,$d)=explode("-",$date);
+				$fecha_cargas=$d."-".$m."-".$Y;
+				
+				$finales++;
 		?>	
         <tbody>
             <tr>
                 <td><?php echo $id ?></td>
-                <td><?php echo $nombre." ".$apellido ?></td>
-                <td><?php echo $vehiculo ?></td>
-                <td><?php echo $documento ?></td>
+                <td><?php echo $nombre_cliente ?></td>
+                <td><?php echo $marca_vehiculo ?></td>
+                <td><?php echo $fecha_cargas ?></td>
                 <td class="text-right">
 
-                    <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>
+					<a style="color: white;" class="btn btn-warning btn-square btn-xs" href="./?view=editar_documento&id=<?php echo $id;?>"><i class='fa fa-edit'></i></a>
 
                     <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $id;?>')"><i class="fa fa-trash-o"></i></button>
 
-                    <button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button>
+                    <!-- <button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button> -->
                     
                 </td>
             </tr>
