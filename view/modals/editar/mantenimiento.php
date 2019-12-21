@@ -18,9 +18,6 @@
             $gasolina=$rw['gasolina'];
             $otros=$rw['otros'];
             $vendedor=$rw['vendedor'];
-            $subtotal=$rw['subtotal'];
-            $eago=$rw['eago'];
-            $total=$rw['total'];
             $created_at=$rw['fecha_carga'];
         }
     }   
@@ -86,9 +83,9 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="otros" class="col-sm-2 control-label">otros: </label>
+    <label for="otros" class="col-sm-2 control-label">Otros: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="otros" name="otros" placeholder="otros "><?php echo $otros ?></textarea>
+        <textarea type="text" class="form-control" id="otros" name="otros" placeholder="otros "><?php echo $otros ?></textarea>
     </div>
 </div>
 
@@ -98,22 +95,3 @@
         <textarea type="text" required class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor "><?php echo $vendedor ?></textarea>
     </div>
 </div>
-<div class="form-group">
-    <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
-    <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal "><?php echo $subtotal ?></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="eago" class="col-sm-2 control-label">EAGO: </label>
-    <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="eago" name="eago" placeholder="EAGO "><?php echo $eago ?></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="total" class="col-sm-2 control-label">Total: </label>
-    <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="total" name="total" placeholder="Total "><?php echo $total ?></textarea>
-    </div>
-</div>
-

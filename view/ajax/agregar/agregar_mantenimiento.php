@@ -24,13 +24,10 @@
             $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
             $gasolina = mysqli_real_escape_string($con,(strip_tags($_POST["gasolina"],ENT_QUOTES)));
             $otros = mysqli_real_escape_string($con,(strip_tags($_POST["otros"],ENT_QUOTES)));
-            $subtotal = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal"],ENT_QUOTES)));
-            $eago = mysqli_real_escape_string($con,(strip_tags($_POST["eago"],ENT_QUOTES)));
-            $total = mysqli_real_escape_string($con,(strip_tags($_POST["total"],ENT_QUOTES)));
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO mantenimiento (fecha_man, idcliente, idvehiculo, datos, trasladistas, gasolina, otros, subtotal, eago, total, fecha_carga) VALUES('".$fecha_man."','".$cliente."','".$vehiculo."','".$datos."','".$trasladistas."','".$gasolina."','".$otros."','".$subtotal."','".$eago."','".$total."','".$fecha_carga."');";
+			$sql = "INSERT INTO mantenimiento (fecha_man, idcliente, idvehiculo, datos, trasladistas, gasolina, otros, fecha_carga) VALUES('".$fecha_man."','".$cliente."','".$vehiculo."','".$datos."','".$trasladistas."','".$gasolina."','".$otros."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

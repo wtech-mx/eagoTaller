@@ -72,7 +72,7 @@
                     <div class="form-group">
                         <label for="otros" class="col-sm-2 control-label">Otros: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="otros" name="otros" placeholder="Otros">
+                            <input type="text" class="form-control" id="otros" name="otros" placeholder="Otros">
                         </div>
                     </div>
                     
@@ -80,24 +80,6 @@
                         <label for="vendedor" class="col-sm-2 control-label">Vendedor: </label>
                         <div class="col-sm-10">
                             <input type="text" required class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
-                        <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="eago" class="col-sm-2 control-label">EAGO: </label>
-                        <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="eago" name="eago" placeholder="EAGO">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="total" class="col-sm-2 control-label">Total: </label>
-                        <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="total" name="total" placeholder="Total">
                         </div>
                     </div>
                 </div>
