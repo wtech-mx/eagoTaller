@@ -198,7 +198,7 @@
     </section><!--main content end-->
 <?php  include "resources/footer.php" ?>
 <script>
-    function upload_foto(id_documento){
+    function upload_foto1(id_documento){
             $("#load_img1").text('Cargando...');
             var inputFileImage = document.getElementById("imagefile1");
             var file = inputFileImage.files[0];
