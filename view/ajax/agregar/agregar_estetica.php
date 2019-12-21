@@ -25,17 +25,14 @@
             $gasolina = mysqli_real_escape_string($con,(strip_tags($_POST["gasolina"],ENT_QUOTES)));
             $otros = mysqli_real_escape_string($con,(strip_tags($_POST["otros"],ENT_QUOTES)));
             $vendedor = mysqli_real_escape_string($con,(strip_tags($_POST["vendedor"],ENT_QUOTES)));
-            $subtotal = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal"],ENT_QUOTES)));
-            $eago = mysqli_real_escape_string($con,(strip_tags($_POST["eago"],ENT_QUOTES)));
-            $total = mysqli_real_escape_string($con,(strip_tags($_POST["total"],ENT_QUOTES)));
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO estetica (fecha_rep, idcliente, idvehiculo, datos, trasladistas, gasolina, otros, vendedor, subtotal, eago, total, fecha_carga) VALUES('".$fecha_rep."','".$cliente."','".$vehiculo."','".$datos."','".$trasladistas."','".$gasolina."','".$otros."','".$vendedor."','".$subtotal."','".$eago."','".$total."','".$fecha_carga."');";
+			$sql = "INSERT INTO estetica (fecha_rep, idcliente, idvehiculo, datos, trasladistas, gasolina, otros, vendedor, fecha_carga) VALUES('".$fecha_rep."','".$cliente."','".$vehiculo."','".$datos."','".$trasladistas."','".$gasolina."','".$otros."','".$vendedor."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {
-                $messages[] = "Verificación ha sido agregado con éxito.";
+                $messages[] = "Estética ha sido agregado con éxito.";
 				//save_log('Categorías','Registro de categoría',$_SESSION['user_id']);
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
