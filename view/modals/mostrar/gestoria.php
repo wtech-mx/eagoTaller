@@ -33,9 +33,6 @@
                 $bplaca=$rw['bplaca'];
                 $rplaca=$rw['rplaca'];
                 $tarjeta=$rw['tarjeta'];
-                $subtotal=$rw['subtotal'];
-                $eago=$rw['eago'];
-                $total=$rw['total'];
                 $fecha_carga=$rw['fecha_carga'];
         }
     }   
@@ -106,24 +103,6 @@
     <label for="tarjeta" class="col-sm-4 control-label">Reposición tarjeta: </label>
     <div class="col-sm-8">
        <?php echo $tarjeta;?>
-    </div>
-</div>
-<div class="form-group">
-    <label for="subtotal" class="col-sm-4 control-label">Subtotal: </label>
-    <div class="col-sm-8">
-       <?php echo $subtotal;?>
-    </div>
-</div>
-<div class="form-group">
-    <label for="eago" class="col-sm-4 control-label">EAGO: </label>
-    <div class="col-sm-8">
-       <?php echo $eago;?>
-    </div>
-</div>
-<div class="form-group">
-    <label for="total" class="col-sm-4 control-label">Total: </label>
-    <div class="col-sm-8">
-       <?php echo $total;?>
     </div>
 </div>
 <div class="form-group">

@@ -89,7 +89,7 @@
                     <div class="form-group">
                         <label for="otro" class="col-sm-2 control-label">Otro: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="otro" name="otro" placeholder="Otro">
+                            <input type="text" class="form-control" id="otro" name="otro" placeholder="Otro">
                         </div>
                     </div>
                     <div class="form-group">
@@ -114,25 +114,6 @@
                         <label for="tarjeta" class="col-sm-2 control-label">Reposición tarjeta: </label>
                         <div class="col-sm-10">
                             <input type="date" required class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
-                        <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="eago" class="col-sm-2 control-label">EAGO: </label>
-                        <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="eago" name="eago" placeholder="EAGO">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="total" class="col-sm-2 control-label">Total: </label>
-                        <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="total" name="total" placeholder="Total">
                         </div>
                     </div>
                 </div>

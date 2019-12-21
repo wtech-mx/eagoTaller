@@ -26,14 +26,10 @@
             $rplaca = mysqli_real_escape_string($con,(strip_tags($_POST["rplaca"],ENT_QUOTES)));
             $tarjeta = mysqli_real_escape_string($con,(strip_tags($_POST["tarjeta"],ENT_QUOTES)));
             $carro = mysqli_real_escape_string($con,(strip_tags($_POST["carro"],ENT_QUOTES)));
-            
-            $subtotal = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal"],ENT_QUOTES)));
-            $eago = mysqli_real_escape_string($con,(strip_tags($_POST["eago"],ENT_QUOTES)));
-            $total = mysqli_real_escape_string($con,(strip_tags($_POST["total"],ENT_QUOTES)));
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO gestoria (fecha_ges, idcliente, idvehiculo, datos, trasladistas, gasolina, otro, aplaca, bplaca, rplaca, tarjeta, idcarro, subtotal, eago, total, fecha_carga) VALUES('".$fecha_ges."','".$cliente."','".$vehiculo."','".$datos."','".$trasladistas."','".$gasolina."','".$otro."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$carro."','".$subtotal."','".$eago."','".$total."','".$fecha_carga."');";
+			$sql = "INSERT INTO gestoria (fecha_ges, idcliente, idvehiculo, datos, trasladistas, gasolina, otro, aplaca, bplaca, rplaca, tarjeta, idcarro, fecha_carga) VALUES('".$fecha_ges."','".$cliente."','".$vehiculo."','".$datos."','".$trasladistas."','".$gasolina."','".$otro."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$carro."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

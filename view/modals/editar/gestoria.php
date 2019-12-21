@@ -22,9 +22,6 @@
             $bplaca=$rw['bplaca'];
             $rplaca=$rw['rplaca'];
             $tarjeta=$rw['tarjeta'];
-            $subtotal=$rw['subtotal'];
-            $eago=$rw['eago'];
-            $total=$rw['total'];
             $created_at=$rw['fecha_carga'];
         }
     }   
@@ -109,7 +106,7 @@
 <div class="form-group">
     <label for="otro" class="col-sm-2 control-label">Otro: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="otro" name="otro" placeholder="Otro "><?php echo $otro ?></textarea>
+        <textarea type="text" class="form-control" id="otro" name="otro" placeholder="Otro "><?php echo $otro ?></textarea>
     </div>
 </div>
 <div class="form-group">
@@ -136,22 +133,3 @@
         <textarea type="text" required class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta "><?php echo $tarjeta ?></textarea>
     </div>
 </div>
-<div class="form-group">
-    <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
-    <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal "><?php echo $subtotal ?></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="eago" class="col-sm-2 control-label">EAGO: </label>
-    <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="eago" name="eago" placeholder="EAGO "><?php echo $eago ?></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="total" class="col-sm-2 control-label">Total: </label>
-    <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="total" name="total" placeholder="Total "><?php echo $total ?></textarea>
-    </div>
-</div>
-
