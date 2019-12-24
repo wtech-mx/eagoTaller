@@ -82,15 +82,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
+                        <label for="destino" class="col-sm-2 control-label">Destino: </label>
                         <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal">
+                            <input type="text" required class="form-control" id="destino" name="destino" placeholder="destino">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="total" class="col-sm-2 control-label">Total: </label>
+                        <label for="origen" class="col-sm-2 control-label">Origen: </label>
                         <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="total" name="total" placeholder="Total">
+                            <input type="number" required class="form-control" id="origen" name="origen" placeholder="origen">
                         </div>
                     </div>
                 </div>

@@ -18,8 +18,8 @@
             $casetas=$rw['casetas'];
             $trasladistas=$rw['trasladistas'];
             $vendedor=$rw['vendedor'];
-            $subtotal=$rw['subtotal'];
-            $total=$rw['total'];
+            $destino=$rw['destino'];
+            $origen=$rw['origen'];
             $created_at=$rw['fecha_carga'];
         }
     }   
@@ -97,15 +97,15 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
+    <label for="destino" class="col-sm-2 control-label">Destino: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="subtotal" name="subtotal" placeholder="Subtotal "><?php echo $subtotal ?></textarea>
+        <textarea type="text" required class="form-control" id="destino" name="destino" placeholder="Destino "><?php echo $destino ?></textarea>
     </div>
 </div>
 <div class="form-group">
-    <label for="total" class="col-sm-2 control-label">Total: </label>
+    <label for="origen" class="col-sm-2 control-label">Origen: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="total" name="total" placeholder="Total "><?php echo $total ?></textarea>
+        <textarea type="number" required class="form-control" id="origen" name="origen" placeholder="Origen "><?php echo $origen ?></textarea>
     </div>
 </div>
 

@@ -25,11 +25,11 @@
         $casetas = mysqli_real_escape_string($con,(strip_tags($_POST["casetas"],ENT_QUOTES)));
         $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
         $vendedor = mysqli_real_escape_string($con,(strip_tags($_POST["vendedor"],ENT_QUOTES)));
-        $subtotal = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal"],ENT_QUOTES)));
-        $total = mysqli_real_escape_string($con,(strip_tags($_POST["total"],ENT_QUOTES)));
+        $destino = mysqli_real_escape_string($con,(strip_tags($_POST["destino"],ENT_QUOTES)));
+        $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE traslados SET fecha_tras='".$fecha_tras."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', gasolina='".$gasolina."', casetas='".$casetas."', trasladistas='".$trasladistas."', vendedor='".$vendedor."', subtotal='".$subtotal."', total='".$total."' WHERE id='".$id."' ";
+    $sql = "UPDATE traslados SET fecha_tras='".$fecha_tras."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', gasolina='".$gasolina."', casetas='".$casetas."', trasladistas='".$trasladistas."', vendedor='".$vendedor."', destino='".$destino."', origen='".$origen."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

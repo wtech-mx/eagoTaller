@@ -58,7 +58,8 @@ if($action == 'ajax'){
                 <th>Fecha de Traslado</th>
                 <th>Cliente</th>
                 <th>Vehiculo</th>
-                <th>Datos</th>
+                <th>Destino</th>
+                <th>Origen</th>
                 <th>Fecha</th>
                 <th></th>
             </tr>
@@ -79,7 +80,8 @@ if($action == 'ajax'){
 				$vehiculo_rw=mysqli_fetch_array($vehiculos);
 				$patente_vehiculo=$vehiculo_rw['patente'];
 
-				$datos=$row['datos'];
+				$destino=$row['destino'];
+				$origen=$row['origen'];
 
 				$created_at=$row['fecha_carga'];
 				list($date,$hora)=explode(" ",$created_at);
@@ -95,7 +97,8 @@ if($action == 'ajax'){
                 <td><?php echo $fecha_tras ?></td>
                 <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $patente_vehiculo ?></td>
-                <td><?php echo $datos ?></td>
+                <td><?php echo $destino ?></td>
+                <td><?php echo $origen ?></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">
                     <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>
