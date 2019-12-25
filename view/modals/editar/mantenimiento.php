@@ -77,9 +77,9 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="gasolina" class="col-sm-2 control-label">Gasolina: </label>
+    <label for="gasolina" class="col-sm-2 control-label">Costo gasolina: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina "><?php echo $gasolina ?></textarea>
+        <textarea type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina $"><?php echo $gasolina ?></textarea>
     </div>
 </div>
 <div class="form-group">

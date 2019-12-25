@@ -1,3 +1,4 @@
+
     <button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
 
     <!-- Form Modal -->
@@ -115,9 +116,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="gasolina" class="col-sm-2 control-label">Gasolina: </label>
+                        <label for="gasolina" class="col-sm-2 control-label">Costo asolina: </label>
                         <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina">
+                            <input type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina $">
                         </div>
                     </div>
                     <div class="form-group">
