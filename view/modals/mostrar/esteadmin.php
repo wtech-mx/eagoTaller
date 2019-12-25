@@ -68,7 +68,7 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="gasolina_admin" class="col-sm-4 control-label">Gasolina: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Costo gasolina: </label>
     <div class="col-sm-8">
        <?php echo $gasolina_admin;?>
     </div>
