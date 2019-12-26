@@ -1,3 +1,4 @@
+
 <!-- Form Modal -->
 <div class="modal fade" id="modal_update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -13,10 +14,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="submit" id="actualizar_datos" class="btn btn-success">Actualizar</button>
+
+                <button  type="submit" id="actualizar_datos"  class="btn btn-success msg-basico">Actualizar</button>
             </div>
         </div>
     </form>
     </div>
 </div>
-<!-- End Form Modal -->

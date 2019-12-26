@@ -123,16 +123,10 @@ if (isset($errors)){
 								}
 							?>
 				</div>
- <!--           <script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
-            swal({
-          title: "¡ERROR!",
-          text: "¡Ocurrió un error al ingresar con Facebook, vuelve a intentarlo!",
-          type: "error",
-          confirmButtonText: "Cerrar",
-          closeOnConfirm: false
-          )};
-            </script>
--->
+                <script type="text/javascript">
+                        $("#actualizar_datos").val("");
+                swal("¡Bien!", " <?php echo $message;?> ", "success");
+                </script>
 
 				<?php
 			}

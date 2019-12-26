@@ -60,6 +60,7 @@
 <body>
     <section id="container">
         <header id="header">
+
             <!--logo start-->
             <div class="brand">
                 <a href="./?view=dashboard" ><span><?php echo $nombre_empresa; ?></span></a>
@@ -94,9 +95,7 @@
         <!--sidebar left start-->
         <aside class="sidebar">
             <div id="leftside-navigation" class="nano">
-                                 <li >
-                        <a href="http://eago.com.mx/eago-pag/index.php#"><i class="fa fa-cog"></i><span>Visita EAGO</span></a>
-                    </li>
+
                 <ul class="nano-content">
 
                     <?php if ($_SESSION['dashboard']==1) { ?>
@@ -189,9 +188,18 @@
                     <li class="<?php if(isset($active12)){echo $active12;}?>">
                         <a href="./?view=configuracion"><i class="fa fa-cog"></i><span>Configuración</span></a>
                     </li>
+                    <li >
+                        <a href="http://eago.com.mx/eago-pag/index.php#" target="blank">
+                            <i class="fa fa-circle"></i>
+                            <span>Visita EAGO</span></a>
+                    </li>
                 
                     <?php } ?>
                 </ul>
             </div>
         </aside>
         <!--sidebar left end-->
+
+        <!--SWEEALERTS-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
