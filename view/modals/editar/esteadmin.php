@@ -23,8 +23,15 @@
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $patente_vehiculo=$vehiculo_rw['patente'];
 
+                $idvehiculo=$rw['idvehiculo'];
+                $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
+                $vehiculo_rw=mysqli_fetch_array($vehiculos);
+                $marca_vehiculo=$vehiculo_rw['marca'];
 
-            
+
+            $trasladistas=$rw['trasladistas'];
+            $vendedor=$rw['vendedor'];
+            $datos=$rw['datos'];
             $reparacion=$rw['reparacion'];
             $trasladistas_admin=$rw['trasladistas_admin'];
             $gasolina_admin=$rw['gasolina_admin'];
@@ -58,21 +65,34 @@
     </div>
 </div>
 <div class="form-group">
+    <label for="idvehiculo" class="col-sm-4 control-label">Vehiculo: </label>
+    <div class="col-sm-8">
+        <?php echo $marca_vehiculo;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="datos" class="col-sm-4 control-label">Descripción: </label>
+    <div class="col-sm-8">
+        <?php echo $datos;?>
+    </div>
+</div>
+<div class="form-group">
     <label for="reparacion" class="col-sm-2 control-label">Reparación: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="reparacion" name="reparacion" placeholder="Reparación "><?php echo $reparacion ?></textarea>
+        <textarea type="number" required class="form-control" id="reparacion" name="reparacion" placeholder="$$$" onchange="SumarAutomatico(this.value);"><?php echo $reparacion ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="trasladistas_admin" class="col-sm-2 control-label">Trasladistas: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="trasladistas_admin" name="trasladistas_admin" placeholder="Trasladistas "><?php echo $trasladistas_admin ?></textarea>
+        <?php echo $trasladistas;?>
+        <textarea type="number" class="form-control" id="trasladistas_admin" name="trasladistas_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $trasladistas_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="gasolina_admin" class="col-sm-2 control-label">Gasolina: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="gasolina_admin" name="gasolina_admin" placeholder="Gasolina "><?php echo $gasolina_admin ?></textarea>
+        <textarea type="number" class="form-control" id="gasolina_admin" name="gasolina_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $gasolina_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
@@ -90,25 +110,55 @@
 <div class="form-group">
     <label for="vendedor_admin" class="col-sm-2 control-label">Vendedor: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="vendedor_admin" name="vendedor_admin" placeholder="Vendedor "><?php echo $vendedor_admin ?></textarea>
+        <?php echo $vendedor;?>
+        <textarea type="number" class="form-control" id="vendedor_admin" name="vendedor_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $vendedor_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="subtotal_admin" class="col-sm-2 control-label">Subtotal: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="subtotal_admin" name="subtotal_admin" placeholder="Subtotal "><?php echo $subtotal_admin ?></textarea>
+        <textarea class="form-control" id="subtotal_admin" name="subtotal_admin" onchange="SumarAuto(this.value);"></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="eago_admin" class="col-sm-2 control-label">EAGO: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="eago_admin" name="eago_admin" placeholder="EAGO "><?php echo $eago_admin ?></textarea>
+        <textarea type="number" class="form-control" id="eago_admin" name="eago_admin" placeholder="$$$" onchange="SumarAuto(this.value);" ><?php echo $eago_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="total_admin" class="col-sm-2 control-label">Total: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="total_admin" name="total_admin" placeholder="Total "><?php echo $total_admin ?></textarea>
+        <textarea class="form-control" id="total_admin" name="total_admin"></textarea>
     </div>
 </div>
 
+<script type="text/javascript">
+/* Funcion suma. */
+function SumarAutomatico (valor) {
+    var TotalSuma = 0;  
+    valor = parseInt(valor); // Convertir a numero entero (número).
+    TotalSuma = document.getElementById('subtotal_admin').innerHTML;
+    // Valida y pone en cero "0".
+    TotalSuma = (TotalSuma == null || TotalSuma == undefined || TotalSuma == "") ? 0 : TotalSuma;
+    /* Variable genrando la suma. */
+    TotalSuma = (parseInt(TotalSuma) + parseInt(valor));
+    // Escribir el resultado en una etiqueta "span".
+    document.getElementById('subtotal_admin').innerHTML = TotalSuma;
+}
+</script>
+
+<script type="text/javascript">
+/* Funcion suma. */
+function SumarAuto (valor) {
+    var TotalSuma = 0;  
+    valor = parseInt(valor); // Convertir a numero entero (número).
+    TotalSuma = document.getElementById('total_admin').innerHTML;
+    // Valida y pone en cero "0".
+    TotalSuma = (TotalSuma == null || TotalSuma == undefined || TotalSuma == "") ? 0 : TotalSuma;
+    /* Variable genrando la suma. */
+    TotalSuma = (parseInt(TotalSuma) + parseInt(valor));
+    // Escribir el resultado en una etiqueta "span".
+    document.getElementById('total_admin').innerHTML = TotalSuma;
+}
+</script>

@@ -13,6 +13,7 @@
         	&& !empty($_POST['gasolina_admin'])
         	&& !empty($_POST['casetas_admin'])
         	&& !empty($_POST['trasladistas_admin'])
+        	
         ){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 
@@ -67,4 +68,6 @@ if (isset($errors)){
 				</div>
 				<?php
 			}
+
+
 ?>			

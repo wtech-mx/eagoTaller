@@ -1,16 +1,16 @@
 <?php
-    session_start();
-    require_once ("../../../config/config.php");
-    if (isset($_GET["id"])){
-        $id=$_GET["id"];
-        $id=intval($id);
-        $sql="select * from verificacion where id='$id'";
-        $query=mysqli_query($con,$sql);
-        $num=mysqli_num_rows($query);
-        if ($num==1){
-            $rw=mysqli_fetch_array($query);
+	session_start();
+	require_once ("../../../config/config.php");
+	if (isset($_GET["id"])){
+		$id=$_GET["id"];
+		$id=intval($id);
+		$sql="select * from verificacion where id='$id'";
+		$query=mysqli_query($con,$sql);
+		$num=mysqli_num_rows($query);
+		if ($num==1){
+			$rw=mysqli_fetch_array($query);
 
-                $idcliente=$rw['idcliente'];
+				$idcliente=$rw['idcliente'];
                 $clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
@@ -20,15 +20,15 @@
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $patente_vehiculo=$vehiculo_rw['patente'];
 
-                $datos=$rw['datos'];
-                $derechos=$rw['derechos'];
-                $otros=$rw['otros'];
-                $trasladistas=$rw['trasladistas'];
-                $vendedor=$rw['vendedor'];
-                $fecha_carga=$rw['fecha_carga'];
-        }
-    }   
-    else{exit;}
+				$datos=$rw['datos'];
+				$derechos=$rw['derechos'];
+				$otros=$rw['otros'];
+				$trasladistas=$rw['trasladistas'];
+				$vendedor=$rw['vendedor'];
+				$fecha_carga=$rw['fecha_carga'];
+		}
+	}	
+	else{exit;}
 ?>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 <div class="form-group">

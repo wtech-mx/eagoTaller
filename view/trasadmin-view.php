@@ -21,8 +21,8 @@
                 <div class="col-xs-3">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="Buscar por nombre" id='q' onkeyup="load(1);">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                       </span>
                     </div><!-- /input-group -->
                 </div>

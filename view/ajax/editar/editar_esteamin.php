@@ -8,11 +8,27 @@
             $errors[] = "otros está vacío.";
         } elseif (empty($_POST['trasladistas_admin'])) {
             $errors[] = "Trasladistas está vacío.";
-        }  elseif (
+        } elseif (empty($_POST['asesor'])) {
+            $errors[] = "asesor está vacío.";
+        } elseif (empty($_POST['vendedor_admin'])) {
+            $errors[] = "vendedor está vacío.";
+        } elseif (empty($_POST['subtotal_admin'])) {
+            $errors[] = "subtotal está vacío.";
+        } elseif (empty($_POST['eago_admin'])) {
+            $errors[] = "eago está vacío.";
+        } elseif (empty($_POST['total_admin'])) {
+            $errors[] = "total está vacío.";
+        }
+         elseif (
         	!empty($_POST['reparacion'])
         	&& !empty($_POST['gasolina_admin'])
         	&& !empty($_POST['otros_admin'])
         	&& !empty($_POST['trasladistas_admin'])
+        	&& !empty($_POST['asesor'])
+        	&& !empty($_POST['vendedor_admin'])
+        	&& !empty($_POST['subtotal_admin'])
+        	&& !empty($_POST['eago_admin'])
+        	&& !empty($_POST['total_admin'])
         ){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 
