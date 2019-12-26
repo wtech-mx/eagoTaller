@@ -98,13 +98,13 @@
 <div class="form-group">
     <label for="otros_admin" class="col-sm-2 control-label">otro: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="otros_admin" name="otros_admin" placeholder="otro "><?php echo $otros_admin ?></textarea>
+        <textarea type="text"  class="form-control" id="otros_admin" name="otros_admin" placeholder="otro "><?php echo $otros_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="asesor" class="col-sm-2 control-label">Asesor: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="asesor" name="asesor" placeholder="Asesor "><?php echo $asesor ?></textarea>
+        <textarea type="text"  class="form-control" id="asesor" name="asesor" placeholder="Asesor "><?php echo $asesor ?></textarea>
     </div>
 </div>
 <div class="form-group">
@@ -112,19 +112,19 @@
     <div class="col-sm-10">
         <?php echo $vendedor;?>
         <textarea type="number" class="form-control" id="vendedor_admin" name="vendedor_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $vendedor_admin ?></textarea>
-    </div>
+</div>
 </div>
 <div class="form-group">
     <label for="subtotal_admin" class="col-sm-2 control-label">Subtotal: </label>
     <div class="col-sm-10">
         <textarea class="form-control" id="subtotal_admin" name="subtotal_admin" onchange="SumarAuto(this.value);"></textarea>
-    </div>
+</div>
 </div>
 <div class="form-group">
     <label for="eago_admin" class="col-sm-2 control-label">EAGO: </label>
     <div class="col-sm-10">
         <textarea type="number" class="form-control" id="eago_admin" name="eago_admin" placeholder="$$$" onchange="SumarAuto(this.value);" ><?php echo $eago_admin ?></textarea>
-    </div>
+</div>
 </div>
 <div class="form-group">
     <label for="total_admin" class="col-sm-2 control-label">Total: </label>
