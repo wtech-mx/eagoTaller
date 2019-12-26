@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-12-2019 a las 07:47:55
+-- Tiempo de generación: 26-12-2019 a las 08:05:26
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -499,6 +499,29 @@ CREATE TABLE `seguro` (
 
 INSERT INTO `seguro` (`id`, `nombre`, `poliza`, `vencimiento`, `fecha_carga`) VALUES
 (1, 'informatica', '12', '2018-06-27', '2019-11-14 03:45:37');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `slide`
+--
+
+CREATE TABLE `slide` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `folder` varchar(255) NOT NULL,
+  `src` varchar(255) NOT NULL,
+  `created_at` varchar(255) NOT NULL,
+  `boton` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `slide`
+--
+
+INSERT INTO `slide` (`id`, `title`, `folder`, `src`, `created_at`, `boton`) VALUES
+(2, 'prueba2', 'uploads/', 'carousel2.jpg', '2019-12-24 15:05:23', '0000-00-00 00:00:00'),
+(3, 'prueba3', 'uploads/', 'lubricantes.jpg', '2019-12-24 15:11:54', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
