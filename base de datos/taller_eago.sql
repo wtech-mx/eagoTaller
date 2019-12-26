@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-12-2019 a las 05:37:19
+-- Tiempo de generación: 26-12-2019 a las 07:47:55
 -- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.10
+-- Versión de PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -113,7 +113,9 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `placa`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`) VALUES
 (1, 'Dayanna', 'Espinosa Verplancken', '5538807266', 'dayanna@gmail.com', 22, 'KM-120', '2019-12-09', 'lindavista', 'Casas Aleman', 7590, 7580, 60, 'estudiante', 'trabajo', 1),
 (2, 'Itzel', 'verplancken', '5560984629', 'itzel@gmail.com', 25, 'JWE-390', '2019-12-10', 'zaragoza', '', 7540, 0, 80, 'trabajo', 'estudiante', 1),
-(5, 'karla', 'Espinosa', '(553) 990-5333', 'karla@gmail.com', 20, 'LM-08', '2019-12-12', 'srf', '', 7580, 0, 43, 'erf', 'sre', 1);
+(5, 'karla', 'Espinosa', '(553) 990-5333', 'karla@gmail.com', 20, 'LM-08', '2019-12-12', 'srf', '', 7580, 0, 43, 'erf', 'sre', 1),
+(6, 'josue', 'hernandez', '6573241', 'josue@gmail.com', 21, '', '2020-12-09', 'aeropuerto', 'upiicsa', 7580, 0, 0, 'trabajo', 'premium', 0),
+(7, 'ricardo', 'lara', '55693460', 'ricardo@gmail.com', 56, '', '2020-02-16', 'Montevideo', '', 8253, 0, 60, 'Mexicano', 'A', 0);
 
 -- --------------------------------------------------------
 
@@ -165,7 +167,7 @@ CREATE TABLE `documentacion` (
 INSERT INTO `documentacion` (`id`, `idcliente`, `idvehiculo`, `documento_code`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `fecha_carga`) VALUES
 (27, 1, 1, '3', 'view/resources/images/1576900847_bicycle-1869176_1280.jpg', 'view/resources/images/1576900759_5dccf4af52288.png', 'view/resources/images/1576900753_foto_3.jpg', 'view/resources/images/1576900764_5dccf3a66f463.png', 'view/resources/images/1576900781_person-731492_1280.jpg', 'view/resources/images/1576900777_2.jpg', '2019-12-21 04:58:58'),
 (36, 1, 28, '7', 'view/resources/images/1576902349_bicycle-1869176_1280.jpg', 'view/resources/images/1576902315_5dccf3a66f463.png', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 05:25:08'),
-(38, 1576902953, 1576902953, '1576902953-1', 'view/resources/images/1576902958_3.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 05:35:53');
+(39, 2, 1, '5', 'view/resources/images/1576906523_2.jpg', 'view/resources/images/1576906526_3.jpg', 'view/resources/images/1576906529_4.jpg', 'view/resources/images/1576906533_5dccf3a66f463.png', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 06:35:15');
 
 -- --------------------------------------------------------
 
@@ -295,9 +297,6 @@ CREATE TABLE `estetica` (
   `gasolina` float NOT NULL,
   `otros` varchar(40) NOT NULL,
   `vendedor` varchar(40) NOT NULL,
-  `subtotal` float NOT NULL,
-  `eago` float NOT NULL,
-  `total` float NOT NULL,
   `fecha_carga` datetime NOT NULL,
   `reparacion` varchar(50) NOT NULL,
   `trasladistas_admin` varchar(50) NOT NULL,
@@ -314,9 +313,11 @@ CREATE TABLE `estetica` (
 -- Volcado de datos para la tabla `estetica`
 --
 
-INSERT INTO `estetica` (`id`, `fecha_rep`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `subtotal`, `eago`, `total`, `fecha_carga`, `reparacion`, `trasladistas_admin`, `gasolina_admin`, `otros_admin`, `asesor`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`) VALUES
-(1, '2019-12-12', 1, 1, 'cambio de llantas y cambio de aceite', 'Jose', 50, '30', 'pepe', 80, 80, 160, '2019-12-16 13:45:42', '', '', 0, '', '', '', 0, 0, 0),
-(2, '2019-12-17', 2, 28, 'arreglo de faros', 'jorge', 90, '20', 'pablo', 110, 50, 160, '2019-12-16 21:39:59', '', '', 0, '', '', '', 0, 0, 0);
+INSERT INTO `estetica` (`id`, `fecha_rep`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `fecha_carga`, `reparacion`, `trasladistas_admin`, `gasolina_admin`, `otros_admin`, `asesor`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`) VALUES
+(1, '2019-12-12', 1, 1, 'cambio de llantas y cambio de aceite', 'Jose duran', 30, '30', 'pepe tapia', '2019-12-16 13:45:42', '', '', 0, '', '', '', 0, 0, 0),
+(2, '2019-12-17', 2, 28, 'arreglo de faros', 'jorge', 90, '20', 'pablo', '2019-12-16 21:39:59', '', '', 0, '', '', '', 0, 0, 0),
+(3, '2020-04-09', 5, 28, 'faros', 'jorge', 54, '46', 'pablo', '2019-12-21 06:24:06', '', '', 0, '', '', '', 0, 0, 0),
+(4, '2019-12-26', 2, 28, 'lavado', 'jorge', 56, '', 'pedro', '2019-12-21 09:06:55', '', '', 0, '', '', '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -337,9 +338,6 @@ CREATE TABLE `gestoria` (
   `otro` varchar(50) CHARACTER SET latin1 NOT NULL,
   `trasladistas` varchar(50) NOT NULL,
   `gasolina` float NOT NULL,
-  `subtotal` float NOT NULL,
-  `eago` float NOT NULL,
-  `total` float NOT NULL,
   `gestion` varchar(50) NOT NULL,
   `idcarro` int(11) NOT NULL,
   `gastos` float NOT NULL,
@@ -357,10 +355,11 @@ CREATE TABLE `gestoria` (
 -- Volcado de datos para la tabla `gestoria`
 --
 
-INSERT INTO `gestoria` (`id`, `idcliente`, `idvehiculo`, `datos`, `fecha_ges`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`, `trasladistas`, `gasolina`, `subtotal`, `eago`, `total`, `gestion`, `idcarro`, `gastos`, `mensajeria`, `mesa`, `vendedor`, `general`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
-(1, 1, 28, 'hdkasj', '2019-12-11', '2019-11-05', '2019-11-25', '2019-12-04', '2019-12-07', '80', 'Carlos', 10, 80, 20, 100, 'uhfe', 1, 20, 'ijio', '', 'hui', 'huih', 30, 40, 80, '2019-12-16 06:31:38'),
-(3, 5, 1, 'gestoria', '2019-12-13', '2019-08-04', '2019-07-08', '2019-03-08', '2019-04-08', '40', 'jose', 90, 130, 70, 200, 'hfsj', 5, 20, 'hkjsd', '', 'fjsd', 'sfudh', 50, 60, 80, '2019-12-03 10:16:08'),
-(7, 2, 28, 'kmfklsd', '2019-04-09', '2019-05-31', '2019-05-04', '2019-12-31', '2019-05-04', '345', 'sfg', 546, 12, 123, 4534, 'gdh', 2, 5, 'dfg', '', 'sd', 'sdg', 90, 50, 40, '2019-12-19 04:46:02');
+INSERT INTO `gestoria` (`id`, `idcliente`, `idvehiculo`, `datos`, `fecha_ges`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`, `trasladistas`, `gasolina`, `gestion`, `idcarro`, `gastos`, `mensajeria`, `mesa`, `vendedor`, `general`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
+(1, 1, 28, 'hdkasj', '2019-12-11', '2019-11-05', '2019-11-25', '2019-12-04', '2019-12-07', '80', 'Carlos', 10, 'uhfe', 1, 10, '40', '', '20', '30', 100, 80, 180, '2019-12-16 06:31:38'),
+(3, 5, 1, 'gestoria', '2019-12-13', '2019-08-04', '2019-07-08', '2019-03-08', '2019-04-08', '40', 'jose', 90, 'hfsj', 5, 90, '30', '', '60', '70', 250, 10, 260, '2019-12-03 10:16:08'),
+(7, 2, 28, 'kmfklsd', '2019-04-09', '2019-05-31', '2019-05-04', '2019-12-31', '2019-05-04', '345', 'sfg', 546, 'gdh', 2, 40, '20', '', '80', '58', 198, 46, 244, '2019-12-19 04:46:02'),
+(8, 2, 63, 'asientos', '2020-03-12', '2019-03-04', '2020-03-04', '2020-04-03', '2020-03-12', '23', 'jorge', 42, '', 2, 6, '40\r\n', '', '45\r\n', '40\r\n', 131, 50, 181, '2019-12-21 06:26:15');
 
 -- --------------------------------------------------------
 
@@ -389,19 +388,23 @@ CREATE TABLE `mantenimiento` (
   `gasolina` float NOT NULL,
   `otros` varchar(50) NOT NULL,
   `vendedor` varchar(50) NOT NULL,
-  `subtotal` float NOT NULL,
-  `eago` float NOT NULL,
-  `total` float NOT NULL,
-  `fecha_carga` datetime NOT NULL
+  `fecha_carga` datetime NOT NULL,
+  `subtotal` double NOT NULL,
+  `eago` double NOT NULL,
+  `total` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `mantenimiento`
 --
 
-INSERT INTO `mantenimiento` (`id`, `fecha_man`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `subtotal`, `eago`, `total`, `fecha_carga`) VALUES
-(1, '2019-12-12', 1, 1, 'motor, parabrisas', 'jose', 30, '20', 'carlos', 50, 20, 70, '2019-12-16 15:24:14'),
-(2, '2019-12-16', 2, 28, 'asientos', 'jorge', 15, '10', 'carlos', 25, 60, 85, '2019-12-16 23:24:12');
+INSERT INTO `mantenimiento` (`id`, `fecha_man`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `fecha_carga`, `subtotal`, `eago`, `total`) VALUES
+(1, '2019-12-12', 1, 1, 'motor, parabrisas', 'jose', 30, '20', 'carlos', '2019-12-16 15:24:14', 0, 0, 0),
+(2, '2019-12-16', 2, 28, 'asientos', 'jorge', 15, '10', 'carlos', '2019-12-16 23:24:12', 0, 0, 0),
+(3, '2019-04-12', 1, 63, 'llantas', 'jorge', 90, '23', '', '2019-12-21 06:20:39', 0, 0, 0),
+(4, '2019-12-31', 2, 28, 'lol', 'jorge', 54, '', '', '2019-12-21 08:23:34', 0, 0, 0),
+(5, '2019-12-31', 1, 1, 'pintura', 'jorge', 23, '', '', '2019-12-21 08:31:15', 0, 0, 0),
+(6, '2020-04-07', 5, 1, 'teclado', 'fernando', 20, '', 'carlos', '2019-12-21 08:38:51', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -560,8 +563,8 @@ CREATE TABLE `traslados` (
   `casetas` int(20) NOT NULL,
   `trasladistas` text NOT NULL,
   `vendedor` text NOT NULL,
-  `subtotal` float NOT NULL,
-  `total` float NOT NULL,
+  `origen` varchar(100) NOT NULL,
+  `destino` varchar(100) NOT NULL,
   `autobus` varchar(50) NOT NULL,
   `gasolina_admin` float NOT NULL,
   `casetas_admin` float NOT NULL,
@@ -577,9 +580,10 @@ CREATE TABLE `traslados` (
 -- Volcado de datos para la tabla `traslados`
 --
 
-INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `gasolina`, `casetas`, `trasladistas`, `vendedor`, `subtotal`, `total`, `autobus`, `gasolina_admin`, `casetas_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
-(1, '2019-12-06', 1, 1, 'jaja', 500, 208, 'Josue Adrian', 'Charls Verplancken', 708, 908, '498', 12, 50, 'Brandon', 'sdf', 80, 30, 1500, '2019-12-14 15:26:21'),
-(2, '2019-12-24', 1, 1, 'pko', 90, 234, 'Joel', 'Diana', 312, 4342, '', 0, 0, '', '', 0, 0, 0, '2019-12-14 22:30:52');
+INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `gasolina`, `casetas`, `trasladistas`, `vendedor`, `origen`, `destino`, `autobus`, `gasolina_admin`, `casetas_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
+(1, '2019-12-06', 1, 1, 'jaja', 500, 208, 'Josue Adrian', 'Charls Verplancken', 'casas aleman', 'santa fe', '498', 60, 50, 'Brandon', 'sdf', 110, 50, 160, '2019-12-14 15:26:21'),
+(2, '2019-12-24', 2, 1, 'pko', 90, 234, 'Joel', 'Diana', 'Monterrey', 'CDMX', '', 0, 0, '', '', 0, 0, 0, '2019-12-14 22:30:52'),
+(3, '2020-02-03', 1, 28, 'sdf', 45, 34, 'jorge', 'miguel', 'CDMX', 'Guadalajara', '', 0, 0, '', '', 0, 0, 0, '2019-12-21 06:31:57');
 
 -- --------------------------------------------------------
 
@@ -614,9 +618,11 @@ CREATE TABLE `vehiculo` (
 INSERT INTO `vehiculo` (`id`, `idcliente`, `vehiculo_code`, `patente`, `marca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `idseguro`, `color`, `foto4`, `estado`, `foto1`, `foto2`, `foto3`, `fecha_carga`) VALUES
 (1, 1, '1', 'KM-120', 'hyundai', '21332', 'xcdds23', 'xvcvrerx3', '2019-10-10', 1, 'blanco', 'view/resources/images/1576820475_person-731492_1280.jpg', 1, 'view/resources/images/1576820460_snow-3066167_1280.jpg', 'view/resources/images/1576820469_foto_3.jpg', 'view/resources/images/1576820464_sign-741813_1280.jpg', '2019-11-25 03:46:37'),
 (28, 2, '2', 'LO-300', 'audi', '2016', 'pñl', '0932', '2019-03-17', 1, 'negro', 'view/resources/images/1576820433_bicycle-1869176_1280.jpg', 2, 'view/resources/images/1576820439_LogosinF.png', 'view/resources/images/1576820430_foto_1.jpg', 'view/resources/images/1576820445_sign-741813_1280.jpg', '2019-12-17 07:05:38'),
-(51, 5, '6', 'dfg', 'jjkdgf', 'jfd', 'sdg', 'sdfg', '2019-08-14', 1, 'todos', 'view/resources/images/1576820401_3.jpg', 1, 'view/resources/images/1576820319_2.jpg', 'view/resources/images/1576820394_5dccf4af52288.png', 'view/resources/images/1576820390_4.jpg', '2019-12-20 05:58:40'),
+(51, 2, '6', 'dfg', 'jjkdgf', 'jfd', 'sdg', 'sdfg', '2019-08-14', 1, 'todos', 'view/resources/images/1576820401_3.jpg', 2, 'view/resources/images/1576820319_2.jpg', 'view/resources/images/1576820394_5dccf4af52288.png', 'view/resources/images/1576820390_4.jpg', '2019-12-20 05:58:40'),
 (54, 5, '4', 'gfhj', 'fg', 'dgfh', 'dfg', 'dg', '2019-03-14', 1, 'negro', 'view/resources/images/vehiculo.jpg', 1, 'view/resources/images/1576890436_5dccf4af52288.png', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 02:06:21'),
-(60, 5, '5', '976', 'audi', '2016', 'kl.s', '00099', '2019-09-12', 1, 'azul', 'view/resources/images/1576891852_5dccf3a66f463.png', 1, 'view/resources/images/1576891860_4.jpg', 'view/resources/images/1576891856_foto_2.jpg', 'view/resources/images/1576891864_bicycle-1869176_1280.jpg', '2019-12-21 02:30:47');
+(60, 1, '5', '976', 'audi', '2016', 'kl.s', '00099', '2019-09-12', 1, 'azul', 'view/resources/images/1576891852_5dccf3a66f463.png', 1, 'view/resources/images/1576891860_4.jpg', 'view/resources/images/1576891856_foto_2.jpg', 'view/resources/images/1576891864_bicycle-1869176_1280.jpg', '2019-12-21 02:30:47'),
+(63, 2, '6', '976', 'benz', '89', 'ofl', 'fsd', '2020-12-19', 1, '33', 'view/resources/images/1576905283_5dccf3a66f463.png', 1, 'view/resources/images/1576905278_2.jpg', 'view/resources/images/1576905287_LogosinF.png', 'view/resources/images/1576905280_4.jpg', '2019-12-21 06:13:30'),
+(68, 1577334670, '1577334670-1', '', '', '', '', '', '0000-00-00', 0, '', 'view/resources/images/vehiculo.jpg', 127, 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-26 05:31:10');
 
 -- --------------------------------------------------------
 
@@ -653,8 +659,9 @@ CREATE TABLE `verificacion` (
 --
 
 INSERT INTO `verificacion` (`id`, `fecha_veri`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`, `derechos`, `otros`, `trasladistas`, `vendedor`, `idcarro`, `subtotal`, `eago`, `total`, `derechos_admin`, `otros_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`) VALUES
-(1, '2019-12-03', 1, 1, 'jdf', '2019-12-12 05:12:12', 'jkds', 'opad', 'Jose ', 'Carlos', 1, 200, 500, 700, 'rer', '34', 'gfhd', 'dfg', 345, 3453, 24565),
-(2, '2019-11-13', 2, 1, 'kñ', '2019-12-14 22:06:17', 'mlk', 'pl', 'Daniel', 'Gerardo', 2, 1000, 300, 1300, '', '', '', '', 0, 0, 0);
+(1, '2019-12-03', 1, 1, 'jdf', '2019-12-12 05:12:12', 'jkds', 'opad', 'Jose ', 'Carlos', 1, 200, 500, 700, 'rer', '34', '20', '30', 50, 50, 100),
+(2, '2019-11-13', 2, 1, 'kñ', '2019-12-14 22:06:17', 'mlk', 'pl', 'Daniel', 'Gerardo', 2, 1000, 300, 1300, 'eago', 'sfgr', '60', '50', 110, 90, 200),
+(3, '2019-05-03', 5, 28, 'wet', '2019-12-21 06:28:51', 'twe', '43', 're', 'ter', 0, 34, 354, 543, '', '', '', '', 0, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -808,7 +815,7 @@ ALTER TABLE `choque`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `configuracion`
@@ -820,7 +827,7 @@ ALTER TABLE `configuracion`
 -- AUTO_INCREMENT de la tabla `documentacion`
 --
 ALTER TABLE `documentacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -844,13 +851,13 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de la tabla `estetica`
 --
 ALTER TABLE `estetica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `gestoria`
 --
 ALTER TABLE `gestoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `kind`
@@ -862,7 +869,7 @@ ALTER TABLE `kind`
 -- AUTO_INCREMENT de la tabla `mantenimiento`
 --
 ALTER TABLE `mantenimiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
@@ -904,19 +911,19 @@ ALTER TABLE `tarjeta`
 -- AUTO_INCREMENT de la tabla `traslados`
 --
 ALTER TABLE `traslados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de la tabla `verificacion`
 --
 ALTER TABLE `verificacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
