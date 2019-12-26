@@ -1,23 +1,19 @@
 <?php
     include("../is_logged.php");//Archivo comprueba si el usuario esta logueado	
-	if (empty($_POST['gestion'])){
-			$errors[] = "Gestión está vacío.";
-		}  elseif (empty($_POST['gastos'])) {
+	if (empty($_POST['gastos'])) {
             $errors[] = "Gastos está vacío.";
         }  elseif (empty($_POST['mensajeria'])) {
             $errors[] = "Mensajeria está vacío.";
         } elseif (empty($_POST['vendedor'])) {
             $errors[] = "Datos está vacío.";
         }  elseif (
-        	!empty($_POST['gestion'])
-        	&& !empty($_POST['gastos'])
+        	!empty($_POST['gastos'])
         	&& !empty($_POST['mensajeria'])
         	&& !empty($_POST['vendedor'])
         ){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 
        // escaping, additionally removing everything that could be (html/javascript-) code
-        $gestion = mysqli_real_escape_string($con,(strip_tags($_POST["gestion"],ENT_QUOTES)));
         $gastos = mysqli_real_escape_string($con,(strip_tags($_POST["gastos"],ENT_QUOTES)));
         $mensajeria = mysqli_real_escape_string($con,(strip_tags($_POST["mensajeria"],ENT_QUOTES)));
         $vendedor = mysqli_real_escape_string($con,(strip_tags($_POST["vendedor"],ENT_QUOTES)));
@@ -27,7 +23,7 @@
         $total_admin = mysqli_real_escape_string($con,(strip_tags($_POST["total_admin"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE gestoria SET  gestion='".$gestion."', gastos='".$gastos."', mensajeria='".$mensajeria."', vendedor='".$vendedor."', general='".$general."', subtotal_admin='".$subtotal_admin."', eago_admin='".$eago_admin."', total_admin='".$total_admin."' WHERE id='".$id."' ";
+    $sql = "UPDATE gestoria SET gastos='".$gastos."', mensajeria='".$mensajeria."', vendedor='".$vendedor."', general='".$general."', subtotal_admin='".$subtotal_admin."', eago_admin='".$eago_admin."', total_admin='".$total_admin."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {
