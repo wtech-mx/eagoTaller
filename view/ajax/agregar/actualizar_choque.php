@@ -103,6 +103,10 @@
 							}
 						?>
 			</div>
+<script type="text/javascript">
+        $("#actualizar_datos").val("");
+swal("¡Bien!", " <?php echo $message;?> ", "success");
+</script>
 			<?php
 		}
 ?>			
