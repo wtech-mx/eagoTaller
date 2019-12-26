@@ -60,55 +60,55 @@
 <div class="form-group">
     <label for="reparacion" class="col-sm-2 control-label">Reparación: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="reparacion" name="reparacion" placeholder="Reparación "><?php echo $reparacion ?></textarea>
+        <textarea type="text"  class="form-control" id="reparacion" name="reparacion" placeholder="Reparación "><?php echo $reparacion ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="trasladistas_admin" class="col-sm-2 control-label">Trasladistas: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="trasladistas_admin" name="trasladistas_admin" placeholder="Trasladistas "><?php echo $trasladistas_admin ?></textarea>
+        <textarea type="text"  class="form-control" id="trasladistas_admin" name="trasladistas_admin" placeholder="Trasladistas "><?php echo $trasladistas_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="gasolina_admin" class="col-sm-2 control-label">Gasolina: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="gasolina_admin" name="gasolina_admin" placeholder="Gasolina "><?php echo $gasolina_admin ?></textarea>
+        <textarea type="number"  class="form-control" id="gasolina_admin" name="gasolina_admin" placeholder="Gasolina "><?php echo $gasolina_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="otros_admin" class="col-sm-2 control-label">otro: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="otros_admin" name="otros_admin" placeholder="otro "><?php echo $otros_admin ?></textarea>
+        <textarea type="text"  class="form-control" id="otros_admin" name="otros_admin" placeholder="otro "><?php echo $otros_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="asesor" class="col-sm-2 control-label">Asesor: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="asesor" name="asesor" placeholder="Asesor "><?php echo $asesor ?></textarea>
+        <textarea type="text"  class="form-control" id="asesor" name="asesor" placeholder="Asesor "><?php echo $asesor ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="vendedor_admin" class="col-sm-2 control-label">Vendedor: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="vendedor_admin" name="vendedor_admin" placeholder="Vendedor "><?php echo $vendedor_admin ?></textarea>
+        <textarea type="text"  class="form-control" id="vendedor_admin" name="vendedor_admin" placeholder="Vendedor "><?php echo $vendedor_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="subtotal_admin" class="col-sm-2 control-label">Subtotal: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="subtotal_admin" name="subtotal_admin" placeholder="Subtotal "><?php echo $subtotal_admin ?></textarea>
+        <textarea type="number"  class="form-control" id="subtotal_admin" name="subtotal_admin" placeholder="Subtotal "><?php echo $subtotal_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="eago_admin" class="col-sm-2 control-label">EAGO: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="eago_admin" name="eago_admin" placeholder="EAGO "><?php echo $eago_admin ?></textarea>
+        <textarea type="number"  class="form-control" id="eago_admin" name="eago_admin" placeholder="EAGO "><?php echo $eago_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="total_admin" class="col-sm-2 control-label">Total: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="total_admin" name="total_admin" placeholder="Total "><?php echo $total_admin ?></textarea>
+        <textarea type="number"  class="form-control" id="total_admin" name="total_admin" placeholder="Total "><?php echo $total_admin ?></textarea>
     </div>
 </div>
 
