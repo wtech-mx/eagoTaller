@@ -42,7 +42,7 @@
                                <!--  <option value="">--- SELECCIONA ---</option> -->
                             <?php
                                 require_once ("config/config.php");
-                                $vehiculos=mysqli_query($con,"select * from vehiculo");
+                                $vehiculos=mysqli_query($con,"select * from vehiculo  where estado=1 order by patente");
                                 while ($rw=mysqli_fetch_array($vehiculos)) {
                             ?>
                                 <option value="<?php echo $rw['id']?>"><?php echo $rw['patente']?></option>

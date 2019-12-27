@@ -39,7 +39,7 @@
                         <div class="col-sm-4">
                                         <select class="form-control" name="vehiculo" id="vehiculo" required>
                                             <?php 
-                                            $sql_vehiculos=mysqli_query($con,"select * from vehiculo");
+                                            $sql_vehiculos=mysqli_query($con,"select * from vehiculo  where estado=1 order by marca");
                                                 while ($rw=mysqli_fetch_array($sql_vehiculos)){
                                                     $idvehiculo=$rw['id'];
                                                     $marca_vehiculo=$rw['marca'];
