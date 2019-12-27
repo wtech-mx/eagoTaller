@@ -1,8 +1,8 @@
 <?php 
-    $active7="active";
+    $active6="active";
     include "resources/header.php";
     
-    if ($_SESSION['sector']==1){
+    if ($_SESSION['admin']==1){
 ?>
     <!--main content start-->
     <section class="main-content-wrapper">
@@ -12,11 +12,11 @@
                         <!--breadcrumbs start -->
                         <ul class="breadcrumb  pull-right">
                             <li><a href="./?view=dashboard">Dashboard</a></li>
-                            <li class="active">Sectores</li>
+                            <li class="active">admin</li>
                         </ul>
                         <!--breadcrumbs end -->
                         <br>
-                    <h1 class="h1">Sectores</h1>
+                    <h1 class="h1">Administrador</h1>
                 </div>
             </div>
             
@@ -37,8 +37,8 @@
                 <div class="col-md-offset-10">
                     <!-- modals -->
                         <?php 
-                            include "modals/agregar/agregar_sector.php";
-                            include "modals/editar/editar_sector.php";
+                            include "modals/agregar/agregar_admin.php";
+                            include "modals/editar/editar_admin.php";
                         ?>
                     <!-- /end modals -->
                     
@@ -96,7 +96,7 @@
         var parametros = {"action":"ajax","page":page,'query':query,'per_page':per_page};
         $("#loader").fadeIn('slow');
         $.ajax({
-            url:'view/ajax/sector_ajax.php',
+            url:'view/ajax/admin_ajax.php',
             data: parametros,
              beforeSend: function(objeto){
             $("#loader").html("<img src='./assets/img/ajax-loader.gif'>");
@@ -146,7 +146,7 @@
      var parametros = $(this).serialize();
          $.ajax({
                 type: "POST",
-                url: "view/ajax/agregar/agregar_sector.php",
+                url: "view/ajax/agregar/agregar_admin.php",
                 data: parametros,
                  beforeSend: function(objeto){
                     $("#resultados_ajax").html("Enviando...");
@@ -170,7 +170,7 @@
      var parametros = $(this).serialize();
          $.ajax({
                 type: "POST",
-                url: "view/ajax/editar/editar_sector.php",
+                url: "view/ajax/editar/editar_admin.php",
                 data: parametros,
                  beforeSend: function(objeto){
                     $("#resultados_ajax").html("Enviando...");
@@ -192,7 +192,7 @@
     function editar(id){
         var parametros = {"action":"ajax","id":id};
         $.ajax({
-                url:'view/modals/editar/sector.php',
+                url:'view/modals/editar/admin.php',
                 data: parametros,
                  beforeSend: function(objeto){
                 $("#loader2").html("<img src='./assets/img/ajax-loader.gif'>");

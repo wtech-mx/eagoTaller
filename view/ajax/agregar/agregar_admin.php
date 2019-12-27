@@ -16,7 +16,7 @@
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO sector (nombre, idempresa, fecha_carga) VALUES('".$nombre."','".$empresa."','".$fecha_carga."');";
+			$sql = "INSERT INTO admin (nombre, idempresa, fecha_carga) VALUES('".$nombre."','".$empresa."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

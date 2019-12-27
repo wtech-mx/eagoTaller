@@ -15,7 +15,7 @@
         $empresa = mysqli_real_escape_string($con,(strip_tags($_POST["empresa"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE sector SET nombre='".$nombre."', idempresa='".$empresa."' WHERE id='".$id."' ";
+    $sql = "UPDATE admin SET nombre='".$nombre."', idempresa='".$empresa."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

@@ -4,7 +4,7 @@
 	if (isset($_GET["id"])){
 		$id=$_GET["id"];
 		$id=intval($id);
-		$sql="select * from sector where id='$id'";
+		$sql="select * from admin where id='$id'";
 		$query=mysqli_query($con,$sql);
 		$num=mysqli_num_rows($query);
 		if ($num==1){

@@ -28,7 +28,7 @@
 				in_array(3,$valores)?$_SESSION['taller']=1:$_SESSION['taller']=0;
 				in_array(5,$valores)?$_SESSION['seguro']=1:$_SESSION['seguro']=0;
 				in_array(4,$valores)?$_SESSION['empresa']=1:$_SESSION['empresa']=0;
-				in_array(6,$valores)?$_SESSION['sector']=1:$_SESSION['sector']=0;
+				in_array(6,$valores)?$_SESSION['admin']=1:$_SESSION['admin']=0;
 				in_array(7,$valores)?$_SESSION['vehiculo']=1:$_SESSION['vehiculo']=0;
 				in_array(8,$valores)?$_SESSION['tarjeta']=1:$_SESSION['tarjeta']=0;
 				in_array(9,$valores)?$_SESSION['reparaciones']=1:$_SESSION['reparaciones']=0;

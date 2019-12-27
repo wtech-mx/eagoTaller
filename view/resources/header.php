@@ -139,7 +139,7 @@
 
 
                     
-                    <li class="<?php if(isset($active6)){echo $active6;}?>">
+                    <li class="<?php if(isset($active30)){echo $active30;}?>">
                         <a href="./?view=Documentacion"><i class="fa fa-file-text"></i><span>Documentación</span></a>
                     </li>
                     
@@ -150,11 +150,10 @@
                     </li>
                     <?php } ?>
 
-                    <?php if ($_SESSION['sector']==1) { ?>
-                     <li class="<?php if(isset($active7)){echo $active7;}?>">
-                        <a href="./?view=sectores"><i class="fa fa-road"></i><span>Gestor Administrativo</span></a>
-                            <ul>
-                                                   
+                    <?php if ($_SESSION['admin']==1) { ?>
+                     <li class="<?php if(isset($active6)){echo $active6;}?>">
+                        <a href="./?view=admin"><i class="fa fa-road"></i><span>Gestor Administrativo</span></a>
+                        <ul>                                                  
                             <li><a href="./?view=esteadmin"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
                             </li>                       
                             <li><a href="./?view=gesadmin"><i class="fa fa-user"></i>Gestoría</li></a>
