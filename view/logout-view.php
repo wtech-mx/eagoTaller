@@ -8,12 +8,13 @@
 		unset($_SESSION['taller']);
 		unset($_SESSION['seguro']);
 		unset($_SESSION['empresa']);
-		unset($_SESSION['sector']);
+		unset($_SESSION['admin']);
 		unset($_SESSION['vehiculo']);
 		unset($_SESSION['tarjeta']);
 		unset($_SESSION['reparaciones']);
 		unset($_SESSION['choque']);
 		unset($_SESSION['configuracion']);
+		unset($_SESSION['blog']);
 		
 
 		session_destroy();

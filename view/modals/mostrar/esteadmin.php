@@ -34,6 +34,15 @@
             $trasladistas_admin=$rw['trasladistas_admin'];
             $gasolina_admin=$rw['gasolina_admin'];
             $otros_admin=$rw['otros_admin'];
+            $status=$rw['estado'];
+
+                if ($status==1){
+                    $lbl_status="Pagado";
+                    $lbl_class='label label-success';
+                }else {
+                    $lbl_status="Adeudo";
+                    $lbl_class='label label-danger';
+                }
             $asesor=$rw['asesor'];
             $vendedor_admin=$rw['vendedor_admin'];
             $subtotal_admin=$rw['subtotal_admin'];
@@ -48,6 +57,12 @@
     <label for="fecha_rep" class="col-sm-4 control-label">Fecha Registro: </label>
     <div class="col-sm-8">
         <?php echo $fecha_rep;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="estado" class="col-sm-4 control-label">Estado: </label>
+    <div class="col-sm-8">
+        <?php echo $lbl_status;?>
     </div>
 </div>
 <div class="form-group">

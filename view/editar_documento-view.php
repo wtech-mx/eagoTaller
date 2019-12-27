@@ -192,7 +192,7 @@
     <div class="col-sm-4">
         <select class="form-control" name="cliente" id="cliente" required>
             <?php 
-                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                $sql_clientes=mysqli_query($con,"select * from cliente");
                 while ($rw=mysqli_fetch_array($sql_clientes)){
                     $idcliente=$rw['id'];
                     $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
@@ -210,7 +210,7 @@
         <select class="form-control" name="vehiculo" id="vehiculo">
             <option value="">--- SELECCIONA ---</option>
         <?php
-            $vehiculos=mysqli_query($con,"select * from vehiculo");
+            $vehiculos=mysqli_query($con,"select * from vehiculo  where estado=1 order by marca");
             while ($rw=mysqli_fetch_array($vehiculos)) {
                 if ($idvehiculo==$rw['id']){$selected1="selected";}else{$selected1="";}
         ?>

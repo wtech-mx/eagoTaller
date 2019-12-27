@@ -8,7 +8,7 @@
         $documento_code=time()."-".$_SESSION['user_id'];
         $vehiculo=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
-        $target_dir="view/resources/images/vehiculo.jpg";
+        $target_dir="view/resources/images/documentos/doc.png";
         $inser=mysqli_query($con,"INSERT INTO documentacion (id, idcliente, documento_code, idvehiculo, foto1, foto2, foto3, foto4, foto5, foto6, fecha_carga) VALUES (NULL, '".$cliente."' ,'$documento_code', '$vehiculo','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir', '$created_at'); ");
         $sql_documento=mysqli_query($con,"select * from documentacion where  documento_code='$documento_code'");
         $rw_documento=mysqli_fetch_array($sql_documento);
@@ -41,7 +41,7 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img1">
-                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
                             </div>
                             <br>
                         </div>
@@ -51,7 +51,7 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img2">
-                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
                             </div>
                             <br>
                         </div>
@@ -61,7 +61,7 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img3">
-                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
                             </div>
                             <br>
                         </div>
@@ -71,7 +71,7 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img4">
-                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
                             </div>
                             <br>
                         </div>
@@ -81,7 +81,7 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img5">
-                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
                             </div>
                             <br>
                         </div>
@@ -91,7 +91,7 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img6">
-                                <img class=" img-responsive" src="view/resources/images/vehiculo.jpg" alt="Fotos">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
                             </div>
                             <br>
                         </div>
@@ -122,7 +122,7 @@
 <div class="col-sm-4">
     <select class="form-control" name="cliente" id="cliente" required>
         <?php 
-            $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+            $sql_clientes=mysqli_query($con,"select * from cliente");
             while ($rw=mysqli_fetch_array($sql_clientes)){
                 $idcliente=$rw['id'];
                 $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
@@ -138,7 +138,7 @@
                         <div class="col-sm-4">
                                         <select class="form-control" name="vehiculo" id="vehiculo" required>
                                             <?php 
-                                            $sql_vehiculos=mysqli_query($con,"select * from vehiculo");
+                                            $sql_vehiculos=mysqli_query($con,"select * from vehiculo  where estado=1 order by patente");
                                                 while ($rw=mysqli_fetch_array($sql_vehiculos)){
                                                     $idvehiculo=$rw['id'];
                                                     $patente_vehiculo=$rw['patente'];

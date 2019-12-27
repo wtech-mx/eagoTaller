@@ -50,13 +50,13 @@
                             <form class="form-horizontal" role="form" method="post" action="view/resources/login.php">
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" name="email" id="email" value="admin@admin.com" autofocus>
+                                        <input type="text" class="form-control" name="email" id="email" autofocus>
                                         <i class="fa fa-user"></i>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                    <div class="col-md-12">
-                                        <input type="password" class="form-control" name="password" id="password" value="admin">
+                                        <input type="password" class="form-control" name="password" id="password" >
                                         <i class="fa fa-lock"></i>
                                     </div>
                                 </div>

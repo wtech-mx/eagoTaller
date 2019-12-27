@@ -38,6 +38,16 @@
             $subtotal_admin=$rw['subtotal_admin'];
             $eago_admin=$rw['eago_admin'];
             $total_admin=$rw['total_admin'];
+
+             $status=$rw['estado'];
+
+                if ($status==1){
+                    $lbl_status="Pagado";
+                    $lbl_class='label label-success';
+                }else {
+                    $lbl_status="Adeudo";
+                    $lbl_class='label label-danger';
+                }
         }
     }   
     else{exit;}
@@ -47,6 +57,12 @@
     <label for="fecha_veri" class="col-sm-4 control-label">Fecha Registro: </label>
     <div class="col-sm-8">
         <?php echo $fecha_veri;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="estado" class="col-sm-4 control-label">Estado: </label>
+    <div class="col-sm-8">
+        <?php echo $lbl_status;?>
     </div>
 </div>
 <div class="form-group">

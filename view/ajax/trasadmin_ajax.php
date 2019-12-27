@@ -59,6 +59,7 @@ if($action == 'ajax'){
                 <th>Cliente</th>
                 <th>Vehiculo</th>
                 <th>Datos</th>
+                <th>Estado</th>
                 <th></th>
             </tr>
         </thead>
@@ -80,6 +81,16 @@ if($action == 'ajax'){
 				$patente_vehiculo=$vehiculo_rw['marca'];
 
 				$datos=$row['datos'];
+
+				$status=$row['estado'];
+
+                if ($status==1){
+					$lbl_status="Pagado";
+					$lbl_class='label label-success';
+				}else {
+					$lbl_status="Adeudo";
+					$lbl_class='label label-danger';
+				}
 				
 				$finales++;
 			
@@ -91,6 +102,7 @@ if($action == 'ajax'){
                 <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $patente_vehiculo ?></td>
                 <td><?php echo $datos ?></td>
+                <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td class="text-right">
 
                     <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>

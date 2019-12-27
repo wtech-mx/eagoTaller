@@ -24,9 +24,10 @@
         $subtotal_admin = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal_admin"],ENT_QUOTES)));
         $eago_admin = mysqli_real_escape_string($con,(strip_tags($_POST["eago_admin"],ENT_QUOTES)));
         $total_admin = mysqli_real_escape_string($con,(strip_tags($_POST["total_admin"],ENT_QUOTES)));
+        $estado= mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE verificacion SET  derechos_admin='".$derechos_admin."', otros_admin='".$otros_admin."', trasladistas_admin='".$trasladistas_admin."', vendedor_admin='".$vendedor_admin."', subtotal_admin='".$subtotal_admin."', eago_admin='".$eago_admin."', total_admin='".$total_admin."' WHERE id='".$id."' ";
+    $sql = "UPDATE verificacion SET  derechos_admin='".$derechos_admin."', otros_admin='".$otros_admin."', trasladistas_admin='".$trasladistas_admin."', vendedor_admin='".$vendedor_admin."', subtotal_admin='".$subtotal_admin."', eago_admin='".$eago_admin."', total_admin='".$total_admin."', estado='".$estado."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

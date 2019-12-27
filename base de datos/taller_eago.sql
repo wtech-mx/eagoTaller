@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-12-2019 a las 08:05:26
--- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.12
+-- Tiempo de generación: 27-12-2019 a las 20:29:18
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,10 +25,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `articulo`
+-- Estructura de tabla para la tabla `admin`
 --
 
-CREATE TABLE `articulo` (
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `idempresa` int(11) NOT NULL,
+  `fecha_carga` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `admin`
+--
+
+INSERT INTO `admin` (`id`, `nombre`, `idempresa`, `fecha_carga`) VALUES
+(1, 'informatica', 1, '2019-11-15 03:46:32');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `articulos`
+--
+
+CREATE TABLE `articulos` (
   `id` int(11) NOT NULL,
   `titulo` varchar(250) DEFAULT NULL,
   `extracto` varchar(250) DEFAULT NULL,
@@ -38,12 +58,14 @@ CREATE TABLE `articulo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `articulo`
+-- Volcado de datos para la tabla `articulos`
 --
 
-INSERT INTO `articulo` (`id`, `titulo`, `extracto`, `fecha`, `texto`, `thumb`) VALUES
-(1, 'Titulo PRIMER post', 'ï¿½Quï¿½ es Lorem Ipsum?Lorem Ipsum es simplemente...', '2019-12-19 12:44:40', 'ï¿½Quï¿½ es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estï¿½ndar de las industrias desde el aï¿½o 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usï¿½ una galerï¿½a de textos y los mezclï¿½ de tal manera que logrï¿½ hacer un libro de textos especimen', '2.png'),
-(2, 'Titulo segundo post', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de ', '2019-12-19 12:44:19', 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen', '3.PNG');
+INSERT INTO `articulos` (`id`, `titulo`, `extracto`, `fecha`, `texto`, `thumb`) VALUES
+(5, 'Amortiguadores', 'Los amortiguadores tienen una vida Ãºtil de 80.000 kilÃ³metros, lo que equivale a unos tres aÃ±os y medio.', '2019-12-27 04:47:04', 'Los amortiguadores tienen una vida Ãºtil de 80.000 kilÃ³metros, lo que equivale a unos tres aÃ±os y medio.Los amortiguadores tienen una vida Ãºtil de 80.000 kilÃ³metros, lo que equivale a unos tres aÃ±os y medio.Los amortiguadores tienen una vida Ãºtil de 80.000 kilÃ³metros, lo que equivale a unos tres aÃ±os y medio.Los amortiguadores tienen una vida Ãºtil de 80.000 kilÃ³metros, lo que equivale a unos tres aÃ±os y medio.', 'highway_night_traffic.jpg'),
+(6, 'El filtro de aceite', 'El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.', '2019-12-27 05:30:20', 'El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.El filtro de aceite purifica el aceite, su vida Ãºtil es de 5.000 kms.', 'colorful_papers_4k.jpg'),
+(7, 'Un motor es la parte sistemÃ¡tica', 'Un motor es la parte sistemÃ¡tica de una mÃ¡quina capaz de hacer funcionar el sistema, transformando algÃºn tipo de energÃ­a (elÃ©ctrica, de combustibles fÃ³siles, etc.), en energÃ­a mecÃ¡nica capaz de realizar un trabajo', '2019-12-27 05:37:20', 'Un motor es la parte sistemÃ¡tica de una mÃ¡quina capaz de hacer funcionar el sistema, transformando algÃºn tipo de energÃ­a (elÃ©ctrica, de combustibles fÃ³siles, etc.), en energÃ­a mecÃ¡nica capaz de realizar un trabajo. En los automÃ³viles este efecto es una fuerza que produce el movimiento. Existen diversos tipos, siendo de los mÃ¡s comunes los siguientes :\r\n\r\nMotores tÃ©rmicos, cuando el trabajo se obtiene a partir de energÃ­a calÃ³rica.\r\nMotores de combustiÃ³n interna, son motores tÃ©rmicos en los cuales se produce una combustiÃ³n del fluido del motor, transformando su energÃ­a quÃ­mica en energÃ­a tÃ©rmica, a partir de la cual se obtiene energÃ­a mecÃ¡nica. El fluido motor antes de iniciar la combustiÃ³n es una mezcla de un comburente (como el aire) y un combustible, como los derivados del petrÃ³leo y gasolina, los del gas natural o los biocombustibles.\r\nMotores de combustiÃ³n externa, son motores tÃ©rmicos en los cuales se produce una combustiÃ³n en un fluido distinto al fluido motor. El fluido motor alcanza un estado tÃ©rmico de mayor fuerza posible de llevar es mediante la transmisiÃ³n de energÃ­a a travÃ©s de una pared.\r\nMotores elÃ©ctricos, cuando el trabajo se obtiene a partir de una corriente elÃ©ctrica.\r\nEn los aerogeneradores, las centrales hidroelÃ©ctricas o los reactores nucleares tambiÃ©n se transforma algÃºn tipo de energÃ­a en otro. Sin embargo, la palabra motor se reserva para los casos en los cuales el resultado inmediato es energÃ­a mecÃ¡nica.\r\n\r\nLos motores elÃ©ctricos utilizan la inducciÃ³n electromagnÃ©tica que produce la electricidad para producir movimiento, segÃºn sea la constituciÃ³n del motor: nÃºcleo con cable arrollado, sin cable arrollado, monofÃ¡sico, trifÃ¡sico, con imanes permanentes o sin ellos; la potencia depende del calibre del alambre, las vueltas del alambre y la tensiÃ³n elÃ©ctrica aplicada.', 'halo_infinite_e3_2018_4k_2.jpg'),
+(8, 'Comuna francesa', 'Una comuna es, segÃºn la ley, una colectividad territorial. Esta entidad refleja la divisiÃ³n de Francia en aldeas en el tiempo de la RevoluciÃ³n.', '2019-12-27 05:38:45', 'Una comuna es, segÃºn la ley, una colectividad territorial. Esta entidad refleja la divisiÃ³n de Francia en aldeas en el tiempo de la RevoluciÃ³n. Sus Ã³rganos son el Consejo municipal la mairie (ayuntamiento) y en el caso de que no puedan ejercer su poder uno o mÃ¡s adjuntos.1â€‹ La palabra francesa commune surgiÃ³ en el siglo XII, del vocablo perteneciente al latÃ­n medieval communia, cuyo significado es pequeÃ±o conjunto de gente compartiendo una vida comÃºn, del latÃ­n communis, cosas en comÃºn. El nÃºmero de habitantes en una comuna puede variar, por ejemplo puede ser desde una ciudad de dos millones de habitantes como ParÃ­s hasta una pequeÃ±a aldea de 10 u 11 personas.', 'halo_5_chief.jpg');
 
 -- --------------------------------------------------------
 
@@ -165,9 +187,10 @@ CREATE TABLE `documentacion` (
 --
 
 INSERT INTO `documentacion` (`id`, `idcliente`, `idvehiculo`, `documento_code`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `fecha_carga`) VALUES
-(27, 1, 1, '3', 'view/resources/images/1576900847_bicycle-1869176_1280.jpg', 'view/resources/images/1576900759_5dccf4af52288.png', 'view/resources/images/1576900753_foto_3.jpg', 'view/resources/images/1576900764_5dccf3a66f463.png', 'view/resources/images/1576900781_person-731492_1280.jpg', 'view/resources/images/1576900777_2.jpg', '2019-12-21 04:58:58'),
+(27, 7, 54, '3', 'view/resources/images/documentos/1577474256_2.jpg', 'view/resources/images/documentos/1577474263_bicycle-1869176_1280.jpg', 'view/resources/images/documentos/1577474258_3.jpg', 'view/resources/images/documentos/1577474268_LogosinF.png', 'view/resources/images/documentos/1577474260_5dccf3a66f463.png', 'view/resources/images/documentos/1577474271_foto_3.jpg', '2019-12-21 04:58:58'),
 (36, 1, 28, '7', 'view/resources/images/1576902349_bicycle-1869176_1280.jpg', 'view/resources/images/1576902315_5dccf3a66f463.png', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 05:25:08'),
-(39, 2, 1, '5', 'view/resources/images/1576906523_2.jpg', 'view/resources/images/1576906526_3.jpg', 'view/resources/images/1576906529_4.jpg', 'view/resources/images/1576906533_5dccf3a66f463.png', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 06:35:15');
+(39, 2, 1, '5', 'view/resources/images/1576906523_2.jpg', 'view/resources/images/1576906526_3.jpg', 'view/resources/images/1576906529_4.jpg', 'view/resources/images/1576906533_5dccf3a66f463.png', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 06:35:15'),
+(49, 7, 54, '6', 'view/resources/images/1577469453_bicycle-1869176_1280.jpg', 'view/resources/images/1577469465_foto_3.jpg', 'view/resources/images/1577469468_4.jpg', 'view/resources/images/1577469485_sign-741813_1280.jpg', 'view/resources/images/1577469501_5dccf3a66f463.png', 'view/resources/images/1577469503_bicycle-1869176_1280.jpg', '2019-12-27 18:57:29');
 
 -- --------------------------------------------------------
 
@@ -200,7 +223,10 @@ CREATE TABLE `empleado` (
 
 INSERT INTO `empleado` (`id`, `dni`, `imagen`, `nombre`, `apellido`, `username`, `email`, `password`, `domicilio`, `localidad`, `telefono`, `celular`, `registro`, `status`, `kind`, `created_at`) VALUES
 (1, '543434', 'view/resources/images/1573849686_logoCar.png', 'Escuderia', 'AGO', 'admin', 'eago@gmail.com', '95ff079df7e19594fbaf65ecddb6f611c8ebdc25', 'AV SAN ANDRES', 'colchester', '9544534', '5533445340', '1', 1, 0, '2019-11-14 03:00:00'),
-(2, '456576', 'view/resources/images/default.png', 'Richard', 'Stallman', 'Empleado', 'empleado@gmail.com', 'e27648bb570a44840960a403eafbeae8c4fdb172', 'av san juan', 'silcon valley', '323445', '552344565', '3', 1, 0, '2019-11-15 03:44:17');
+(2, '456576', 'view/resources/images/default.png', 'Richard', 'Stallman', 'Empleado', 'empleado@gmail.com', 'e27648bb570a44840960a403eafbeae8c4fdb172', 'av san juan', 'silcon valley', '323445', '552344565', '3', 1, 0, '2019-11-15 03:44:17'),
+(3, '123', 'view/resources/images/default.png', 'Josue', 'Ramirez', 'dinopiza@yahoo.com.mx', 'dinopiza@yahoo.com.mx', '10470c3b4b1fed12c3baac014be15fac67c6e815', 'AV VASCO DE QUIROGA 1235', 'CDMX', '+525513730772', '5513730772', '1', 1, 0, '2019-12-27 07:28:33'),
+(4, '543434', 'view/resources/images/default.png', 'a', 'Ramirez', 'pepe@gmail.com', 'pepe@gmail.com', '10470c3b4b1fed12c3baac014be15fac67c6e815', 'AV VASCO DE QUIROGA 1235', 'CDMX', '+525513730772', '5513730772', '1', 1, 0, '2019-12-27 07:38:12'),
+(5, '56465', 'view/resources/images/default.png', 'dayanna', 'verplancken', 'dayverplancken', 'dayanna@gmail.com', '19c876c2841e18ff24903c0d7c30470a473391ed', 'Puerto ensenada nÃºmero 24', 'Ciudad de MÃ©xico', '(553) 990-7266', '(553) 990-7266', 'gfh', 1, 0, '2019-12-27 10:36:00');
 
 -- --------------------------------------------------------
 
@@ -258,7 +284,25 @@ INSERT INTO `empleado_permisos` (`idempleado_permiso`, `idempleado`, `idpermiso`
 (443, 1, 8),
 (444, 1, 9),
 (445, 1, 10),
-(446, 1, 11);
+(446, 1, 11),
+(448, 3, 6),
+(449, 4, 1),
+(450, 4, 2),
+(451, 4, 3),
+(452, 4, 4),
+(453, 4, 5),
+(454, 4, 7),
+(455, 4, 8),
+(456, 4, 9),
+(457, 4, 10),
+(458, 4, 11),
+(459, 4, 12),
+(460, 5, 1),
+(461, 5, 2),
+(462, 5, 4),
+(463, 5, 7),
+(464, 5, 9),
+(465, 5, 12);
 
 -- --------------------------------------------------------
 
@@ -298,26 +342,27 @@ CREATE TABLE `estetica` (
   `otros` varchar(40) NOT NULL,
   `vendedor` varchar(40) NOT NULL,
   `fecha_carga` datetime NOT NULL,
-  `reparacion` varchar(50) NOT NULL,
-  `trasladistas_admin` varchar(50) NOT NULL,
-  `gasolina_admin` float NOT NULL,
+  `reparacion` varchar(100) NOT NULL,
+  `trasladistas_admin` varchar(100) NOT NULL,
+  `gasolina_admin` varchar(100) NOT NULL,
   `otros_admin` varchar(50) NOT NULL,
   `asesor` varchar(50) NOT NULL,
-  `vendedor_admin` varchar(50) NOT NULL,
-  `subtotal_admin` float NOT NULL,
-  `eago_admin` float NOT NULL,
-  `total_admin` float NOT NULL
+  `vendedor_admin` varchar(100) NOT NULL,
+  `subtotal_admin` varchar(100) NOT NULL,
+  `eago_admin` varchar(100) NOT NULL,
+  `total_admin` varchar(100) NOT NULL,
+  `estado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `estetica`
 --
 
-INSERT INTO `estetica` (`id`, `fecha_rep`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `fecha_carga`, `reparacion`, `trasladistas_admin`, `gasolina_admin`, `otros_admin`, `asesor`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`) VALUES
-(1, '2019-12-12', 1, 1, 'cambio de llantas y cambio de aceite', 'Jose duran', 30, '30', 'pepe tapia', '2019-12-16 13:45:42', '', '', 0, '', '', '', 0, 0, 0),
-(2, '2019-12-17', 2, 28, 'arreglo de faros', 'jorge', 90, '20', 'pablo', '2019-12-16 21:39:59', '', '', 0, '', '', '', 0, 0, 0),
-(3, '2020-04-09', 5, 28, 'faros', 'jorge', 54, '46', 'pablo', '2019-12-21 06:24:06', '', '', 0, '', '', '', 0, 0, 0),
-(4, '2019-12-26', 2, 28, 'lavado', 'jorge', 56, '', 'pedro', '2019-12-21 09:06:55', '', '', 0, '', '', '', 0, 0, 0);
+INSERT INTO `estetica` (`id`, `fecha_rep`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `fecha_carga`, `reparacion`, `trasladistas_admin`, `gasolina_admin`, `otros_admin`, `asesor`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`) VALUES
+(1, '2019-12-12', 1, 1, 'cambio de llantas y cambio de aceite', 'Jose duran', 30, '30', 'pepe tapia', '2019-12-16 13:45:42', '10\r\n\r\n\r\n', '30\r\n\r\n\r\n', '20\r\n\r\n\r\n', 'joo', 'Oscar', '90\r\n\r\n', '', '10\r\n\r\n\r\n', '', 1),
+(2, '2019-12-17', 2, 28, 'arreglo de faros', 'jorge', 90, '20', 'pablo', '2019-12-16 21:39:59', '0', '0', '0', '', '', '0', '0', '0', '0', 2),
+(3, '2020-04-09', 5, 28, 'faros', 'jorge', 54, '46', 'pablo', '2019-12-21 06:24:06', '0', '0', '0', '', '', '0', '0', '0', '0', 2),
+(4, '2019-12-26', 2, 28, 'lavado', 'jorge', 56, '', 'pedro', '2019-12-21 09:06:55', '0', '0', '0', '', '', '0', '0', '0', '0', 1);
 
 -- --------------------------------------------------------
 
@@ -345,9 +390,11 @@ CREATE TABLE `gestoria` (
   `mesa` varchar(50) NOT NULL,
   `vendedor` varchar(50) NOT NULL,
   `general` varchar(50) NOT NULL,
+  `trasladista_admin` float NOT NULL,
   `subtotal_admin` float NOT NULL,
   `eago_admin` float NOT NULL,
   `total_admin` float NOT NULL,
+  `estado` tinyint(4) NOT NULL,
   `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -355,11 +402,11 @@ CREATE TABLE `gestoria` (
 -- Volcado de datos para la tabla `gestoria`
 --
 
-INSERT INTO `gestoria` (`id`, `idcliente`, `idvehiculo`, `datos`, `fecha_ges`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`, `trasladistas`, `gasolina`, `gestion`, `idcarro`, `gastos`, `mensajeria`, `mesa`, `vendedor`, `general`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
-(1, 1, 28, 'hdkasj', '2019-12-11', '2019-11-05', '2019-11-25', '2019-12-04', '2019-12-07', '80', 'Carlos', 10, 'uhfe', 1, 10, '40', '', '20', '30', 100, 80, 180, '2019-12-16 06:31:38'),
-(3, 5, 1, 'gestoria', '2019-12-13', '2019-08-04', '2019-07-08', '2019-03-08', '2019-04-08', '40', 'jose', 90, 'hfsj', 5, 90, '30', '', '60', '70', 250, 10, 260, '2019-12-03 10:16:08'),
-(7, 2, 28, 'kmfklsd', '2019-04-09', '2019-05-31', '2019-05-04', '2019-12-31', '2019-05-04', '345', 'sfg', 546, 'gdh', 2, 40, '20', '', '80', '58', 198, 46, 244, '2019-12-19 04:46:02'),
-(8, 2, 63, 'asientos', '2020-03-12', '2019-03-04', '2020-03-04', '2020-04-03', '2020-03-12', '23', 'jorge', 42, '', 2, 6, '40\r\n', '', '45\r\n', '40\r\n', 131, 50, 181, '2019-12-21 06:26:15');
+INSERT INTO `gestoria` (`id`, `idcliente`, `idvehiculo`, `datos`, `fecha_ges`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`, `trasladistas`, `gasolina`, `gestion`, `idcarro`, `gastos`, `mensajeria`, `mesa`, `vendedor`, `general`, `trasladista_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`, `fecha_carga`) VALUES
+(1, 1, 28, 'hdkasj', '2019-12-11', '2019-11-05', '2019-11-25', '2019-12-04', '2019-12-07', '80', 'Carlos', 10, 'uhfe', 1, 10, '40', '', '20', '30', 0, 0, 80, 0, 1, '2019-12-16 06:31:38'),
+(3, 5, 1, 'gestoria', '2019-12-13', '2019-08-04', '2019-07-08', '2019-03-08', '2019-04-08', '40', 'jose', 90, 'hfsj', 5, 90, '30', '', '60', '70', 0, 250, 10, 260, 0, '2019-12-03 10:16:08'),
+(7, 2, 28, 'kmfklsd', '2019-04-09', '2019-05-31', '2019-05-04', '2019-12-31', '2019-05-04', '345', 'sfg', 546, 'gdh', 2, 40, '20', '', '80', '58', 0, 198, 46, 244, 0, '2019-12-19 04:46:02'),
+(8, 2, 63, 'asientos', '2020-03-12', '2019-03-04', '2020-03-04', '2020-04-03', '2020-03-12', '23', 'jorge', 42, '', 2, 6, '40\r\n', '', '45\r\n', '40\r\n', 0, 131, 50, 181, 0, '2019-12-21 06:26:15');
 
 -- --------------------------------------------------------
 
@@ -391,20 +438,21 @@ CREATE TABLE `mantenimiento` (
   `fecha_carga` datetime NOT NULL,
   `subtotal` double NOT NULL,
   `eago` double NOT NULL,
-  `total` double NOT NULL
+  `total` double NOT NULL,
+  `estado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `mantenimiento`
 --
 
-INSERT INTO `mantenimiento` (`id`, `fecha_man`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `fecha_carga`, `subtotal`, `eago`, `total`) VALUES
-(1, '2019-12-12', 1, 1, 'motor, parabrisas', 'jose', 30, '20', 'carlos', '2019-12-16 15:24:14', 0, 0, 0),
-(2, '2019-12-16', 2, 28, 'asientos', 'jorge', 15, '10', 'carlos', '2019-12-16 23:24:12', 0, 0, 0),
-(3, '2019-04-12', 1, 63, 'llantas', 'jorge', 90, '23', '', '2019-12-21 06:20:39', 0, 0, 0),
-(4, '2019-12-31', 2, 28, 'lol', 'jorge', 54, '', '', '2019-12-21 08:23:34', 0, 0, 0),
-(5, '2019-12-31', 1, 1, 'pintura', 'jorge', 23, '', '', '2019-12-21 08:31:15', 0, 0, 0),
-(6, '2020-04-07', 5, 1, 'teclado', 'fernando', 20, '', 'carlos', '2019-12-21 08:38:51', 0, 0, 0);
+INSERT INTO `mantenimiento` (`id`, `fecha_man`, `idcliente`, `idvehiculo`, `datos`, `trasladistas`, `gasolina`, `otros`, `vendedor`, `fecha_carga`, `subtotal`, `eago`, `total`, `estado`) VALUES
+(1, '2019-12-12', 1, 1, 'motor, parabrisas', 'jose', 30, '20', 'carlos', '2019-12-16 15:24:14', 0, 0, 0, 0),
+(2, '2019-12-16', 2, 28, 'asientos', 'jorge', 15, '10', 'carlos', '2019-12-16 23:24:12', 0, 0, 0, 0),
+(3, '2019-04-12', 1, 63, 'llantas', 'jorge', 90, '23', '', '2019-12-21 06:20:39', 0, 0, 0, 0),
+(4, '2019-12-31', 2, 28, 'lol', 'jorge', 54, '', '', '2019-12-21 08:23:34', 0, 0, 0, 0),
+(5, '2019-12-31', 1, 1, 'pintura', 'jorge', 23, '', '', '2019-12-21 08:31:15', 0, 0, 0, 0),
+(6, '2020-04-07', 5, 1, 'teclado', 'fernando', 20, '', 'carlos', '2019-12-21 08:38:51', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -427,7 +475,7 @@ INSERT INTO `permisos` (`id`, `nombre`) VALUES
 (3, 'Taller'),
 (4, 'Seguro'),
 (5, 'Empresa'),
-(6, 'Sector'),
+(6, 'admin'),
 (7, 'Vehiculo'),
 (8, 'Tarjeta'),
 (9, 'Reparaciones'),
@@ -462,26 +510,6 @@ INSERT INTO `reparaciones` (`id`, `fecha_repa`, `idcliente`, `descripcion`, `idv
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sector`
---
-
-CREATE TABLE `sector` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `idempresa` int(11) NOT NULL,
-  `fecha_carga` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `sector`
---
-
-INSERT INTO `sector` (`id`, `nombre`, `idempresa`, `fecha_carga`) VALUES
-(1, 'informatica', 1, '2019-11-15 03:46:32');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `seguro`
 --
 
@@ -509,19 +537,27 @@ INSERT INTO `seguro` (`id`, `nombre`, `poliza`, `vencimiento`, `fecha_carga`) VA
 CREATE TABLE `slide` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `boton` varchar(25) NOT NULL,
   `folder` varchar(255) NOT NULL,
   `src` varchar(255) NOT NULL,
-  `created_at` varchar(255) NOT NULL,
-  `boton` datetime NOT NULL
+  `created_at` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `slide`
 --
 
-INSERT INTO `slide` (`id`, `title`, `folder`, `src`, `created_at`, `boton`) VALUES
-(2, 'prueba2', 'uploads/', 'carousel2.jpg', '2019-12-24 15:05:23', '0000-00-00 00:00:00'),
-(3, 'prueba3', 'uploads/', 'lubricantes.jpg', '2019-12-24 15:11:54', '0000-00-00 00:00:00');
+INSERT INTO `slide` (`id`, `title`, `boton`, `folder`, `src`, `created_at`) VALUES
+(3, 'slide 2', 'asas', 'uploads/', 'orion_nebula_4k.jpg', '2019-12-26 22:35:46'),
+(6, 'slide 5', '', 'uploads/', '2015_halo_5_guardians_1.jpg', '2019-12-26 22:54:16'),
+(7, 'slide 6', '', 'uploads/', 'astronaut_spacesuit.jpg', '2019-12-26 22:55:32'),
+(8, 'slide 7', '', 'uploads/', 'astronaut_dream_4k.jpg', '2019-12-26 22:55:58'),
+(9, 'slide 8', '', 'uploads/', 'green_leaves_5k.jpg', '2019-12-26 22:58:29'),
+(22, 'prueva qw', '', 'uploads/', '3d_layer.jpg', '2019-12-26 23:22:22'),
+(23, 'prueva qw', '', 'uploads/', '987439.jpg', '2019-12-26 23:23:34'),
+(24, 'slide 9', '', 'uploads/', 'cortana_halo_soldier.jpg', '2019-12-26 23:24:29'),
+(26, 'slide 9', '', 'uploads/', '3d_layer_1.jpg', '2019-12-26 23:26:18'),
+(36, 'prueva qw', '', 'uploads/', 'astronaut_spacesuit_1.jpg', '2019-12-27 00:17:07');
 
 -- --------------------------------------------------------
 
@@ -596,6 +632,7 @@ CREATE TABLE `traslados` (
   `subtotal_admin` float NOT NULL,
   `eago_admin` float NOT NULL,
   `total_admin` float NOT NULL,
+  `estado` tinyint(4) NOT NULL,
   `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -603,10 +640,10 @@ CREATE TABLE `traslados` (
 -- Volcado de datos para la tabla `traslados`
 --
 
-INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `gasolina`, `casetas`, `trasladistas`, `vendedor`, `origen`, `destino`, `autobus`, `gasolina_admin`, `casetas_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `fecha_carga`) VALUES
-(1, '2019-12-06', 1, 1, 'jaja', 500, 208, 'Josue Adrian', 'Charls Verplancken', 'casas aleman', 'santa fe', '498', 60, 50, 'Brandon', 'sdf', 110, 50, 160, '2019-12-14 15:26:21'),
-(2, '2019-12-24', 2, 1, 'pko', 90, 234, 'Joel', 'Diana', 'Monterrey', 'CDMX', '', 0, 0, '', '', 0, 0, 0, '2019-12-14 22:30:52'),
-(3, '2020-02-03', 1, 28, 'sdf', 45, 34, 'jorge', 'miguel', 'CDMX', 'Guadalajara', '', 0, 0, '', '', 0, 0, 0, '2019-12-21 06:31:57');
+INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`, `gasolina`, `casetas`, `trasladistas`, `vendedor`, `origen`, `destino`, `autobus`, `gasolina_admin`, `casetas_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`, `fecha_carga`) VALUES
+(1, '2019-12-06', 1, 1, 'jaja', 500, 208, 'Josue Adrian', 'Charls Verplancken', 'casas aleman', 'santa fe', '498', 60, 50, 'Brandon', 'sdf', 0, 50, 0, 1, '2019-12-14 15:26:21'),
+(2, '2019-12-24', 2, 1, 'pko', 90, 234, 'Joel', 'Diana', 'Monterrey', 'CDMX', '', 0, 0, '', '', 0, 0, 0, 0, '2019-12-14 22:30:52'),
+(3, '2020-02-03', 1, 28, 'sdf', 45, 34, 'jorge', 'miguel', 'CDMX', 'Guadalajara', '', 0, 0, '', '', 0, 0, 0, 0, '2019-12-21 06:31:57');
 
 -- --------------------------------------------------------
 
@@ -639,13 +676,14 @@ CREATE TABLE `vehiculo` (
 --
 
 INSERT INTO `vehiculo` (`id`, `idcliente`, `vehiculo_code`, `patente`, `marca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `idseguro`, `color`, `foto4`, `estado`, `foto1`, `foto2`, `foto3`, `fecha_carga`) VALUES
-(1, 1, '1', 'KM-120', 'hyundai', '21332', 'xcdds23', 'xvcvrerx3', '2019-10-10', 1, 'blanco', 'view/resources/images/1576820475_person-731492_1280.jpg', 1, 'view/resources/images/1576820460_snow-3066167_1280.jpg', 'view/resources/images/1576820469_foto_3.jpg', 'view/resources/images/1576820464_sign-741813_1280.jpg', '2019-11-25 03:46:37'),
-(28, 2, '2', 'LO-300', 'audi', '2016', 'pñl', '0932', '2019-03-17', 1, 'negro', 'view/resources/images/1576820433_bicycle-1869176_1280.jpg', 2, 'view/resources/images/1576820439_LogosinF.png', 'view/resources/images/1576820430_foto_1.jpg', 'view/resources/images/1576820445_sign-741813_1280.jpg', '2019-12-17 07:05:38'),
-(51, 2, '6', 'dfg', 'jjkdgf', 'jfd', 'sdg', 'sdfg', '2019-08-14', 1, 'todos', 'view/resources/images/1576820401_3.jpg', 2, 'view/resources/images/1576820319_2.jpg', 'view/resources/images/1576820394_5dccf4af52288.png', 'view/resources/images/1576820390_4.jpg', '2019-12-20 05:58:40'),
-(54, 5, '4', 'gfhj', 'fg', 'dgfh', 'dfg', 'dg', '2019-03-14', 1, 'negro', 'view/resources/images/vehiculo.jpg', 1, 'view/resources/images/1576890436_5dccf4af52288.png', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-21 02:06:21'),
-(60, 1, '5', '976', 'audi', '2016', 'kl.s', '00099', '2019-09-12', 1, 'azul', 'view/resources/images/1576891852_5dccf3a66f463.png', 1, 'view/resources/images/1576891860_4.jpg', 'view/resources/images/1576891856_foto_2.jpg', 'view/resources/images/1576891864_bicycle-1869176_1280.jpg', '2019-12-21 02:30:47'),
-(63, 2, '6', '976', 'benz', '89', 'ofl', 'fsd', '2020-12-19', 1, '33', 'view/resources/images/1576905283_5dccf3a66f463.png', 1, 'view/resources/images/1576905278_2.jpg', 'view/resources/images/1576905287_LogosinF.png', 'view/resources/images/1576905280_4.jpg', '2019-12-21 06:13:30'),
-(68, 1577334670, '1577334670-1', '', '', '', '', '', '0000-00-00', 0, '', 'view/resources/images/vehiculo.jpg', 127, 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-26 05:31:10');
+(1, 1, '1', 'KM-120', 'hyundai', '21332', 'xcdds23', 'xvcvrerx3', '2019-10-10', 1, 'blanco', 'view/resources/images/1577439112_bicycle-1869176_1280.jpg', 2, 'view/resources/images/1577439102_2.jpg', 'view/resources/images/1577439109_5dccf3a66f463.png', 'view/resources/images/1577439106_3.jpg', '2019-11-25 03:46:37'),
+(28, 6, '2', 'LO-300', 'audi', '2016', 'pï¿½l', '0932', '2019-03-17', 1, 'negro', 'view/resources/images/1577468788_sign-741813_1280.jpg', 2, 'view/resources/images/1577468778_LogosinF.png', 'view/resources/images/1577468785_snow-3066167_1280.jpg', 'view/resources/images/1577468780_person-731492_1280.jpg', '2019-12-17 07:05:38'),
+(51, 2, '6', 'DF-89', 'mazda', 'jfd', 'sdg', 'sdfg', '2019-08-14', 1, 'todos', 'view/resources/images/1577468687_5dccf4af52288.png', 2, 'view/resources/images/1577468677_bicycle-1869176_1280.jpg', 'view/resources/images/1577468684_2.jpg', 'view/resources/images/1577468681_4.jpg', '2019-12-20 05:58:40'),
+(54, 7, '4', 'DGF-365', 'ferrari', '2020', 'dfg', 'dg', '2019-03-14', 1, 'negro', 'view/resources/images/1577468841_foto_3.jpg', 1, 'view/resources/images/1577468832_2.jpg', 'view/resources/images/1577468837_4.jpg', 'view/resources/images/1577468834_3.jpg', '2019-12-21 02:06:21'),
+(60, 6, '5', '976', 'audi', '2016', 'kl.s', '00099', '2019-09-12', 1, 'azul', 'view/resources/images/1577468853_2.jpg', 1, 'view/resources/images/1577468857_4.jpg', 'view/resources/images/1577468860_bicycle-1869176_1280.jpg', 'view/resources/images/1577468864_5dccf4af52288.png', '2019-12-21 02:30:47'),
+(63, 6, '6', '976-GHO', 'benz', '89', 'ofl', 'fsd', '2020-12-19', 1, '33', 'view/resources/images/vehiculos/1577474474_4.jpg', 1, 'view/resources/images/vehiculos/1577474461_3.jpg', 'view/resources/images/vehiculos/1577474466_foto_1.jpg', 'view/resources/images/vehiculos/1577474463_5dccf3a66f463.png', '2019-12-21 06:13:30'),
+(73, 1577474832, '1577474832-1', '', '', '', '', '', '0000-00-00', 0, '', 'view/resources/images/vehiculo.jpg', 127, 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-27 20:27:12'),
+(74, 1577474884, '1577474884-1', '', '', '', '', '', '0000-00-00', 0, '', 'view/resources/images/vehiculos/vehiculo.jpg', 127, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2019-12-27 20:28:04');
 
 -- --------------------------------------------------------
 
@@ -674,26 +712,33 @@ CREATE TABLE `verificacion` (
   `vendedor_admin` varchar(30) NOT NULL,
   `subtotal_admin` float NOT NULL,
   `eago_admin` float NOT NULL,
-  `total_admin` float NOT NULL
+  `total_admin` float NOT NULL,
+  `estado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `verificacion`
 --
 
-INSERT INTO `verificacion` (`id`, `fecha_veri`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`, `derechos`, `otros`, `trasladistas`, `vendedor`, `idcarro`, `subtotal`, `eago`, `total`, `derechos_admin`, `otros_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`) VALUES
-(1, '2019-12-03', 1, 1, 'jdf', '2019-12-12 05:12:12', 'jkds', 'opad', 'Jose ', 'Carlos', 1, 200, 500, 700, 'rer', '34', '20', '30', 50, 50, 100),
-(2, '2019-11-13', 2, 1, 'kñ', '2019-12-14 22:06:17', 'mlk', 'pl', 'Daniel', 'Gerardo', 2, 1000, 300, 1300, 'eago', 'sfgr', '60', '50', 110, 90, 200),
-(3, '2019-05-03', 5, 28, 'wet', '2019-12-21 06:28:51', 'twe', '43', 're', 'ter', 0, 34, 354, 543, '', '', '', '', 0, 0, 0);
+INSERT INTO `verificacion` (`id`, `fecha_veri`, `idcliente`, `idvehiculo`, `datos`, `fecha_carga`, `derechos`, `otros`, `trasladistas`, `vendedor`, `idcarro`, `subtotal`, `eago`, `total`, `derechos_admin`, `otros_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`) VALUES
+(1, '2019-12-03', 1, 1, 'jdf', '2019-12-12 05:12:12', 'jkds', 'opad', 'Jose ', 'Carlos', 1, 200, 500, 700, 'rer', '34', '20', '30', 0, 50, 0, 1),
+(2, '2019-11-13', 2, 1, 'kñ', '2019-12-14 22:06:17', 'mlk', 'pl', 'Daniel', 'Gerardo', 2, 1000, 300, 1300, 'eago', 'sfgr', '60', '50', 110, 90, 200, 0),
+(3, '2019-05-03', 5, 28, 'wet', '2019-12-21 06:28:51', 'twe', '43', 're', 'ter', 0, 34, 354, 543, '', '', '', '', 0, 0, 0, 0);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `articulo`
+-- Indices de la tabla `admin`
 --
-ALTER TABLE `articulo`
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `articulos`
+--
+ALTER TABLE `articulos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -777,15 +822,15 @@ ALTER TABLE `reparaciones`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `sector`
---
-ALTER TABLE `sector`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `seguro`
 --
 ALTER TABLE `seguro`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `slide`
+--
+ALTER TABLE `slide`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -823,10 +868,16 @@ ALTER TABLE `verificacion`
 --
 
 --
--- AUTO_INCREMENT de la tabla `articulo`
+-- AUTO_INCREMENT de la tabla `admin`
 --
-ALTER TABLE `articulo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `articulos`
+--
+ALTER TABLE `articulos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `choque`
@@ -850,19 +901,19 @@ ALTER TABLE `configuracion`
 -- AUTO_INCREMENT de la tabla `documentacion`
 --
 ALTER TABLE `documentacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado_permisos`
 --
 ALTER TABLE `empleado_permisos`
-  MODIFY `idempleado_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=447;
+  MODIFY `idempleado_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=466;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
@@ -907,16 +958,16 @@ ALTER TABLE `reparaciones`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `sector`
---
-ALTER TABLE `sector`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT de la tabla `seguro`
 --
 ALTER TABLE `seguro`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `slide`
+--
+ALTER TABLE `slide`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `taller`
@@ -940,7 +991,7 @@ ALTER TABLE `traslados`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT de la tabla `verificacion`

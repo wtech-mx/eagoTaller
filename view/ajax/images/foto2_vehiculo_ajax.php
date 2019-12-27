@@ -4,7 +4,7 @@
 	require_once ("../../../config/config.php");
 
 	$id=intval($_REQUEST['id']);
-	$target_dir="../../resources/images/";
+	$target_dir="../../resources/images/vehiculos/";
 	$image_name = time()."_".basename($_FILES["imagefile2"]["name"]);
 	$target_file = $target_dir .$image_name ;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -23,7 +23,7 @@
 		if ($imageFileZise>0){
 		move_uploaded_file($_FILES["imagefile2"]["tmp_name"], $target_file);
 		$imagen=basename($_FILES["imagefile2"]["name"]);
-		$img_update="foto2='view/resources/images/$image_name' ";
+		$img_update="foto2='view/resources/images/vehiculos/$image_name' ";
 
 		}else { $img_update="";}
 		    $sql = "UPDATE vehiculo SET $img_update WHERE id='$id';";
@@ -31,7 +31,7 @@
 
     if ($query_new_insert) {
 ?>
-		<img class="img-responsive" src="view/resources/images/<?php echo $image_name;?>" alt="Imagen del vehiculo" data-toggle="modal" data-target="#myModal" style='cursor:pointer'>
+		<img class="img-responsive" src="view/resources/images/vehiculos/<?php echo $image_name;?>" alt="Imagen del vehiculo" data-toggle="modal" data-target="#myModal" style='cursor:pointer'>
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  	<div class="modal-dialog">
 				<div class="modal-content">
@@ -40,7 +40,7 @@
 						<h4 class="modal-title">&nbsp;</h4>
 			  		</div>
 					<div class="modal-body">
-						<img src="view/resources/images/<?php echo $image_name;?>" class="img-responsive">
+						<img src="view/resources/images/vehiculos/<?php echo $image_name;?>" class="img-responsive">
 					</div>
 				</div>
 		  	</div>

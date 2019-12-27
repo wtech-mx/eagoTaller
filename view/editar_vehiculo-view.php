@@ -162,7 +162,7 @@
     <div class="col-sm-4">
         <select class="form-control" name="cliente" id="cliente" required>
             <?php 
-                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                $sql_clientes=mysqli_query($con,"select * from cliente");
                 while ($rw=mysqli_fetch_array($sql_clientes)){
                     $idcliente=$rw['id'];
                     $nombre_cliente=$rw['nombre']." ".$rw['apellido'];

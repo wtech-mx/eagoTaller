@@ -28,6 +28,7 @@
                 $carro_rw=mysqli_fetch_array($carros);
                 $clave_carro=$carro_rw['placa'];
 
+            
             $trasladistas=$rw['trasladistas'];
             $datos=$rw['datos'];
             $gastos=$rw['gastos'];
@@ -37,6 +38,7 @@
             $subtotal_admin=$rw['subtotal_admin'];
             $eago_admin=$rw['eago_admin'];
             $total_admin=$rw['total_admin'];
+            $status=$rw['estado'];
         }
     }   
     else{exit;}
@@ -71,6 +73,15 @@
     <div class="col-sm-8">
        <?php echo $datos;?>
     </div>
+</div>
+<div class="form-group">
+    <label for="estado" class="col-sm-2 control-label">Estado: </label>
+        <div class="col-sm-4">
+            <select class="form-control" name="estado" id="estado">
+                <option value="1" <?php if ($status==1){echo "selected";}?>>Pagado</option>
+                <option value="2" <?php if ($status==2){echo "selected";}?>>Adeudo</option>
+            </select>
+        </div>
 </div>
 <div class="form-group">
     <label for="gastos" class="col-sm-2 control-label">Gastos: </label>

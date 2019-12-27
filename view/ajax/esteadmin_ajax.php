@@ -58,6 +58,7 @@ if($action == 'ajax'){
                 <th>Fecha de Servicio</th>
                 <th>Cliente</th>
                 <th>Placa</th>
+                <th>Estado</th>
                 <th></th>
             </tr>
         </thead>
@@ -77,6 +78,16 @@ if($action == 'ajax'){
                 $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $patente_vehiculo=$vehiculo_rw['patente'];
+
+                $status=$row['estado'];
+
+                if ($status==1){
+					$lbl_status="Pagado";
+					$lbl_class='label label-success';
+				}else {
+					$lbl_status="Adeudo";
+					$lbl_class='label label-danger';
+				}
 				
 				$finales++;
 			
@@ -87,6 +98,7 @@ if($action == 'ajax'){
                 <td><?php echo $fecha_rep ?></td>
                 <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $patente_vehiculo ?></td>
+                <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td class="text-right">
 
                     <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>

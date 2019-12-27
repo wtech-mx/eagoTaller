@@ -60,6 +60,7 @@ if($action == 'ajax'){
                 <th>Vehiculo</th>
                 <th>Placa</th>
                 <th>Alta de placa</th>
+                <th>Estado</th>
                 <th></th>
             </tr>
         </thead>
@@ -86,6 +87,17 @@ if($action == 'ajax'){
 				$clave_carro=$carro_rw['placa'];
 
 				$aplaca=$row['aplaca'];
+
+
+                $status=$row['estado'];
+
+                if ($status==1){
+					$lbl_status="Pagado";
+					$lbl_class='label label-success';
+				}else {
+					$lbl_status="Adeudo";
+					$lbl_class='label label-danger';
+				}
 				
 				$finales++;
 			
@@ -98,6 +110,7 @@ if($action == 'ajax'){
                 <td><?php echo $patente_vehiculo ?></td>
                 <td><?php echo $clave_carro ?></td>
                 <td><?php echo $aplaca ?></td>
+                <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td class="text-right">
 
                     <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>

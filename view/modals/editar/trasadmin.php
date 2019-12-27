@@ -31,6 +31,7 @@
             $trasladistas_admin=$rw['trasladistas_admin'];
             $vendedor=$rw['vendedor'];
             $vendedor_admin=$rw['vendedor_admin'];
+            $status=$rw['estado'];
             $subtotal_admin=$rw['subtotal_admin'];
             $eago_admin=$rw['eago_admin'];
             $total_admin=$rw['total_admin'];
@@ -62,6 +63,15 @@
     <div class="col-sm-8">
         <?php echo $datos;?>
     </div>
+</div>
+<div class="form-group">
+    <label for="estado" class="col-sm-2 control-label">Estado: </label>
+        <div class="col-sm-4">
+            <select class="form-control" name="estado" id="estado">
+                <option value="1" <?php if ($status==1){echo "selected";}?>>Pagado</option>
+                <option value="2" <?php if ($status==2){echo "selected";}?>>Adeudo</option>
+            </select>
+        </div>
 </div>
 <div class="form-group">
     <label for="autobus" class="col-sm-2 control-label">Autobus: </label>
