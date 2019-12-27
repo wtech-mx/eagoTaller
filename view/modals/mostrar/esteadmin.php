@@ -83,7 +83,7 @@
 <div class="form-group">
     <label for="trasladistas_admin" class="col-sm-4 control-label">Trasladistas: </label>
     <div class="col-sm-8">
-        <?php echo $trasladistas;?>
+        <?php echo $trasladistas;?> $
        <?php echo $trasladistas_admin;?>
     </div>
 </div>
@@ -108,7 +108,7 @@
 <div class="form-group">
     <label for="vendedor_admin" class="col-sm-4 control-label">Vendedor: </label>
     <div class="col-sm-8">
-        <?php echo $vendedor;?>
+        <?php echo $vendedor;?> $
        <?php echo $vendedor_admin;?>
     </div>
 </div>

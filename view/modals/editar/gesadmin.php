@@ -28,10 +28,11 @@
                 $carro_rw=mysqli_fetch_array($carros);
                 $clave_carro=$carro_rw['placa'];
 
+            $trasladistas=$rw['trasladistas'];
             $datos=$rw['datos'];
             $gastos=$rw['gastos'];
             $mensajeria=$rw['mensajeria'];
-            $vendedor=$rw['vendedor'];
+            $trasladista_admin=$rw['trasladista_admin'];
             $general=$rw['general'];
             $subtotal_admin=$rw['subtotal_admin'];
             $eago_admin=$rw['eago_admin'];
@@ -84,9 +85,10 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="vendedor" class="col-sm-2 control-label">Vendedor: </label>
+    <label for="trasladista_admin" class="col-sm-2 control-label">Trasladista: </label>
     <div class="col-sm-10">
-        <textarea type="number" class="form-control" id="vendedor" name="vendedor" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $vendedor ?></textarea>
+        <?php echo $trasladistas;?>
+        <textarea type="number" class="form-control" id="trasladista_admin" name="trasladista_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $trasladista_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">

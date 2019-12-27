@@ -27,7 +27,9 @@
             $autobus=$rw['autobus'];
             $gasolina_admin=$rw['gasolina_admin'];
             $casetas_admin=$rw['casetas_admin'];
+            $trasladistas=$rw['trasladistas'];
             $trasladistas_admin=$rw['trasladistas_admin'];
+            $vendedor=$rw['vendedor'];
             $vendedor_admin=$rw['vendedor_admin'];
             $subtotal_admin=$rw['subtotal_admin'];
             $eago_admin=$rw['eago_admin'];
@@ -64,7 +66,7 @@
 <div class="form-group">
     <label for="autobus" class="col-sm-2 control-label">Autobus: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="autobus" name="autobus" placeholder="Autobus "><?php echo $autobus ?></textarea>
+        <textarea type="text" required class="form-control" id="autobus" name="autobus" placeholder="$$$" onchange="SumarAutomatico(this.value);"><?php echo $autobus ?></textarea>
     </div>
 </div>
 <div class="form-group">
@@ -82,13 +84,15 @@
 <div class="form-group">
     <label for="trasladistas_admin" class="col-sm-2 control-label">Trasladistas: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="trasladistas_admin" name="trasladistas_admin" placeholder="Trasladistas"><?php echo $trasladistas_admin ?></textarea>
+        <?php echo $trasladistas;?>
+        <textarea type="text" required class="form-control" id="trasladistas_admin" name="trasladistas_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);"><?php echo $trasladistas_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="vendedor_admin" class="col-sm-2 control-label">Vendedor: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="vendedor_admin" name="vendedor_admin" placeholder="Vendedor "><?php echo $vendedor_admin ?></textarea>
+        <?php echo $vendedor;?>
+        <textarea type="text" required class="form-control" id="vendedor_admin" name="vendedor_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);"><?php echo $vendedor_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">

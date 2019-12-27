@@ -19,10 +19,10 @@
                     </div>
                     <div class="form-group">
                     <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-control" name="cliente" id="cliente" required>
+                                    <div class="col-sm-10">
+                                <select class="form-control selectpicker" data-live-search="true" name="cliente" id="cliente">
                                             <?php 
-                                                $sql_clientes=mysqli_query($con,"select * from cliente where status=1 order by nombre");
+                                                $sql_clientes=mysqli_query($con,"select * from cliente");
                                                 while ($rw=mysqli_fetch_array($sql_clientes)){
                                                     $idcliente=$rw['id'];
                                                     $nombre_cliente=$rw['nombre']." ".$rw['apellido'];

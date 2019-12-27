@@ -28,9 +28,12 @@
                 $carro_rw=mysqli_fetch_array($carros);
                 $clave_carro=$carro_rw['placa'];
 
+            $datos=$rw['datos'];
             $derechos_admin=$rw['derechos_admin'];
             $otros_admin=$rw['otros_admin'];
+            $trasladistas=$rw['trasladistas'];
             $trasladistas_admin=$rw['trasladistas_admin'];
+            $vendedor=$rw['vendedor'];
             $vendedor_admin=$rw['vendedor_admin'];
             $subtotal_admin=$rw['subtotal_admin'];
             $eago_admin=$rw['eago_admin'];
@@ -65,6 +68,12 @@
     </div>
 </div>
 <div class="form-group">
+    <label for="datos" class="col-sm-4 control-label">Datos: </label>
+    <div class="col-sm-8">
+       <?php echo $datos;?>
+    </div>
+</div>
+<div class="form-group">
     <label for="derechos_admin" class="col-sm-2 control-label">Derechos: </label>
     <div class="col-sm-10">
         <textarea type="text" required class="form-control" id="derechos_admin" name="derechos_admin" placeholder="Derechos "><?php echo $derechos_admin ?></textarea>
@@ -73,18 +82,20 @@
 <div class="form-group">
     <label for="otros_admin" class="col-sm-2 control-label">Otros: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="otros_admin" name="otros_admin" placeholder="Otros "><?php echo $otros_admin ?></textarea>
+        <textarea type="number" class="form-control" id="otros_admin" name="otros_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);"><?php echo $otros_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
-    <label for="trasladistas_admin" class="col-sm-2 control-label">trasladistas: </label>
+    <label for="trasladistas_admin" class="col-sm-2 control-label">trasladista: </label>
     <div class="col-sm-10">
+         <?php echo $trasladistas;?>
          <textarea type="number" class="form-control" id="trasladistas_admin" name="trasladistas_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $trasladistas_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="vendedor_admin" class="col-sm-2 control-label">Vendedor: </label>
     <div class="col-sm-10">
+        <?php echo $vendedor;?>
         <textarea type="number" class="form-control" id="vendedor_admin" name="vendedor_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $vendedor_admin ?></textarea>
         
     </div>

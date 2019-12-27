@@ -23,15 +23,16 @@
                 $patente_vehiculo=$vehiculo_rw['marca'];
 
                 $datos=$rw['datos'];
-
-                $autobus=$rw['autobus'];
-                $gasolina_admin=$rw['gasolina_admin'];
-                $casetas_admin=$rw['casetas_admin'];
-                $trasladistas_admin=$rw['trasladistas_admin'];
-                $vendedor_admin=$rw['vendedor_admin'];
-                $subtotal_admin=$rw['subtotal_admin'];
-                $eago_admin=$rw['eago_admin'];
-                $total_admin=$rw['total_admin'];
+            $autobus=$rw['autobus'];
+            $gasolina_admin=$rw['gasolina_admin'];
+            $casetas_admin=$rw['casetas_admin'];
+            $trasladistas=$rw['trasladistas'];
+            $trasladistas_admin=$rw['trasladistas_admin'];
+            $vendedor=$rw['vendedor'];
+            $vendedor_admin=$rw['vendedor_admin'];
+            $subtotal_admin=$rw['subtotal_admin'];
+            $eago_admin=$rw['eago_admin'];
+            $total_admin=$rw['total_admin'];
         }
     }   
     else{exit;}
@@ -82,12 +83,14 @@
 <div class="form-group">
     <label for="trasladistas_admin" class="col-sm-4 control-label">Trasladistas: </label>
     <div class="col-sm-8">
+        <?php echo $trasladistas;?> $
        <?php echo $trasladistas_admin;?>
     </div>
 </div>
 <div class="form-group">
     <label for="vendedor_admin" class="col-sm-4 control-label">vendedor: </label>
     <div class="col-sm-8">
+        <?php echo $vendedor;?> $
        <?php echo $vendedor_admin;?>
     </div>
 </div>

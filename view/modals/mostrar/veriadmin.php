@@ -28,13 +28,16 @@
                 $clave_carro=$carro_rw['placa'];
 
 
-                $derechos_admin=$rw['derechos_admin'];
-                $otros_admin=$rw['otros_admin'];
-                $trasladistas_admin=$rw['trasladistas_admin'];
-                $vendedor_admin=$rw['vendedor_admin'];
-                $subtotal_admin=$rw['subtotal_admin'];
-                $eago_admin=$rw['eago_admin'];
-                $total_admin=$rw['total_admin'];
+                $datos=$rw['datos'];
+            $derechos_admin=$rw['derechos_admin'];
+            $otros_admin=$rw['otros_admin'];
+            $trasladistas=$rw['trasladistas'];
+            $trasladistas_admin=$rw['trasladistas_admin'];
+            $vendedor=$rw['vendedor'];
+            $vendedor_admin=$rw['vendedor_admin'];
+            $subtotal_admin=$rw['subtotal_admin'];
+            $eago_admin=$rw['eago_admin'];
+            $total_admin=$rw['total_admin'];
         }
     }   
     else{exit;}
@@ -65,6 +68,12 @@
     </div>
 </div>
 <div class="form-group">
+    <label for="datos" class="col-sm-4 control-label">Datos: </label>
+    <div class="col-sm-8">
+       <?php echo $datos;?>
+    </div>
+</div>
+<div class="form-group">
     <label for="derechos_admin" class="col-sm-4 control-label">Derechos: </label>
     <div class="col-sm-8">
        <?php echo $derechos_admin;?>
@@ -79,12 +88,14 @@
 <div class="form-group">
     <label for="trasladistas_admin" class="col-sm-4 control-label">Trasladistas: </label>
     <div class="col-sm-8">
+        <?php echo $trasladistas;?> $
        <?php echo $trasladistas_admin;?>
     </div>
 </div>
 <div class="form-group">
     <label for="vendedor_admin" class="col-sm-4 control-label">vendedor: </label>
     <div class="col-sm-8">
+        <?php echo $vendedor;?> $
        <?php echo $vendedor_admin;?>
     </div>
 </div>
