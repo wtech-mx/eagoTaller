@@ -1,14 +1,25 @@
 <?php
 
 
+  // Parametros a configurar para la conexion de la base de datos 
+  $host = "localhost";    // sera el valor de nuestra BD 
+  $basededatos = "taller_eago";    // sera el valor de nuestra BD 
+  $usuariodb = "root";    // sera el valor de nuestra BD 
+  $clavedb = "";    // sera el valor de nuestra BD 
+  //Lista de Tablas
+  $tabla_db1 = "slide";      // tabla de usuarios
+  error_reporting(0); //No me muestra errores
+  $conexion = new mysqli($host,$usuariodb,$clavedb,$basededatos);
+
 
 function con(){
 	return new mysqli("localhost","root","","taller_eago");
 }
 
-function insert_img($title, $boton, $folder, $image){
+function insert_img($title, $folder, $image){
 	$con = con();
 	$con->query("insert into slide (title, boton, folder,src,created_at) value (\"$title\",\"$boton\",\"$folder\",\"$image\",NOW())");
+	$con->query("insert into slide (boton) values (\"$boton\",NOW())");
 }
 
 function get_imgs(){

@@ -14,22 +14,23 @@
 												<h2 class="titulo" style="padding: 20px;">Subir imagenes o archivos</h2>
 
 												<form action="admin/upload.php" enctype="multipart/form-data" class="formulario" method="post">
+
 													  <div class="form-group">
 													    <label for="exampleInputPassword1">Texto a mostrar</label>
 													    <input type="text"  name="title" class="form-control"  placeholder="Texto a mostrar">
 													  </div>
 
 											  		  <div class="form-group">
-													    <label for="EnlaceBoton">Enlace del Boton</label>
-													    <input type="text"  name="boton" class="form-control"  placeholder="Texto a mostrar">
+													    <label for="boton">Enlace del Boton</label>
+													    <input type="text"  name="boton" class="form-control" id="boton"  placeholder="Boton a mostrar">
 													  </div>
-													  
+  
 													  <div class="form-group">
 													    <label for="exampleInputFile">Imagen</label>
 													    <input type="file" name="image" required>
 													  </div>
 
-													<input type="submit" value="Subir imagen" class="btn btn-primary">
+													<input type="submit" value="Subir imagen" class="btn btn-primary" name="btn1">
 
 												</form>
 											</article>
@@ -41,3 +42,5 @@
 	        </div>
 	    </div>
 	    <!-- End Form Modal -->
+
+
