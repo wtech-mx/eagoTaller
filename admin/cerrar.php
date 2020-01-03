@@ -6,7 +6,7 @@ session_destroy();
 $_SESSION = array();
 
 //header('Location: '. RUTA . '/login.php');
-header('Location: ../../../../Eago-frontend/blog/login.php');
+header('Location: ../../../../Eago-backend/blog/login.php');
 
 die();
 

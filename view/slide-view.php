@@ -5,7 +5,7 @@
 	include "resources/header.php";
 	$images = get_imgs();
 
-	//if ($_SESSION['slide']==1){
+	if ($_SESSION['tarjeta']==1){
 
  ?>
 
@@ -63,12 +63,11 @@
 </section>
 
 <?php
-    include "resources/footer.php";
   
-    //}else{
-    //  require 'resources/acceso_prohibido.php';
-   // }
-    //ob_end_flush(); 
+   }else{
+     require 'resources/acceso_prohibido.php';
+  }
+   ob_end_flush(); 
 ?>
 
 
