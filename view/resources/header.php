@@ -136,13 +136,24 @@
                             <li><a href="./?view=traslados"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
                     </li>
-
-
                     
                     <li class="<?php if(isset($active30)){echo $active30;}?>">
                         <a href="./?view=Documentacion"><i class="fa fa-file-text"></i><span>Documentación</span></a>
                     </li>
-                    
+
+                    <li class="<?php if(isset($active30)){echo $active30;}?>">
+                        <a href="./?view=blog"><i class="fa fa-pencil"></i><span>Noticias y Tips</span></a>
+                    </li>
+
+                    <li class="<?php if(isset($active30)){echo $active30;}?>">
+                        <a href="./?view=slide"><i class="fa fa-picture-o"></i><span>Slide</span></a>
+                    </li>
+
+<!--                  <?php if ($_SESSION['slide']==1) { ?>
+                    <li class="<?php if(isset($active13)){echo $active13;}?>">
+                        <a href="./?view=slide"><i class="fa fa-picture-o"></i><span>slide</span></a>
+                    </li>
+                    <?php } ?> -->
                     
                     <?php if ($_SESSION['empleados']==1) { ?>
                     <li class="<?php if(isset($active8)){echo $active8;}?>">

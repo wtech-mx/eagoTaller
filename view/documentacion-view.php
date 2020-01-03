@@ -1,6 +1,5 @@
 <?php 
     include "resources/header.php";
-
 ?>
     <!--main content start-->
     <section class="main-content-wrapper">

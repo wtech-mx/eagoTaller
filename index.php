@@ -2,6 +2,8 @@
 	ob_start();
 	session_start();
 
+
+
 	$view = isset($_GET['view']) ? $_GET['view'] : 'index';
 	
 	require('config/config.php');
@@ -13,4 +15,15 @@
 		include("view/error-view.php");
 		//echo "No existe";
 	}
+
+	require 'functions.php';
+
+	//$conexion = conexion($bd_config);
+
+	// Obtenemos los post
+	//$posts = obtener_post($blog_config['post_por_pagina'], $conexion);
+
+	//$conexion = conexion($bd_config);
+
+
 

@@ -87,7 +87,9 @@ if($action == 'ajax'){
                 <td><?php echo $nombre_empresa ?></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">
-                    <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>
+                    <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');">
+                    	<i class="fa fa-edit"></i>
+                    </button>
                     <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $id;?>')"><i class="fa fa-trash-o"></i></button>
                 </td>
             </tr>
