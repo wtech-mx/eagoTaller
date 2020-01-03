@@ -104,7 +104,7 @@
                     </li>
                     <?php } ?>
 
-                    
+                    <?php if ($_SESSION['vehiculo']==1) { ?>
                     <li class="<?php if(isset($active2)){echo $active2;}?>">
                         <a href="./?view=vehiculos"><i class="fa fa-truck"></i><span>Vehiculo</span></a>
                         <ul>
@@ -112,12 +112,13 @@
                             <li><a href="./?view=seguros"><i class="fa fa-key"></i>Seguro</li></a>
                         </ul>
                     </li>
-                  
+                    <?php } ?>
                     
+                    <?php if ($_SESSION['taller']==1) { ?>
                     <li class="<?php if(isset($active3)){echo $active3;}?>">
                         <a href="./?view=datCliente"><i class="fa fa-mobile"></i>Datos Cliente</a>
                     </li>
-
+                    <?php } ?>
                     
                     <?php if ($_SESSION['empresa']==1) { ?>
                     <li class="<?php if(isset($active4)){echo $active4;}?>">
@@ -125,6 +126,7 @@
                     </li>
                     <?php } ?>
                     
+                    <?php if ($_SESSION['choque']==1) { ?>
                     <li class="<?php if(isset($active5)){echo $active5;}?>">
                         <a href="./?view=servicios"><i class="fa fa-wrench" data-toggle="dropdown"></i><span>Servicios</span></a>
                         <ul>
@@ -136,13 +138,16 @@
                             <li><a href="./?view=traslados"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
                     </li>
-                    
-                    <li class="<?php if(isset($active30)){echo $active30;}?>">
+                    <?php } ?>
+
+                    <?php if ($_SESSION['seguro']==1) { ?>
+                    <li class="<?php if(isset($active20)){echo $active20;}?>">
                         <a href="./?view=Documentacion"><i class="fa fa-file-text"></i><span>Documentación</span></a>
                     </li>
+                    <?php } ?>
 
                     <?php if ($_SESSION['reparaciones']==1) { ?>
-                    <li class="<?php if(isset($active30)){echo $active30;}?>">
+                    <li class="<?php if(isset($active10)){echo $active10;}?>">
                         <a href="./?view=blog"><i class="fa fa-pencil"></i><span>Noticias y Tips</span></a>
                     </li>
                     <?php } ?>
@@ -170,22 +175,6 @@
                             <li><a href="./?view=trasadmin"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
                     </li>                     
-                    <?php } ?>
-
-                    <?php if ($_SESSION['seguro']==1) { ?>
-                    <!--<li class="<?php if(isset($active5)){echo $active5;}?>">
-                        <a href="./?view=seguros"><i class="fa fa-lock"></i><span>Seguro</span></a>
-                    </li>-->                   
-                    <?php } ?>
-
-                    
-
-                    
-
-                    <?php if ($_SESSION['reparaciones']==1) { ?>
-                    <!--<li class="<?php if(isset($active10)){echo $active10;}?>">
-                        <a href="./?view=reparaciones"><i class="fa fa-gavel"></i><span>Reparaciones</span></a>
-                    </li>-->
                     <?php } ?>
 
                     <?php if ($_SESSION['configuracion']==1) { ?>

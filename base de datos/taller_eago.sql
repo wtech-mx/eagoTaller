@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-12-2019 a las 20:29:18
+-- Tiempo de generación: 04-01-2020 a las 00:41:53
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -223,10 +223,8 @@ CREATE TABLE `empleado` (
 
 INSERT INTO `empleado` (`id`, `dni`, `imagen`, `nombre`, `apellido`, `username`, `email`, `password`, `domicilio`, `localidad`, `telefono`, `celular`, `registro`, `status`, `kind`, `created_at`) VALUES
 (1, '543434', 'view/resources/images/1573849686_logoCar.png', 'Escuderia', 'AGO', 'admin', 'eago@gmail.com', '95ff079df7e19594fbaf65ecddb6f611c8ebdc25', 'AV SAN ANDRES', 'colchester', '9544534', '5533445340', '1', 1, 0, '2019-11-14 03:00:00'),
-(2, '456576', 'view/resources/images/default.png', 'Richard', 'Stallman', 'Empleado', 'empleado@gmail.com', 'e27648bb570a44840960a403eafbeae8c4fdb172', 'av san juan', 'silcon valley', '323445', '552344565', '3', 1, 0, '2019-11-15 03:44:17'),
-(3, '123', 'view/resources/images/default.png', 'Josue', 'Ramirez', 'dinopiza@yahoo.com.mx', 'dinopiza@yahoo.com.mx', '10470c3b4b1fed12c3baac014be15fac67c6e815', 'AV VASCO DE QUIROGA 1235', 'CDMX', '+525513730772', '5513730772', '1', 1, 0, '2019-12-27 07:28:33'),
-(4, '543434', 'view/resources/images/default.png', 'a', 'Ramirez', 'pepe@gmail.com', 'pepe@gmail.com', '10470c3b4b1fed12c3baac014be15fac67c6e815', 'AV VASCO DE QUIROGA 1235', 'CDMX', '+525513730772', '5513730772', '1', 1, 0, '2019-12-27 07:38:12'),
-(5, '56465', 'view/resources/images/default.png', 'dayanna', 'verplancken', 'dayverplancken', 'dayanna@gmail.com', '19c876c2841e18ff24903c0d7c30470a473391ed', 'Puerto ensenada nÃºmero 24', 'Ciudad de MÃ©xico', '(553) 990-7266', '(553) 990-7266', 'gfh', 1, 0, '2019-12-27 10:36:00');
+(2, '456576', 'view/resources/images/default.png', 'Richard', 'Stallman', 'Empleado', 'empleado@gmail.com', 'ea8fb717f9a0ab4923f281c8fe3f51636a3ed6a9', 'av san juan', 'silcon valley', '323445', '552344565', '3', 1, 0, '2019-11-15 03:44:17'),
+(7, 'jkhjk', 'view/resources/images/default.png', 'Itzel', 'Espinosa', 'Empleado', 'itzel@gmail.com', '67a74306b06d0c01624fe0d0249a570f4d093747', 'Puerto ensenada nÃºmero 24', 'Ciudad de MÃ©xico', '(553) 990-7266', '(553) 990-5651', 'gfh', 1, 0, '2020-01-04 00:19:37');
 
 -- --------------------------------------------------------
 
@@ -245,64 +243,24 @@ CREATE TABLE `empleado_permisos` (
 --
 
 INSERT INTO `empleado_permisos` (`idempleado_permiso`, `idempleado`, `idpermiso`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 1, 3),
-(4, 1, 4),
-(5, 1, 5),
-(6, 1, 6),
-(7, 1, 7),
-(8, 1, 8),
-(9, 1, 9),
-(10, 1, 10),
-(11, 1, 11),
-(22, 2, 1),
-(23, 2, 3),
-(24, 2, 4),
-(25, 2, 5),
-(26, 2, 6),
-(27, 2, 7),
-(28, 2, 8),
-(29, 2, 9),
-(30, 2, 10),
-(339, 2, 1),
-(340, 2, 3),
-(341, 2, 4),
-(342, 2, 5),
-(343, 2, 6),
-(344, 2, 7),
-(345, 2, 8),
-(346, 2, 9),
-(347, 2, 10),
-(436, 1, 1),
-(437, 1, 2),
-(438, 1, 3),
-(439, 1, 4),
-(440, 1, 5),
-(441, 1, 6),
-(442, 1, 7),
-(443, 1, 8),
-(444, 1, 9),
-(445, 1, 10),
-(446, 1, 11),
-(448, 3, 6),
-(449, 4, 1),
-(450, 4, 2),
-(451, 4, 3),
-(452, 4, 4),
-(453, 4, 5),
-(454, 4, 7),
-(455, 4, 8),
-(456, 4, 9),
-(457, 4, 10),
-(458, 4, 11),
-(459, 4, 12),
-(460, 5, 1),
-(461, 5, 2),
-(462, 5, 4),
-(463, 5, 7),
-(464, 5, 9),
-(465, 5, 12);
+(485, 2, 1),
+(486, 2, 2),
+(489, 2, 5),
+(490, 2, 7),
+(491, 2, 10),
+(492, 2, 11),
+(498, 1, 1),
+(499, 1, 2),
+(500, 1, 3),
+(501, 1, 4),
+(502, 1, 5),
+(503, 1, 6),
+(504, 1, 7),
+(505, 1, 8),
+(506, 1, 9),
+(507, 1, 10),
+(508, 1, 11),
+(509, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -472,16 +430,15 @@ CREATE TABLE `permisos` (
 INSERT INTO `permisos` (`id`, `nombre`) VALUES
 (1, 'Dashboard'),
 (2, 'Empleados'),
-(3, 'Taller'),
-(4, 'Seguro'),
+(3, 'Clientes'),
+(4, 'Documentacion'),
 (5, 'Empresa'),
-(6, 'admin'),
+(6, 'Gestor Admin'),
 (7, 'Vehiculo'),
-(8, 'Tarjeta'),
-(9, 'Reparaciones'),
-(10, 'Choque'),
-(11, 'Configuracion'),
-(12, 'blog');
+(8, 'Slide'),
+(9, 'Blog'),
+(10, 'Servicios'),
+(11, 'Configuracion');
 
 -- --------------------------------------------------------
 
@@ -681,9 +638,7 @@ INSERT INTO `vehiculo` (`id`, `idcliente`, `vehiculo_code`, `patente`, `marca`, 
 (51, 2, '6', 'DF-89', 'mazda', 'jfd', 'sdg', 'sdfg', '2019-08-14', 1, 'todos', 'view/resources/images/1577468687_5dccf4af52288.png', 2, 'view/resources/images/1577468677_bicycle-1869176_1280.jpg', 'view/resources/images/1577468684_2.jpg', 'view/resources/images/1577468681_4.jpg', '2019-12-20 05:58:40'),
 (54, 7, '4', 'DGF-365', 'ferrari', '2020', 'dfg', 'dg', '2019-03-14', 1, 'negro', 'view/resources/images/1577468841_foto_3.jpg', 1, 'view/resources/images/1577468832_2.jpg', 'view/resources/images/1577468837_4.jpg', 'view/resources/images/1577468834_3.jpg', '2019-12-21 02:06:21'),
 (60, 6, '5', '976', 'audi', '2016', 'kl.s', '00099', '2019-09-12', 1, 'azul', 'view/resources/images/1577468853_2.jpg', 1, 'view/resources/images/1577468857_4.jpg', 'view/resources/images/1577468860_bicycle-1869176_1280.jpg', 'view/resources/images/1577468864_5dccf4af52288.png', '2019-12-21 02:30:47'),
-(63, 6, '6', '976-GHO', 'benz', '89', 'ofl', 'fsd', '2020-12-19', 1, '33', 'view/resources/images/vehiculos/1577474474_4.jpg', 1, 'view/resources/images/vehiculos/1577474461_3.jpg', 'view/resources/images/vehiculos/1577474466_foto_1.jpg', 'view/resources/images/vehiculos/1577474463_5dccf3a66f463.png', '2019-12-21 06:13:30'),
-(73, 1577474832, '1577474832-1', '', '', '', '', '', '0000-00-00', 0, '', 'view/resources/images/vehiculo.jpg', 127, 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', 'view/resources/images/vehiculo.jpg', '2019-12-27 20:27:12'),
-(74, 1577474884, '1577474884-1', '', '', '', '', '', '0000-00-00', 0, '', 'view/resources/images/vehiculos/vehiculo.jpg', 127, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2019-12-27 20:28:04');
+(63, 6, '6', '976-GHO', 'benz', '89', 'ofl', 'fsd', '2020-12-19', 1, '33', 'view/resources/images/vehiculos/1577474474_4.jpg', 1, 'view/resources/images/vehiculos/1577474461_3.jpg', 'view/resources/images/vehiculos/1577474466_foto_1.jpg', 'view/resources/images/vehiculos/1577474463_5dccf3a66f463.png', '2019-12-21 06:13:30');
 
 -- --------------------------------------------------------
 
@@ -907,13 +862,13 @@ ALTER TABLE `documentacion`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado_permisos`
 --
 ALTER TABLE `empleado_permisos`
-  MODIFY `idempleado_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=466;
+  MODIFY `idempleado_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=510;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
