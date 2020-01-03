@@ -115,6 +115,7 @@ function fecha($fecha){
 }
 
     include "resources/header.php";
+    if ($_SESSION['reparaciones']==1){
 
 ?>
 
@@ -188,6 +189,10 @@ function fecha($fecha){
 
 <?php
     include "resources/footer.php";
+     }else{
+      require 'resources/acceso_prohibido.php';
+    }
+    ob_end_flush();
 ?>
 
 

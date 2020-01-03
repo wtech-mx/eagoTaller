@@ -34,7 +34,7 @@
 				in_array(9,$valores)?$_SESSION['reparaciones']=1:$_SESSION['reparaciones']=0;
 				in_array(10,$valores)?$_SESSION['choque']=1:$_SESSION['choque']=0;
 				in_array(11,$valores)?$_SESSION['configuracion']=1:$_SESSION['configuracion']=0;
-				in_array(13,$valores)?$_SESSION['slide']=1:$_SESSION['slide']=0;
+				in_array(13,$valores)?$_SESSION['blog']=1:$_SESSION['blog']=0;
 
 
 				$_SESSION['user_id'] = $idempleado;
