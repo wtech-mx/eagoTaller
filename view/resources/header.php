@@ -1,4 +1,7 @@
 <?php
+
+    define('RUTA', 'http://localhost/Eago-frontend/');
+
     if (!isset($_SESSION['user_id'])&& $_SESSION['user_id']==null) {
         header("location: ./?view=index");
     }
@@ -85,8 +88,10 @@
                                 <a href="./?view=perfil"><i class="fa fa-user"></i> Mi Perfil</a>
                             </li>
                             <li>
-                                <a href="./?view=logout"><i class="fa fa-power-off"></i> Salir</a>
+                                <a href="<?php echo RUTA; ?>"><i class="fa fa-power-off"></i> Salir</a>
                             </li>
+
+                             
                         </ul>
                     </li>
                 </ul>

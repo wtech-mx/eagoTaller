@@ -63,7 +63,7 @@
 </section>
 
 <?php
-  
+  include "resources/footer.php";
    }else{
      require 'resources/acceso_prohibido.php';
   }
