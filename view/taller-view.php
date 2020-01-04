@@ -1,5 +1,5 @@
 <?php 
-    $active4="active";
+    $active2="active";
     include "resources/header.php";
     
     if ($_SESSION['taller']==1){

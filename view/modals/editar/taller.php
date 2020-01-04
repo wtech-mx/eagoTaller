@@ -30,9 +30,9 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="cuit" class="col-sm-2 control-label">Cuit: </label>
+    <label for="cuit" class="col-sm-2 control-label">Identificación: </label>
     <div class="col-sm-10">
-        <input type="text" required class="form-control" id="cuit" name="cuit" value="<?php echo $cuit;?>" placeholder="Cuit: ">
+        <input type="text" required class="form-control" id="cuit" name="cuit" value="<?php echo $cuit;?>" placeholder="Identificación ">
     </div>
 </div>
 <div class="form-group">

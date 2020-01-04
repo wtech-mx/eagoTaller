@@ -105,7 +105,7 @@
 <div class="form-group">
     <label for="origen" class="col-sm-2 control-label">Origen: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="origen" name="origen" placeholder="Origen "><?php echo $origen ?></textarea>
+        <textarea type="text" required class="form-control" id="origen" name="origen" placeholder="Origen "><?php echo $origen ?></textarea>
     </div>
 </div>
 

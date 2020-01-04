@@ -90,7 +90,7 @@
                     <div class="form-group">
                         <label for="origen" class="col-sm-2 control-label">Origen: </label>
                         <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="origen" name="origen" placeholder="origen">
+                            <input type="text" required class="form-control" id="origen" name="origen" placeholder="origen">
                         </div>
                     </div>
                 </div>

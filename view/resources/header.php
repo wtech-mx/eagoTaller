@@ -104,7 +104,7 @@
                     </li>
                     <?php } ?>
 
-                    
+                    <?php if ($_SESSION['vehiculo']==1) { ?>
                     <li class="<?php if(isset($active2)){echo $active2;}?>">
                         <a href="./?view=vehiculos"><i class="fa fa-truck"></i><span>Vehiculo</span></a>
                         <ul>
@@ -112,12 +112,13 @@
                             <li><a href="./?view=seguros"><i class="fa fa-key"></i>Seguro</li></a>
                         </ul>
                     </li>
-                  
+                    <?php } ?>
                     
+                    <?php if ($_SESSION['taller']==1) { ?>
                     <li class="<?php if(isset($active3)){echo $active3;}?>">
                         <a href="./?view=datCliente"><i class="fa fa-mobile"></i>Datos Cliente</a>
                     </li>
-
+                    <?php } ?>
                     
                     <?php if ($_SESSION['empresa']==1) { ?>
                     <li class="<?php if(isset($active4)){echo $active4;}?>">
@@ -125,6 +126,7 @@
                     </li>
                     <?php } ?>
                     
+                    <?php if ($_SESSION['choque']==1) { ?>
                     <li class="<?php if(isset($active5)){echo $active5;}?>">
                         <a href="./?view=servicios"><i class="fa fa-wrench" data-toggle="dropdown"></i><span>Servicios</span></a>
                         <ul>
@@ -136,13 +138,16 @@
                             <li><a href="./?view=traslados"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
                     </li>
-                    
-                    <li class="<?php if(isset($active30)){echo $active30;}?>">
+                    <?php } ?>
+
+                    <?php if ($_SESSION['seguro']==1) { ?>
+                    <li class="<?php if(isset($active6)){echo $active6;}?>">
                         <a href="./?view=Documentacion"><i class="fa fa-file-text"></i><span>Documentación</span></a>
                     </li>
+                    <?php } ?>
 
                     <?php if ($_SESSION['reparaciones']==1) { ?>
-                    <li class="<?php if(isset($active30)){echo $active30;}?>">
+                    <li class="<?php if(isset($active7)){echo $active7;}?>">
                         <a href="./?view=blog"><i class="fa fa-pencil"></i><span>Noticias y Tips</span></a>
                     </li>
                     <?php } ?>
@@ -160,7 +165,7 @@
                     <?php } ?>
 
                     <?php if ($_SESSION['admin']==1) { ?>
-                     <li class="<?php if(isset($active6)){echo $active6;}?>">
+                     <li class="<?php if(isset($active10)){echo $active10;}?>">
                         <a href="./?view=admin"><i class="fa fa-road"></i><span>Gestor Administrativo</span></a>
                         <ul>                                                  
                             <li><a href="./?view=esteadmin"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
@@ -172,24 +177,8 @@
                     </li>                     
                     <?php } ?>
 
-                    <?php if ($_SESSION['seguro']==1) { ?>
-                    <!--<li class="<?php if(isset($active5)){echo $active5;}?>">
-                        <a href="./?view=seguros"><i class="fa fa-lock"></i><span>Seguro</span></a>
-                    </li>-->                   
-                    <?php } ?>
-
-                    
-
-                    
-
-                    <?php if ($_SESSION['reparaciones']==1) { ?>
-                    <!--<li class="<?php if(isset($active10)){echo $active10;}?>">
-                        <a href="./?view=reparaciones"><i class="fa fa-gavel"></i><span>Reparaciones</span></a>
-                    </li>-->
-                    <?php } ?>
-
                     <?php if ($_SESSION['configuracion']==1) { ?>
-                    <li class="<?php if(isset($active12)){echo $active12;}?>">
+                    <li class="<?php if(isset($active11)){echo $active11;}?>">
                         <a href="./?view=configuracion"><i class="fa fa-cog"></i><span>Configuración</span></a>
                     </li>
                     <li >

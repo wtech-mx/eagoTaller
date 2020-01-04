@@ -1,5 +1,7 @@
 <?php 
+    $active6="active";
     include "resources/header.php";
+    if ($_SESSION['seguro']==1){
 ?>
     <!--main content start-->
     <section class="main-content-wrapper">
@@ -139,6 +141,9 @@
         }
     }
 </script>
-<?php 
+<?php     
+    }else{
+      require 'resources/acceso_prohibido.php';
+    }
     ob_end_flush(); 
 ?>

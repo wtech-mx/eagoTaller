@@ -1,6 +1,7 @@
 <?php 
     $active3="active";
     include "resources/header.php";
+     if ($_SESSION['taller']==1){
 ?>
     <!--main content start-->
     <section class="main-content-wrapper">
@@ -218,3 +219,9 @@
             })
     }
 </script>
+<?php     
+    }else{
+      require 'resources/acceso_prohibido.php';
+    }
+    ob_end_flush(); 
+?>

@@ -1,5 +1,5 @@
 <?php 
-    $active11="active";
+  
     include "resources/header.php";
 
     if ($_SESSION['choque']==1){

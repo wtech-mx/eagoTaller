@@ -1,5 +1,5 @@
 <?php 
-    $active10="active";
+  
     include "resources/header.php";
 
     if ($_SESSION['reparaciones']==1){

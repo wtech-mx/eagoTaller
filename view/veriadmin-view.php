@@ -1,4 +1,5 @@
 <?php  
+    $active10="active";
     include "resources/header.php";
 ?>
     <!--main content start-->

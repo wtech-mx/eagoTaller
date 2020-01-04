@@ -14,7 +14,6 @@
 		unset($_SESSION['reparaciones']);
 		unset($_SESSION['choque']);
 		unset($_SESSION['configuracion']);
-		unset($_SESSION['blog']);
 		
 
 		session_destroy();
