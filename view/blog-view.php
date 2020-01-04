@@ -113,7 +113,7 @@ function fecha($fecha){
 	$fecha = $dia . ' de ' . $meses[$mes] . ' del ' . $year;
 	return $fecha;
 }
-
+	 $active7="active";
     include "resources/header.php";
     if ($_SESSION['reparaciones']==1){
 

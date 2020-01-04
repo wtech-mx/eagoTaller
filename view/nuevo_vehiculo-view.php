@@ -114,9 +114,9 @@
     </select>    
 </div>
 
-                                    <label for="patente" class="col-sm-2 control-label">Patente: </label>
+                                    <label for="patente" class="col-sm-2 control-label">Placas: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" required name="patente" class="form-control" id="patente" placeholder="Patente: ">
+                                        <input type="text" required name="patente" class="form-control" id="patente" placeholder="Placas: ">
                                     </div>
                                     <label for="marca" class="col-sm-2 control-label">Marca: </label>
                                     <div class="col-sm-4">

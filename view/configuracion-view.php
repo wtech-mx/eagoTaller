@@ -1,5 +1,5 @@
 <?php 
-    $active12="active";
+    $active11="active";
     include "resources/header.php";
 
     $empresa=mysqli_query($con, "select * from configuracion");

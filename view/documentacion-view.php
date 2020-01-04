@@ -1,4 +1,5 @@
 <?php 
+    $active6="active";
     include "resources/header.php";
     if ($_SESSION['seguro']==1){
 ?>

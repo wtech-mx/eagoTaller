@@ -1,5 +1,5 @@
 <?php 
-    $active6="active";
+    $active10="active";
     include "resources/header.php";
     
     if ($_SESSION['admin']==1){

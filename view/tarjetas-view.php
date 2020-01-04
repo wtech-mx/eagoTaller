@@ -1,5 +1,5 @@
 <?php 
-    $active9="active";
+  
     include "resources/header.php";
 
     if ($_SESSION['tarjeta']==1){
