@@ -28,7 +28,7 @@
 ?>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 <div class="form-group">
-    <label for="dni" class="col-sm-4 control-label">DNI: </label>
+    <label for="dni" class="col-sm-4 control-label">Identificación: </label>
     <div class="col-sm-8">
         <?php echo $dni;?>
     </div>

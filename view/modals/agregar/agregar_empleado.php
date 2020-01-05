@@ -13,9 +13,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="dni" class="col-sm-2 control-label">DNI: </label>
+                        <label for="dni" class="col-sm-2 control-label">Identificación: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="dni" name="dni" placeholder="DNI: ">
+                            <input type="text" required class="form-control" id="dni" name="dni" placeholder="Identificación ">
                         </div>
                     </div>
                     <div class="form-group">

@@ -20,9 +20,8 @@
             
             <div class="row">
                 <div class="col-xs-3">
-                    <span class="text-muted">Busca por fecha de traslado</span>
                     <div class="input-group">
-                        <input type="date" class="form-control" placeholder="Buscar por fecha de traslado" id='q' onkeyup="load(1);">
+                        <input type="text" class="form-control" placeholder="fecha de traslado" id='q' onkeyup="load(1);">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                       </span>

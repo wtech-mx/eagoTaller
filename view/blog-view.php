@@ -137,7 +137,6 @@ function fecha($fecha){
 				<article>
 					<h2 class="titulo"><?php echo $post['id'] . '.- ' . $post['titulo']; ?></h2>
 					<a type="button" class="btn btn-warning" href="admin/editar.php?id=<?php echo $post['id']; ?>" style="color: #000">Editar</a>
-					<?php include "modals/editar/editar_blog.php";?>
 					<a type="button" class="btn btn-primary" target="blank" href="../../Eago-frontend/blog/single.php?id=<?php echo $post['id']; ?>">Ver</a>
 					<a type="button" class="btn btn-danger" href="admin/borrar.php?id=<?php echo $post['id']; ?>" style="color: #fff">Borrar</a>
 				</article>
@@ -196,4 +195,52 @@ function fecha($fecha){
 ?>
 
 
+    <style type="text/css" media="screen">
+    /* --- Paginacion --- */
 
+.paginacion {
+    margin-bottom: 30px;
+}
+
+.paginacion ul {
+    list-style: none;
+    text-align: center;
+}
+
+.paginacion ul li {
+    display: inline-block;
+    margin:0 5px;
+    color:#fff;
+}
+
+.paginacion ul li a {
+    display: block;
+    padding:10px 20px;
+    background: #595959;
+    color:#fff;
+}
+
+.paginacion ul li a:hover {
+    background: #051240;
+    text-decoration: none;
+}
+
+.paginacion ul .active {
+    background: #051240;
+    padding:10px 20px;
+}
+
+.paginacion ul .disabled{
+    background: #a8a8a8;
+    padding:10px 20px;
+    cursor: not-allowed;
+}
+
+.paginacion ul .disabled:hover {
+    background: #a8a8a8;
+}
+
+.white{
+    color: #fff;
+}
+</style>

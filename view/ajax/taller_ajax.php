@@ -67,7 +67,7 @@ if($action == 'ajax'){
             <tr>
                 <th>#ID</th>
                 <th>Nombre</th>
-                <th>Cuit</th>
+                <th>Identificación</th>
                 <th>Dirección</th>
                 <th>Localidad</th>
                 <th>Telefóno</th>
