@@ -1,6 +1,6 @@
 <?php
 
-define('SERVIDOR', 'http://localhost/Eago-backend/');
+define('SERVIDOR', 'http://localhost/eagoTaller/');
 //define('RUTA', 'http://localhost/Eago-frontend/blog/');
 //
 //define('RUTA', 'https://eago.com.mx/blog/');
@@ -8,8 +8,8 @@ define('SERVIDOR', 'http://localhost/Eago-backend/');
 //DB TRABJANDO EN LOCALHOST
 $bd_config = array(
 	'basedatos' => 'taller_eago',
-	'usuario' => 'root',
-	'pass' => ''
+	'usuario' => 'eagotaller',
+	'pass' => 'eago19taller'
 );
 
 //DB TRABJANDO EN EL SERVIDOR

@@ -21,9 +21,9 @@
                 $patente_vehiculo=$vehiculo_rw['marca'];
 
                 $idcarro=$rw['idcarro'];
-                $carros=mysqli_query($con, "select * from cliente where id=$idcarro");
+                $carros=mysqli_query($con, "select * from vehiculo where id=$idcarro");
                 $carro_rw=mysqli_fetch_array($carros);
-                $placa_carro=$carro_rw['placa'];
+                $placa_carro=$carro_rw['patente'];
 
                 $datos=$rw['datos'];
                 $trasladistas=$rw['trasladistas'];

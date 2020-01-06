@@ -1,6 +1,6 @@
 <?php
 
-    define('RUTA', 'http://localhost/Eago-frontend/');
+    define('RUTA', 'http://eago.com.mx/Eago-frontend/');
 
     if (!isset($_SESSION['user_id'])&& $_SESSION['user_id']==null) {
         header("location: ./?view=index");
@@ -147,7 +147,7 @@
 
                     <?php if ($_SESSION['seguro']==1) { ?>
                     <li class="<?php if(isset($active6)){echo $active6;}?>">
-                        <a href="./?view=Documentacion"><i class="fa fa-file-text"></i><span>Documentación</span></a>
+                        <a href="./?view=documentacion"><i class="fa fa-file-text"></i><span>Documentación</span></a>
                     </li>
                     <?php } ?>
 
@@ -187,7 +187,7 @@
                         <a href="./?view=configuracion"><i class="fa fa-cog"></i><span>Configuración</span></a>
                     </li>
                     <li >
-                        <a href="http://eago.com.mx/eago-pag/index.php#" target="blank">
+                        <a href="http://eago.com.mx/Eago-frontend/index.php#" target="blank">
                             <i class="fa fa-circle"></i>
                             <span>Visita EAGO</span></a>
                     </li>

@@ -56,10 +56,10 @@
                         <div class="col-sm-4">
                                         <select class="form-control" name="carro" id="carro" required>
                                             <?php 
-                                            $sql_carros=mysqli_query($con,"select * from cliente");
+                                            $sql_carros=mysqli_query($con,"select * from vehiculo");
                                                 while ($rw=mysqli_fetch_array($sql_carros)){
                                                     $idcarro=$rw['id'];
-                                                    $placa_carro=$rw['placa'];
+                                                    $placa_carro=$rw['patente'];
                                                 ?>
                                                 <option value="<?php echo $idcarro;?>"><?php echo $placa_carro;?></option>
                                                 <?php

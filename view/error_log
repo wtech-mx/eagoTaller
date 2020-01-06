@@ -1,0 +1,23 @@
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 5
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 8
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: con in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 9
+[06-Jan-2020 05:42:26 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 9
+[06-Jan-2020 05:42:26 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 10
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: con in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 25
+[06-Jan-2020 05:42:26 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 25
+[06-Jan-2020 05:42:26 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 26
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: imagen_empleado in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 80
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: nombre_empleado in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 84
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: apellido_empleado in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 84
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 106
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 112
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 122
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 128
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 134
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 148
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 154
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 160
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 166
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 172
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/resources/header.php on line 185
+[06-Jan-2020 05:42:26 UTC] PHP Notice:  Undefined variable: _SESSION in /home/myr9ystzahue/public_html/eago.com.mx/eagoTaller/view/dashboard-view.php on line 5

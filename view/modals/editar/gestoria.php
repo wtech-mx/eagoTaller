@@ -74,11 +74,11 @@
         <select class="form-control" name="carro" id="carro">
             <option value="">--- SELECCIONA ---</option>
         <?php
-            $carros=mysqli_query($con,"select * from cliente");
+            $carros=mysqli_query($con,"select * from vehiculo");
             while ($rw=mysqli_fetch_array($carros)) {
                 if ($idcarro==$rw['id']){$selected1="selected";}else{$selected1="";}
         ?>
-            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['placa']?></option>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['patente']?></option>
         <?php 
             }
         ?>

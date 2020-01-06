@@ -8,7 +8,7 @@
             <form class="form-horizontal" role="form" method="post" id="new_register" name="new_register">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel"> Nuevo Seguro</h4>
+                    <h4 class="modal-title" id="myModalLabel"> Nuevo Sector</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -18,18 +18,21 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="poliza" class="col-sm-2 control-label">Poliza: </label>
+                        <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="poliza" name="poliza" placeholder="Poliza: ">
+                            <select class="form-control" name="empresa" id="empresa">
+                            <?php
+                                require_once ("config/config.php");
+                                $empresas=mysqli_query($con,"select * from empresa where estado=1");
+                                while ($rw=mysqli_fetch_array($empresas)) {
+                            ?>
+                                <option value="<?php echo $rw['id']?>"><?php echo $rw['nombre']?></option>
+                            <?php 
+                                }
+                            ?>
+                            </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="vencimiento" class="col-sm-2 control-label">Vencimiento: </label>
-                        <div class="col-sm-10">
-                            <input type="date" class="form-control" name="vencimiento" id="vencimiento" required="" placeholder="DD/MM/YYYY">
-                        </div>
-                    </div>
-                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

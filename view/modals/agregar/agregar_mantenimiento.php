@@ -35,7 +35,7 @@
                                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
+                        <label for="vehiculo" class="col-sm-2 control-label">Placas Vehiculo: </label>
                         <div class="col-sm-10">
                             <select class="form-control selectpicker" data-live-search="true" name="vehiculo" id="vehiculo">
                                <!--  <option value="">--- SELECCIONA ---</option> -->
