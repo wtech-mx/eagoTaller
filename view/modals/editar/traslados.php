@@ -14,9 +14,8 @@
             $idcliente=$rw['idcliente'];
             $idvehiculo=$rw['idvehiculo'];
             $datos=$rw['datos'];
-            $gasolina=$rw['gasolina'];
-            $casetas=$rw['casetas'];
-            $trasladistas=$rw['trasladistas'];
+            $idtaller=$rw['idtaller'];
+            $idtrasladista=$rw['idtrasladista'];
             $vendedor=$rw['vendedor'];
             $destino=$rw['destino'];
             $origen=$rw['origen'];
@@ -33,27 +32,25 @@
     </div>
 </div>
 <div class="form-group">
-<label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+    <label for="cliente" class="col-sm-2 control-label">cliente: </label>
     <div class="col-sm-10">
-        <select class="form-control" name="cliente" id="cliente" required>
-            <?php 
-                $sql_clientes=mysqli_query($con,"select * from cliente");
-                while ($rw=mysqli_fetch_array($sql_clientes)){
-                    $idcliente=$rw['id'];
-                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
-                ?>
-                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
-                <?php
-                }
-            ?>
-        </select>    
+        <select class="form-control" name="cliente" id="cliente">
+        <?php
+            $clientes=mysqli_query($con,"select * from cliente");
+            while ($rw=mysqli_fetch_array($clientes)) {
+                if ($idcliente==$rw['id']){$selected1="selected";}else{$selected1="";}
+        ?>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
+        <?php 
+            }
+        ?>
+        </select>
     </div>
 </div>
 <div class="form-group">
     <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
     <div class="col-sm-10">
         <select class="form-control" name="vehiculo" id="vehiculo">
-            <option value="">--- SELECCIONA ---</option>
         <?php
             $vehiculos=mysqli_query($con,"select * from vehiculo  where estado=1 order by patente");
             while ($rw=mysqli_fetch_array($vehiculos)) {
@@ -73,21 +70,35 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="gasolina" class="col-sm-2 control-label">Costo gasolina: </label>
+    <label for="trasladista" class="col-sm-2 control-label">Trasladista: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina $"><?php echo $gasolina ?></textarea>
+        <select class="form-control" name="trasladista" id="trasladista">
+        <?php
+            $trasladistas=mysqli_query($con,"select * from trasladista  where status=1 order by nombre");
+            while ($rw=mysqli_fetch_array($trasladistas)) {
+                if ($idtrasladista==$rw['id']){$selected1="selected";}else{$selected1="";}
+        ?>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
+        <?php 
+            }
+        ?>
+        </select>
     </div>
 </div>
 <div class="form-group">
-    <label for="casetas" class="col-sm-2 control-label">Casetas: </label>
+    <label for="taller" class="col-sm-2 control-label">Taller: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="casetas" name="casetas" placeholder="Casetas "><?php echo $casetas ?></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="trasladistas" class="col-sm-2 control-label">Trasladistas: </label>
-    <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="trasladistas" name="trasladistas" placeholder="Trasladistas "><?php echo $trasladistas ?></textarea>
+        <select class="form-control" name="taller" id="taller">
+        <?php
+            $tallers=mysqli_query($con,"select * from taller  where estado=1 order by nombre");
+            while ($rw=mysqli_fetch_array($tallers)) {
+                if ($idtaller==$rw['id']){$selected1="selected";}else{$selected1="";}
+        ?>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
+        <?php 
+            }
+        ?>
+        </select>
     </div>
 </div>
 <div class="form-group">
@@ -97,15 +108,14 @@
     </div>
 </div>
 <div class="form-group">
+    <label for="origen" class="col-sm-2 control-label">Recoger en: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="origen" name="origen" placeholder="Dirección "><?php echo $origen ?></textarea>
+    </div>
+</div>
+<div class="form-group">
     <label for="destino" class="col-sm-2 control-label">Destino: </label>
     <div class="col-sm-10">
         <textarea type="text" required class="form-control" id="destino" name="destino" placeholder="Destino "><?php echo $destino ?></textarea>
     </div>
 </div>
-<div class="form-group">
-    <label for="origen" class="col-sm-2 control-label">Origen: </label>
-    <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="origen" name="origen" placeholder="Origen "><?php echo $origen ?></textarea>
-    </div>
-</div>
-

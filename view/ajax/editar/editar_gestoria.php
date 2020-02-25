@@ -22,16 +22,16 @@
         $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
         $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
         $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
-        $gasolina = mysqli_real_escape_string($con,(strip_tags($_POST["gasolina"],ENT_QUOTES)));
+        $taller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
         $aplaca = mysqli_real_escape_string($con,(strip_tags($_POST["aplaca"],ENT_QUOTES)));
         $bplaca = mysqli_real_escape_string($con,(strip_tags($_POST["bplaca"],ENT_QUOTES)));
         $rplaca = mysqli_real_escape_string($con,(strip_tags($_POST["rplaca"],ENT_QUOTES)));
         $tarjeta = mysqli_real_escape_string($con,(strip_tags($_POST["tarjeta"],ENT_QUOTES)));
-        $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
-        $carro = mysqli_real_escape_string($con,(strip_tags($_POST["carro"],ENT_QUOTES)));
+        $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
+        $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE gestoria SET fecha_ges='".$fecha_ges."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', otro='".$otro."', idcarro='".$carro."', gasolina='".$gasolina."', trasladistas='".$trasladistas."' WHERE id='".$id."' ";
+    $sql = "UPDATE gestoria SET fecha_ges='".$fecha_ges."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', otro='".$otro."', idtaller='".$taller."', idtrasladista='".$trasladista."', origen='".$origen."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

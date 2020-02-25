@@ -21,16 +21,15 @@
             $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
             $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
-            $gasolina = mysqli_real_escape_string($con,(strip_tags($_POST["gasolina"],ENT_QUOTES)));
-            $casetas = mysqli_real_escape_string($con,(strip_tags($_POST["casetas"],ENT_QUOTES)));
-            $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
+            $taller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
+            $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
             $vendedor = mysqli_real_escape_string($con,(strip_tags($_POST["vendedor"],ENT_QUOTES)));
             $destino = mysqli_real_escape_string($con,(strip_tags($_POST["destino"],ENT_QUOTES)));
             $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO traslados (fecha_tras, idcliente, idvehiculo, datos, gasolina, casetas, trasladistas, vendedor, destino, origen, fecha_carga) VALUES('".$fecha_tras."','".$cliente."','".$vehiculo."','".$datos."','".$gasolina."','".$casetas."','".$trasladistas."','".$vendedor."','".$destino."','".$origen."','".$fecha_carga."');";
+			$sql = "INSERT INTO traslados (fecha_tras, idcliente, idvehiculo, datos, idtaller, idtrasladista, vendedor, destino, origen, fecha_carga) VALUES('".$fecha_tras."','".$cliente."','".$vehiculo."','".$datos."','".$taller."','".$trasladista."','".$vendedor."','".$destino."','".$origen."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

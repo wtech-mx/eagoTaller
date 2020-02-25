@@ -1,6 +1,8 @@
 <?php
 
-    define('RUTA', 'http://eago.com.mx/Eago-frontend/');
+    //define('RUTA', 'http://eago.com.mx/Eago-frontend/index.php');
+    define('RUTA', 'http://eago.com.mx/eagoTaller/index.php');
+    
 
     if (!isset($_SESSION['user_id'])&& $_SESSION['user_id']==null) {
         header("location: ./?view=index");
@@ -159,20 +161,41 @@
 
                   <?php if ($_SESSION['tarjeta']==1) { ?>
                    <li class="<?php if(isset($active9)){echo $active9;}?>">
-                        <a href="./?view=slide"><i class="fa fa-credit-card"></i><span>Slide</span></a>
+                        <a href="./?view=slide"><i class="fa fa-camera"></i><span>Slide</span></a>
                     </li>
                     <?php } ?>
                     
                     <?php if ($_SESSION['empleados']==1) { ?>
                     <li class="<?php if(isset($active8)){echo $active8;}?>">
-                        <a href="./?view=empleados"><i class="fa fa-indent"></i><span>Empleados</span></a>
+                        <a href="./?view=empleados"><i class="fa fa-user"></i><span>Empleados</span></a>
+                    </li>
+                    <?php } ?>
+
+                    <?php if ($_SESSION['trasladista']==1) { ?>
+                    <li class="<?php if(isset($active12)){echo $active12;}?>">
+                        <a href="./?view=trasladistas"><i class="fa fa-indent"></i><span>Trasladistas</span></a>
                     </li>
                     <?php } ?>
 
                     <?php if ($_SESSION['admin']==1) { ?>
                      <li class="<?php if(isset($active10)){echo $active10;}?>">
+                        <a href="./?view=admin"><i class="fa fa-road"></i><span>Servicios Ter/Esp</span></a>
+                        <ul>               
+                            <li><a href="./?view=manser"><i class="fa fa-user"></i>Mantenimiento</li></a>                                   
+                            <li><a href="./?view=esteser"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
+                            </li>                       
+                            <li><a href="./?view=gesser"><i class="fa fa-user"></i>Gestoría</li></a>
+                            <li><a href="./?view=veriser"><i class="fa fa-search"></i>Verificación</li></a>
+                            <li><a href="./?view=trasser"><i class="fa fa-truck"></i>Traslados</li></a>
+                        </ul>
+                    </li>                     
+                    <?php } ?>
+
+                    <?php if ($_SESSION['admin']==1) { ?>
+                     <li class="<?php if(isset($active10)){echo $active10;}?>">
                         <a href="./?view=admin"><i class="fa fa-road"></i><span>Gestor Administrativo</span></a>
-                        <ul>                                                  
+                        <ul>               
+                            <li><a href="./?view=manadmin"><i class="fa fa-user"></i>Mantenimiento</li></a>                                   
                             <li><a href="./?view=esteadmin"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
                             </li>                       
                             <li><a href="./?view=gesadmin"><i class="fa fa-user"></i>Gestoría</li></a>

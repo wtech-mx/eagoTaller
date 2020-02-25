@@ -21,14 +21,16 @@
         $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
         $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
         $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
+        $taller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
         $derechos = mysqli_real_escape_string($con,(strip_tags($_POST["derechos"],ENT_QUOTES)));
         $otros = mysqli_real_escape_string($con,(strip_tags($_POST["otros"],ENT_QUOTES)));
-        $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
+        $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
         $vendedor = mysqli_real_escape_string($con,(strip_tags($_POST["vendedor"],ENT_QUOTES)));
+        $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
         
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE verificacion SET fecha_veri='".$fecha_veri."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', derechos='".$derechos."', otros='".$otros."', trasladistas='".$trasladistas."', vendedor='".$vendedor."' WHERE id='".$id."' ";
+    $sql = "UPDATE verificacion SET fecha_veri='".$fecha_veri."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', idtaller='".$taller."', derechos='".$derechos."', otros='".$otros."', idtrasladista='".$trasladista."', vendedor='".$vendedor."', origen='".$origen."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

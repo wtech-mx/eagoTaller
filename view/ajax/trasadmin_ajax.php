@@ -85,11 +85,12 @@ if($action == 'ajax'){
 				$status=$row['estado'];
 
                 if ($status==1){
+                	$lbl_status="Adeudo";
+					$lbl_class='label label-danger';
+				}else {
 					$lbl_status="Pagado";
 					$lbl_class='label label-success';
-				}else {
-					$lbl_status="Adeudo";
-					$lbl_class='label label-danger';
+					
 				}
 				
 				$finales++;

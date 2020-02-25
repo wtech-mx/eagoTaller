@@ -59,6 +59,7 @@ if($action == 'ajax'){
                 <th>Cliente</th>
                 <th>Vehiculo</th>
                 <th>Datos</th>
+                <th>Dirección</th>
                 <th>Fecha</th>
                 <th></th>
             </tr>
@@ -80,6 +81,7 @@ if($action == 'ajax'){
 				$marca_vehiculo=$vehiculo_rw['marca'];
 
 				$datos=$row['datos'];
+				$origen=$row['origen'];
 
 				$created_at=$row['fecha_carga'];
 				list($date,$hora)=explode(" ",$created_at);
@@ -96,6 +98,7 @@ if($action == 'ajax'){
                 <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $marca_vehiculo ?></td>
                 <td><?php echo $datos ?></td>
+                <td><?php echo $origen ?></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">
 

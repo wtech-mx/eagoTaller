@@ -56,6 +56,16 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="dashboard-tile detail tile-black">
+                            <div class="content">                                
+                                <p>Mantenimiento</p>
+                            </div>
+                            <a href="./?view=manadmin"><div class="icon"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--tiles end-->
             

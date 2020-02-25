@@ -34,6 +34,7 @@
 				in_array(9,$valores)?$_SESSION['reparaciones']=1:$_SESSION['reparaciones']=0;
 				in_array(10,$valores)?$_SESSION['choque']=1:$_SESSION['choque']=0;
 				in_array(11,$valores)?$_SESSION['configuracion']=1:$_SESSION['configuracion']=0;
+				in_array(12,$valores)?$_SESSION['trasladista']=1:$_SESSION['trasladista']=0;
 
 				$_SESSION['user_id'] = $idempleado;
 				if($_SESSION['dashboard']==1){

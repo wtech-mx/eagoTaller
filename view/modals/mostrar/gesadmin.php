@@ -27,7 +27,12 @@
                 $carro_rw=mysqli_fetch_array($carros);
                 $clave_carro=$carro_rw['placa'];
 
-                $trasladistas=$rw['trasladistas'];
+                $idtrasladista=$rw['idtrasladista'];
+                $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
+                $trasladista_rw=mysqli_fetch_array($trasladistas);
+                $nombre_trasladista=$trasladista_rw['nombre']." ".$trasladista_rw['apellido'];
+
+
             $datos=$rw['datos'];
             $gastos=$rw['gastos'];
             $mensajeria=$rw['mensajeria'];
@@ -39,11 +44,12 @@
          $status=$rw['estado'];
 
                 if ($status==1){
-                    $lbl_status="Pagado";
-                    $lbl_class='label label-success';
-                }else {
                     $lbl_status="Adeudo";
                     $lbl_class='label label-danger';
+                }else {
+                    $lbl_status="Pagado";
+                    $lbl_class='label label-success';
+                    
                 }
         }
     }   
@@ -95,7 +101,7 @@
 <div class="form-group">
     <label for="trasladista_admin" class="col-sm-4 control-label">Trasladista: </label>
     <div class="col-sm-8">
-        <?php echo $trasladistas;?> $
+        <?php echo $nombre_trasladista;?> $
        <?php echo $trasladista_admin;?>
     </div>
 </div>

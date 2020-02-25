@@ -188,15 +188,15 @@
                                         <input type="file" name="imagefile3" class="form-control" id="imagefile3" onchange="upload_foto3(<?php echo $id_vehiculo; ?>);">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                        <label for="estado" class="col-sm-2 control-label">Estado: </label>
-                        <div class="col-sm-4">
-                            <select class="form-control" name="estado" id="estado">
-                                <option value="1">Activo</option>
-                                <option value="2">Inactivo</option>
-                            </select>
-                        </div>
-                    </div>
+                            <div class="form-group">
+                                <label for="estado" class="col-sm-2 control-label">Estado: </label>
+                                <div class="col-sm-4">
+                                    <select class="form-control" name="estado" id="estado">
+                                        <option value="1">Activo</option>
+                                        <option value="2">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
 
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">

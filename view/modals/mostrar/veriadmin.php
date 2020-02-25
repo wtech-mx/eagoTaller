@@ -27,11 +27,15 @@
                 $carro_rw=mysqli_fetch_array($carros);
                 $clave_carro=$carro_rw['placa'];
 
+                $idtrasladista=$rw['idtrasladista'];
+                $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
+                $trasladista_rw=mysqli_fetch_array($trasladistas);
+                $nombre_trasladista=$trasladista_rw['nombre']." ".$trasladista_rw['apellido'];
 
-                $datos=$rw['datos'];
+
+            $datos=$rw['datos'];
             $derechos_admin=$rw['derechos_admin'];
             $otros_admin=$rw['otros_admin'];
-            $trasladistas=$rw['trasladistas'];
             $trasladistas_admin=$rw['trasladistas_admin'];
             $vendedor=$rw['vendedor'];
             $vendedor_admin=$rw['vendedor_admin'];
@@ -42,11 +46,12 @@
              $status=$rw['estado'];
 
                 if ($status==1){
-                    $lbl_status="Pagado";
-                    $lbl_class='label label-success';
-                }else {
                     $lbl_status="Adeudo";
                     $lbl_class='label label-danger';
+                }else {
+                    $lbl_status="Pagado";
+                    $lbl_class='label label-success';
+                    
                 }
         }
     }   
@@ -78,12 +83,6 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="idcarro" class="col-sm-4 control-label">Placa: </label>
-    <div class="col-sm-8">
-       <?php echo $clave_carro;?>
-    </div>
-</div>
-<div class="form-group">
     <label for="datos" class="col-sm-4 control-label">Datos: </label>
     <div class="col-sm-8">
        <?php echo $datos;?>
@@ -104,7 +103,7 @@
 <div class="form-group">
     <label for="trasladistas_admin" class="col-sm-4 control-label">Trasladistas: </label>
     <div class="col-sm-8">
-        <?php echo $trasladistas;?> $
+        <?php echo $nombre_trasladista;?> $
        <?php echo $trasladistas_admin;?>
     </div>
 </div>

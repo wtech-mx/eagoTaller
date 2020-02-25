@@ -58,8 +58,8 @@ if($action == 'ajax'){
                 <th>Fecha de Traslado</th>
                 <th>Cliente</th>
                 <th>Vehiculo</th>
-                <th>Destino</th>
-                <th>Origen</th>
+                <th>Dirección</th>
+                <th>Destino</th>               
                 <th>Fecha</th>
                 <th></th>
             </tr>
@@ -97,8 +97,8 @@ if($action == 'ajax'){
                 <td><?php echo $fecha_tras ?></td>
                 <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $patente_vehiculo ?></td>
-                <td><?php echo $destino ?></td>
                 <td><?php echo $origen ?></td>
+                <td><?php echo $destino ?></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">
                     <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>

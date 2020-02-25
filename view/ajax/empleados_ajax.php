@@ -79,7 +79,6 @@ if($action == 'ajax'){
 				$registro=$row['registro'];
 				$status=$row['status'];
 				$created_at=$row['created_at'];
-
 				list($date,$hora)=explode(" ",$created_at);
 				list($Y,$m,$d)=explode("-",$date);
 				$fecha=$d."-".$m."-".$Y;

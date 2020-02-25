@@ -14,14 +14,15 @@
             $idcliente=$rw['idcliente'];
             $idvehiculo=$rw['idvehiculo'];
             $datos=$rw['datos'];
-            $trasladistas=$rw['trasladistas'];
-            $gasolina=$rw['gasolina'];
+            $idtrasladista=$rw['idtrasladista'];
+            $idtaller=$rw['idtaller'];
             $otro=$rw['otro'];
             $idcarro=$rw['idcarro'];
             $aplaca=$rw['aplaca'];
             $bplaca=$rw['bplaca'];
             $rplaca=$rw['rplaca'];
             $tarjeta=$rw['tarjeta'];
+            $origen=$rw['origen'];
             $created_at=$rw['fecha_carga'];
         }
     }   
@@ -35,20 +36,19 @@
     </div>
 </div>
 <div class="form-group">
-<label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+    <label for="cliente" class="col-sm-2 control-label">cliente: </label>
     <div class="col-sm-10">
-        <select class="form-control" name="cliente" id="cliente" required>
-            <?php 
-                $sql_clientes=mysqli_query($con,"select * from cliente");
-                while ($rw=mysqli_fetch_array($sql_clientes)){
-                    $idcliente=$rw['id'];
-                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
-                ?>
-                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
-                <?php
-                }
-            ?>
-        </select>    
+        <select class="form-control" name="cliente" id="cliente">
+        <?php
+            $clientes=mysqli_query($con,"select * from cliente");
+            while ($rw=mysqli_fetch_array($clientes)) {
+                if ($idcliente==$rw['id']){$selected1="selected";}else{$selected1="";}
+        ?>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
+        <?php 
+            }
+        ?>
+        </select>
     </div>
 </div>
 <div class="form-group">
@@ -69,16 +69,21 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="carro" class="col-sm-2 control-label">Placa: </label>
+    <label for="datos" class="col-sm-2 control-label">Descripción: </label>
     <div class="col-sm-10">
-        <select class="form-control" name="carro" id="carro">
-            <option value="">--- SELECCIONA ---</option>
+        <textarea type="text" required class="form-control" id="datos" name="datos" placeholder="Descripción "><?php echo $datos ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="trasladista" class="col-sm-2 control-label">Trasladista: </label>
+    <div class="col-sm-10">
+        <select class="form-control" name="trasladista" id="trasladista">
         <?php
-            $carros=mysqli_query($con,"select * from vehiculo");
-            while ($rw=mysqli_fetch_array($carros)) {
-                if ($idcarro==$rw['id']){$selected1="selected";}else{$selected1="";}
+            $trasladistas=mysqli_query($con,"select * from trasladista  where status=1 order by nombre");
+            while ($rw=mysqli_fetch_array($trasladistas)) {
+                if ($idtrasladista==$rw['id']){$selected1="selected";}else{$selected1="";}
         ?>
-            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['patente']?></option>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
         <?php 
             }
         ?>
@@ -86,21 +91,19 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="datos" class="col-sm-2 control-label">Descripción: </label>
+    <label for="taller" class="col-sm-2 control-label">Taller: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="datos" name="datos" placeholder="Descripción "><?php echo $datos ?></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="trasladistas" class="col-sm-2 control-label">Trasladistas: </label>
-    <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="trasladistas" name="trasladistas" placeholder="Trasladistas "><?php echo $trasladistas ?></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="gasolina" class="col-sm-2 control-label">Costo gasolina: </label>
-    <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina $"><?php echo $gasolina ?></textarea>
+        <select class="form-control" name="taller" id="taller">
+        <?php
+            $tallers=mysqli_query($con,"select * from taller  where estado=1 order by nombre");
+            while ($rw=mysqli_fetch_array($tallers)) {
+                if ($idtaller==$rw['id']){$selected1="selected";}else{$selected1="";}
+        ?>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
+        <?php 
+            }
+        ?>
+        </select>
     </div>
 </div>
 <div class="form-group">
@@ -131,5 +134,11 @@
     <label for="tarjeta" class="col-sm-2 control-label">Reposición tarjeta: </label>
     <div class="col-sm-10">
         <textarea type="text" required class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta "><?php echo $tarjeta ?></textarea>
+    </div>
+</div>
+<div class="form-group">
+    <label for="origen" class="col-sm-2 control-label">Recoger en: </label>
+    <div class="col-sm-10">
+        <textarea type="text" required class="form-control" id="origen" name="origen" placeholder="Dirección "><?php echo $origen ?></textarea>
     </div>
 </div>

@@ -21,14 +21,15 @@
             $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
             $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
-            $trasladistas = mysqli_real_escape_string($con,(strip_tags($_POST["trasladistas"],ENT_QUOTES)));
-            $gasolina = mysqli_real_escape_string($con,(strip_tags($_POST["gasolina"],ENT_QUOTES)));
+            $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
+            $taller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
             $otros = mysqli_real_escape_string($con,(strip_tags($_POST["otros"],ENT_QUOTES)));
             $vendedor = mysqli_real_escape_string($con,(strip_tags($_POST["vendedor"],ENT_QUOTES)));
+            $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO estetica (fecha_rep, idcliente, idvehiculo, datos, trasladistas, gasolina, otros, vendedor, fecha_carga) VALUES('".$fecha_rep."','".$cliente."','".$vehiculo."','".$datos."','".$trasladistas."','".$gasolina."','".$otros."','".$vendedor."','".$fecha_carga."');";
+			$sql = "INSERT INTO estetica (fecha_rep, idcliente, idvehiculo, datos, idtrasladista, idtaller, otros, vendedor, origen, fecha_carga) VALUES('".$fecha_rep."','".$cliente."','".$vehiculo."','".$datos."','".$trasladista."','".$taller."','".$otros."','".$vendedor."','".$origen."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

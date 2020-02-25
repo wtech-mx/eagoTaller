@@ -2,8 +2,6 @@
     include("../is_logged.php");//Archivo comprueba si el usuario esta logueado 
     if (empty($_POST['reparacion'])){
             $errors[] = "Reparacion está vacío.";
-        }  elseif (empty($_POST['trasladistas_admin'])) {
-            $errors[] = "Trasladistas está vacío.";
         }   elseif (empty($_POST['gasolina_admin'])) {
             $errors[] = "Gasolina está vacío.";
         } elseif (empty($_POST['otros_admin'])) {
@@ -14,7 +12,6 @@
             $errors[] = "vendedor está vacío.";
         } elseif (
             !empty($_POST['reparacion'])
-            && !empty($_POST['trasladistas_admin'])
             && !empty($_POST['gasolina_admin'])
             && !empty($_POST['otros_admin'])
             && !empty($_POST['asesor'])

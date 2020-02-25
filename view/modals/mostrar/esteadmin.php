@@ -27,7 +27,11 @@
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $marca_vehiculo=$vehiculo_rw['marca'];
 
-            $trasladistas=$rw['trasladistas'];
+                $idtrasladista=$rw['idtrasladista'];
+                $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
+                $trasladista_rw=mysqli_fetch_array($trasladistas);
+                $nombre_trasladista=$trasladista_rw['nombre']." ".$trasladista_rw['apellido'];    
+
             $vendedor=$rw['vendedor'];
             $datos=$rw['datos'];
             $reparacion=$rw['reparacion'];
@@ -37,11 +41,12 @@
             $status=$rw['estado'];
 
                 if ($status==1){
-                    $lbl_status="Pagado";
-                    $lbl_class='label label-success';
-                }else {
                     $lbl_status="Adeudo";
                     $lbl_class='label label-danger';
+                }else {
+                    $lbl_status="Pagado";
+                    $lbl_class='label label-success';
+                    
                 }
             $asesor=$rw['asesor'];
             $vendedor_admin=$rw['vendedor_admin'];
@@ -72,12 +77,6 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="idvehiculo" class="col-sm-4 control-label">Placa: </label>
-    <div class="col-sm-8">
-        <?php echo $patente_vehiculo;?>
-    </div>
-</div>
-<div class="form-group">
     <label for="idvehiculo" class="col-sm-4 control-label">Vehiculo: </label>
     <div class="col-sm-8">
         <?php echo $marca_vehiculo;?>
@@ -98,7 +97,7 @@
 <div class="form-group">
     <label for="trasladistas_admin" class="col-sm-4 control-label">Trasladistas: </label>
     <div class="col-sm-8">
-        <?php echo $trasladistas;?> $
+        <?php echo $nombre_trasladista;?> $
        <?php echo $trasladistas_admin;?>
     </div>
 </div>

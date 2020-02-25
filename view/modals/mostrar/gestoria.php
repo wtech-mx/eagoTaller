@@ -25,14 +25,23 @@
                 $carro_rw=mysqli_fetch_array($carros);
                 $placa_carro=$carro_rw['patente'];
 
+                $idtrasladista=$rw['idtrasladista'];
+                $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
+                $trasladista_rw=mysqli_fetch_array($trasladistas);
+                $nombre_trasladista=$trasladista_rw['nombre']." ".$trasladista_rw['apellido'];
+
+                $idtaller=$rw['idtaller'];
+                $tallers=mysqli_query($con, "select * from taller where id=$idtaller");
+                $taller_rw=mysqli_fetch_array($tallers);
+                $nombre_taller=$taller_rw['nombre'];
+
                 $datos=$rw['datos'];
-                $trasladistas=$rw['trasladistas'];
-                $gasolina=$rw['gasolina'];
                 $otro=$rw['otro'];
                 $aplaca=$rw['aplaca'];
                 $bplaca=$rw['bplaca'];
                 $rplaca=$rw['rplaca'];
                 $tarjeta=$rw['tarjeta'];
+                $origen=$rw['origen'];
                 $fecha_carga=$rw['fecha_carga'];
         }
     }   
@@ -58,21 +67,15 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="carro" class="col-sm-4 control-label">Placa: </label>
+    <label for="trasladista" class="col-sm-4 control-label">Trasladista: </label>
     <div class="col-sm-8">
-       <?php echo $placa_carro;?>
+       <?php echo $nombre_trasladista;?>
     </div>
 </div>
 <div class="form-group">
-    <label for="trasladistas" class="col-sm-4 control-label">Trasladistas: </label>
+    <label for="taller" class="col-sm-4 control-label">Taller: </label>
     <div class="col-sm-8">
-       <?php echo $trasladistas;?>
-    </div>
-</div>
-<div class="form-group">
-    <label for="gasolina" class="col-sm-4 control-label">Costo gasolina: </label>
-    <div class="col-sm-8">
-       <?php echo $gasolina;?>
+       <?php echo $nombre_taller;?>
     </div>
 </div>
 <div class="form-group">
@@ -103,6 +106,12 @@
     <label for="tarjeta" class="col-sm-4 control-label">Reposición tarjeta: </label>
     <div class="col-sm-8">
        <?php echo $tarjeta;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="origen" class="col-sm-4 control-label">Recoger en: </label>
+    <div class="col-sm-8">
+       <?php echo $origen;?>
     </div>
 </div>
 <div class="form-group">

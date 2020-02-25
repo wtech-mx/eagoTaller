@@ -52,28 +52,44 @@
                         </div>
                     </div>
                     <div class="form-group">
+                    <label for="taller" class="col-sm-2 control-label">Taller: </label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="taller" id="taller" required>
+                                            <?php 
+                                                $sql_tallers=mysqli_query($con,"select * from taller where estado=1 order by nombre");
+                                                while ($rw=mysqli_fetch_array($sql_tallers)){
+                                                    $idtaller=$rw['id'];
+                                                    $nombre_taller=$rw['nombre'];
+                                                ?>
+                                                <option value="<?php echo $idtaller;?>"><?php echo $nombre_taller;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
+                    </div>
+                    <div class="form-group">
                         <label for="datos" class="col-sm-2 control-label">Datos: </label>
                         <div class="col-sm-10">
                             <input type="text" required class="form-control" id="datos" name="datos" placeholder="Datos">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="gasolina" class="col-sm-2 control-label">Costo asolina: </label>
-                        <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="gasolina" name="gasolina" placeholder="Gasolina $">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="casetas" class="col-sm-2 control-label">Casetas: </label>
-                        <div class="col-sm-10">
-                            <input type="number" required class="form-control" id="casetas" name="casetas" placeholder="Casetas">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="trasladistas" class="col-sm-2 control-label">Trasladistas: </label>
-                        <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="trasladistas" name="trasladistas" placeholder="Trasladistas">
-                        </div>
+                        <label for="trasladista" class="col-sm-2 control-label">Trasladista </label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="trasladista" id="trasladista" required>
+                                            <?php 
+                                                $sql_trasladistas=mysqli_query($con,"select * from trasladista where status=1 order by nombre");
+                                                while ($rw=mysqli_fetch_array($sql_trasladistas)){
+                                                    $idtrasladista=$rw['id'];
+                                                    $nombre_trasladista=$rw['nombre']." ".$rw['apellido'];
+                                                ?>
+                                                <option value="<?php echo $idtrasladista;?>"><?php echo $nombre_trasladista;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
                     </div>
                     <div class="form-group">
                         <label for="vendedor" class="col-sm-2 control-label">Vendedor: </label>
@@ -82,17 +98,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="origen" class="col-sm-2 control-label">Recoger en: </label>
+                        <div class="col-sm-10">
+                            <input type="text" required class="form-control" id="origen" name="origen" placeholder="Dirección">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="destino" class="col-sm-2 control-label">Destino: </label>
                         <div class="col-sm-10">
                             <input type="text" required class="form-control" id="destino" name="destino" placeholder="destino">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="origen" class="col-sm-2 control-label">Origen: </label>
-                        <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="origen" name="origen" placeholder="origen">
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

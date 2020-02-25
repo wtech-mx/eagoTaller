@@ -28,8 +28,11 @@
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $marca_vehiculo=$vehiculo_rw['marca'];
 
+                $idtrasladista=$rw['idtrasladista'];
+                $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
+                $trasladista_rw=mysqli_fetch_array($trasladistas);
+                $nombre_trasladista=$trasladista_rw['nombre']." ".$trasladista_rw['apellido'];
 
-            $trasladistas=$rw['trasladistas'];
             $vendedor=$rw['vendedor'];
             $datos=$rw['datos'];
             $reparacion=$rw['reparacion'];
@@ -81,8 +84,8 @@
     <label for="estado" class="col-sm-2 control-label">Estado: </label>
         <div class="col-sm-4">
             <select class="form-control" name="estado" id="estado">
-                <option value="1" <?php if ($status==1){echo "selected";}?>>Pagado</option>
-                <option value="2" <?php if ($status==2){echo "selected";}?>>Adeudo</option>
+                <option value="2" <?php if ($status==2){echo "selected";}?>>Pagado</option>
+                <option value="1" <?php if ($status==1){echo "selected";}?>>Adeudo</option>
             </select>
         </div>
 </div>
@@ -93,9 +96,9 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="trasladistas_admin" class="col-sm-2 control-label">Trasladistas: </label>
+    <label for="trasladistas_admin" class="col-sm-2 control-label">Trasladista: </label>
     <div class="col-sm-10">
-        <?php echo $trasladistas;?>
+        <?php echo $nombre_trasladista;?>
         <textarea type="number" class="form-control" id="trasladistas_admin" name="trasladistas_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $trasladistas_admin ?></textarea>
     </div>
 </div>

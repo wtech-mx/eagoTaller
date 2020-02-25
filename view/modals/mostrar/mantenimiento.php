@@ -20,11 +20,20 @@
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $patente_vehiculo=$vehiculo_rw['patente'];
 
+                $idtrasladista=$rw['idtrasladista'];
+                $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
+                $trasladista_rw=mysqli_fetch_array($trasladistas);
+                $nombre_trasladista=$trasladista_rw['nombre']." ".$trasladista_rw['apellido'];
+
+                $idtaller=$rw['idtaller'];
+                $tallers=mysqli_query($con, "select * from taller where id=$idtaller");
+                $taller_rw=mysqli_fetch_array($tallers);
+                $nombre_taller=$taller_rw['nombre'];
+
                 $datos=$rw['datos'];
-                $trasladistas=$rw['trasladistas'];
-                $gasolina=$rw['gasolina'];
                 $otros=$rw['otros'];
                 $vendedor=$rw['vendedor'];
+                $origen=$rw['origen'];
                 $fecha_carga=$rw['fecha_carga'];
         }
     }   
@@ -50,15 +59,15 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="trasladistas" class="col-sm-4 control-label">Trasladistas: </label>
+    <label for="trasladista" class="col-sm-4 control-label">Trasladista: </label>
     <div class="col-sm-8">
-       <?php echo $trasladistas;?>
+       <?php echo $nombre_trasladista;?>
     </div>
 </div>
 <div class="form-group">
-    <label for="gasolina" class="col-sm-4 control-label">Costo gasolina: </label>
+    <label for="taller" class="col-sm-4 control-label">Taller: </label>
     <div class="col-sm-8">
-       <?php echo $gasolina;?>
+       <?php echo $nombre_taller;?>
     </div>
 </div>
 <div class="form-group">
@@ -71,6 +80,12 @@
     <label for="vendedor" class="col-sm-4 control-label">Vendedor: </label>
     <div class="col-sm-8">
        <?php echo $vendedor;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="origen" class="col-sm-4 control-label">Recoger en: </label>
+    <div class="col-sm-8">
+       <?php echo $origen;?>
     </div>
 </div>
 <div class="form-group">

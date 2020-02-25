@@ -59,12 +59,22 @@
                             <input type="date" required class="form-control" id="manejo" name="manejo" placeholder="Licencia de Manejo ">
                         </div>
                     </div>
+                   
                     <div class="form-group">
-                        <label for="tipo" class="col-sm-2 control-label">Tipo de licencia: </label>
+                        <label for="tipo" class="col-sm-2 control-label">Tipo de licencia </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="tipo" name="tipo" placeholder="Tipo">
+                            <select class="form-control" name="tipo" id="tipo">
+                        <!-- Opciones de la lista -->
+                        <option value="1">Tipo “A”</option>
+                        <option value="2" selected>Permanente</option> <!-- Opción por defecto -->
+                        <option value="3">Tipo “B” dos años</option>
+                        <option value="4">Tipo “B” tres años</option>
+                        <option value="5">Tipo “E” dos años</option>
+                        <option value="6">Tipo “E” tres años</option>
+                      </select>
                         </div>
                     </div>
+               
                     <div class="form-group">
                         <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
                         <div class="col-sm-10">

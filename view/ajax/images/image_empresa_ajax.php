@@ -14,8 +14,8 @@
 	// Allow certain file formats
 	if(($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) and $imageFileZise>0) {
 	$errors[]= "<p>Lo sentimos, sólo se permiten archivos JPG , JPEG, PNG y GIF.</p>";
-	} else if ($imageFileZise > 3000000) {//1048576 byte=1MB
-	$errors[]= "<p>Lo sentimos, pero el archivo es demasiado grande. Selecciona logo de menos de 3MB</p>";
+	} else if ($imageFileZise > 10000000) {//1048576 byte=1MB
+	$errors[]= "<p>Lo sentimos, pero el archivo es demasiado grande. Selecciona logo de menos de 10MB</p>";
 	} else if (empty($id)){
 		$errors[]= "<p>ID del configuracion está vacío.</p>";
 	} else{

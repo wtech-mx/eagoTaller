@@ -20,10 +20,17 @@
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $patente_vehiculo=$vehiculo_rw['patente'];
 
+                $idtrasladista=$rw['idtrasladista'];
+                $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
+                $trasladista_rw=mysqli_fetch_array($trasladistas);
+                $nombre_trasladista=$trasladista_rw['nombre']." ".$trasladista_rw['apellido'];
+
+                $idtaller=$rw['idtaller'];
+                $tallers=mysqli_query($con, "select * from taller where id=$idtaller");
+                $taller_rw=mysqli_fetch_array($tallers);
+                $nombre_taller=$taller_rw['nombre'];
+
             $datos=$rw['datos'];
-            $gasolina=$rw['gasolina'];
-            $casetas=$rw['casetas'];
-            $trasladistas=$rw['trasladistas'];
             $vendedor=$rw['vendedor'];
             $destino=$rw['destino'];
             $origen=$rw['origen'];
@@ -52,21 +59,15 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="gasolina" class="col-sm-4 control-label">Costo gasolina: </label>
+    <label for="taller" class="col-sm-4 control-label">Taller: </label>
     <div class="col-sm-8">
-       <?php echo $gasolina;?>
+       <?php echo $nombre_taller;?>
     </div>
 </div>
 <div class="form-group">
-    <label for="casetas" class="col-sm-4 control-label">Casetas: </label>
+    <label for="trasladista" class="col-sm-4 control-label">Trasladista: </label>
     <div class="col-sm-8">
-       <?php echo $casetas;?>
-    </div>
-</div>
-<div class="form-group">
-    <label for="trasladistas" class="col-sm-4 control-label">Trasladistas: </label>
-    <div class="col-sm-8">
-       <?php echo $trasladistas;?>
+       <?php echo $nombre_trasladista;?>
     </div>
 </div>
 <div class="form-group">
@@ -76,15 +77,15 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="destino" class="col-sm-4 control-label">Destino: </label>
+    <label for="origen" class="col-sm-4 control-label">Recoger en: </label>
     <div class="col-sm-8">
-       <?php echo $destino;?>
+       <?php echo $origen;?>
     </div>
 </div>
 <div class="form-group">
-    <label for="origen" class="col-sm-4 control-label">Origen: </label>
+    <label for="destino" class="col-sm-4 control-label">Destino: </label>
     <div class="col-sm-8">
-       <?php echo $origen;?>
+       <?php echo $destino;?>
     </div>
 </div>
 <div class="form-group">
