@@ -31,8 +31,7 @@
 
     if ($query_new_insert) {
 ?>
-		<iframe class="img-responsive" src="view/resources/images/documentos/<?php echo $image_name;?>" alt="Imagen del documento" data-toggle="modal" data-target="#myModal" style='cursor:pointer' width="1000" height="1000"></iframe>
-                
+		<img class="img-responsive" src="view/resources/images/documentos/<?php echo $image_name;?>" data-toggle="modal" data-target="#myModal" style='cursor:pointer'>
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  	<div class="modal-dialog">
 				<div class="modal-content">
@@ -41,7 +40,7 @@
 						<h4 class="modal-title">&nbsp;</h4>
 			  		</div>
 					<div class="modal-body">
-						<iframe src="view/resources/images/documentos/<?php echo $image_name;?>" class="img-responsive" width="1000" height="1000"></iframe>
+						<img src="view/resources/images/documentos/<?php echo $image_name;?>" class="img-responsive">
                 
 					</div>
 				</div>
