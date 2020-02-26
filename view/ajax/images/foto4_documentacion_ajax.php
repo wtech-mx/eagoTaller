@@ -31,7 +31,13 @@
 
     if ($query_new_insert) {
 ?>
-		<iframe src="view/resources/images/documentos/<?php echo $image_name;?>" data-toggle="modal" data-target="#myModal" style="width:500px; height:375px;" style='cursor:pointer'></iframe>
+		
+		<a href="" class="img-responsive" alt="Imagen del factura 1" data-toggle="modal" data-target="#myModal" style="cursor:pointer;padding: 10px;background: #2ECC71;overflow-y: hidden;overflow-x: hidden;">
+			<img class="img-responsive" src="" alt="">
+				<embed class="pdf-img" type="application/pdf" src="view/resources/images/documentos/<?php echo $image_name;?>"style="cursor:pointer;display: block;max-width: 100%;height: auto;overflow-y: hidden;overflow-x: hidden;"></embed>
+			</img>
+		</a>
+
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  	<div class="modal-dialog">
 				<div class="modal-content">
@@ -40,7 +46,7 @@
 						<h4 class="modal-title">&nbsp;</h4>
 			  		</div>
 					<div class="modal-body">
-						<img src="view/resources/images/documentos/<?php echo $image_name;?>" class="img-responsive">
+						<embed type="application/pdf"  src="view/resources/images/documentos/<?php echo $image_name;?>" style="width: 100%;height: 500px"></embed>
 					</div>
 				</div>
 		  	</div>

@@ -67,6 +67,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
@@ -77,6 +78,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
@@ -118,21 +120,21 @@
 
                                 <div class="form-group">
 
-<label for="cliente" class="col-sm-2 control-label">Cliente: </label>
-<div class="col-sm-4">
-    <select class="form-control" name="cliente" id="cliente" required>
-        <?php 
-            $sql_clientes=mysqli_query($con,"select * from cliente");
-            while ($rw=mysqli_fetch_array($sql_clientes)){
-                $idcliente=$rw['id'];
-                $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
-            ?>
-            <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
-            <?php
-            }
-        ?>
-    </select>    
-</div>
+								<label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+								<div class="col-sm-4">
+								    <select class="form-control" name="cliente" id="cliente" required>
+								        <?php 
+								            $sql_clientes=mysqli_query($con,"select * from cliente");
+								            while ($rw=mysqli_fetch_array($sql_clientes)){
+								                $idcliente=$rw['id'];
+								                $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+								            ?>
+								            <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+								            <?php
+								            }
+								        ?>
+								    </select>    
+								</div>
             
                         <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
                         <div class="col-sm-4">
@@ -156,26 +158,31 @@
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile1" class="form-control" id="imagefile1" onchange="upload_foto1(<?php echo $id_documento; ?>);">
                                     </div>
+
                                     <label for="imagefile2" class="col-sm-2 control-label">Factura Origen: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile2" class="form-control" id="imagefile2" onchange="upload_foto2(<?php echo $id_documento; ?>);">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="imagefile3" class="col-sm-2 control-label">Refactura 1: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile3" class="form-control" id="imagefile3" onchange="upload_foto3(<?php echo $id_documento; ?>);">
                                     </div>
+
                                     <label for="imagefile4" class="col-sm-2 control-label">Refactura 2: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile4" class="form-control" id="imagefile4" onchange="upload_foto4(<?php echo $id_documento; ?>);">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="imagefile5" class="col-sm-2 control-label">Refactura 3: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile5" class="form-control" id="imagefile5" onchange="upload_foto5(<?php echo $id_documento; ?>);">
                                     </div>
+
                                     <label for="imagefile6" class="col-sm-2 control-label">Tenencia: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile6" class="form-control" id="imagefile6" onchange="upload_foto6(<?php echo $id_documento; ?>);">
