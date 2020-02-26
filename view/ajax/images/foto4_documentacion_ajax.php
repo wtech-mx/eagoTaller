@@ -31,7 +31,7 @@
 
     if ($query_new_insert) {
 ?>
-		<iframe  src="view/resources/images/documentos/<?php echo $image_name;?>" data-toggle="modal" data-target="#myModal" style="width:500px; height:375px;" style='cursor:pointer'></iframe>
+		<iframe src="view/resources/images/documentos/<?php echo $image_name;?>" data-toggle="modal" data-target="#myModal" style="width:500px; height:375px;" style='cursor:pointer'></iframe>
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  	<div class="modal-dialog">
 				<div class="modal-content">
