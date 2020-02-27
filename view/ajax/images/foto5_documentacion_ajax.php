@@ -12,7 +12,7 @@
 
 	/* Inicio Validacion*/
 	// Allow certain file formats
-	if(($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) and $imageFileZise>0) {
+	if(($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "pdf" && $imageFileType != "gif" ) and $imageFileZise>0) {
 	$errors[]= "<p>Lo sentimos, sólo se permiten archivos JPG , JPEG, PNG y GIF.</p>";
 	} else if ($imageFileZise > 10000000) {//1048576 byte=1MB
 	$errors[]= "<p>Lo sentimos, pero el archivo es demasiado grande. Selecciona logo de menos de 10MB</p>";
@@ -31,7 +31,22 @@
 
     if ($query_new_insert) {
 ?>
-		<img class="img-responsive" src="view/resources/images/documentos/<?php echo $image_name;?>" alt="Imagen del factura 3" data-toggle="modal" data-target="#myModal" style='cursor:pointer'>
+<?php 
+			if ($imageFileType == "pdf"){
+?>
+			<a href="" class="img-responsive" alt="Imagen del factura 1" data-toggle="modal" data-target="#myModal" style="cursor:pointer;padding: 10px;background: #2ECC71;overflow-y: hidden;overflow-x: hidden;">
+					<iframe  class="img-responsive" type="application/pdf" src="view/resources/images/documentos/<?php echo $image_name;?>" style="width: 100%"></iframe >
+			</a>	
+<?php
+			}else{
+			?>
+				<img class="img-responsive" src="view/resources/images/documentos/<?php echo $image_name;?>" alt="Imagen del factura origen" data-toggle="modal" data-target="#myModal" style='cursor:pointer'>
+<?php
+	}
+?>
+		
+
+
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  	<div class="modal-dialog">
 				<div class="modal-content">
@@ -40,7 +55,20 @@
 						<h4 class="modal-title">&nbsp;</h4>
 			  		</div>
 					<div class="modal-body">
-						<img src="view/resources/images/documentos/<?php echo $image_name;?>" class="img-responsive">
+						
+<?php 
+			if ($imageFileType == "pdf"){
+?>
+			<a href="" class="img-responsive" alt="Imagen del factura 1" data-toggle="modal" data-target="#myModal" style="cursor:pointer;padding: 10px;background: #2ECC71;overflow-y: hidden;overflow-x: hidden;">
+					<iframe type="application/pdf"  src="view/resources/images/documentos/<?php echo $image_name;?>" style="width: 100%;height: 500px"></iframe>
+			</a>	
+<?php
+			}else{
+			?>
+				<img src="view/resources/images/documentos/<?php echo $image_name;?>" class="img-responsive">
+<?php
+	}
+?>
 					</div>
 				</div>
 		  	</div>

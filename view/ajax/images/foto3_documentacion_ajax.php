@@ -31,9 +31,21 @@
 
     if ($query_new_insert) {
 ?>
-		<a href="" class="img-responsive" alt="Imagen del factura 1" data-toggle="modal" data-target="#myModal" style="cursor:pointer;padding: 10px;background: #2ECC71">
-			<embed type="application/pdf" src="view/resources/images/documentos/<?php echo $image_name;?>"style='cursor:pointer;display: block;max-width: 100%;height: auto;'></embed>
-		</a>
+<?php 
+			if ($imageFileType == "pdf"){
+?>
+			<a href="" class="img-responsive" alt="Imagen del factura 1" data-toggle="modal" data-target="#myModal" style="cursor:pointer;padding: 10px;background: #2ECC71;overflow-y: hidden;overflow-x: hidden;">
+					<iframe  class="img-responsive" type="application/pdf" src="view/resources/images/documentos/<?php echo $image_name;?>" style="width: 100%"></iframe >
+			</a>	
+<?php
+			}else{
+			?>
+				<img class="img-responsive" src="view/resources/images/documentos/<?php echo $image_name;?>" alt="Imagen del factura origen" data-toggle="modal" data-target="#myModal" style='cursor:pointer'>
+<?php
+	}
+?>
+		
+
 
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  	<div class="modal-dialog">
@@ -43,7 +55,20 @@
 						<h4 class="modal-title">&nbsp;</h4>
 			  		</div>
 					<div class="modal-body">
-						<embed type="application/pdf"  src="view/resources/images/documentos/<?php echo $image_name;?>" style="width: 100%;height: 500px"></embed>
+						
+<?php 
+			if ($imageFileType == "pdf"){
+?>
+			<a href="" class="img-responsive" alt="Imagen del factura 1" data-toggle="modal" data-target="#myModal" style="cursor:pointer;padding: 10px;background: #2ECC71;overflow-y: hidden;overflow-x: hidden;">
+					<iframe type="application/pdf"  src="view/resources/images/documentos/<?php echo $image_name;?>" style="width: 100%;height: 500px"></iframe>
+			</a>	
+<?php
+			}else{
+			?>
+				<img src="view/resources/images/documentos/<?php echo $image_name;?>" class="img-responsive">
+<?php
+	}
+?>
 					</div>
 				</div>
 		  	</div>
