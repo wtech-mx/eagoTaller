@@ -176,8 +176,8 @@
     <label for="status" class="col-sm-2 control-label">Estado: </label>
     <div class="col-sm-4">
         <select class="form-control" name="status" id="status">
-            <option value="1" <?php if ($status==1){echo "selected";}?>>Activo</option>
-            <option value="2" <?php if ($status==2){echo "selected";}?>>Inactivo</option>
+            <option value="1" <?php if ($status==1){echo "selected";}?>>Terminado</option>
+            <option value="2" <?php if ($status==2){echo "selected";}?>>Pendiente</option>
         </select>
     </div>
                                     
