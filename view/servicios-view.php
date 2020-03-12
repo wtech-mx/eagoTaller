@@ -15,55 +15,64 @@
 
                 <!--tiles start-->
                 <div class="row">
+                     <a href="./?view=mantenimiento">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-red">
                             <div class="content">                              
                                 <p >Mantenimiento</p>
                             </div>
-                            <div class="icon"> <a href="./?view=mantenimiento"><i class="fa fa-cog"></i></a>
+                            <div class="icon"><i class="fa fa-cog"></i>
                             </div>
                         </div>
+                        </a>
                     </div>
+                    <a href="./?view=estetica">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-turquoise">
                             <div class="content">
-                                
                                 <p>Mecanica/Estética</p>
                             </div>
-                            <a href="./?view=estetica"><div class="icon"><i class="fa fa-code-fork"></i></a>
+                            <div class="icon"><i class="fa fa-code-fork"></i>
                             </div>
                         </div>
                     </div>
+                    </a>
+                    <a href="./?view=gestoria">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-blue">
                             <div class="content">
                                 
                                 <p>Gestoria</p>
                             </div>
-                            <a href="./?view=gestoria"><div class="icon"><i class="fa fa-user"></i></a>
+                            <div class="icon"><i class="fa fa-user"></i>
                             </div>
                         </div>
                     </div>
+                    </a>
+                    <a href="./?view=verificacion">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-purple">
                             <div class="content">
                                 
                                 <p>Verificación</p>
                             </div>
-                            <a href="./?view=verificacion"><div class="icon"><i class="fa fa-search"></i></a>
+                            <div class="icon"><i class="fa fa-search"></i>
                             </div>
                         </div>
                     </div>
+                    </a>
+                    <a href="./?view=traslados">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-white">
                             <div class="content">
                                 
                                 <p>Traslados</p>
                             </div>
-                            <a href="./?view=traslados"><div class="icon"><i class="fa fa-truck"></i></a>
+                            <div class="icon"><i class="fa fa-truck"></i></a>
                             </div>
                         </div>
                     </div>
+                    </a>
                 </div>
                 <!--tiles end-->
             
