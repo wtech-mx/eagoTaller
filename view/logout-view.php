@@ -15,6 +15,7 @@
 		unset($_SESSION['choque']);
 		unset($_SESSION['configuracion']);
 		unset($_SESSION['trasladista']);
+		unset($_SESSION['adminser']);
 		
 
 		session_destroy();

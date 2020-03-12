@@ -21,6 +21,7 @@
         }
         
 ?>
+
     <!--main content start-->
     <section class="main-content-wrapper">
         <section id="main-content">
@@ -43,49 +44,56 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img1">
-                                <img class=" img-responsive" src="<?php echo  $foto1;?>" alt="Foto del docuemnto" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
+                            <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal1" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
+                                <img class=" img-responsive" src="<?php echo  $foto1;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
+                            </a>
                             </div>
                            <br>
-                            <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto1;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">&nbsp;</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe src="<?php echo $foto1;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+                    </div>
+                </div>
+            </div>
+        </div>
                         </div>
                     </div>
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img2">
-                                <img class=" img-responsive" src="<?php echo  $foto2;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
+                                <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal2" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
+                                <img class=" img-responsive" src="<?php echo  $foto2;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
+                            </a>
                             </div>
                             <br>
-                            <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto2;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">&nbsp;</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe src="<?php echo $foto2;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+                    </div>
+                </div>
+            </div>
+        </div>
                         </div>
                     </div>
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img3">
-                                <img class=" img-responsive" src="<?php echo  $foto3;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
+                               <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal3" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
+                                <img class=" img-responsive" src="<?php echo  $foto3;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
+                            </a>
+
                             </div>
                             <br>
                             <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -96,7 +104,8 @@
                                             <h4 class="modal-title">&nbsp;</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="<?php echo $foto3;?>" class="img-responsive">
+                                            <iframe src="<?php echo $foto3;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +115,10 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img4">
-                                <img class=" img-responsive" src="<?php echo  $foto4;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
+                               <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal4" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
+                                <img class=" img-responsive" src="<?php echo  $foto4;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
+                            </a>
+
                             </div>
                             <br>
                             <div id="myModal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -117,7 +129,8 @@
                                             <h4 class="modal-title">&nbsp;</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="<?php echo $foto4;?>" class="img-responsive">
+                                            <iframe src="<?php echo $foto4;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+
                                         </div>
                                     </div>
                                 </div>
@@ -127,7 +140,10 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img5">
-                                <img class=" img-responsive" src="<?php echo  $foto5;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal5" style='cursor:pointer'>
+                               <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal5" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
+                                <img class=" img-responsive" src="<?php echo  $foto5;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal5" style='cursor:pointer'>
+                            </a>
+
                             </div>
                             <br>
                             <div id="myModal5" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -138,7 +154,8 @@
                                             <h4 class="modal-title">&nbsp;</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="<?php echo $foto5;?>" class="img-responsive">
+                                            <iframe src="<?php echo $foto5;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +165,10 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img6">
-                                <img class=" img-responsive" src="<?php echo  $foto6;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal6" style='cursor:pointer'>
+                              <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal6" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
+                                <img class=" img-responsive" src="<?php echo  $foto6;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal6" style='cursor:pointer'>
+                            </a>
+
                             </div>
                             <br>
                             <div id="myModal6" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -159,7 +179,8 @@
                                             <h4 class="modal-title">&nbsp;</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="<?php echo $foto6;?>" class="img-responsive">
+                                            <iframe src="<?php echo $foto6;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+
                                         </div>
                                     </div>
                                 </div>

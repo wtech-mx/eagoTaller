@@ -1,4 +1,4 @@
-<?php
+    <?php
 
     //define('RUTA', 'http://eago.com.mx/Eago-frontend/index.php');
     define('RUTA', 'http://eago.com.mx/eagoTaller/index.php');
@@ -173,13 +173,13 @@
 
                     <?php if ($_SESSION['trasladista']==1) { ?>
                     <li class="<?php if(isset($active12)){echo $active12;}?>">
-                        <a href="./?view=trasladistas"><i class="fa fa-indent"></i><span>Trasladistas</span></a>
+                        <a href="./?view=trasladistas"><i class="fa fa-users"></i><span>Trasladistas</span></a>
                     </li>
                     <?php } ?>
 
-                    <?php if ($_SESSION['admin']==1) { ?>
-                     <li class="<?php if(isset($active10)){echo $active10;}?>">
-                        <a href="./?view=admin"><i class="fa fa-road"></i><span>Servicios Ter/Esp</span></a>
+                    <?php if ($_SESSION['adminser']==1) { ?>
+                     <li class="<?php if(isset($active13)){echo $active13;}?>">
+                        <a href="./?view=adminser"><i class="fa fa-folder"></i><span>Comprobacion de Gastos</span></a>
                         <ul>               
                             <li><a href="./?view=manser"><i class="fa fa-user"></i>Mantenimiento</li></a>                                   
                             <li><a href="./?view=esteser"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
@@ -193,7 +193,7 @@
 
                     <?php if ($_SESSION['admin']==1) { ?>
                      <li class="<?php if(isset($active10)){echo $active10;}?>">
-                        <a href="./?view=admin"><i class="fa fa-road"></i><span>Gestor Administrativo</span></a>
+                        <a href="./?view=admin"><i class="fa fa-chevron-circle-right"></i><span>Gestor Administrativo</span></a>
                         <ul>               
                             <li><a href="./?view=manadmin"><i class="fa fa-user"></i>Mantenimiento</li></a>                                   
                             <li><a href="./?view=esteadmin"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
