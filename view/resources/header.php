@@ -179,7 +179,7 @@
 
                     <?php if ($_SESSION['adminser']==1) { ?>
                      <li class="<?php if(isset($active13)){echo $active13;}?>">
-                        <a href="./?view=adminser"><i class="fa fa-folder"></i><span>Comprobacion de Servicios</span></a>
+                        <a href="./?view=adminser"><i class="fa fa-folder"></i><span>Comprobacion de Servicio</span></a>
                         <ul>               
                             <li><a href="./?view=manser"><i class="fa fa-user"></i>Mantenimiento</li></a>                                   
                             <li><a href="./?view=esteser"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
