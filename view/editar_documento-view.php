@@ -19,7 +19,14 @@
             $foto6=$rw['foto6'];
             $fecha_carga=$rw['fecha_carga'];
         }
-        
+
+
+        $extension = pathinfo($foto1=$rw['foto1'], PATHINFO_EXTENSION);
+        $extension2 = pathinfo($foto2=$rw['foto2'], PATHINFO_EXTENSION);
+        $extension3 = pathinfo($foto3=$rw['foto3'], PATHINFO_EXTENSION);
+        $extension4 = pathinfo($foto4=$rw['foto4'], PATHINFO_EXTENSION);
+        $extension5 = pathinfo($foto5=$rw['foto5'], PATHINFO_EXTENSION);
+        $extension6 = pathinfo($foto6=$rw['foto6'], PATHINFO_EXTENSION);
 ?>
 
     <!--main content start-->
@@ -44,9 +51,24 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img1">
-                            <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal1" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
-                                <img class=" img-responsive" src="<?php echo  $foto1;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
-                            </a>
+            <?php 
+
+            if ($extension == "pdf"){
+            ?>
+
+            <a href="" class="img-responsive" alt="<?php echo $extension ?>" data-toggle="modal" data-target="#myModal1" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                    <iframe  class="img-responsive" type="application/pdf" src="<?php echo  $foto1;?>" style="width: 100%"></iframe >
+            </a>
+
+            <?php
+            }else{
+            ?>
+
+                <img class="img-responsive" src="<?php echo  $foto1;?>" alt="Imagen del factura origen" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
+                
+            <?php
+                }
+            ?>
                             </div>
                            <br>
             <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -57,7 +79,20 @@
                         <h4 class="modal-title">&nbsp;</h4>
                     </div>
                     <div class="modal-body">
-                        <iframe src="<?php echo $foto1;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+                        
+<?php 
+            if ($extension == "pdf"){
+?>
+            <a href="" class="img-responsive" alt="Imagen del factura 1" data-toggle="modal" data-target="#myModal1" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                    <iframe type="application/pdf"  src="<?php echo  $foto1;?>" style="width: 100%;height: 500px"></iframe>
+            </a>    
+<?php
+            }else{
+            ?>
+                <img src="<?php echo  $foto1;?>" >
+<?php
+    }
+?>
                     </div>
                 </div>
             </div>
@@ -67,9 +102,24 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img2">
-                                <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal2" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
-                                <img class=" img-responsive" src="<?php echo  $foto2;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
-                            </a>
+            <?php 
+
+            if ($extension2 == "pdf"){
+            ?>
+
+            <a href="" class="img-responsive" alt="<?php echo $extension2 ?>" data-toggle="modal" data-target="#myModal2" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                    <iframe  class="img-responsive" type="application/pdf" src="<?php echo  $foto2;?>" style="width: 100%"></iframe >
+            </a>
+
+            <?php
+            }else{
+            ?>
+
+                <img class="img-responsive" src="<?php echo  $foto2;?>" alt="<?php echo  $extension;?>" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
+                
+            <?php
+                }
+            ?>
                             </div>
                             <br>
             <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -80,7 +130,20 @@
                         <h4 class="modal-title">&nbsp;</h4>
                     </div>
                     <div class="modal-body">
-                        <iframe src="<?php echo $foto2;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+                        
+<?php 
+            if ($extension2 == "pdf"){
+?>
+            <a href="" class="img-responsive" alt="<?php echo  $extension2;?>" data-toggle="modal" data-target="#myModal2" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                    <iframe type="application/pdf"  src="<?php echo  $foto2;?>" style="width: 100%;height: 500px"></iframe>
+            </a>    
+<?php
+            }else{
+            ?>
+                <img src="<?php echo  $foto2;?>" >
+<?php
+    }
+?>
                     </div>
                 </div>
             </div>
@@ -90,10 +153,20 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img3">
-                               <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal3" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
-                                <img class=" img-responsive" src="<?php echo  $foto3;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
+                            <?php 
+                            if ($extension3 == "pdf"){
+                            ?>
+                            <a href="" class="img-responsive" alt="<?php echo $extension3 ?>" data-toggle="modal" data-target="#myModal3" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                                    <iframe  class="img-responsive" type="application/pdf" src="<?php echo  $foto3;?>" style="width: 100%"></iframe >
                             </a>
-
+                            <?php
+                            }else{
+                            ?>
+                                <img class="img-responsive" src="<?php echo  $foto3;?>" alt="<?php echo  $extension3;?>" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
+                                
+                            <?php
+                                }
+                            ?>
                             </div>
                             <br>
                             <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -104,7 +177,19 @@
                                             <h4 class="modal-title">&nbsp;</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <iframe src="<?php echo $foto3;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+                                              <?php 
+                                               if ($extension3 == "pdf"){
+                                                ?>
+                                                <a href="" class="img-responsive" alt="<?php echo  $extension3;?>" data-toggle="modal" data-target="#myModal3" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                                                    <iframe type="application/pdf"  src="<?php echo  $foto3;?>" style="width: 100%;height: 500px"></iframe>
+                                                 </a>    
+                                            <?php
+                                                  }else{
+                                                   ?>
+                                                    <img src="<?php echo  $foto3;?>" >
+                                            <?php
+                                                }
+                                            ?>
 
                                         </div>
                                     </div>
@@ -115,8 +200,20 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img4">
-                               <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal4" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
-                                <img class=" img-responsive" src="<?php echo  $foto4;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
+                            <?php 
+                            if ($extension4 == "pdf"){
+                            ?>
+                            <a href="" class="img-responsive" alt="<?php echo $extension4 ?>" data-toggle="modal" data-target="#myModal4" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                                    <iframe  class="img-responsive" type="application/pdf" src="<?php echo  $foto4;?>" style="width: 100%"></iframe >
+                            </a>
+                            <?php
+                            }else{
+                            ?>
+                                <img class="img-responsive" src="<?php echo  $foto4;?>" alt="<?php echo  $extension4;?>" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
+                                
+                            <?php
+                                }
+                            ?>
                             </a>
 
                             </div>
@@ -129,7 +226,19 @@
                                             <h4 class="modal-title">&nbsp;</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <iframe src="<?php echo $foto4;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+                                              <?php 
+                                               if ($extension4 == "pdf"){
+                                                ?>
+                                                <a href="" class="img-responsive" alt="<?php echo  $extension4;?>" data-toggle="modal" data-target="#myModal4" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                                                    <iframe type="application/pdf"  src="<?php echo  $foto4;?>" style="width: 100%;height: 500px"></iframe>
+                                                 </a>    
+                                            <?php
+                                                  }else{
+                                                   ?>
+                                                    <img src="<?php echo  $foto4;?>" >
+                                            <?php
+                                                }
+                                            ?>
 
                                         </div>
                                     </div>
@@ -140,10 +249,21 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img5">
-                               <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal5" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
-                                <img class=" img-responsive" src="<?php echo  $foto5;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal5" style='cursor:pointer'>
+                            <?php 
+                            if ($extension5 == "pdf"){
+                            ?>
+                            <a href="" class="img-responsive" alt="<?php echo $extension5 ?>" data-toggle="modal" data-target="#myModal5" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                                    <iframe  class="img-responsive" type="application/pdf" src="<?php echo  $foto5;?>" style="width: 100%"></iframe >
                             </a>
-
+                            <?php
+                            }else{
+                            ?>
+                                <img class="img-responsive" src="<?php echo  $foto5;?>" alt="<?php echo  $extension5;?>" data-toggle="modal" data-target="#myModal5" style='cursor:pointer'>
+                                
+                            <?php
+                                }
+                            ?>
+                            </a>
                             </div>
                             <br>
                             <div id="myModal5" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -154,7 +274,19 @@
                                             <h4 class="modal-title">&nbsp;</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <iframe src="<?php echo $foto5;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+                                              <?php 
+                                               if ($extension5 == "pdf"){
+                                                ?>
+                                                <a href="" class="img-responsive" alt="<?php echo  $extension5;?>" data-toggle="modal" data-target="#myModal5" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                                                    <iframe type="application/pdf"  src="<?php echo  $foto5;?>" style="width: 100%;height: 500px"></iframe>
+                                                 </a>    
+                                            <?php
+                                                  }else{
+                                                   ?>
+                                                    <img src="<?php echo  $foto5;?>" >
+                                            <?php
+                                                }
+                                            ?>
 
                                         </div>
                                     </div>
@@ -165,10 +297,20 @@
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img6">
-                              <a href="" class="img-responsive" alt="Archivo PDF" data-toggle="modal" data-target="#myModal6" style="cursor:pointer;padding: 10px;background: #337ab7;overflow-y: hidden;overflow-x: hidden;">
-                                <img class=" img-responsive" src="<?php echo  $foto6;?>" style="color:#f5f5f5" alt="Archivo PDF" data-toggle="modal" data-target="#myModal6" style='cursor:pointer'>
+                            <?php 
+                            if ($extension6 == "pdf"){
+                            ?>
+                            <a href="" class="img-responsive" alt="<?php echo $extension6 ?>" data-toggle="modal" data-target="#myModal6" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                                    <iframe  class="img-responsive" type="application/pdf" src="<?php echo  $foto6;?>" style="width: 100%"></iframe >
                             </a>
-
+                            <?php
+                            }else{
+                            ?>
+                                <img class="img-responsive" src="<?php echo  $foto6;?>" alt="<?php echo  $extension6;?>" data-toggle="modal" data-target="#myModal6" style='cursor:pointer'>
+                                
+                            <?php
+                                }
+                            ?>
                             </div>
                             <br>
                             <div id="myModal6" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -179,7 +321,19 @@
                                             <h4 class="modal-title">&nbsp;</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <iframe src="<?php echo $foto6;?>" class="img-responsive" style="width: 100%;height: 500px"></iframe >
+                                              <?php 
+                                               if ($extension6 == "pdf"){
+                                                ?>
+                                                <a href="" class="img-responsive" alt="<?php echo  $extension6;?>" data-toggle="modal" data-target="#myModal6" style="cursor:pointer;padding: 10px;background: #337AB7;overflow-y: hidden;overflow-x: hidden;">
+                                                    <iframe type="application/pdf"  src="<?php echo  $foto6;?>" style="width: 100%;height: 500px"></iframe>
+                                                 </a>    
+                                            <?php
+                                                  }else{
+                                                   ?>
+                                                    <img src="<?php echo  $foto5;?>" >
+                                            <?php
+                                                }
+                                            ?>
 
                                         </div>
                                     </div>

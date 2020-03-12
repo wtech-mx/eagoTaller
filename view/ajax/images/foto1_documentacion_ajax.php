@@ -31,19 +31,24 @@
 
     if ($query_new_insert) {
 ?>
-<?php 
+
+			<?php 
 			if ($imageFileType == "pdf"){
-?>
+			?>
+
 			<a href="" class="img-responsive" alt="Imagen del factura 1" data-toggle="modal" data-target="#myModal1" style="cursor:pointer;padding: 10px;background: #2ECC71;overflow-y: hidden;overflow-x: hidden;">
 					<iframe  class="img-responsive" type="application/pdf" src="view/resources/images/documentos/<?php echo $image_name;?>" style="width: 100%"></iframe >
-			</a>	
-<?php
+			</a>
+
+			<?php
 			}else{
 			?>
+
 				<img class="img-responsive" src="view/resources/images/documentos/<?php echo $image_name;?>" alt="Imagen del factura origen" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
-<?php
-	}
-?>
+				
+			<?php
+				}
+			?>
 		
 
 

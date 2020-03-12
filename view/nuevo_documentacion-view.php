@@ -166,24 +166,24 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="imagefile3" class="col-sm-2 control-label">Refactura 1: </label>
+                                    <label for="imagefile3" class="col-sm-2 control-label">Documento 1: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile3" class="form-control" id="imagefile3" onchange="upload_foto3(<?php echo $id_documento; ?>);">
                                     </div>
 
-                                    <label for="imagefile4" class="col-sm-2 control-label">Refactura 2: </label>
+                                    <label for="imagefile4" class="col-sm-2 control-label">Documento 2: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile4" class="form-control" id="imagefile4" onchange="upload_foto4(<?php echo $id_documento; ?>);">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="imagefile5" class="col-sm-2 control-label">Refactura 3: </label>
+                                    <label for="imagefile5" class="col-sm-2 control-label">Documento 3: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile5" class="form-control" id="imagefile5" onchange="upload_foto5(<?php echo $id_documento; ?>);">
                                     </div>
 
-                                    <label for="imagefile6" class="col-sm-2 control-label">Tenencia: </label>
+                                    <label for="imagefile6" class="col-sm-2 control-label">Documento 4: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile6" class="form-control" id="imagefile6" onchange="upload_foto6(<?php echo $id_documento; ?>);">
                                     </div>
