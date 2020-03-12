@@ -5,7 +5,7 @@
 	if (isset($_REQUEST["id"])){//codigo para eliminar 
 	$id=$_REQUEST["id"];
 	$id=intval($id);
-	if($delete=mysqli_query($con, "DELETE FROM estetica WHERE id='$id'")){
+	if($delete=mysqli_query($con, "DELETE FROM mantenimiento WHERE id='$id'")){
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
 		$classM="alert alert-success";
@@ -21,9 +21,9 @@
 $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 if($action == 'ajax'){
 	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
-	$tables="estetica";
+	$tables="mantenimiento";
 	$campos="*";
-	$sWhere=" fecha_rep LIKE '%".$query."%'";
+	$sWhere=" fecha_man LIKE '%".$query."%'";
 	include 'pagination.php'; //include pagination file
 	//pagination variables
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
@@ -35,7 +35,7 @@ if($action == 'ajax'){
 	if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 	else {echo mysqli_error($con);}
 	$total_pages = ceil($numrows/$per_page);
-	$reload = './esteser-view.php';
+	$reload = './manser-view.php';
 	//main query to fetch the data
 	$query = mysqli_query($con,"SELECT $campos FROM  $tables where $sWhere LIMIT $offset,$per_page");
 	//loop through fetched data
@@ -68,7 +68,7 @@ if($action == 'ajax'){
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id'];
 
-				$fecha_rep=$row['fecha_rep'];
+				$fecha_man=$row['fecha_man'];
 
 				$idcliente=$row['idcliente'];
 				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
@@ -97,14 +97,14 @@ if($action == 'ajax'){
         <tbody>
             <tr>
                 <td><?php echo $id ?></td>
-                <td><?php echo $fecha_rep ?></td>
+                <td><?php echo $fecha_man ?></td>
                 <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $datos ?></td>
                 <td><?php echo $fecha ?></td>
                 <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td class="text-right">
 
-                    <a style="color: white;" class="btn btn-warning btn-square btn-xs" href="./?view=editar_esteser&id=<?php echo $id;?>"><i class='fa fa-edit'></i></a>
+                    <a style="color: white;" class="btn btn-warning btn-square btn-xs" href="./?view=editar_manser&id=<?php echo $id;?>"><i class='fa fa-edit'></i></a>
 
                     <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $id;?>')"><i class="fa fa-trash-o"></i></button>
 

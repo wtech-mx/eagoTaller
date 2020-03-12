@@ -1,6 +1,10 @@
-<?php  
-    $active10="active";
+<?php 
+    $active13="active";
     include "resources/header.php";
+
+    if ($_SESSION['adminser']==1){
+        //esta funcion elimina todos los registros que no fueron llenados 
+        //tabla = "vehiculo"
 ?>
     <!--main content start-->
     <section class="main-content-wrapper">
@@ -10,18 +14,18 @@
                         <!--breadcrumbs start -->
                         <ul class="breadcrumb  pull-right">
                             <li><a href="./?view=dashboard">Dashboard</a></li>
-                            <li class="active">Servicios de Mantenimiento</li>
+                            <li class="active">Comprobacion</li>
                         </ul>
                         <!--breadcrumbs end -->
                         <br>
-                    <h1 class="h1">Servicios de Mantenimiento</h1>
+                    <h1 class="h1">Comprobacion de servicio</h1>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-xs-3">
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Fecha de Servicio" id='q' onkeyup="load(1);">
+                      <input type="text" class="form-control" placeholder="Buscar por fecha" id='q' onkeyup="load(1);">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                       </span>
@@ -35,8 +39,8 @@
                 <div class="col-md-offset-10">
                     <!-- modals -->
                         <?php 
-                            include "modals/editar/editar_manser.php";
-                            include "modals/mostrar/mostrar_manser.php";
+                           // include "modals/agregar/agregar_sector.php";
+                           // include "modals/editar/editar_sector.php";
                         ?>
                     <!-- /end modals -->
                     
@@ -63,7 +67,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Datos de los Servicios</h3>
+                            <h3 class="panel-title">Datos de los servicios</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -80,9 +84,10 @@
 
         </section>
     </section><!--main content end-->
-<?php
+<?php 
     include "resources/footer.php";
 ?>
+   
 <script>
     $(function() {
         load(1);
@@ -115,7 +120,7 @@
 </script>
 <script>
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente el servicio \n\n Desea continuar?')){
+        if(confirm('Esta acción  eliminará de forma permanente la comprobación \n\n Desea continuar?')){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();
@@ -138,31 +143,6 @@
         }
     }
 </script>
-<!--<script>
-    $( "#new_register" ).submit(function( event ) {
-      $('#guardar_datos').attr("disabled", true);
-     var parametros = $(this).serialize();
-         $.ajax({
-                type: "POST",
-                url: "view/ajax/agregar/agregar_gestoria.php",
-                data: parametros,
-                 beforeSend: function(objeto){
-                    $("#resultados_ajax").html("Enviando...");
-                  },
-                success: function(datos){
-                $("#resultados_ajax").html(datos);
-                $('#guardar_datos').attr("disabled", false);
-                load(1);
-                window.setTimeout(function() {
-                $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                $(this).remove();});}, 5000);
-                $('#formModal').modal('hide');
-              }
-        });
-      event.preventDefault();
-    })
-</script>-->
-
 <script>
     $( "#update_register" ).submit(function( event ) {
       $('#actualizar_datos').attr("disabled", true);
@@ -219,5 +199,8 @@
     }
 </script>
 <?php     
+    }else{
+      require 'resources/acceso_prohibido.php';
+    }
     ob_end_flush(); 
 ?>

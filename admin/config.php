@@ -8,8 +8,8 @@ define('SERVIDOR', 'http://localhost/eagoTaller/');
 //DB TRABJANDO EN LOCALHOST
 $bd_config = array(
 	'basedatos' => 'taller_eago',
-	'usuario' => 'eagotaller',
-	'pass' => 'eago19taller'
+	'usuario' => 'root',
+	'pass' => ''
 );
 
 //DB TRABJANDO EN EL SERVIDOR

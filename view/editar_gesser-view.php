@@ -1,44 +1,59 @@
-<?php
-    session_start();
-    require_once ("../../../config/config.php");
-    if (isset($_GET["id"])){
-        $id=$_GET["id"];
-        $id=intval($id);
-        $sql="select * from estetica where id='$id'";
-        $query=mysqli_query($con,$sql);
-        $num=mysqli_num_rows($query);
-        if ($num==1){
-            $rw=mysqli_fetch_array($query);
-            $id=$rw['id'];
+<?php 
+    $active13="active";
+    include "resources/header.php";
 
-            $fecha_rep=$rw['fecha_rep'];
+    if ($_SESSION['adminser']==1){
+    
+        if (isset($_GET['id'])){
+            $gesser_id=intval($_GET['id']);
+            $sql_gesser=mysqli_query($con,"select * from gestoria where id='$gesser_id'");
+            $count=mysqli_num_rows($sql_gesser);
+            $rw=mysqli_fetch_array($sql_gesser);
 
-                $idcliente=$rw['idcliente'];
+            $fecha_ges=$rw['fecha_ges'];
+
+             $idcliente=$rw['idcliente'];
                 $clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
-        $target_dir="view/resources/images/gastos/libro.jpg";
-        $inser=mysqli_query($con,"INSERT INTO estetica (foto1, foto2, foto3, foto4, status) VALUES (,'$target_dir','$target_dir','$target_dir','$target_dir'); ");
-        $sql_estetica=mysqli_query($con,"select * from estetica");
-        $rw_estetica=mysqli_fetch_array($sql_estetica);
-        $id_estetica=$rw_estetica['id'];
-
-            $foto1=$rw['foto1'];        
+            $status=$rw['status'];
+            $datos=$rw['datos'];
+            $foto4=$rw['foto4'];
+            $foto1=$rw['foto1'];
             $foto2=$rw['foto2'];
             $foto3=$rw['foto3'];
-            $foto4=$rw['foto4'];
-            $status=$rw['status'];
+            $fecha_carga=$rw['fecha_carga'];
         }
-    }   
-    else{exit;}
+        
+        if (!isset($_GET['id']) or $count!=1){
+            header("location: ./?view=gesser");
+        }
+
 ?>
-       
+    <!--main content start-->
+    <section class="main-content-wrapper">
+        <section id="main-content">
+            <div class="row">
+                <div class="col-md-12">
+                        <!--breadcrumbs start -->
+                        <ul class="breadcrumb  pull-right">
+                            <li><a href="./?view=dashboard">Dashboard</a></li>
+                            <li class=""><a href="./?view=gesser">Comprobación</a></li>
+                            <li class="active">Comprobación de servicio</li>
+                        </ul>
+                        <!--breadcrumbs end -->
+                        <br>
+                    <h1 class="h1">Comprobación de servicio</h1>
+                </div>
+            </div>
+            
+            <div class="row">
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img">
-                                <img class=" img-responsive" src="<?php echo  $foto1;?>" alt="Foto del gasto" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
+                                <img class=" img-responsive" src="<?php echo  $foto1;?>" alt="Foto del servicio" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
                             </div>
                            <br>
                             <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -56,12 +71,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img2">
-                                <img class=" img-responsive" src="<?php echo  $foto2;?>" alt="Foto del gasto" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
+                                <img class=" img-responsive" src="<?php echo  $foto2;?>" alt="Foto del servicio" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
                             </div>
                             <br>
                             <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -79,12 +92,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-              <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img3">
-                                <img class=" img-responsive" src="<?php echo  $foto3;?>" alt="Foto del gasto" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
+                                <img class=" img-responsive" src="<?php echo  $foto3;?>" alt="Foto del servicio" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
                             </div>
                             <br>
                             <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -102,12 +113,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
                             <div id="load_img4">
-                                <img class=" img-responsive" src="<?php echo  $foto4;?>" alt="Foto del gasto" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
+                                <img class=" img-responsive" src="<?php echo  $foto4;?>" alt="Foto del servicio" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
                             </div>
                             <br>
                             <div id="myModal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -127,13 +136,29 @@
                     </div>
                 </div>
 
+                <div class="col-md-9">
+                    <div id="resultados_ajax"></div><!-- resultados ajax -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Datos del Servicio</h3>
+                            <div class="actions pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                                <i class="fa fa-times"></i>
+                            </div>
+                        </div>
 
+                        <div class="panel-body">
 
-<input type="hidden" value="<?php echo $id;?>" name="id" id="id">
+                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
+
+                                <input type="hidden"  id="id" name="id"  value="<?php echo $gesser_id;?>" >
+
+    <div class="form-group">
+
 <div class="form-group">
-    <label for="idfecha_rep" class="col-sm-4 control-label">Fecha Registro: </label>
+<label for="idfecha_ges" class="col-sm-4 control-label">Fecha Registro: </label>
     <div class="col-sm-8">
-        <?php echo $fecha_rep;?>
+        <?php echo $fecha_ges;?>
     </div>
 </div>
 <div class="form-group">
@@ -143,34 +168,39 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="status" class="col-sm-2 control-label">Estado: </label>
-        <div class="col-sm-4">
-            <select class="form-control" name="status" id="status">
-                <option value="2" <?php if ($status==2){echo "selected";}?>>Pendiente</option>
-                <option value="1" <?php if ($status==1){echo "selected";}?>>Terminado</option>
-            </select>
-        </div>
+    <label for="datos" class="col-sm-4 control-label">Descripción: </label>
+    <div class="col-sm-8">
+        <?php echo $datos;?>
+    </div>
 </div>
+    <label for="status" class="col-sm-2 control-label">Estado: </label>
+    <div class="col-sm-4">
+        <select class="form-control" name="status" id="status">
+            <option value="1" <?php if ($status==1){echo "selected";}?>>Activo</option>
+            <option value="2" <?php if ($status==2){echo "selected";}?>>Inactivo</option>
+        </select>
+    </div>
+                                    
 </div>
 
                                 <div class="form-group">
                                     <label for="imagefile1" class="col-sm-2 control-label">Foto 1: </label>
                                     <div class="col-sm-4">
-                                        <input type="file" name="imagefile1" class="form-control" id="imagefile1" onchange="upload_foto1(<?php echo $id_estetica; ?>);">
+                                        <input type="file" name="imagefile1" class="form-control" id="imagefile1" onchange="upload_foto1(<?php echo $gesser_id; ?>);">
                                     </div>
                                     <label for="imagefile2" class="col-sm-2 control-label">Foto 2: </label>
                                     <div class="col-sm-4">
-                                        <input type="file" name="imagefile2" class="form-control" id="imagefile2" onchange="upload_foto2(<?php echo $id_estetica; ?>);">
+                                        <input type="file" name="imagefile2" class="form-control" id="imagefile2" onchange="upload_foto2(<?php echo $gesser_id; ?>);">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="imagefile3" class="col-sm-2 control-label">Foto 3: </label>
                                     <div class="col-sm-4">
-                                <input type="file" name="imagefile3" class="form-control" id="imagefile3" onchange="upload_foto3(<?php echo $id_estetica; ?>);">
+                                <input type="file" name="imagefile3" class="form-control" id="imagefile3" onchange="upload_foto3(<?php echo $gesser_id; ?>);">
                                     </div>
                                     <label for="imagefile4" class="col-sm-2 control-label">Foto 4: </label>
                                     <div class="col-sm-4">
-                                        <input type="file" name="imagefile4" class="form-control" id="imagefile4" onchange="upload_foto4(<?php echo $id_estetica; ?>);">
+                                        <input type="file" name="imagefile4" class="form-control" id="imagefile4" onchange="upload_foto4(<?php echo $gesser_id; ?>);">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -186,17 +216,18 @@
 
         </section>
     </section><!--main content end-->
+<?php  include "resources/footer.php" ?>
 <script>
-    function upload_foto1(id_estetica){
+    function upload_foto1(gesser_id){
         $("#load_img").text('Cargando...');
         var inputFileImage = document.getElementById("imagefile1");
         var file = inputFileImage.files[0];
         var data = new FormData();
         data.append('imagefile1',file);
-        data.append('id',id_estetica);
+        data.append('id',gesser_id);
         
         $.ajax({
-            url: "view/ajax/images/foto1_esteser_ajax.php",        // Url to which the request is send
+            url: "view/ajax/images/foto1_gesser_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
             data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
             contentType: false,       // The content type used when sending data to the server.
@@ -209,16 +240,16 @@
             }
         });
     }
-    function upload_foto2(id_estetica){
+    function upload_foto2(gesser_id){
         $("#load_img2").text('Cargando...');
         var inputFileImage = document.getElementById("imagefile2");
         var file = inputFileImage.files[0];
         var data = new FormData();
         data.append('imagefile2',file);
-        data.append('id',id_estetica);
+        data.append('id',gesser_id);
         
         $.ajax({
-            url: "view/ajax/images/foto2_esteser_ajax.php",        // Url to which the request is send
+            url: "view/ajax/images/foto2_gesser_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
             data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
             contentType: false,       // The content type used when sending data to the server.
@@ -231,16 +262,16 @@
             }
         });
     }
-    function upload_foto3(id_estetica){
+    function upload_foto3(gesser_id){
         $("#load_img3").text('Cargando...');
         var inputFileImage = document.getElementById("imagefile3");
         var file = inputFileImage.files[0];
         var data = new FormData();
         data.append('imagefile3',file);
-        data.append('id',id_estetica);
+        data.append('id',gesser_id);
         
         $.ajax({
-            url: "view/ajax/images/foto3_esteser_ajax.php",        // Url to which the request is send
+            url: "view/ajax/images/foto3_gesser_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
             data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
             contentType: false,       // The content type used when sending data to the server.
@@ -253,16 +284,16 @@
             }
         });
     }
-    function upload_foto4(id_estetica){
+    function upload_foto4(gesser_id){
         $("#load_img4").text('Cargando...');
         var inputFileImage = document.getElementById("imagefile4");
         var file = inputFileImage.files[0];
         var data = new FormData();
         data.append('imagefile4',file);
-        data.append('id',id_estetica);
+        data.append('id',gesser_id);
         
         $.ajax({
-            url: "view/ajax/images/foto4_esteser_ajax.php",        // Url to which the request is send
+            url: "view/ajax/images/foto4_gesser_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
             data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
             contentType: false,       // The content type used when sending data to the server.
@@ -282,7 +313,7 @@
       var parametros = $(this).serialize();
       $.ajax({
             type: "POST",
-            url: "view/ajax/editar/editar_esteser.php",
+            url: "view/ajax/agregar/actualizar_gesser.php",
             data: parametros,
              beforeSend: function(objeto){
                 $("#resultados_ajax").html("Mensaje: Cargando...");
@@ -299,3 +330,9 @@
       event.preventDefault();
     });
 </script>
+<?php     
+    }else{
+      require 'resources/acceso_prohibido.php';
+    }
+    ob_end_flush(); 
+?>

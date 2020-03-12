@@ -4,8 +4,8 @@
   // Parametros a configurar para la conexion de la base de datos 
   $host = "localhost";    // sera el valor de nuestra BD 
   $basededatos = "taller_eago";    // sera el valor de nuestra BD 
-  $usuariodb = "eagotaller";    // sera el valor de nuestra BD 
-  $clavedb = "eago19taller";    // sera el valor de nuestra BD 
+  $usuariodb = "root";    // sera el valor de nuestra BD eagotaller
+  $clavedb = "";    // sera el valor de nuestra BD eago19taller
   //Lista de Tablas
   $tabla_db1 = "slide";      // tabla de usuarios
   error_reporting(0); //No me muestra errores
@@ -13,7 +13,7 @@
 
 
 function con(){
-	return new mysqli("localhost","eagotaller","eago19taller","taller_eago");
+	return new mysqli("localhost","root","","taller_eago");
 }
 
 function insert_img($title, $folder, $image){

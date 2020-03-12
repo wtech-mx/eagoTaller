@@ -14,11 +14,11 @@
                         <!--breadcrumbs start -->
                         <ul class="breadcrumb  pull-right">
                             <li><a href="./?view=dashboard">Dashboard</a></li>
-                            <li class="active">Comprobacion de Gastos</li>
+                            <li class="active">Comprobacion</li>
                         </ul>
                         <!--breadcrumbs end -->
                         <br>
-                    <h1 class="h1">Comprobacion de Gastos</h1>
+                    <h1 class="h1">Comprobacion de servicio</h1>
                 </div>
             </div>
             
@@ -40,7 +40,7 @@
                     <!-- modals -->
                         <?php 
                            // include "modals/agregar/agregar_sector.php";
-                            include "modals/editar/editar_esteser.php";
+                           // include "modals/editar/editar_sector.php";
                         ?>
                     <!-- /end modals -->
                     
@@ -67,7 +67,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Comprobacion Mecanica/Estetica</h3>
+                            <h3 class="panel-title">Datos de los servicios</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -120,7 +120,7 @@
 </script>
 <script>
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente comprobacion \n\n Desea continuar?')){
+        if(confirm('Esta acción  eliminará de forma permanente la comprobación \n\n Desea continuar?')){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();
@@ -143,7 +143,6 @@
         }
     }
 </script>
-
 <script>
     $( "#update_register" ).submit(function( event ) {
       $('#actualizar_datos').attr("disabled", true);
@@ -184,7 +183,20 @@
             })
     }
     
-   
+    function mostrar(id){
+        var parametros = {"action":"ajax","id":id};
+        $.ajax({
+                url:'view/modals/mostrar/esteser.php',
+                data: parametros,
+                 beforeSend: function(objeto){
+                $("#loader3").html("<img src='./assets/img/ajax-loader.gif'>");
+              },
+                success:function(data){
+                    $(".outer_div3").html(data).fadeIn('slow');
+                    $("#loader3").html("");
+                }
+            })
+    }
 </script>
 <?php     
     }else{

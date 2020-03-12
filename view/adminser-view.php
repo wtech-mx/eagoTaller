@@ -10,7 +10,7 @@
 
             <div class="row">
                 <div class="col-md-12">                        
-                    <h1 class="h1">Comprobación de gastos</h1>
+                    <h1 class="h1">Comprobación de servicios</h1>
                 </div>
             </div>
                 <!--tiles start-->
