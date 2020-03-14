@@ -4,12 +4,12 @@
 
     if ($_SESSION['vehiculo']==1){
 
-        $cliente=time()."-".$_SESSION['user_id'];
+      
         $vehiculo_code=time()."-".$_SESSION['user_id'];
         $estado=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/vehiculos/vehiculo.jpg";
-        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, idcliente, vehiculo_code, patente, marca, modelo, nro_chasis, nro_motor, vto_vtv, idseguro, color, foto4, foto1, foto2, foto3, estado, fecha_carga) VALUES (NULL, '".$cliente."' ,'$vehiculo_code', '', '', '', '', '', '', '0', '','$target_dir','$target_dir','$target_dir','$target_dir','$estado', '$created_at'); ");
+        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, vehiculo_code, patente, marca, modelo, nro_chasis, nro_motor, vto_vtv, idseguro, color, foto4, foto1, foto2, foto3, estado, fecha_carga) VALUES (NULL,'$vehiculo_code', '', '', '', '', '', '', '0', '','$target_dir','$target_dir','$target_dir','$target_dir','$estado', '$created_at'); ");
         $sql_vehiculo=mysqli_query($con,"select * from vehiculo where  vehiculo_code='$vehiculo_code'");
         $rw_vehiculo=mysqli_fetch_array($sql_vehiculo);
         $id_vehiculo=$rw_vehiculo['id'];
@@ -97,22 +97,6 @@
 
 
                                 <div class="form-group">
-
-<label for="cliente" class="col-sm-2 control-label">Cliente: </label>
-<div class="col-sm-4">
-    <select class="form-control" name="cliente" id="cliente" required>
-        <?php 
-            $sql_clientes=mysqli_query($con,"select * from cliente");
-            while ($rw=mysqli_fetch_array($sql_clientes)){
-                $idcliente=$rw['id'];
-                $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
-            ?>
-            <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
-            <?php
-            }
-        ?>
-    </select>    
-</div>
 
                                     <label for="patente" class="col-sm-2 control-label">Placas: </label>
                                     <div class="col-sm-4">

@@ -39,6 +39,7 @@
                             include "modals/agregar/agregar_cliente.php";
                             include "modals/editar/editar_cliente.php";
                             include "modals/mostrar/mostrar_cliente.php";
+                            include "modals/editar/conexion_vehiclien.php";
                         ?>
                     <!-- /end modals -->
                     
@@ -189,6 +190,45 @@
     });
 </script>
 <script>
+    $( "#conexion_vehiclien" ).submit(function( event ) {
+      $('#guardar_datos').attr("disabled", true);
+     var parametros = $(this).serialize();
+         $.ajax({
+                type: "POST",
+                url: "view/ajax/agregar/agregar_cliente.php",
+                data: parametros,
+                 beforeSend: function(objeto){
+                    $("#resultados_ajax").html("Enviando...");
+                  },
+                success: function(datos){
+                $("#resultados_ajax").html(datos);
+                $('#guardar_datos').attr("disabled", false);
+                load(1);
+                window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove();});}, 5000);
+                $('#modal_conexion').modal('hide');
+              }
+        });
+      event.preventDefault();
+    });
+</script>
+<script>
+     function conexion(id){
+        var parametros = {"action":"ajax","id":id};
+        $.ajax({
+                url:'view/modals/editar/conexion_vehiclien.php',
+                data: parametros,
+                 beforeSend: function(objeto){
+                $("#loader1").html("<img src='./assets/img/ajax-loader.gif'>");
+              },
+                success:function(data){
+                    $(".outer_div1").html(data).fadeIn('slow');
+                    $("#loader1").html("");
+                }
+            })
+    }
+
     function editar(id){
         var parametros = {"action":"ajax","id":id};
         $.ajax({

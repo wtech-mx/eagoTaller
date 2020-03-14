@@ -48,7 +48,7 @@
                             <input type="text" required class="form-control" id="edad" name="edad" placeholder="Edad ">
                         </div>
                     </div>
-
+                    
 <!-- ==========================================================================================
      ======================================FIN DATOS GENERALES=================================
      ==========================================================================================-->
@@ -112,7 +112,6 @@
                             <input type="text" class="form-control" id="km" name="km" placeholder="KM por semana ">
                         </div>
                     </div>
-                    
                     
                     
                 </div>

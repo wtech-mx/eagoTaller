@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2020 a las 21:30:58
+-- Tiempo de generación: 14-03-2020 a las 07:55:39
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -117,7 +117,9 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `placa`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`) VALUES
 (1, 'dayanna', 'Espinosa', '(553) 990-7266', 'karla@gmail.com', 22, '', '2020-12-15', 'zaragoza', '', 7580, 0, 0, 'Mexicano', 'premium', 0),
-(2, 'Ricardo', 'Espinosa', '(553) 990-7266', 'ricardo@gmail.com', 25, '', '2020-01-30', 'aeropuerto', '', 7580, 0, 0, 'Mexicano', '5', 0);
+(2, 'Ricardo', 'Espinosa', '(553) 990-7266', 'ricardo@gmail.com', 25, '', '2020-01-30', 'aeropuerto', '', 7580, 0, 0, 'Mexicano', '5', 0),
+(4, 'Itzel', 'Espinosa', '(553) 990-7266', 'itzel@gmail.com', 25, '', '2020-02-16', 'aeropuerto', 'upiicsa', 7580, 7580, 32, 'ke', '4', 0),
+(7, 'karla', 'Espinosa', '(553) 990-7266', 'karla@gmail.com', 25, '', '2020-05-06', 'srf', '', 7580, 0, 0, 'Mexicano', '2', 0);
 
 -- --------------------------------------------------------
 
@@ -618,9 +620,28 @@ CREATE TABLE `vehiculo` (
 --
 
 INSERT INTO `vehiculo` (`id`, `idcliente`, `vehiculo_code`, `patente`, `marca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `idseguro`, `color`, `foto4`, `estado`, `foto1`, `foto2`, `foto3`, `fecha_carga`) VALUES
-(3, 1, '1', 'LO-300', 'ferrari', '2019', 'fjgh', '245', '2025-12-12', 1, 'blanco', 'view/resources/images/vehiculos/1579135611_4.jpg', 1, 'view/resources/images/vehiculos/1579135606_2.jpg', 'view/resources/images/vehiculos/1579135614_5dccf3a66f463.png', 'view/resources/images/vehiculos/1579135608_3.jpg', '2020-01-16 01:46:23'),
-(5, 2, '2', 'LO-652', 'benz', 'dgfh', '25', '245', '2020-06-30', 1, 'blanco', 'view/resources/images/vehiculos/vehiculo.jpg', 1, 'view/resources/images/vehiculos/1580498025_3.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-01-31 20:13:06'),
-(6, 2, '3', 'KM-120', 'mazda', '2019', 'fjgh', '00099', '2020-02-06', 1, 'blanco', 'view/resources/images/vehiculos/1582855782_equipo.jpg', 1, 'view/resources/images/vehiculos/1582855774_ayuda.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-02-28 03:08:58');
+(2, 2, '1', 'ASL-093', 'audi', 'dgfh', 'pÃ±l', 'fsd', '2020-01-06', 1, 'cafe', 'view/resources/images/vehiculos/vehiculo.jpg', 1, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-03-14 06:09:28'),
+(3, 2, '2', 'LO-300', 'benz', 'dgfh', 'fjgh', '245', '2020-02-06', 1, 'todos', 'view/resources/images/vehiculos/vehiculo.jpg', 1, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-03-14 06:10:05');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vehiculo_cliente`
+--
+
+CREATE TABLE `vehiculo_cliente` (
+  `idvehiculo_cliente` int(11) NOT NULL,
+  `idcliente` int(11) NOT NULL,
+  `idvehiculo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `vehiculo_cliente`
+--
+
+INSERT INTO `vehiculo_cliente` (`idvehiculo_cliente`, `idcliente`, `idvehiculo`) VALUES
+(1, 7, 3),
+(3, 9, 2);
 
 -- --------------------------------------------------------
 
@@ -803,6 +824,12 @@ ALTER TABLE `vehiculo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `vehiculo_cliente`
+--
+ALTER TABLE `vehiculo_cliente`
+  ADD PRIMARY KEY (`idvehiculo_cliente`);
+
+--
 -- Indices de la tabla `verificacion`
 --
 ALTER TABLE `verificacion`
@@ -834,7 +861,7 @@ ALTER TABLE `choque`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `configuracion`
@@ -942,7 +969,13 @@ ALTER TABLE `traslados`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `vehiculo_cliente`
+--
+ALTER TABLE `vehiculo_cliente`
+  MODIFY `idvehiculo_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `verificacion`
