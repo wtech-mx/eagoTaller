@@ -4,10 +4,17 @@
             $errors[] = "Vehiculo está vacío.";
         } elseif (
            !empty($_POST['vehiculo'])
+    if (empty($_POST['placa'])) {
+            $errors[] = "placa está vacío  ";
+            ?> 
+            <h1><?php echo $_POST["placa"]; ?></h1>
+            <?php
+        }   elseif (
+            !empty($_POST['placa'])
+
         ){
         require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
             
-            // escaping, additionally removing everything that could be (html/javascript-) code
             $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
             $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
  
@@ -18,6 +25,14 @@
             // if has been added successfully
             if ($query_new) {
                 $messages[] = "Vehiculos-cliente ha sido agregado con éxito.";
+            $placa = mysqli_real_escape_string($con,(strip_tags($_POST["placa"],ENT_QUOTES)));
+
+            //Write register in to database 
+            $sql = "INSERT INTO cliente (placa) VALUES('".$placa."');";
+            $query_new = mysqli_query($con,$sql);
+            // if has been added successfully
+            if ($query_new) {
+                $messages[] = "Seguro ha sido agregado con éxito.";
                 //save_log('Categorías','Registro de categoría',$_SESSION['user_id']);
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
@@ -59,3 +74,4 @@ swal("¡Bien!", " <?php echo $message;?> ", "success");
                 <?php
             }
 ?>          
+?>  

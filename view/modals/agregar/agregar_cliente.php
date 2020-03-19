@@ -11,13 +11,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel"> Nuevo Cliente</h4>
                 </div>
-                <!--<div class="modal-body">
-                    <div class="form-group">
-                        <label for="dni" class="col-sm-2 control-label">DNI: </label>
-                        <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="dni" name="dni" placeholder="DNI: ">
-                        </div>
-                </div>-->
+                <div class="modal-body">
                     <div class="form-group">
                         <label for="nombre" class="col-sm-2 control-label">Nombre: </label>
                         <div class="col-sm-10">
@@ -54,7 +48,7 @@
      ==========================================================================================-->
 
                     <div class="form-group">
-                        <label for="manejo" class="col-sm-2 control-label">Vencimiento de licencia de manejo: </label>
+                        <label for="manejo" class="col-sm-2 control-label">Vencimiento licencia: </label>
                         <div class="col-sm-10">
                             <input type="date"  class="form-control" id="manejo" name="manejo" placeholder="Licencia de Manejo ">
                         </div>
@@ -112,9 +106,9 @@
                             <input type="text" class="form-control" id="km" name="km" placeholder="KM por semana ">
                         </div>
                     </div>
+                </div> 
                     
-                    
-                </div>
+                
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     <button type="submit" id="guardar_datos" class="btn btn-primary">Agregar</button>

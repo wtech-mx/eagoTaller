@@ -59,7 +59,8 @@ if($action == 'ajax'){
                 <th>Telefono</th>
                 <th>Correo Electrónico</th>
                 <th>Edad</th>
-                <th></th>
+                <th>vehiculo</th>
+                <th>acciones</th>
             </tr>
         </thead>
         <?php 
@@ -71,6 +72,7 @@ if($action == 'ajax'){
 				$telefono=$row['telefono'];
 				$correo=$row['correo'];
 				$edad=$row['edad'];
+				$placa=$row['placa'];
 
 				/*$kind=$row['kind'];*/
 				
@@ -83,9 +85,11 @@ if($action == 'ajax'){
                 <td><?php echo $telefono ?></td>
                 <td><?php echo $correo ?></td>
                 <td><?php echo $edad ?></td>
+                <td><?php echo $placa ?></td>
                 <td class="text-right">
 
-                	<button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>
+                	
+                    <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>
 
                     <button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button>
 
