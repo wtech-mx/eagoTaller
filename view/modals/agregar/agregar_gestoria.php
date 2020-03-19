@@ -14,13 +14,13 @@
                     <div class="form-group">
                         <label for="fecha_ges" class="col-sm-2 control-label">Fecha Servicio: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="fecha_ges" name="fecha_ges" placeholder="Fecha Servicio ">
+                            <input type="date"  class="form-control" id="fecha_ges" name="fecha_ges" placeholder="Fecha Servicio ">
                         </div>
                     </div>
                     <div class="form-group">
                     <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="cliente" id="cliente" required>
+                                        <select class="form-control" name="cliente" id="cliente" >
                                             <?php 
                                                 $sql_clientes=mysqli_query($con,"select * from cliente");
                                                 while ($rw=mysqli_fetch_array($sql_clientes)){
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
                         <div class="col-sm-4">
-                                        <select class="form-control" name="vehiculo" id="vehiculo" required>
+                                        <select class="form-control" name="vehiculo" id="vehiculo" >
                                             <?php 
                                             $sql_vehiculos=mysqli_query($con,"select * from vehiculo  where estado=1 order by marca");
                                                 while ($rw=mysqli_fetch_array($sql_vehiculos)){
@@ -60,7 +60,7 @@
                     <div class="form-group">
                     <label for="taller" class="col-sm-2 control-label">Taller: </label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="taller" id="taller" required>
+                                        <select class="form-control" name="taller" id="taller" >
                                             <?php 
                                                 $sql_tallers=mysqli_query($con,"select * from taller where estado=1 order by nombre");
                                                 while ($rw=mysqli_fetch_array($sql_tallers)){
@@ -100,25 +100,25 @@
                     <div class="form-group">
                         <label for="aplaca" class="col-sm-2 control-label">Alta placa: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="aplaca" name="aplaca" placeholder="Alta placa">
+                            <input type="date"  class="form-control" id="aplaca" name="aplaca" placeholder="Alta placa">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="bplaca" class="col-sm-2 control-label">Baja placa: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="bplaca" name="bplaca" placeholder="Baja placa">
+                            <input type="date"  class="form-control" id="bplaca" name="bplaca" placeholder="Baja placa">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="rplaca" class="col-sm-2 control-label">Reposición placa: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="rplaca" name="rplaca" placeholder="Reposición placa">
+                            <input type="date"  class="form-control" id="rplaca" name="rplaca" placeholder="Reposición placa">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="tarjeta" class="col-sm-2 control-label">Reposición tarjeta: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta">
+                            <input type="date"  class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta">
                         </div>
                     </div>
                 </div>

@@ -33,19 +33,19 @@
                     <div class="form-group">
                         <label for="telefono" class="col-sm-2 control-label">Telefóno</label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="telefono" name="telefono" placeholder="Telefóno">
+                            <input type="text"  class="form-control" id="telefono" name="telefono" placeholder="Telefóno">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="correo" class="col-sm-2 control-label">Correo Electrónico: </label>
                         <div class="col-sm-10">
-                            <input type="correo" required class="form-control" id="correo" name="correo" placeholder="Correo Electrónico: ">
+                            <input type="correo"  class="form-control" id="correo" name="correo" placeholder="Correo Electrónico: ">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="edad" class="col-sm-2 control-label">Edad: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="edad" name="edad" placeholder="Edad ">
+                            <input type="text"  class="form-control" id="edad" name="edad" placeholder="Edad ">
                         </div>
                     </div>
                     
@@ -56,7 +56,7 @@
                     <div class="form-group">
                         <label for="manejo" class="col-sm-2 control-label">Vencimiento de licencia de manejo: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="manejo" name="manejo" placeholder="Licencia de Manejo ">
+                            <input type="date"  class="form-control" id="manejo" name="manejo" placeholder="Licencia de Manejo ">
                         </div>
                     </div>
                    

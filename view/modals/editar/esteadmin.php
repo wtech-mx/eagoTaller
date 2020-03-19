@@ -92,7 +92,7 @@
 <div class="form-group">
     <label for="reparacion" class="col-sm-2 control-label">Reparación: </label>
     <div class="col-sm-10">
-        <textarea type="number" required class="form-control" id="reparacion" name="reparacion" placeholder="$$$" onchange="SumarAutomatico(this.value);"><?php echo $reparacion ?></textarea>
+        <textarea type="number"  class="form-control" id="reparacion" name="reparacion" placeholder="$$$" onchange="SumarAutomatico(this.value);"><?php echo $reparacion ?></textarea>
     </div>
 </div>
 <div class="form-group">

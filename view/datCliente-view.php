@@ -195,7 +195,7 @@
      var parametros = $(this).serialize();
          $.ajax({
                 type: "POST",
-                url: "view/ajax/agregar/agregar_cliente.php",
+                url: "view/ajax/agregar/agregar_vehiclien.php",
                 data: parametros,
                  beforeSend: function(objeto){
                     $("#resultados_ajax").html("Enviando...");
@@ -214,8 +214,7 @@
     });
 </script>
 <script>
-     function conexion(id){
-        var parametros = {"action":"ajax","id":id};
+     function conexion(){
         $.ajax({
                 url:'view/modals/editar/conexion_vehiclien.php',
                 data: parametros,

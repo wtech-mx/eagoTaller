@@ -5,9 +5,9 @@
     if ($_SESSION['dashboard']==1){
 
         $empleados = mysqli_query($con, "select * from empleado");
-        $talleres = mysqli_query($con, "select * from taller");
-        $empresas = mysqli_query($con, "select * from empresa");
+        $cliente = mysqli_query($con, "select * from cliente");
         $vehiculos = mysqli_query($con, "select * from vehiculo");
+
 
         function suma_reparaciones($month){
             global $con;
@@ -33,6 +33,7 @@
                 <!--tiles start-->
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
+                        <a href="./?view=empleados">
                         <div class="dashboard-tile detail tile-red">
                             <div class="content">
                                 <h1 class="text-left timer" data-from="0" data-to="<?php echo mysqli_num_rows($empleados) ?>" data-speed="2500"> </h1>
@@ -43,26 +44,19 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
+                        <a href="./?view=datCliente">
                         <div class="dashboard-tile detail tile-turquoise">
                             <div class="content">
-                                <h1 class="text-left timer" data-from="0" data-to="<?php echo mysqli_num_rows($talleres) ?>" data-speed="2500"> </h1>
-                                <p>Talleres</p>
+                                <h1 class="text-left timer" data-from="0" data-to="<?php echo mysqli_num_rows($cliente) ?>" data-speed="2500"> </h1>
+                                <p>Clientes</p>
                             </div>
                             <div class="icon"><i class="fa fa-indent"></i>
                             </div>
                         </div>
+                    </a>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-tile detail tile-blue">
-                            <div class="content">
-                                <h1 class="text-left timer" data-from="0" data-to="<?php echo mysqli_num_rows($empresas) ?>" data-speed="2500"> </h1>
-                                <p>Empresas</p>
-                            </div>
-                            <div class="icon"><i class="fa fa-building-o"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
+                        <a href="./?view=vehiculos">
                         <div class="dashboard-tile detail tile-purple">
                             <div class="content">
                                 <h1 class="text-left timer" data-to="<?php echo mysqli_num_rows($vehiculos) ?>" data-speed="2500"> </h1>
@@ -71,6 +65,19 @@
                             <div class="icon"><i class="fa fa-truck"></i>
                             </div>
                         </div>
+                    </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a href="./?view=servicios">
+                        <div class="dashboard-tile detail tile-blue">
+                            <div class="content">
+                                <h1 class="text-left timer" data-from="" ></h1>
+                                <p>Servicios</p>
+                            </div>
+                            <div class="icon"><i class="fa fa-building-o"></i>
+                            </div>
+                        </div>
+                    </a>
                     </div>
                 </div>
                 <!--tiles end-->

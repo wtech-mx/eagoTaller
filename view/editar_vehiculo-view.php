@@ -14,17 +14,27 @@
             $idcliente=$rw['idcliente'];
             $patente=$rw['patente'];
             $marca=$rw['marca'];
+            $submarca=$rw['submarca'];
             $modelo=$rw['modelo'];
             $nro_chasis=$rw['nro_chasis'];
             $nro_motor=$rw['nro_motor'];
             $vto_vtv=$rw['vto_vtv'];
-            $idseguro=$rw['idseguro'];
+            $seguro=$rw['seguro'];
+            $poliza=$rw['poliza'];
+            $vencimiento=$rw['vencimiento'];
             $color=$rw['color'];
             $status=$rw['estado'];
             $foto4=$rw['foto4'];
             $foto1=$rw['foto1'];
             $foto2=$rw['foto2'];
             $foto3=$rw['foto3'];
+            $foto4=$rw['foto4'];
+            $foto5=$rw['foto5'];
+            $foto6=$rw['foto6'];
+            $foto7=$rw['foto7'];
+            $foto8=$rw['foto8'];
+            $foto9=$rw['foto9'];
+            $foto10=$rw['foto10'];
             $fecha_carga=$rw['fecha_carga'];
         }
         
@@ -51,8 +61,26 @@
             </div>
             
             <div class="row">
+                <div class="col-md-9">
+                    <div id="resultados_ajax"></div><!-- resultados ajax -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Fotos del Vehiculo</h3>
+                            <div class="actions pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                                <i class="fa fa-times"></i>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
+
+                                <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_code;?>" >
+                                <input type="hidden"  id="id" name="id"  value="<?php echo $vehiculo_id;?>" >
+
                 <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
+                    <div class="box box-primary"><!-- Profile Image 4-->
                         <div class="box-body box-profile">
                             <div id="load_img4">
                                 <img class=" img-responsive" src="<?php echo  $foto4;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
@@ -73,11 +101,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box box-primary"><!-- Profile Image -->
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image 1-->
                         <div class="box-body box-profile">
                             <div id="load_img">
                                 <img class=" img-responsive" src="<?php echo  $foto1;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
-                            </div>
+                                </div>
                            <br>
                             <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -94,7 +125,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box box-primary"><!-- Profile Image -->
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image 2-->
                         <div class="box-body box-profile">
                             <div id="load_img2">
                                 <img class=" img-responsive" src="<?php echo  $foto2;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
@@ -115,7 +149,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box box-primary"><!-- Profile Image -->
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image 3-->
                         <div class="box-body box-profile">
                             <div id="load_img3">
                                 <img class=" img-responsive" src="<?php echo  $foto3;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
@@ -138,6 +175,155 @@
                     </div>
                 </div>
 
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image 5-->
+                        <div class="box-body box-profile">
+                            <div id="load_img5">
+                                <img class=" img-responsive" src="<?php echo  $foto5;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal5" style='cursor:pointer'>
+                            </div>
+                            <br>
+                            <div id="myModal5" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">&nbsp;</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="<?php echo $foto5;?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image 6-->
+                        <div class="box-body box-profile">
+                            <div id="load_img6">
+                                <img class=" img-responsive" src="<?php echo  $foto6;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal6" style='cursor:pointer'>
+                            </div>
+                            <br>
+                            <div id="myModal6" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">&nbsp;</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="<?php echo $foto6;?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image 7-->
+                        <div class="box-body box-profile">
+                            <div id="load_img7">
+                                <img class=" img-responsive" src="<?php echo  $foto7;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal7" style='cursor:pointer'>
+                            </div>
+                            <br>
+                            <div id="myModal7" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">&nbsp;</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="<?php echo $foto7;?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image 8-->
+                        <div class="box-body box-profile">
+                            <div id="load_img8">
+                                <img class=" img-responsive" src="<?php echo  $foto8;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal8" style='cursor:pointer'>
+                            </div>
+                            <br>
+                            <div id="myModal8" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">&nbsp;</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="<?php echo $foto8;?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image 9-->
+                        <div class="box-body box-profile">
+                            <div id="load_img9">
+                                <img class=" img-responsive" src="<?php echo  $foto9;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal9" style='cursor:pointer'>
+                            </div>
+                            <br>
+                            <div id="myModal9" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">&nbsp;</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="<?php echo $foto9;?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image 10-->
+                        <div class="box-body box-profile">
+                            <div id="load_img10">
+                                <img class=" img-responsive" src="<?php echo  $foto10;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal10" style='cursor:pointer'>
+                            </div>
+                            <br>
+                            <div id="myModal10" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">&nbsp;</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="<?php echo $foto10;?>" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>  
+
                 <div class="col-md-9">
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
@@ -156,33 +342,42 @@
                                 <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_code;?>" >
                                 <input type="hidden"  id="id" name="id"  value="<?php echo $vehiculo_id;?>" >
 
-     <div class="form-group">
+   
 
-        <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+ <div class="form-group">
+    <label for="cliente" class="col-sm-2 control-label">cliente: </label>
     <div class="col-sm-4">
-        <select class="form-control" name="cliente" id="cliente" required>
-            <?php 
-                $sql_clientes=mysqli_query($con,"select * from cliente");
-                while ($rw=mysqli_fetch_array($sql_clientes)){
-                    $idcliente=$rw['id'];
-                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
-                ?>
-                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
-                <?php
-                }
-            ?>
-        </select>    
+        <select class="form-control" name="cliente" id="cliente">
+        <?php
+            $clientes=mysqli_query($con,"select * from cliente");
+            while ($rw=mysqli_fetch_array($clientes)) {
+                if ($idcliente==$rw['id']){$selected1="selected";}else{$selected1="";}
+        ?>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
+        <?php 
+            }
+        ?>
+        </select>
     </div>
+
 
                                     <label for="patente" class="col-sm-2 control-label">Placas: </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="patente" class="form-control" id="patente" placeholder="Placas " value="<?php echo $patente ?>">
                                     </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="marca" class="col-sm-2 control-label">Marca: </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="marca" class="form-control" id="marca" placeholder="Marca: " value="<?php echo $marca ?>">
                                     </div>
+                                    <label for="submarca" class="col-sm-2 control-label">Submarca: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" required name="submarca" class="form-control" id="submarca" placeholder="Submarca: " value="<?php echo $submarca ?>">
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="modelo" class="col-sm-2 control-label">Modelo: </label>
                                     <div class="col-sm-4">
@@ -193,48 +388,38 @@
                                         <input type="text" required name="chasis" class="form-control" id="chasis" placeholder="Numero Chasis: " value="<?php echo $nro_chasis ?>">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="motor" class="col-sm-2 control-label">Motor: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="motor" class="form-control" id="motor" placeholder="Numero Motor: " value="<?php echo $nro_motor ?>">
-                                    </div>
                                     <label for="vto_vtv" class="col-sm-2 control-label">Vencimiento de Tarjeta de circulación: </label>
                                     <div class="col-sm-4">
                                         <input type="date" required name="vto_vtv" class="form-control" id="vto_vtv" placeholder="Vto Vtv: " value="<?php echo $vto_vtv ?>">
                                     </div>
+                                    <label for="motor" class="col-sm-2 control-label">Motor: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" required name="motor" class="form-control" id="motor" placeholder="Numero Motor: " value="<?php echo $nro_motor ?>">
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="seguro" class="col-sm-2 control-label">Seguro: </label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" name="seguro" id="seguro" required>
-                                            <option value="">Selecciona</option>
-                                            <?php 
-                                                $sql=mysqli_query($con,"select *  from seguro order by nombre");
-                                                while ($rw=mysqli_fetch_array($sql)){
-                                                    $idsegu=$rw['id'];
-                                                    $nombre=$rw['nombre'];
-                                                    if ($idseguro==$idsegu){$selected1="selected";}else{$selected1="";}
-                                                ?>
-                                                <option value="<?php echo $idsegu;?>" <?php echo $selected1;?>><?php echo $nombre;?></option>
-                                            <?php
-                                                }
-                                            ?>
-                                        </select>    
+                                        <input type="text" name="seguro" class="form-control" id="seguro" placeholder="Seguro: " value="<?php echo $seguro ?>">
+                                    </div>
+                                    <label for="poliza" class="col-sm-2 control-label">Poliza de seguro: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="poliza" class="form-control" id="poliza" placeholder="Poliza: " value="<?php echo $poliza ?>">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
+                                    <label for="vencimiento" class="col-sm-2 control-label">Vencimiento de seguro: </label>
+                                    <div class="col-sm-4">
+                                        <input type="date" name="vencimiento" class="form-control" id="vencimiento" placeholder="Vencimiento: " value="<?php echo $vencimiento ?>">
+                                    </div>
                                     <label for="color" class="col-sm-2 control-label">Color: </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="color" class="form-control" id="color" placeholder="Color: " value="<?php echo $color ?>">
                                     </div>
-                                    <label for="estado" class="col-sm-2 control-label">Estado: </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-control" name="estado" id="estado">
-                                            <option value="1" <?php if ($status==1){echo "selected";}?>>Activo</option>
-                                            <option value="2" <?php if ($status==2){echo "selected";}?>>Inactivo</option>
-                                        </select>
-                                    </div>
-                                    
                                 </div>
 
                                 <div class="form-group">
@@ -247,6 +432,7 @@
                                         <input type="file" name="imagefile2" class="form-control" id="imagefile2" onchange="upload_foto2(<?php echo $vehiculo_id; ?>);">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="imagefile3" class="col-sm-2 control-label">Foto 3: </label>
                                     <div class="col-sm-4">
@@ -257,6 +443,50 @@
                                         <input type="file" name="imagefile4" class="form-control" id="imagefile4" onchange="upload_foto4(<?php echo $vehiculo_id; ?>);">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="imagefile5" class="col-sm-2 control-label">Foto 5: </label>
+                                    <div class="col-sm-4">
+                                <input type="file" name="imagefile5" class="form-control" id="imagefile5" onchange="upload_foto5(<?php echo $vehiculo_id; ?>);">
+                                    </div>
+                                    <label for="imagefile6" class="col-sm-2 control-label">Foto 6: </label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="imagefile6" class="form-control" id="imagefile6" onchange="upload_foto6(<?php echo $vehiculo_id; ?>);">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="imagefile7" class="col-sm-2 control-label">Foto 7: </label>
+                                    <div class="col-sm-4">
+                                <input type="file" name="imagefile7" class="form-control" id="imagefile7" onchange="upload_foto7(<?php echo $vehiculo_id; ?>);">
+                                    </div>
+                                    <label for="imagefile8" class="col-sm-2 control-label">Foto 8: </label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="imagefile8" class="form-control" id="imagefile8" onchange="upload_foto8(<?php echo $vehiculo_id; ?>);">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="imagefile9" class="col-sm-2 control-label">Foto 9: </label>
+                                    <div class="col-sm-4">
+                                <input type="file" name="imagefile9" class="form-control" id="imagefile9" onchange="upload_foto9(<?php echo $vehiculo_id; ?>);">
+                                    </div>
+                                    <label for="imagefile10" class="col-sm-2 control-label">Foto 10: </label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="imagefile10" class="form-control" id="imagefile10" onchange="upload_foto10(<?php echo $vehiculo_id; ?>);">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="estado" class="col-sm-2 control-label">Estado: </label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="estado" id="estado">
+                                            <option value="1" <?php if ($status==1){echo "selected";}?>>Activo</option>
+                                            <option value="2" <?php if ($status==2){echo "selected";}?>>Inactivo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <button type="submit" class="btn btn-primary actualizar_datos">Guardar datos</button>
@@ -356,6 +586,138 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img4").html(data);
+                
+            }
+        });
+    }
+    function upload_foto5(vehiculo_id){
+        $("#load_img5").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile5");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile5',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto5_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img5").html(data);
+                
+            }
+        });
+    }
+    function upload_foto6(vehiculo_id){
+        $("#load_img6").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile6");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile6',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto6_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img6").html(data);
+                
+            }
+        });
+    }
+    function upload_foto7(vehiculo_id){
+        $("#load_img7").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile7");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile7',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto7_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img7").html(data);
+                
+            }
+        });
+    }
+    function upload_foto8(vehiculo_id){
+        $("#load_img8").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile8");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile8',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto8_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img8").html(data);
+                
+            }
+        });
+    }
+    function upload_foto9(vehiculo_id){
+        $("#load_img9").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile9");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile9',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto9_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img9").html(data);
+                
+            }
+        });
+    }
+    function upload_foto10(vehiculo_id){
+        $("#load_img10").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile10");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile10',file);
+        data.append('id',vehiculo_id);
+        
+        $.ajax({
+            url: "view/ajax/images/foto10_vehiculo_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img10").html(data);
                 
             }
         });

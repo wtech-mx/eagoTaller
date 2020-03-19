@@ -1,5 +1,21 @@
-
-<input type="hidden" value="<?php echo $id;?>" name="id" id="id">
+<div class="form-group">
+                    <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="cliente" id="cliente" required>
+                                            <?php 
+                                            require_once ("config/config.php");
+                                                $sql_clientes=mysqli_query($con,"select * from cliente");
+                                                while ($rw=mysqli_fetch_array($sql_clientes)){
+                                                    $idcliente=$rw['id'];
+                                                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+                                                ?>
+                                                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
+                    </div>
 <div class="form-group">
 <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
     <div class="col-sm-10">

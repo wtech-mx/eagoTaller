@@ -16,6 +16,7 @@
 		unset($_SESSION['configuracion']);
 		unset($_SESSION['trasladista']);
 		unset($_SESSION['adminser']);
+		unset($_SESSION['cotizacion']);
 		
 
 		session_destroy();

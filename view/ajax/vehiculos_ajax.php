@@ -46,7 +46,7 @@ if($action == 'ajax'){
 	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
 	$tables="vehiculo";
 	$campos="*";
-	$sWhere=" patente LIKE '%".$query."%' and idseguro>0";
+	$sWhere=" patente LIKE '%".$query."%' and idcliente>0";
 	include 'pagination.php'; //include pagination file
 	//pagination variables
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;

@@ -29,7 +29,7 @@
 <div class="form-group">
     <label for="fecha_man" class="col-sm-2 control-label">Fecha Servicio: </label>
     <div class="col-sm-10">
-        <input type="date" required class="form-control" id="fecha_man" name="fecha_man" placeholder="Fecha Servicio " value="<?php echo $fecha_man ?>">
+        <input type="date"  class="form-control" id="fecha_man" name="fecha_man" placeholder="Fecha Servicio " value="<?php echo $fecha_man ?>">
     </div>
 </div>
 <div class="form-group">
@@ -112,12 +112,12 @@
 <div class="form-group">
     <label for="vendedor" class="col-sm-2 control-label">Vendedor: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor "><?php echo $vendedor ?></textarea>
+        <textarea type="text"  class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor "><?php echo $vendedor ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="origen" class="col-sm-2 control-label">Recoger en: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="origen" name="origen" placeholder="Dirección "><?php echo $origen ?></textarea>
+        <textarea type="text"  class="form-control" id="origen" name="origen" placeholder="Dirección "><?php echo $origen ?></textarea>
     </div>
 </div>

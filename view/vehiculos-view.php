@@ -5,7 +5,7 @@
     if ($_SESSION['vehiculo']==1){
         //esta funcion elimina todos los registros que no fueron llenados 
         //tabla = "vehiculo"
-        $eliminar=mysqli_query($con, "DELETE FROM vehiculo WHERE idseguro=0");
+        $eliminar=mysqli_query($con, "DELETE FROM vehiculo WHERE idcliente=0");
 ?>
     <!--main content start-->
     <section class="main-content-wrapper">

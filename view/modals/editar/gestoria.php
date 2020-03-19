@@ -32,7 +32,7 @@
 <div class="form-group">
     <label for="fecha_ges" class="col-sm-2 control-label">Fecha Servicio: </label>
     <div class="col-sm-10">
-        <input type="date" required class="form-control" id="fecha_ges" name="fecha_ges" placeholder="Fecha Servicio " value="<?php echo $fecha_ges ?>">
+        <input type="date"  class="form-control" id="fecha_ges" name="fecha_ges" placeholder="Fecha Servicio " value="<?php echo $fecha_ges ?>">
     </div>
 </div>
 <div class="form-group">
@@ -115,30 +115,30 @@
 <div class="form-group">
     <label for="aplaca" class="col-sm-2 control-label">Alta placa: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="aplaca" name="aplaca" placeholder="Alta placa "><?php echo $aplaca ?></textarea>
+        <textarea type="text"  class="form-control" id="aplaca" name="aplaca" placeholder="Alta placa "><?php echo $aplaca ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="bplaca" class="col-sm-2 control-label">Baja placa: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="bplaca" name="bplaca" placeholder="Baja placa "><?php echo $bplaca ?></textarea>
+        <textarea type="text"  class="form-control" id="bplaca" name="bplaca" placeholder="Baja placa "><?php echo $bplaca ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="rplaca" class="col-sm-2 control-label">Reposición placa: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="rplaca" name="rplaca" placeholder="Reposición placa "><?php echo $rplaca ?></textarea>
+        <textarea type="text"  class="form-control" id="rplaca" name="rplaca" placeholder="Reposición placa "><?php echo $rplaca ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="tarjeta" class="col-sm-2 control-label">Reposición tarjeta: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta "><?php echo $tarjeta ?></textarea>
+        <textarea type="text"  class="form-control" id="tarjeta" name="tarjeta" placeholder="Reposición tarjeta "><?php echo $tarjeta ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="origen" class="col-sm-2 control-label">Recoger en: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="origen" name="origen" placeholder="Dirección "><?php echo $origen ?></textarea>
+        <textarea type="text"  class="form-control" id="origen" name="origen" placeholder="Dirección "><?php echo $origen ?></textarea>
     </div>
 </div>

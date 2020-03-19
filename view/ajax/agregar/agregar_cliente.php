@@ -53,12 +53,6 @@
                     $num_element=0;
                     $sw=true;
 
-                    while ($num_element < count($vehiculo))
-                    {
-                        $sql_detalle = "INSERT INTO vehiculo_cliente(idcliente, idvehiculo) VALUES($idusernew, $vehiculo[$num_element])";
-                        mysqli_query($con,$sql_detalle) or $sw = false;
-                        $num_element=$num_element + 1;
-                    }
                 $messages[] = "Cliente ha sido agregado con éxito.";
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";

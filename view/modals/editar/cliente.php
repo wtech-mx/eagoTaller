@@ -43,13 +43,13 @@
 <div class="form-group">
     <label for="telefono" class="col-sm-2 control-label">Telefono: </label>
     <div class="col-sm-10">
-        <input type="text" required class="form-control" id="telefono" name="telefono" value="<?php echo $telefono;?>" placeholder="Telefono ">
+        <input type="text"  class="form-control" id="telefono" name="telefono" value="<?php echo $telefono;?>" placeholder="Telefono ">
     </div>
 </div>
 <div class="form-group">
     <label for="correo" class="col-sm-2 control-label">Correo Electrónico: </label>
     <div class="col-sm-10">
-        <input type="correo" required class="form-control" id="correo" name="correo" value="<?php echo $correo;?>" placeholder="Correo Electrónico: ">
+        <input type="correo"  class="form-control" id="correo" name="correo" value="<?php echo $correo;?>" placeholder="Correo Electrónico: ">
     </div>
 </div>
 <div class="form-group">
@@ -73,13 +73,13 @@
 <div class="form-group">
     <label for="colTrabajo" class="col-sm-2 control-label">Col. Trabajo</label>
     <div class="col-sm-10">
-        <input type="text" required class="form-control" id="colTrabajo" name="colTrabajo" value="<?php echo $colTrabajo;?>" placeholder="Col. Trabajo">
+        <input type="text"  class="form-control" id="colTrabajo" name="colTrabajo" value="<?php echo $colTrabajo;?>" placeholder="Col. Trabajo">
     </div>
 </div>
 <div class="form-group">
     <label for="cpTrabajo" class="col-sm-2 control-label">CP. Trabajo: </label>
     <div class="col-sm-10">
-        <input type="text" required class="form-control" id="cpTrabajo" name="cpTrabajo" value="<?php echo $cpTrabajo;?>" placeholder="CP. Trabajo ">
+        <input type="text"  class="form-control" id="cpTrabajo" name="cpTrabajo" value="<?php echo $cpTrabajo;?>" placeholder="CP. Trabajo ">
     </div>
 </div>
 <div class="form-group">

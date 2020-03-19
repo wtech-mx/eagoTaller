@@ -14,13 +14,13 @@
                     <div class="form-group">
                         <label for="fecha_rep" class="col-sm-2 control-label">Fecha Servicio: </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="fecha_rep" name="fecha_rep" placeholder="Fecha Servicio ">
+                            <input type="date"  class="form-control" id="fecha_rep" name="fecha_rep" placeholder="Fecha Servicio ">
                         </div>
                     </div>
                     <div class="form-group">
                     <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="cliente" id="cliente" required>
+                                        <select class="form-control" name="cliente" id="cliente" >
                                             <?php 
                                                 $sql_clientes=mysqli_query($con,"select * from cliente");
                                                 while ($rw=mysqli_fetch_array($sql_clientes)){
@@ -54,7 +54,7 @@
                     <div class="form-group">
                     <label for="taller" class="col-sm-2 control-label">Taller: </label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="taller" id="taller" required>
+                                        <select class="form-control" name="taller" id="taller" >
                                             <?php 
                                                 $sql_tallers=mysqli_query($con,"select * from taller where estado=1 order by nombre");
                                                 while ($rw=mysqli_fetch_array($sql_tallers)){
@@ -100,7 +100,7 @@
                     <div class="form-group">
                         <label for="vendedor" class="col-sm-2 control-label">Vendedor: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor">
+                            <input type="text"  class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor">
                         </div>
                     </div>
                 </div>

@@ -116,7 +116,6 @@
                         <a href="./?view=vehiculos"><i class="fa fa-truck"></i><span>Vehiculo</span></a>
                         <ul>
                             <li><a href="./?view=taller"><i class="fa fa-cog"></i>Taller</li></a>
-                            <li><a href="./?view=seguros"><i class="fa fa-key"></i>Seguro</li></a>
                         </ul>
                     </li>
                     <?php } ?>
@@ -137,12 +136,12 @@
                     <li class="<?php if(isset($active5)){echo $active5;}?>">
                         <a href="./?view=servicios"><i class="fa fa-wrench" data-toggle="dropdown"></i><span>Servicios</span></a>
                         <ul>
-                            <li><a href="./?view=mantenimiento"><i class="fa fa-cog"></i>Mantenimiento</li></a>                       
-                            <li><a href="./?view=estetica"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
-                            </li>                       
+                            <li><a href="./?view=mantenimiento"><i class="fa fa-cog"></i>Mantenimiento</li></a>                                                                         
                             <li><a href="./?view=gestoria"><i class="fa fa-user"></i>Gestoría</li></a>
-                            <li><a href="./?view=verificacion"><i class="fa fa-search"></i>Verificación</li></a>
+                            <li><a href="./?view=estetica"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
+                            </li>
                             <li><a href="./?view=traslados"><i class="fa fa-truck"></i>Traslados</li></a>
+                            <li><a href="./?view=verificacion"><i class="fa fa-search"></i>Verificación</li></a>
                         </ul>
                     </li>
                     <?php } ?>
@@ -203,6 +202,12 @@
                             <li><a href="./?view=trasadmin"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
                     </li>                     
+                    <?php } ?>
+
+                    <?php if ($_SESSION['cotizacion']==1) { ?>
+                   <li class="<?php if(isset($active14)){echo $active14;}?>">
+                        <a href="./?view=cotizacion"><i class="fa fa-file"></i><span>Cotizacion</span></a>
+                    </li>
                     <?php } ?>
 
                     <?php if ($_SESSION['configuracion']==1) { ?>

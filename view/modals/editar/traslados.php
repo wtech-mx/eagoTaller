@@ -28,7 +28,7 @@
 <div class="form-group">
     <label for="fecha_tras" class="col-sm-2 control-label">Fecha traslado: </label>
     <div class="col-sm-10">
-        <input type="date" required class="form-control" id="fecha_tras" name="fecha_tras" placeholder="Fecha traslado " value="<?php echo $fecha_tras ?>">
+        <input type="date"  class="form-control" id="fecha_tras" name="fecha_tras" placeholder="Fecha traslado " value="<?php echo $fecha_tras ?>">
     </div>
 </div>
 <div class="form-group">
@@ -64,7 +64,7 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="datos" class="col-sm-2 control-label">Datos: </label>
+    <label for="datos" class="col-sm-2 control-label">Descripcion: </label>
     <div class="col-sm-10">
         <textarea type="text" required class="form-control" id="datos" name="datos" placeholder="Datos "><?php echo $datos ?></textarea>
     </div>
@@ -104,18 +104,18 @@
 <div class="form-group">
     <label for="vendedor" class="col-sm-2 control-label">Vendedor: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor "><?php echo $vendedor ?></textarea>
+        <textarea type="text"  class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor "><?php echo $vendedor ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="origen" class="col-sm-2 control-label">Recoger en: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="origen" name="origen" placeholder="Dirección "><?php echo $origen ?></textarea>
+        <textarea type="text"  class="form-control" id="origen" name="origen" placeholder="Dirección "><?php echo $origen ?></textarea>
     </div>
 </div>
 <div class="form-group">
     <label for="destino" class="col-sm-2 control-label">Destino: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="destino" name="destino" placeholder="Destino "><?php echo $destino ?></textarea>
+        <textarea type="text"  class="form-control" id="destino" name="destino" placeholder="Destino "><?php echo $destino ?></textarea>
     </div>
 </div>

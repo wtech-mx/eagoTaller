@@ -104,7 +104,20 @@ if($action == 'ajax'){
                 <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td class="text-right">
 
-                    <a style="color: white;" class="btn btn-warning btn-square btn-xs" href="./?view=editar_esteser&id=<?php echo $id;?>"><i class='fa fa-edit'></i></a>
+
+                	<?php 
+                	if ($status==1) {
+                	?>
+                		<a style="color: white;" class="btn btn-warning btn-square btn-xs" href=""  disabled><i class='fa fa-edit'></i></a>
+                	<?php 
+                	}else{
+                	?>
+                		<a style="color: white;" class="btn btn-warning btn-square btn-xs" href="./?view=editar_esteser&id=<?php echo $id;?>"><i class='fa fa-edit'></i></a>
+                	<?php
+                	}
+                	?>
+
+                    
 
                     <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $id;?>')"><i class="fa fa-trash-o"></i></button>
 

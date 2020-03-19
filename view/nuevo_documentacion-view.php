@@ -9,7 +9,7 @@
         $vehiculo=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/documentos/doc.png";
-        $inser=mysqli_query($con,"INSERT INTO documentacion (id, idcliente, documento_code, idvehiculo, foto1, foto2, foto3, foto4, foto5, foto6, fecha_carga) VALUES (NULL, '".$cliente."' ,'$documento_code', '$vehiculo','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir', '$created_at'); ");
+        $inser=mysqli_query($con,"INSERT INTO documentacion (id, idcliente, documento_code, idvehiculo, foto1, foto2, foto3, foto4, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '".$cliente."' ,'$documento_code', '$vehiculo','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir', '$created_at'); ");
         $sql_documento=mysqli_query($con,"select * from documentacion where  documento_code='$documento_code'");
         $rw_documento=mysqli_fetch_array($sql_documento);
         $id_documento=$rw_documento['id'];
@@ -37,6 +37,25 @@
             </div>
             
             <div class="row">
+                <div class="col-md-9">
+                    <div id="resultados_ajax"></div><!-- resultados ajax -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Datos del Documento</h3>
+                            <div class="actions pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                                <i class="fa fa-times"></i>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
+
+                                <input type="hidden" class="form-control" id="documento_code" name="documento_code"  value="<?php echo $documento_codes;?>" >
+                                <input type="hidden"  id="id" name="id"  value="<?php echo $id_documento;?>" >
+
+
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
@@ -96,6 +115,50 @@
                                 <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
                             </div>
                             <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img7">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img8">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img9">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img10">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                </form>
                         </div>
                     </div>
                 </div>
@@ -187,6 +250,28 @@
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile6" class="form-control" id="imagefile6" onchange="upload_foto6(<?php echo $id_documento; ?>);">
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="imagefile7" class="col-sm-2 control-label">Documento 5: </label>
+                                        <div class="col-sm-4">
+                                            <input type="file" name="imagefile7" class="form-control" id="imagefile7" onchange="upload_foto7(<?php echo $id_documento; ?>);">
+                                        </div>
+                                    <label for="imagefile8" class="col-sm-2 control-label">Documento 6: </label>
+                                        <div class="col-sm-4">
+                                            <input type="file" name="imagefile8" class="form-control" id="imagefile8" onchange="upload_foto8(<?php echo $id_documento; ?>);">
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="imagefile9" class="col-sm-2 control-label">Documento 7: </label>
+                                        <div class="col-sm-4">
+                                            <input type="file" name="imagefile9" class="form-control" id="imagefile9" onchange="upload_foto9(<?php echo $id_documento; ?>);">
+                                        </div>
+                                    <label for="imagefile10" class="col-sm-2 control-label">Documento 8: </label>
+                                        <div class="col-sm-4">
+                                            <input type="file" name="imagefile10" class="form-control" id="imagefile10" onchange="upload_foto10(<?php echo $id_documento; ?>);">
+                                        </div>
                                 </div>
                                 
 
@@ -344,6 +429,102 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img6").html(data);
+                    
+                }
+            });
+            
+        }
+        function upload_foto7(id_documento){
+            $("#load_img7").text('Cargando...');
+            var inputFileImage = document.getElementById("imagefile7");
+            var file = inputFileImage.files[0];
+            var data = new FormData();
+            data.append('imagefile7',file);
+            data.append('id',id_documento);
+            
+            
+            $.ajax({
+                url: "view/ajax/images/foto7_documentacion_ajax.php",        // Url to which the request is send
+                type: "POST",             // Type of request to be send, called as method
+                data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                contentType: false,       // The content type used when sending data to the server.
+                cache: false,             // To unable request pages to be cached
+                processData:false,        // To send DOMDocument or non processed data file it is set to false
+                success: function(data)   // A function to be called if request succeeds
+                {
+                    $("#load_img7").html(data);
+                    
+                }
+            });
+            
+        }
+        function upload_foto8(id_documento){
+            $("#load_img8").text('Cargando...');
+            var inputFileImage = document.getElementById("imagefile8");
+            var file = inputFileImage.files[0];
+            var data = new FormData();
+            data.append('imagefile8',file);
+            data.append('id',id_documento);
+            
+            
+            $.ajax({
+                url: "view/ajax/images/foto8_documentacion_ajax.php",        // Url to which the request is send
+                type: "POST",             // Type of request to be send, called as method
+                data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                contentType: false,       // The content type used when sending data to the server.
+                cache: false,             // To unable request pages to be cached
+                processData:false,        // To send DOMDocument or non processed data file it is set to false
+                success: function(data)   // A function to be called if request succeeds
+                {
+                    $("#load_img8").html(data);
+                    
+                }
+            });
+            
+        }
+        function upload_foto9(id_documento){
+            $("#load_img9").text('Cargando...');
+            var inputFileImage = document.getElementById("imagefile9");
+            var file = inputFileImage.files[0];
+            var data = new FormData();
+            data.append('imagefile9',file);
+            data.append('id',id_documento);
+            
+            
+            $.ajax({
+                url: "view/ajax/images/foto9_documentacion_ajax.php",        // Url to which the request is send
+                type: "POST",             // Type of request to be send, called as method
+                data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                contentType: false,       // The content type used when sending data to the server.
+                cache: false,             // To unable request pages to be cached
+                processData:false,        // To send DOMDocument or non processed data file it is set to false
+                success: function(data)   // A function to be called if request succeeds
+                {
+                    $("#load_img9").html(data);
+                    
+                }
+            });
+            
+        }
+        function upload_foto10(id_documento){
+            $("#load_img10").text('Cargando...');
+            var inputFileImage = document.getElementById("imagefile10");
+            var file = inputFileImage.files[0];
+            var data = new FormData();
+            data.append('imagefile10',file);
+            data.append('id',id_documento);
+            
+            
+            $.ajax({
+                url: "view/ajax/images/foto10_documentacion_ajax.php",        // Url to which the request is send
+                type: "POST",             // Type of request to be send, called as method
+                data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+                contentType: false,       // The content type used when sending data to the server.
+                cache: false,             // To unable request pages to be cached
+                processData:false,        // To send DOMDocument or non processed data file it is set to false
+                success: function(data)   // A function to be called if request succeeds
+                {
+                    $("#load_img10").html(data);
                     
                 }
             });

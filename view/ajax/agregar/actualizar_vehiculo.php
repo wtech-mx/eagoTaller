@@ -16,8 +16,6 @@
 		$errors[] = "Numero Motor está vacío";
 	} else if (empty($_POST['vto_vtv'])){
 		$errors[] = "Vto Vtv está vacío";
-	}  else if (empty($_POST['seguro'])){
-		$errors[] = "Seguro está vacío";
 	}  else if (empty($_POST['color'])){
 		$errors[] = "Color está vacío";
 	}  elseif (
@@ -29,7 +27,6 @@
 		&& !empty($_POST['chasis'])
 		&& !empty($_POST['motor'])
 		&& !empty($_POST['vto_vtv'])
-		&& !empty($_POST['seguro'])
 		&& !empty($_POST['color'])
 		) {
 	
@@ -41,23 +38,26 @@
         $vehiculo_code = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo_code"],ENT_QUOTES)));
 		$patente = mysqli_real_escape_string($con,(strip_tags($_POST["patente"],ENT_QUOTES)));
 		$marca= mysqli_real_escape_string($con,(strip_tags($_POST["marca"],ENT_QUOTES)));
+		$submarca= mysqli_real_escape_string($con,(strip_tags($_POST["submarca"],ENT_QUOTES)));
 		$modelo= mysqli_real_escape_string($con,$_POST["modelo"]);
 		$chasis= mysqli_real_escape_string($con,(strip_tags($_POST["chasis"],ENT_QUOTES)));
 		$motor= mysqli_real_escape_string($con,(strip_tags($_POST["motor"],ENT_QUOTES)));
 		$vto_vtv= mysqli_real_escape_string($con,(strip_tags($_POST["vto_vtv"],ENT_QUOTES)));
-		$seguro=intval($_POST['seguro']);
+		$seguro= mysqli_real_escape_string($con,(strip_tags($_POST["seguro"],ENT_QUOTES)));
+		$poliza= mysqli_real_escape_string($con,(strip_tags($_POST["poliza"],ENT_QUOTES)));
+		$vencimiento= mysqli_real_escape_string($con,(strip_tags($_POST["vencimiento"],ENT_QUOTES)));
 		$estado= mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));
 		$color= mysqli_real_escape_string($con,(strip_tags($_POST["color"],ENT_QUOTES)));
 		$id=intval($_POST['id']);
 			
 		// update data
-        $sql = "UPDATE vehiculo SET idcliente='".$cliente."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', marca='".$marca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', idseguro='".$seguro."', estado='".$estado."', color='".$color."' WHERE id='$id' ";
+        $sql = "UPDATE vehiculo SET idcliente='".$cliente."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', marca='".$marca."', submarca='".$submarca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', seguro='".$seguro."', poliza='".$poliza."', vencimiento='".$vencimiento."', estado='".$estado."', color='".$color."' WHERE id='$id' ";
         $query = mysqli_query($con,$sql);
 
         // if user has been update successfully
         if ($query) {
             $messages[] = "Los datos han sido procesados exitosamente.";
-			//print ("<script>window.location='./?view=vehiculos';</script>");
+		//print ("<script>window.location='./?view=vehiculos';</script>");
         } else {
             $errors[] = "Lo sentimos , el registro falló. Por favor, regrese y vuelva a intentarlo. ".mysqli_error($con);
         }

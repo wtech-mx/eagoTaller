@@ -27,8 +27,6 @@
             $vendedor = mysqli_real_escape_string($con,(strip_tags($_POST["vendedor"],ENT_QUOTES)));
             $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
 			$fecha_carga=date("Y-m-d H:i:s");
-			$producto -> seleccionarCliente = $_POST["seleccionarCliente"];
-			$producto -> seleccionarVehiculo = $_POST["seleccionarVehiculo"];
 
 			//Write register in to database 
 			$sql = "INSERT INTO mantenimiento (fecha_man, idcliente, idvehiculo, datos, idtrasladista, idtaller, otros, vendedor, origen, fecha_carga) VALUES('".$fecha_man."','".$cliente."','".$vehiculo."','".$datos."','".$trasladista."','".$taller."','".$otros."','".$vendedor."','".$origen."','".$fecha_carga."');";

@@ -84,7 +84,7 @@
 <div class="form-group">
     <label for="derechos_admin" class="col-sm-2 control-label">Derechos: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="derechos_admin" name="derechos_admin" placeholder="Derechos "><?php echo $derechos_admin ?></textarea>
+        <textarea type="text"  class="form-control" id="derechos_admin" name="derechos_admin" placeholder="Derechos "><?php echo $derechos_admin ?></textarea>
     </div>
 </div>
 <div class="form-group">
