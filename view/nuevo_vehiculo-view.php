@@ -9,12 +9,12 @@
         $estado=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/vehiculos/vehiculo.jpg";
-        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, id_cliente, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, seguro, poliza, vencimiento, color, foto4, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, estado, fecha_carga) VALUES (NULL, '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$estado', '$created_at'); ");
-        $sql_vehiculo=mysqli_query($con,"select * from vehiculo where  vehiculo_code='$vehiculo_code'");
+        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, id_cliente, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, color, seguro, poliza, vencimiento, foto4, estado, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$estado','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$created_at'); ");
+        $sql_vehiculo=mysqli_query($con,"SELECT * FROM vehiculo WHERE  vehiculo_code='$vehiculo_code'");
         $rw_vehiculo=mysqli_fetch_array($sql_vehiculo);
         $id_vehiculo=$rw_vehiculo['id'];
         
-        $count=mysqli_query($con,"select count(*) as total from vehiculo where id_cliente>0");
+        $count=mysqli_query($con,"SELECT count(*) as total FROM vehiculo WHERE id_cliente>0");
         $rw=mysqli_fetch_array($count);
         $vehiculo_codes=$rw['total']+1;
 
@@ -39,129 +39,8 @@
             <div class="row">
 
 
-            <div class="col-md-9">
-                    <div id="resultados_ajax"></div><!-- resultados ajax -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Datos del Vehiculo</h3>
-                            <div class="actions pull-right">
-                                <i class="fa fa-chevron-down"></i>
-                                <i class="fa fa-times"></i>
-                            </div>
-                        </div>
-                <div class="panel-body">
-
-                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
-
-                                <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_codes;?>" >
-                                <input type="hidden"  id="id" name="id"  value="<?php echo $id_vehiculo;?>" >
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img2">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img3">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img4">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img5">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img6">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img7">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img8">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img9">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img10">
-                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-                <div class="col-md-9">
+  
+                <div class="col-md-12">
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -185,7 +64,7 @@
                                     <div class="col-sm-4">
                                         <select class="form-control" name="cliente" id="cliente" required>
                                             <?php 
-                                                $sql_clientes=mysqli_query($con,"select * from cliente");
+                                                $sql_clientes=mysqli_query($con,"SELECT * FROM cliente");
                                                 while ($rw=mysqli_fetch_array($sql_clientes)){
                                                     $idcliente=$rw['id_cliente'];
                                                     $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
@@ -331,6 +210,129 @@
                         </div>
                     </div>
                 </div>
+
+          <div class="col-md-12">
+                    <div id="resultados_ajax"></div><!-- resultados ajax -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Datos del Vehiculo</h3>
+                            <div class="actions pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                                <i class="fa fa-times"></i>
+                            </div>
+                        </div>
+                <div class="panel-body">
+
+                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
+
+                                <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_codes;?>" >
+                                <input type="hidden"  id="id" name="id"  value="<?php echo $id_vehiculo;?>" >
+
+                <div class="col-12 col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img">
+                                <img class="img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img2">
+                                <img class="img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img3">
+                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img4">
+                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img5">
+                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img6">
+                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img7">
+                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img8">
+                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img9">
+                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img10">
+                                <img class=" img-responsive" src="view/resources/images/vehiculos/vehiculo.jpg" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
             </div>       
 
         </section>

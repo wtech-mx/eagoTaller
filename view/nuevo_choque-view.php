@@ -8,6 +8,7 @@
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/choques.png";
         $insert=mysqli_query($con,"INSERT INTO choque (id, choque_code, fecha_choque, idvehiculo, idempleado, idcliente, descripcion, nombre_ter, registro_ter, patente_ter, marca_modelo_ter, color_ter, seguro_ter, poliza_ter, telefono_ter, celular_ter, fecha_carga, foto1, foto2, foto3, foto4) VALUES (NULL, '$choque_code', '', '0', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '$created_at','$target_dir','$target_dir','$target_dir','$target_dir' ); ");
+       echo var_dump($insert);
         $sql_choque=mysqli_query($con,"select * from choque where  choque_code='$choque_code'");
         $rw_choque=mysqli_fetch_array($sql_choque);
         $id_choque=$rw_choque['id'];
@@ -15,6 +16,8 @@
         $count=mysqli_query($con,"select count(*) as total from choque where idvehiculo>0");
         $rw=mysqli_fetch_array($count);
         $choques_codes=$rw['total']+1;
+
+
 
 ?>
     <!--main content start-->
