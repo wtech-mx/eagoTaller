@@ -6,7 +6,7 @@
     
         if (isset($_GET['id'])){
             $vehiculo_id=intval($_GET['id']);
-            $sql_vehiculo=mysqli_query($con,"select * from vehiculo where id='$vehiculo_id'");
+            $sql_vehiculo=mysqli_query($con,"SELECT * FROM vehiculo WHERE id='$vehiculo_id'");
             $count=mysqli_num_rows($sql_vehiculo);
             $rw=mysqli_fetch_array($sql_vehiculo);
 
@@ -61,270 +61,7 @@
             </div>
             
             <div class="row">
-                <div class="col-md-9">
-                    <div id="resultados_ajax"></div><!-- resultados ajax -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Fotos del Vehiculo</h3>
-                            <div class="actions pull-right">
-                                <i class="fa fa-chevron-down"></i>
-                                <i class="fa fa-times"></i>
-                            </div>
-                        </div>
-
-                        <div class="panel-body">
-
-                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
-
-                                <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_code;?>" >
-                                <input type="hidden"  id="id" name="id"  value="<?php echo $vehiculo_id;?>" >
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 4-->
-                        <div class="box-body box-profile">
-                            <div id="load_img4">
-                                <img class=" img-responsive" src="<?php echo  $foto4;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
-                            </div>
-                            <br>
-                            <div id="myModal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto4;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 1-->
-                        <div class="box-body box-profile">
-                            <div id="load_img">
-                                <img class=" img-responsive" src="<?php echo  $foto1;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
-                                </div>
-                           <br>
-                            <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto1;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 2-->
-                        <div class="box-body box-profile">
-                            <div id="load_img2">
-                                <img class=" img-responsive" src="<?php echo  $foto2;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
-                            </div>
-                            <br>
-                            <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto2;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 3-->
-                        <div class="box-body box-profile">
-                            <div id="load_img3">
-                                <img class=" img-responsive" src="<?php echo  $foto3;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
-                            </div>
-                            <br>
-                            <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto3;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 5-->
-                        <div class="box-body box-profile">
-                            <div id="load_img5">
-                                <img class=" img-responsive" src="<?php echo  $foto5;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal5" style='cursor:pointer'>
-                            </div>
-                            <br>
-                            <div id="myModal5" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto5;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 6-->
-                        <div class="box-body box-profile">
-                            <div id="load_img6">
-                                <img class=" img-responsive" src="<?php echo  $foto6;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal6" style='cursor:pointer'>
-                            </div>
-                            <br>
-                            <div id="myModal6" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto6;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 7-->
-                        <div class="box-body box-profile">
-                            <div id="load_img7">
-                                <img class=" img-responsive" src="<?php echo  $foto7;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal7" style='cursor:pointer'>
-                            </div>
-                            <br>
-                            <div id="myModal7" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto7;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 8-->
-                        <div class="box-body box-profile">
-                            <div id="load_img8">
-                                <img class=" img-responsive" src="<?php echo  $foto8;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal8" style='cursor:pointer'>
-                            </div>
-                            <br>
-                            <div id="myModal8" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto8;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 9-->
-                        <div class="box-body box-profile">
-                            <div id="load_img9">
-                                <img class=" img-responsive" src="<?php echo  $foto9;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal9" style='cursor:pointer'>
-                            </div>
-                            <br>
-                            <div id="myModal9" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto9;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image 10-->
-                        <div class="box-body box-profile">
-                            <div id="load_img10">
-                                <img class=" img-responsive" src="<?php echo  $foto10;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal10" style='cursor:pointer'>
-                            </div>
-                            <br>
-                            <div id="myModal10" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">&nbsp;</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img src="<?php echo $foto10;?>" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                </form>
-            </div>
-        </div>
-    </div>  
-
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -335,39 +72,34 @@
                             </div>
                         </div>
 
-                        <div class="panel-body">
-
-                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
-
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
                                 <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_code;?>" >
                                 <input type="hidden"  id="id" name="id"  value="<?php echo $vehiculo_id;?>" >
+                                     <div class="form-group">
+                                        <label for="cliente" class="col-sm-2 control-label">cliente: </label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control" name="cliente" id="cliente">
+                                            <?php
+                                                $clientes=mysqli_query($con,"select * from cliente");
+                                                while ($rw=mysqli_fetch_array($clientes)) {
+                                                    if ($idcliente==$rw['id_cliente']){$selected1="selected";}else{$selected1="";}
+                                            ?>
+                                                <option value="<?php echo $rw['id_cliente']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
+                                            <?php 
+                                                }
+                                            ?>
+                                            </select>
+                                        </div>
 
-   
-
- <div class="form-group">
-    <label for="cliente" class="col-sm-2 control-label">cliente: </label>
-    <div class="col-sm-4">
-        <select class="form-control" name="cliente" id="cliente">
-        <?php
-            $clientes=mysqli_query($con,"select * from cliente");
-            while ($rw=mysqli_fetch_array($clientes)) {
-                if ($idcliente==$rw['id_cliente']){$selected1="selected";}else{$selected1="";}
-        ?>
-            <option value="<?php echo $rw['id_cliente']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
-        <?php 
-            }
-        ?>
-        </select>
-    </div>
-
-
-                                    <label for="patente" class="col-sm-2 control-label">Placas: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="patente" class="form-control" id="patente" placeholder="Placas " value="<?php echo $patente ?>">
-                                    </div>
-                                </div>
+                                        <label for="patente" class="col-sm-2 control-label">Placas: </label>
+                                        <div class="col-sm-4">
+                                            <input type="text" required name="patente" class="form-control" id="patente" placeholder="Placas " value="<?php echo $patente ?>">
+                                        </div>
+                                     </div>
 
                                 <div class="form-group">
+
                                     <label for="marca" class="col-sm-2 control-label">Marca: </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="marca" class="form-control" id="marca" placeholder="Marca: " value="<?php echo $marca ?>">
@@ -436,7 +168,7 @@
                                 <div class="form-group">
                                     <label for="imagefile3" class="col-sm-2 control-label">Foto 3: </label>
                                     <div class="col-sm-4">
-                                <input type="file" name="imagefile3" class="form-control" id="imagefile3" onchange="upload_foto3(<?php echo $vehiculo_id; ?>);">
+                                    <input type="file" name="imagefile3" class="form-control" id="imagefile3" onchange="upload_foto3(<?php echo $vehiculo_id; ?>);">
                                     </div>
                                     <label for="imagefile4" class="col-sm-2 control-label">Foto 4: </label>
                                     <div class="col-sm-4">
@@ -447,7 +179,7 @@
                                 <div class="form-group">
                                     <label for="imagefile5" class="col-sm-2 control-label">Foto 5: </label>
                                     <div class="col-sm-4">
-                                <input type="file" name="imagefile5" class="form-control" id="imagefile5" onchange="upload_foto5(<?php echo $vehiculo_id; ?>);">
+                                    <input type="file" name="imagefile5" class="form-control" id="imagefile5" onchange="upload_foto5(<?php echo $vehiculo_id; ?>);">
                                     </div>
                                     <label for="imagefile6" class="col-sm-2 control-label">Foto 6: </label>
                                     <div class="col-sm-4">
@@ -458,7 +190,7 @@
                                 <div class="form-group">
                                     <label for="imagefile7" class="col-sm-2 control-label">Foto 7: </label>
                                     <div class="col-sm-4">
-                                <input type="file" name="imagefile7" class="form-control" id="imagefile7" onchange="upload_foto7(<?php echo $vehiculo_id; ?>);">
+                                    <input type="file" name="imagefile7" class="form-control" id="imagefile7" onchange="upload_foto7(<?php echo $vehiculo_id; ?>);">
                                     </div>
                                     <label for="imagefile8" class="col-sm-2 control-label">Foto 8: </label>
                                     <div class="col-sm-4">
@@ -469,7 +201,7 @@
                                 <div class="form-group">
                                     <label for="imagefile9" class="col-sm-2 control-label">Foto 9: </label>
                                     <div class="col-sm-4">
-                                <input type="file" name="imagefile9" class="form-control" id="imagefile9" onchange="upload_foto9(<?php echo $vehiculo_id; ?>);">
+                                    <input type="file" name="imagefile9" class="form-control" id="imagefile9" onchange="upload_foto9(<?php echo $vehiculo_id; ?>);">
                                     </div>
                                     <label for="imagefile10" class="col-sm-2 control-label">Foto 10: </label>
                                     <div class="col-sm-4">
@@ -492,7 +224,271 @@
                                         <button type="submit" class="btn btn-primary actualizar_datos">Guardar datos</button>
                                     </div>
                                 </div>
+                        </form>
+
+            <div class="col-md-12">
+                <div id="resultados_ajax"></div><!-- resultados ajax -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Fotos del Vehiculo</h3>
+                            <div class="actions pull-right">
+                                <i class="fa fa-chevron-down"></i>
+                                <i class="fa fa-times"></i>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
+
+                                <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_code;?>" >
+                                <input type="hidden"  id="id" name="id"  value="<?php echo $vehiculo_id;?>" >
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 4-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img4">
+                                                <img class=" img-responsive" src="<?php echo  $foto4;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto4;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 1-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img">
+                                                <img class=" img-responsive" src="<?php echo  $foto1;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal1" style='cursor:pointer'>
+                                                </div>
+                                           <br>
+                                            <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto1;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 2-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img2">
+                                                <img class=" img-responsive" src="<?php echo  $foto2;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal2" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto2;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 3-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img3">
+                                                <img class=" img-responsive" src="<?php echo  $foto3;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal3" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto3;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 5-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img5">
+                                                <img class=" img-responsive" src="<?php echo  $foto5;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal5" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal5" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto5;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 6-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img6">
+                                                <img class=" img-responsive" src="<?php echo  $foto6;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal6" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal6" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto6;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 7-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img7">
+                                                <img class=" img-responsive" src="<?php echo  $foto7;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal7" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal7" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto7;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 8-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img8">
+                                                <img class=" img-responsive" src="<?php echo  $foto8;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal8" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal8" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto8;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 9-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img9">
+                                                <img class=" img-responsive" src="<?php echo  $foto9;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal9" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal9" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto9;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 10-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img10">
+                                                <img class=" img-responsive" src="<?php echo  $foto10;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal10" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal10" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto10;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </form>
+                        </div>
+                </div>
+            </div> 
+
                         </div>
                     </div>
                 </div>

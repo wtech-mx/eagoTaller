@@ -57,8 +57,8 @@
         // if user has been update successfully
         if ($query) {
             $messages[] = "Los datos han sido procesados exitosamente.";
-            
 			print ("<script>window.location='./?view=vehiculos';</script>");
+
         } else {
             $errors[] = "Lo sentimos , el registro falló. Por favor, regrese y vuelva a intentarlo. ".mysqli_error($con);
         }
