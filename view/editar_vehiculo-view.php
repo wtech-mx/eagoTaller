@@ -11,7 +11,7 @@
             $rw=mysqli_fetch_array($sql_vehiculo);
 
             $vehiculo_code=$rw['vehiculo_code'];
-            $idcliente=$rw['idcliente'];
+            $idcliente=$rw['id_cliente'];
             $patente=$rw['patente'];
             $marca=$rw['marca'];
             $submarca=$rw['submarca'];
@@ -351,9 +351,9 @@
         <?php
             $clientes=mysqli_query($con,"select * from cliente");
             while ($rw=mysqli_fetch_array($clientes)) {
-                if ($idcliente==$rw['id']){$selected1="selected";}else{$selected1="";}
+                if ($idcliente==$rw['id_cliente']){$selected1="selected";}else{$selected1="";}
         ?>
-            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
+            <option value="<?php echo $rw['id_cliente']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
         <?php 
             }
         ?>

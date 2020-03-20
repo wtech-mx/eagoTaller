@@ -51,7 +51,7 @@
 		$id=intval($_POST['id']);
 			
 		// update data
-        $sql = "UPDATE vehiculo SET idcliente='".$cliente."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', marca='".$marca."', submarca='".$submarca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', seguro='".$seguro."', poliza='".$poliza."', vencimiento='".$vencimiento."', estado='".$estado."', color='".$color."' WHERE id='$id' ";
+        $sql = "UPDATE vehiculo SET id_cliente='".$cliente."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', marca='".$marca."', submarca='".$submarca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', seguro='".$seguro."', poliza='".$poliza."', vencimiento='".$vencimiento."', estado='".$estado."', color='".$color."' WHERE id='$id' ";
         $query = mysqli_query($con,$sql);
 
         // if user has been update successfully

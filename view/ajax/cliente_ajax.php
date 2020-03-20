@@ -2,10 +2,10 @@
 	include("is_logged.php");//Archivo comprueba si el usuario esta logueado
 	/* Connect To Database*/
 	require_once ("../../config/config.php");
-	if (isset($_REQUEST["id"])){//codigo para eliminar 
-	$id=$_REQUEST["id"];
+	if (isset($_REQUEST["id_cliente"])){//codigo para eliminar 
+	$id=$_REQUEST["id_cliente"];
 	$id=intval($id);
-	if($delete=mysqli_query($con, "DELETE FROM cliente WHERE id='$id'")){
+	if($delete=mysqli_query($con, "DELETE FROM cliente WHERE id_cliente='$id'")){
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
 		$classM="alert alert-success";
@@ -40,7 +40,7 @@ if($action == 'ajax'){
 	$query = mysqli_query($con,"SELECT $campos FROM  $tables where $sWhere LIMIT $offset,$per_page");
 	//loop through fetched data
 	
-	if (isset($_REQUEST["id"])){
+	if (isset($_REQUEST["id_cliente"])){
 ?>
 		<div class="<?php echo $classM;?>">
 			<button type="button" class="close" data-dismiss="alert"><?php echo $times;?></button>
@@ -59,20 +59,18 @@ if($action == 'ajax'){
                 <th>Telefono</th>
                 <th>Correo Electrónico</th>
                 <th>Edad</th>
-                <th>vehiculo</th>
                 <th>acciones</th>
             </tr>
         </thead>
         <?php 
 			$finales=0;
 			while($row = mysqli_fetch_array($query)){	
-				$id=$row['id'];
+				$id=$row['id_cliente'];
 				$nombre=$row['nombre'];
 				$apellido=$row['apellido'];
 				$telefono=$row['telefono'];
 				$correo=$row['correo'];
 				$edad=$row['edad'];
-				$placa=$row['placa'];
 
 				/*$kind=$row['kind'];*/
 				
@@ -85,7 +83,6 @@ if($action == 'ajax'){
                 <td><?php echo $telefono ?></td>
                 <td><?php echo $correo ?></td>
                 <td><?php echo $edad ?></td>
-                <td><?php echo $placa ?></td>
                 <td class="text-right">
 
                 	

@@ -28,7 +28,7 @@
         $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE mantenimiento SET fecha_man='".$fecha_man."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', idtrasladista='".$trasladista."', idtaller='".$taller."', otros='".$otros."', vendedor='".$vendedor."', origen='".$origen."' WHERE id='".$id."' ";
+    $sql = "UPDATE mantenimiento SET fecha_man='".$fecha_man."', id_cliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', idtrasladista='".$trasladista."', idtaller='".$taller."', otros='".$otros."', vendedor='".$vendedor."', origen='".$origen."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

@@ -46,7 +46,7 @@ if($action == 'ajax'){
 	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
 	$tables="vehiculo";
 	$campos="*";
-	$sWhere=" patente LIKE '%".$query."%' and idcliente>0";
+	$sWhere=" patente LIKE '%".$query."%' and id_cliente>0";
 	include 'pagination.php'; //include pagination file
 	//pagination variables
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
@@ -94,8 +94,8 @@ if($action == 'ajax'){
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id'];
 
-				$idcliente=$row['idcliente'];
-				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+				$idcliente=$row['id_cliente'];
+				$clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
 				$cliente_rw=mysqli_fetch_array($clientes);
 				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 

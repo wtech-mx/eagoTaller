@@ -37,10 +37,10 @@
     $km = mysqli_real_escape_string($con,(strip_tags($_POST["km"],ENT_QUOTES)));
     $entidad = mysqli_real_escape_string($con,(strip_tags($_POST["entidad"],ENT_QUOTES)));
     $tipo = mysqli_real_escape_string($con,(strip_tags($_POST["tipo"],ENT_QUOTES)));
-    $id=intval($_POST['id']);
+    $id=intval($_POST['id_cliente']);
 
     // UPDATE data into database
-    $sql = "UPDATE cliente SET nombre='".$nombre."', apellido='".$apellido."', telefono='".$telefono."', correo='".$correo."', edad='".$edad."', manejo='".$manejo."', colTrabajo='".$colTrabajo."', colCasa='".$colCasa."', cpTrabajo='".$cpTrabajo."', cpCasa='".$cpCasa."', km='".$km."', entidad='".$entidad."', tipo='".$tipo."' WHERE id='".$id."' ";
+    $sql = "UPDATE cliente SET nombre='".$nombre."', apellido='".$apellido."', telefono='".$telefono."', correo='".$correo."', edad='".$edad."', manejo='".$manejo."', colTrabajo='".$colTrabajo."', colCasa='".$colCasa."', cpTrabajo='".$cpTrabajo."', cpCasa='".$cpCasa."', km='".$km."', entidad='".$entidad."', tipo='".$tipo."' WHERE id_cliente='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if($query){

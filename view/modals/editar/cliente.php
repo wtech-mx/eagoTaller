@@ -1,10 +1,10 @@
 <?php
     session_start();
     require_once ("../../../config/config.php");
-    if (isset($_GET["id"])){
-        $id=$_GET["id"];
+    if (isset($_GET["id_cliente"])){
+        $id=$_GET["id_cliente"];
         $id=intval($id);
-        $sql="select * from cliente where id='$id'";
+        $sql="select * from cliente where id_cliente='$id'";
         $query=mysqli_query($con,$sql);
         $num=mysqli_num_rows($query);
         if ($num==1){
@@ -26,7 +26,7 @@
     }   
     else{exit;}
 ?>
-<input type="hidden" value="<?php echo $id;?>" name="id" id="id">
+<input type="hidden" value="<?php echo $id;?>" name="id_cliente" id="id_cliente">
 
 <div class="form-group">
     <label for="nombre" class="col-sm-2 control-label">Nombre: </label>

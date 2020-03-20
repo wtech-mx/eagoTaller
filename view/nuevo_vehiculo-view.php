@@ -9,12 +9,12 @@
         $estado=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/vehiculos/vehiculo.jpg";
-        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, idcliente, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, seguro, poliza, vencimiento, color, foto4, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, estado, fecha_carga) VALUES (NULL, '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$estado', '$created_at'); ");
+        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, id_cliente, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, seguro, poliza, vencimiento, color, foto4, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, estado, fecha_carga) VALUES (NULL, '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$estado', '$created_at'); ");
         $sql_vehiculo=mysqli_query($con,"select * from vehiculo where  vehiculo_code='$vehiculo_code'");
         $rw_vehiculo=mysqli_fetch_array($sql_vehiculo);
         $id_vehiculo=$rw_vehiculo['id'];
         
-        $count=mysqli_query($con,"select count(*) as total from vehiculo where idcliente>0");
+        $count=mysqli_query($con,"select count(*) as total from vehiculo where id_cliente>0");
         $rw=mysqli_fetch_array($count);
         $vehiculo_codes=$rw['total']+1;
 
@@ -187,7 +187,7 @@
                                             <?php 
                                                 $sql_clientes=mysqli_query($con,"select * from cliente");
                                                 while ($rw=mysqli_fetch_array($sql_clientes)){
-                                                    $idcliente=$rw['id'];
+                                                    $idcliente=$rw['id_cliente'];
                                                     $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
                                                 ?>
                                                 <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>

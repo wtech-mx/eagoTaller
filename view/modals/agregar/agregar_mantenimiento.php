@@ -1,18 +1,15 @@
     <button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
 <?php
-    $query = "SELECT id, nombre, apellido FROM cliente ORDER BY nombre";
+    $query = "SELECT id_cliente, nombre, apellido FROM cliente ORDER BY nombre";
     $resultado=$con->query($query);
 ?>
-
-<script language="javascript" src="js/jquery-3.1.1.min.js"></script>
-        
-        <script language="javascript">
+<script language="javascript">
             $(document).ready(function(){
                 $("#cliente").change(function () {
                     
                     $("#cliente option:selected").each(function () {
-                        id = $(this).val();
-                        $.post("view/modals/includes/agregar_vehiculo.php", { id: id }, function(data){
+                        id_cliente = $(this).val();
+                        $.post("view/modals/includes/agregar_vehiculo.php", { id_cliente:id_cliente }, function(data){
                             $("#vehiculo").html(data);
                         });            
                     });
@@ -36,15 +33,27 @@
                             <input type="date"  class="form-control" id="fecha_man" name="fecha_man" placeholder="Fecha Servicio ">
                         </div>
                     </div>
-        <form id="cliente" name="cliente" method="POST">
-            <div>Selecciona Cliente : <select name="cliente" id="cliente">
-                <option value="0">Seleccionar Cliente</option>
-                <?php while($row = $resultado->fetch_assoc()) { ?>
-                    <option value="<?php echo $row['id']; ?>"><?php echo $row['nombre']; ?><?php echo ' ' ?><?php echo $row['apellido']; ?></option>
-                <?php } ?>
-            </select></div>
-            <br />            
-            <div>Selecciona Vehiculo : <select name="vehiculo" id="vehiculo"></select></div> 
+        
+        <div class="form-group">
+            <form id="combo" name="combo" method="POST">
+                <label class="col-sm-2 control-label">Cliente: </label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="cliente" id="cliente">
+                    <option value="0">Seleccionar Cliente</option>
+                        <?php while($row = $resultado->fetch_assoc()) { ?>
+                        <option value="<?php echo $row['id_cliente']; ?>"><?php echo $row['nombre']; ?><?php echo ' ' ?><?php echo $row['apellido']; ?></option>
+                    <?php } ?>
+                    </select>
+                </div>
+            </div>
+
+        <div class="form-group">               
+            <label class="col-sm-2 control-label">Vehiculo: </label>
+                <div class="col-sm-10">
+                <select class="form-control" name="vehiculo" id="vehiculo"></select>
+                </div>
+            
+        </div>
         </form>
                     <div class="form-group">
                     <label for="taller" class="col-sm-2 control-label">Taller: </label>
@@ -105,7 +114,7 @@
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="origen" name="origen" placeholder="Dirección">
                         </div>
-                    </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     <button type="submit" id="guardar_datos" class="btn btn-primary">Agregar</button>

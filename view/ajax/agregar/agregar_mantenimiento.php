@@ -2,24 +2,20 @@
 	include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
 	if (empty($_POST['fecha_man'])){
 			$errors[] = "Fecha de servicio está vacío.";
-		}  elseif (empty($_POST['cliente'])) {
-            $errors[] = "Cliente está vacío.";
-        }  elseif (empty($_POST['vehiculo'])) {
-            $errors[] = "Vehiculo está vacío.";
+		}  elseif (empty($_POST['id_cliente'])) {
+            $errors[] = "cliente está vacío.";
         } elseif (empty($_POST['datos'])) {
             $errors[] = "Datos está vacío.";
         }  elseif (
         	!empty($_POST['fecha_man'])
         	&& !empty($_POST['cliente'])
-        	&& !empty($_POST['vehiculo'])
         	&& !empty($_POST['datos'])
         ){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 			
 			// escaping, additionally removing everything that could be (html/javascript-) code
             $fecha_man = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_man"],ENT_QUOTES)));
-            $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
-            $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
+            $id_cliente = $_POST['cliente'];
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
             $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
             $taller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
@@ -29,7 +25,7 @@
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO mantenimiento (fecha_man, idcliente, idvehiculo, datos, idtrasladista, idtaller, otros, vendedor, origen, fecha_carga) VALUES('".$fecha_man."','".$cliente."','".$vehiculo."','".$datos."','".$trasladista."','".$taller."','".$otros."','".$vendedor."','".$origen."','".$fecha_carga."');";
+			$sql = "INSERT INTO mantenimiento (fecha_man, id_cliente, datos, idtrasladista, idtaller, otros, vendedor, origen, fecha_carga) VALUES('".$fecha_man."','".$id_cliente."','".$datos."','".$trasladista."','".$taller."','".$otros."','".$vendedor."','".$origen."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

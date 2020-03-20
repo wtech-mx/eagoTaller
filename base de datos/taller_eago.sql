@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-03-2020 a las 22:39:44
+-- Tiempo de generación: 20-03-2020 a las 20:00:11
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -93,7 +93,7 @@ CREATE TABLE `choque` (
 --
 
 CREATE TABLE `cliente` (
-  `id` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `nombre` text CHARACTER SET latin1 NOT NULL,
   `apellido` text CHARACTER SET latin1 NOT NULL,
   `telefono` varchar(20) NOT NULL,
@@ -115,7 +115,7 @@ CREATE TABLE `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `idvehiculo`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`) VALUES
+INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `idvehiculo`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`) VALUES
 (1, 'dayanna', 'Espinosa', '(553) 990-7266', 'karla@gmail.com', 22, '', '2020-12-15', 'zaragoza', '', 7580, 0, 0, 'Mexicano', 'premium', 0),
 (2, 'Ricardo', 'Espinosa', '(553) 990-7266', 'ricardo@gmail.com', 25, '', '2020-01-30', 'aeropuerto', '', 7580, 0, 0, 'Mexicano', '5', 0),
 (4, 'Itzel', 'Espinosa', '(553) 990-7266', 'itzel@gmail.com', 25, '', '2020-02-16', 'aeropuerto', 'upiicsa', 7580, 7580, 32, 'ke', '4', 0),
@@ -389,7 +389,7 @@ CREATE TABLE `kind` (
 CREATE TABLE `mantenimiento` (
   `id` int(11) NOT NULL,
   `fecha_man` date NOT NULL,
-  `idcliente` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `idvehiculo` int(11) NOT NULL,
   `idtaller` int(11) NOT NULL,
   `datos` varchar(30) NOT NULL,
@@ -422,7 +422,7 @@ CREATE TABLE `mantenimiento` (
 -- Volcado de datos para la tabla `mantenimiento`
 --
 
-INSERT INTO `mantenimiento` (`id`, `fecha_man`, `idcliente`, `idvehiculo`, `idtaller`, `datos`, `idtrasladista`, `gasolina`, `otros`, `vendedor`, `trasladista_admin`, `otro_admin`, `fecha_carga`, `subtotal`, `eago`, `total`, `estado`, `origen`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `status`) VALUES
+INSERT INTO `mantenimiento` (`id`, `fecha_man`, `id_cliente`, `idvehiculo`, `idtaller`, `datos`, `idtrasladista`, `gasolina`, `otros`, `vendedor`, `trasladista_admin`, `otro_admin`, `fecha_carga`, `subtotal`, `eago`, `total`, `estado`, `origen`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `status`) VALUES
 (6, '2020-01-30', 1, 3, 1, 'asientos', 19, 52, '25', 'pedro', 30, 30, '2020-01-30 22:36:42', 300, 20, 320, 2, 'Norte 45 853-b, Industrial Vallejo, Azcapotzalco, 02300 Ciudad de MÃ©xico, CDMX', '', '', '', '', '', '', '', '', '', '', 1),
 (7, '2020-02-26', 2, 3, 1, 'asientos', 1, 20, '43', 'miguel', 50, 30, '2020-01-31 21:03:26', 100, 60, 160, 2, 'Av Fortuna 101, Magdalena de las Salinas, Gustavo A. Madero, 07760 Ciudad de MÃ©xico, CDMX', 'view/resources/images/gastos/man/1584596459_ayuda.jpg', 'view/resources/images/gastos/man/1584596467_equipo.jpg', 'view/resources/images/gastos/man/1584596463_comuni.png', 'view/resources/images/gastos/man/1584596473_5dccf3a66f463.png', '', '', '', 'view/resources/images/gastos/man/1584601499_producto4.1.jpeg', 'view/resources/images/gastos/man/1584601514_prodcto4.jpg', '', 2);
 
@@ -630,7 +630,7 @@ INSERT INTO `traslados` (`id`, `fecha_tras`, `idcliente`, `idvehiculo`, `datos`,
 
 CREATE TABLE `vehiculo` (
   `id` int(11) NOT NULL,
-  `idcliente` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `vehiculo_code` varchar(100) NOT NULL,
   `patente` varchar(40) NOT NULL,
   `marca` varchar(255) NOT NULL,
@@ -661,10 +661,14 @@ CREATE TABLE `vehiculo` (
 -- Volcado de datos para la tabla `vehiculo`
 --
 
-INSERT INTO `vehiculo` (`id`, `idcliente`, `vehiculo_code`, `patente`, `marca`, `submarca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `color`, `seguro`, `poliza`, `vencimiento`, `foto4`, `estado`, `foto1`, `foto2`, `foto3`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `fecha_carga`) VALUES
+INSERT INTO `vehiculo` (`id`, `id_cliente`, `vehiculo_code`, `patente`, `marca`, `submarca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `color`, `seguro`, `poliza`, `vencimiento`, `foto4`, `estado`, `foto1`, `foto2`, `foto3`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `fecha_carga`) VALUES
 (14, 4, '1', 'ASL-093', 'benz', 'add', '2019', 'ofl', '0932', '2020-02-06', 'blanco', '897', 'EAGO', '2020-02-06', 'view/resources/images/vehiculos/vehiculo.jpg', 1, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/1584585988_equipo.jpg', 'view/resources/images/vehiculos/1584585994_comuni.png', 'view/resources/images/vehiculos/1584586000_bicycle-1869176_1280.jpg', 'view/resources/images/vehiculos/1584586007_3.jpg', 'view/resources/images/vehiculos/1584586012_2.jpg', 'view/resources/images/vehiculos/1584586015_4.jpg', '2020-03-19 01:54:13'),
 (18, 1, '2', 'LO-300', 'audi', 'add', '2019', 'fjgh', '245', '2020-05-08', 'blanco', '897', 'WIN', '2020-04-17', 'view/resources/images/vehiculos/vehiculo.jpg', 1, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '', '', '', '', '', '', '2020-03-19 02:03:37'),
-(19, 4, '3', 'KM-120', 'ferrari', 'add', '2019', 'ofl', '234', '2020-03-01', 'negro', '897', 'The Hong Kong and Shanghai Banking Corporation', '2020-08-17', 'view/resources/images/vehiculos/vehiculo.jpg', 1, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/1584585685_LogosinF.png', 'view/resources/images/vehiculos/1584585681_equipo.jpg', 'view/resources/images/vehiculos/1584585675_4.jpg', 'view/resources/images/vehiculos/1584585658_ayuda.jpg', 'view/resources/images/vehiculos/1584585673_3.jpg', 'view/resources/images/vehiculos/1584585670_2.jpg', '2020-03-19 02:04:13');
+(19, 4, '3', 'KM-120', 'ferrari', 'add', '2019', 'ofl', '234', '2020-03-01', 'negro', '897', 'The Hong Kong and Shanghai Banking Corporation', '2020-08-17', 'view/resources/images/vehiculos/vehiculo.jpg', 1, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/1584585685_LogosinF.png', 'view/resources/images/vehiculos/1584585681_equipo.jpg', 'view/resources/images/vehiculos/1584585675_4.jpg', 'view/resources/images/vehiculos/1584585658_ayuda.jpg', 'view/resources/images/vehiculos/1584585673_3.jpg', 'view/resources/images/vehiculos/1584585670_2.jpg', '2020-03-19 02:04:13'),
+(34, 0, '1584726175-1', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', 'view/resources/images/vehiculos/vehiculo.jpg', 127, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-03-20 18:42:55'),
+(35, 0, '1584726178-1', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', 'view/resources/images/vehiculos/vehiculo.jpg', 127, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-03-20 18:42:58'),
+(36, 0, '1584726181-1', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', 'view/resources/images/vehiculos/vehiculo.jpg', 127, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-03-20 18:43:01'),
+(37, 0, '1584726196-1', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', 'view/resources/images/vehiculos/vehiculo.jpg', 127, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-03-20 18:43:16');
 
 -- --------------------------------------------------------
 
@@ -763,7 +767,7 @@ ALTER TABLE `choque`
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_cliente`);
 
 --
 -- Indices de la tabla `configuracion`
@@ -913,7 +917,7 @@ ALTER TABLE `choque`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `configuracion`
@@ -1021,7 +1025,7 @@ ALTER TABLE `traslados`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo_cliente`

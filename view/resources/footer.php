@@ -3,6 +3,7 @@
 
     <!--Global JS-->
     <script src="assets/js/jquery-1.10.2.min.js"></script>
+    <script language="javascript" src="assets/js/jquery-3.1.1.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/plugins/waypoints/waypoints.min.js"></script>
     <script src="assets/plugins/nanoScroller/jquery.nanoscroller.min.js"></script>
