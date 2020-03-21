@@ -13,20 +13,15 @@
 
             $fecha_veri=$rw['fecha_veri'];
 
-                $idcliente=$rw['idcliente'];
-                $clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+                $idcliente=$rw['id_cliente'];
+                $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
                 $idvehiculo=$rw['idvehiculo'];
                 $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
-                $patente_vehiculo=$vehiculo_rw['marca'];
-
-                $idcarro=$rw['idcarro'];
-                $carros=mysqli_query($con, "select * from cliente where id=$idcarro");
-                $carro_rw=mysqli_fetch_array($carros);
-                $clave_carro=$carro_rw['placa'];
+                $patente_vehiculo=$vehiculo_rw['patente'];
 
                 $idtrasladista=$rw['idtrasladista'];
                 $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
@@ -55,7 +50,7 @@
     </div>
 </div>
 <div class="form-group">
-<label for="idcliente" class="col-sm-4 control-label">Cliente: </label>
+<label for="id_cliente" class="col-sm-4 control-label">Cliente: </label>
     <div class="col-sm-8">
         <?php echo $nombre_cliente;?>
     </div>

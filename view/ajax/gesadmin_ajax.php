@@ -58,7 +58,6 @@ if($action == 'ajax'){
                 <th>Fecha de Servicio</th>
                 <th>Cliente</th>
                 <th>Vehiculo</th>
-                <th>Placa</th>
                 <th>Alta de placa</th>
                 <th>Estado</th>
                 <th></th>
@@ -71,20 +70,15 @@ if($action == 'ajax'){
 
 				$fecha_ges=$row['fecha_ges'];
 
-				$idcliente=$row['idcliente'];
-				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+				$idcliente=$row['id_cliente'];
+				$clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
 				$cliente_rw=mysqli_fetch_array($clientes);
 				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
 				$idvehiculo=$row['idvehiculo'];
 				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
 				$vehiculo_rw=mysqli_fetch_array($vehiculos);
-				$patente_vehiculo=$vehiculo_rw['marca'];
-
-				$idcarro=$row['idcarro'];
-				$carros=mysqli_query($con, "select * from cliente where id=$idcarro");
-				$carro_rw=mysqli_fetch_array($carros);
-				$clave_carro=$carro_rw['placa'];
+				$patente_vehiculo=$vehiculo_rw['patente'];
 
 				$aplaca=$row['aplaca'];
 
@@ -109,7 +103,6 @@ if($action == 'ajax'){
                 <td><?php echo $fecha_ges ?></td>
                 <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $patente_vehiculo ?></td>
-                <td><?php echo $clave_carro ?></td>
                 <td><?php echo $aplaca ?></td>
                 <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td class="text-right">
