@@ -72,7 +72,7 @@
                     <select class="form-control" name="cliente" id="cliente">
                     <option value="0">Seleccionar Cliente</option>
                         <?php while($row = $resultado->fetch_assoc()) { ?>
-                        <option value="<?php echo $row['id_cliente']; ?>"><?php echo $row['nombre']; ?><?php echo ' ' ?><?php echo $row['apellido']; ?></option>
+                    <option value="<?php echo $row['id_cliente']; ?>"><?php echo $row['nombre']; ?><?php echo ' ' ?><?php echo $row['apellido']; ?></option>
                     <?php } ?>
                     </select>
                 </div>
