@@ -33,8 +33,7 @@
                             <input type="date"  class="form-control" id="fecha_veri" name="fecha_veri" placeholder="Fecha Verificación: ">
                         </div>
                     </div>
-                    <div class="form-group">
-                    
+            <div class="form-group">   
                 <label class="col-sm-2 control-label">Cliente: </label>
                 <div class="col-sm-10">
                     <select class="form-control" name="cliente" id="cliente">
@@ -53,7 +52,6 @@
                 </div>
             
         </div>
-                    </div>
                     <div class="form-group">
                     <label for="taller" class="col-sm-2 control-label">Taller: </label>
                                     <div class="col-sm-10">

@@ -12,8 +12,8 @@
 
             $fecha_ges=$rw['fecha_ges'];
 
-             $idcliente=$rw['idcliente'];
-                $clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+             $idcliente=$rw['id_cliente'];
+                $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 

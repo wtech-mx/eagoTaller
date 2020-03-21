@@ -18,9 +18,8 @@
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		
 		$cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
+        $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
         $documento_code = mysqli_real_escape_string($con,(strip_tags($_POST["documento_code"],ENT_QUOTES)));
-		$vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
-		$id=intval($_POST['id']);
 			
 		// update data
         $sql = "UPDATE documentacion SET idcliente='".$cliente."',documento_code='".$documento_code."', idvehiculo='".$vehiculo."' WHERE id='$id' ";
@@ -29,7 +28,7 @@
         // if user has been update successfully
         if ($query) {
             $messages[] = "Los datos han sido procesados exitosamente.";
-			//print ("<script>window.location='./?view=vehiculos';</script>");
+            print ("<script>window.location='./?view=documentacion';</script>");
         } else {
             $errors[] = "Lo sentimos , el registro falló. Por favor, regrese y vuelva a intentarlo. ".mysqli_error($con);
         }
