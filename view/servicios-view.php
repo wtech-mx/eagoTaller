@@ -12,9 +12,13 @@ $active5="active";
 ?>
         <!--main content start-->
         <section class="main-content-wrapper">
+
             <section id="main-content">
                 <!--tiles start-->
+                <h1 class="text-center mb-3 p-5"><strong>Selecciona un servicio</strong></h1>
+
                 <div class="row">
+
                     <div class="col-md-3 col-sm-6">
                         <a href="./?view=mantenimiento">
                         <div class="dashboard-tile detail tile-crimson">
@@ -26,7 +30,7 @@ $active5="active";
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-3 col-sm-6">
                         <a href="./?view=gestoria">
                         <div class="dashboard-tile detail tile-gold">
