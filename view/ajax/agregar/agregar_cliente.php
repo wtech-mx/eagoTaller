@@ -36,7 +36,6 @@
     $km = mysqli_real_escape_string($con,(strip_tags($_POST["km"],ENT_QUOTES)));
     $entidad = mysqli_real_escape_string($con,(strip_tags($_POST["entidad"],ENT_QUOTES)));
     $tipo = mysqli_real_escape_string($con,(strip_tags($_POST["tipo"],ENT_QUOTES)));
-    $vehiculo = $_POST["vehiculo"];
            /* $kind = mysqli_real_escape_string($con,(strip_tags($_POST["kind"],ENT_QUOTES)));*/
 
             //Write register in to database 
@@ -45,7 +44,7 @@
             // si se ha agregado con éxito
             if ($query_new) {
 
-                    $numeroMaximo="select max(id) as nuevo_cliente from cliente";
+                    $numeroMaximo="select max(id_cliente) as nuevo_cliente from cliente";
                     $idusernew_sql=mysqli_query($con,$numeroMaximo);
                     $idusernew_rw=mysqli_fetch_array($idusernew_sql);
                     $idusernew=$idusernew_rw['nuevo_cliente']; 
