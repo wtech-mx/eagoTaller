@@ -215,7 +215,7 @@
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Datos del Vehiculo</h3>
+                            <h3 class="panel-title">Fotos del Vehiculo</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
