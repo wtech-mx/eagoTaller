@@ -18,12 +18,7 @@
                 $idvehiculo=$rw['idvehiculo'];
                 $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
-                $patente_vehiculo=$vehiculo_rw['marca'];
-
-                $idcarro=$rw['idcarro'];
-                $carros=mysqli_query($con, "select * from vehiculo where id=$idcarro");
-                $carro_rw=mysqli_fetch_array($carros);
-                $placa_carro=$carro_rw['patente'];
+                $patente_vehiculo=$vehiculo_rw['patente'];
 
                 $idtrasladista=$rw['idtrasladista'];
                 $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
