@@ -18,8 +18,8 @@
 			
 			// escaping, additionally removing everything that could be (html/javascript-) code
             $fecha_tras = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_tras"],ENT_QUOTES)));
-            $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
-            $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
+            $id_cliente = $_POST['cliente'];
+            $idvehiculo = $_POST['vehiculo'];
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
             $taller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
             $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
@@ -29,7 +29,7 @@
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO traslados (fecha_tras, idcliente, idvehiculo, datos, idtaller, idtrasladista, vendedor, destino, origen, fecha_carga) VALUES('".$fecha_tras."','".$cliente."','".$vehiculo."','".$datos."','".$taller."','".$trasladista."','".$vendedor."','".$destino."','".$origen."','".$fecha_carga."');";
+			$sql = "INSERT INTO traslados (fecha_tras, id_cliente, idvehiculo, datos, idtaller, idtrasladista, vendedor, destino, origen, fecha_carga) VALUES('".$fecha_tras."','".$id_cliente."','".$idvehiculo."','".$datos."','".$taller."','".$trasladista."','".$vendedor."','".$destino."','".$origen."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

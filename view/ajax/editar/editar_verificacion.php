@@ -30,7 +30,7 @@
         
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE verificacion SET fecha_veri='".$fecha_veri."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', idtaller='".$taller."', derechos='".$derechos."', otros='".$otros."', idtrasladista='".$trasladista."', vendedor='".$vendedor."', origen='".$origen."' WHERE id='".$id."' ";
+    $sql = "UPDATE verificacion SET fecha_veri='".$fecha_veri."', id_cliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', idtaller='".$taller."', derechos='".$derechos."', otros='".$otros."', idtrasladista='".$trasladista."', vendedor='".$vendedor."', origen='".$origen."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

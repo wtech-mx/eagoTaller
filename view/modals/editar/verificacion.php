@@ -11,7 +11,7 @@
             $rw=mysqli_fetch_array($query);
             $id=$rw['id'];
             $fecha_veri=$rw['fecha_veri'];
-            $idcliente=$rw['idcliente'];
+            $id_cliente=$rw['id_cliente'];
             $idvehiculo=$rw['idvehiculo'];
             $datos=$rw['datos'];
             $derechos=$rw['derechos'];
@@ -24,7 +24,25 @@
         }
     }   
     else{exit;}
+    $queryE = "SELECT id_cliente, nombre, apellido FROM cliente ORDER BY nombre";
+    $resultadoE = $con->query($queryE);
+    
+    $queryM = "SELECT id, patente FROM vehiculo WHERE id_cliente = '$id_cliente' ORDER BY patente";
+    $resultadoM = $con->query($queryM);  
 ?>
+<script language="javascript">
+            $(document).ready(function(){
+                $("#cliente").change(function () {
+                                       
+                    $("#cliente option:selected").each(function () {
+                        id_cliente = $(this).val();
+                        $.post("../includes/agregar_vehiculo.php", { id_cliente: id_cliente }, function(data){
+                            $("#vehiculo").html(data);
+                        });            
+                    });
+                })
+            });
+</script>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 <div class="form-group">
     <label for="fecha_veri" class="col-sm-2 control-label">Fecha Verificacion: </label>
@@ -32,37 +50,26 @@
         <input type="date"  class="form-control" id="fecha_veri" name="fecha_veri" placeholder="Fecha Verificacion: " value="<?php echo $fecha_veri ?>">
     </div>
 </div>
-<div class="form-group">
-    <label for="cliente" class="col-sm-2 control-label">cliente: </label>
-    <div class="col-sm-10">
-        <select class="form-control" name="cliente" id="cliente">
-        <?php
-            $clientes=mysqli_query($con,"select * from cliente");
-            while ($rw=mysqli_fetch_array($clientes)) {
-                if ($idcliente==$rw['id']){$selected1="selected";}else{$selected1="";}
-        ?>
-            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
-        <?php 
-            }
-        ?>
-        </select>
-    </div>
-</div>
-<div class="form-group">
-    <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
-    <div class="col-sm-10">
-        <select class="form-control" name="vehiculo" id="vehiculo">
-        <?php
-            $vehiculos=mysqli_query($con,"select * from vehiculo  where estado=1 order by patente");
-            while ($rw=mysqli_fetch_array($vehiculos)) {
-                if ($idvehiculo==$rw['id']){$selected1="selected";}else{$selected1="";}
-        ?>
-            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['patente']?></option>
-        <?php 
-            }
-        ?>
-        </select>
-    </div>
+<div class="form-group">        
+    <label class="col-sm-2 control-label">Cliente: </label>
+        <div class="col-sm-10">
+            <select class="form-control" name="cliente" id="cliente">
+                <option value="0">Seleccionar cliente</option>
+                <?php while($rowE = $resultadoE->fetch_assoc()) { ?>
+                    <option value="<?php echo $rowE['id_cliente']; ?>" <?php if($rowE['id_cliente']==$id_cliente) { echo 'selected'; } ?>><?php echo $rowE['nombre']; ?><?php echo ' ' ?><?php echo $rowE['apellido']; ?></option>
+                <?php } ?>
+            </select>
+        </div>
+</div>    
+<div class="form-group">          
+    <label class="col-sm-2 control-label">Vehiculo: </label>
+        <div class="col-sm-10">
+            <select class="form-control" name="vehiculo" id="vehiculo">
+                <?php while($rowM = $resultadoM->fetch_assoc()) { ?>
+                    <option value="<?php echo $rowM['id']; ?>" <?php if($rowM['id']==$idvehiculo) { echo 'selected'; } ?>><?php echo $rowM['patente']; ?></option>
+                <?php } ?>
+            </select>
+        </div>
 </div>
 <div class="form-group">
     <label for="datos" class="col-sm-2 control-label">Descripcion: </label>

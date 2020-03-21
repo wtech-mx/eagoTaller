@@ -18,8 +18,8 @@
 
        // escaping, additionally removing everything that could be (html/javascript-) code
         $fecha_ges = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_ges"],ENT_QUOTES)));
-        $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
-        $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
+        $id_cliente = $_POST['cliente'];
+        $idvehiculo = $_POST['vehiculo'];
         $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
         $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
         $taller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
@@ -31,7 +31,7 @@
         $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE gestoria SET fecha_ges='".$fecha_ges."', idcliente='".$cliente."', idvehiculo='".$vehiculo."', datos='".$datos."', otro='".$otro."', idtaller='".$taller."', idtrasladista='".$trasladista."', origen='".$origen."' WHERE id='".$id."' ";
+    $sql = "UPDATE gestoria SET fecha_ges='".$fecha_ges."', id_cliente='".$id_cliente."', idvehiculo='".$idvehiculo."', datos='".$datos."', otro='".$otro."', idtaller='".$taller."', idtrasladista='".$trasladista."', origen='".$origen."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

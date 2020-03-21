@@ -21,7 +21,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <!-- form  -->
-            <form class="form-horizontal" role="form" method="post" id="new_register" name="new_register">
+            <form class="form-horizontal" role="form" method="post" id="new_register" name="new_register" method="POST">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel"> Nuevo Servicio</h4>
@@ -35,7 +35,6 @@
                     </div>
         
         <div class="form-group">
-            <form id="combo" name="combo" method="POST">
                 <label class="col-sm-2 control-label">Cliente: </label>
                 <div class="col-sm-10">
                     <select class="form-control" name="cliente" id="cliente">
@@ -51,10 +50,8 @@
             <label class="col-sm-2 control-label">Vehiculo: </label>
                 <div class="col-sm-10">
                 <select class="form-control" name="vehiculo" id="vehiculo"></select>
-                </div>
-            
+                </div>           
         </div>
-        </form>
                     <div class="form-group">
                     <label for="taller" class="col-sm-2 control-label">Taller: </label>
                                     <div class="col-sm-10">
@@ -108,7 +105,6 @@
                             <input type="text"  class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor">
                         </div>
                     </div>
-                </div>
                 <div class="form-group">
                         <label for="origen" class="col-sm-2 control-label">Recoger en: </label>
                         <div class="col-sm-10">

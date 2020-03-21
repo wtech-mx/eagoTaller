@@ -1,5 +1,21 @@
     <button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
-
+<?php
+    $query = "SELECT id_cliente, nombre, apellido FROM cliente ORDER BY nombre";
+    $resultado=$con->query($query);
+?>
+<script language="javascript">
+            $(document).ready(function(){
+                $("#cliente").change(function () {
+                    
+                    $("#cliente option:selected").each(function () {
+                        id_cliente = $(this).val();
+                        $.post("view/modals/includes/agregar_vehiculo.php", { id_cliente:id_cliente }, function(data){
+                            $("#vehiculo").html(data);
+                        });            
+                    });
+                })
+            });
+</script>
     <!-- Form Modal -->
     <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -18,38 +34,25 @@
                         </div>
                     </div>
                     <div class="form-group">
-                    <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" name="cliente" id="cliente" >
-                                            <?php 
-                                                $sql_clientes=mysqli_query($con,"select * from cliente");
-                                                while ($rw=mysqli_fetch_array($sql_clientes)){
-                                                    $idcliente=$rw['id'];
-                                                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
-                                                ?>
-                                                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
-                                                <?php
-                                                }
-                                            ?>
-                                        </select>    
-                                    </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="vehiculo" class="col-sm-2 control-label">Vehiculo: </label>
-                        <div class="col-sm-10">
-                            <select class="form-control selectpicker" data-live-search="true" name="vehiculo" id="vehiculo">
-                               <!--  <option value="">--- SELECCIONA ---</option> -->
-                            <?php
-                                require_once ("config/config.php");
-                                $vehiculos=mysqli_query($con,"select * from vehiculo  where estado=1 order by patente");
-                                while ($rw=mysqli_fetch_array($vehiculos)) {
-                            ?>
-                                <option value="<?php echo $rw['id']?>"><?php echo $rw['patente']?></option>
-                            <?php 
-                                }
-                            ?>
-                            </select>
-                        </div>
+                    
+                <label class="col-sm-2 control-label">Cliente: </label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="cliente" id="cliente">
+                    <option value="0">Seleccionar Cliente</option>
+                        <?php while($row = $resultado->fetch_assoc()) { ?>
+                        <option value="<?php echo $row['id_cliente']; ?>"><?php echo $row['nombre']; ?><?php echo ' ' ?><?php echo $row['apellido']; ?></option>
+                    <?php } ?>
+                    </select>
+                </div>
+            </div>
+
+        <div class="form-group">               
+            <label class="col-sm-2 control-label">Vehiculo: </label>
+                <div class="col-sm-10">
+                <select class="form-control" name="vehiculo" id="vehiculo"></select>
+                </div>
+            
+        </div>
                     </div>
                     <div class="form-group">
                     <label for="taller" class="col-sm-2 control-label">Taller: </label>

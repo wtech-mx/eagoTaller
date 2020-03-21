@@ -70,15 +70,15 @@ if($action == 'ajax'){
 				$id=$row['id'];
 				$fecha_ges=$row['fecha_ges'];
 
-				$idcliente=$row['idcliente'];
-				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+				$idcliente=$row['id_cliente'];
+				$clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
 				$cliente_rw=mysqli_fetch_array($clientes);
 				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
 				$idvehiculo=$row['idvehiculo'];
 				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
 				$vehiculo_rw=mysqli_fetch_array($vehiculos);
-				$marca_vehiculo=$vehiculo_rw['marca'];
+				$marca_vehiculo=$vehiculo_rw['patente'];
 
 				$datos=$row['datos'];
 				$origen=$row['origen'];

@@ -15,8 +15,8 @@
 			
 			// escaping, additionally removing everything that could be (html/javascript-) code
             $fecha_ges = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_ges"],ENT_QUOTES)));
-            $cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
-            $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
+            $id_cliente = $_POST['cliente'];
+            $idvehiculo = $_POST['vehiculo'];
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
             $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
             $taller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
@@ -29,7 +29,7 @@
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO gestoria (fecha_ges, idcliente, idvehiculo, datos, idtrasladista, idtaller, otro, aplaca, bplaca, rplaca, tarjeta, origen, fecha_carga) VALUES('".$fecha_ges."','".$cliente."','".$vehiculo."','".$datos."','".$trasladista."','".$taller."','".$otro."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$origen."','".$fecha_carga."');";
+			$sql = "INSERT INTO gestoria (fecha_ges, id_cliente, idvehiculo, datos, idtrasladista, idtaller, otro, aplaca, bplaca, rplaca, tarjeta, origen, fecha_carga) VALUES('".$fecha_ges."','".$id_cliente."','".$idvehiculo."','".$datos."','".$trasladista."','".$taller."','".$otro."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$origen."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

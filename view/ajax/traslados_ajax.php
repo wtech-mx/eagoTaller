@@ -70,8 +70,8 @@ if($action == 'ajax'){
 				$id=$row['id'];
 				$fecha_tras=$row['fecha_tras'];
 
-				$idcliente=$row['idcliente'];
-				$clientes=mysqli_query($con, "select * from cliente where id=$idcliente");
+				$idcliente=$row['id_cliente'];
+				$clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
 				$cliente_rw=mysqli_fetch_array($clientes);
 				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
@@ -101,8 +101,11 @@ if($action == 'ajax'){
                 <td><?php echo $destino ?></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">
+
                     <button type="button" class="btn btn-warning btn-square btn-xs" data-toggle="modal" data-target="#modal_update" onclick="editar('<?php echo $id;?>');"><i class="fa fa-edit"></i></button>
+
                     <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $id;?>')"><i class="fa fa-trash-o"></i></button>
+                    
                     <button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button>
                 </td>
             </tr>
