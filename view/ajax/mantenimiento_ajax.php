@@ -61,7 +61,7 @@ if($action == 'ajax'){
                 <th>Descripción</th>
                 <th>Dirección</th>
                 <th>Fecha</th>
-                <th></th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <?php 
