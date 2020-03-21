@@ -47,7 +47,7 @@
                 </div>
             </div>
         
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -155,7 +155,7 @@
                 </div>
 
                 <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
                         <div class="panel-heading">

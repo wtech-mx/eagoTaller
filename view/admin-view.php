@@ -15,57 +15,69 @@
             </div>
                 <!--tiles start-->
                 <div class="row">
-                  
+                   <a href="./?view=esteadmin">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-turquoise">
                             <div class="content">
                                 
                                 <p>Mecanica/Estética</p>
                             </div>
-                            <a href="./?view=esteadmin"><div class="icon"><i class="fa fa-code-fork"></i></a>
-                            </div>
+                           <div class="icon"><i class="fa fa-code-fork"></i></div>
                         </div>
                     </div>
+                    </a>
+
+                    <a href="./?view=gesadmin">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-blue">
                             <div class="content">
                                 
                                 <p>Gestoria</p>
                             </div>
-                            <a href="./?view=gesadmin"><div class="icon"><i class="fa fa-user"></i></a>
+                            <div class="icon"><i class="fa fa-user"></i>
                             </div>
                         </div>
                     </div>
+                    </a>
+
+                    <a href="./?view=veriadmin">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-purple">
                             <div class="content">
                                 
                                 <p>Verificación</p>
                             </div>
-                            <a href="./?view=veriadmin"><div class="icon"><i class="fa fa-search"></i></a>
+                            <a href="./?view=veriadmin"><div class="icon"><i class="fa fa-search"></i>
                             </div>
                         </div>
                     </div>
+                    </a>
+
+                    <a href="./?view=trasadmin">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-red">
                             <div class="content">
                                 
                                 <p>Traslados</p>
                             </div>
-                            <a href="./?view=trasadmin"><div class="icon"><i class="fa fa-truck"></i></a>
+                            <div class="icon"><i class="fa fa-truck"></i>
                             </div>
                         </div>
                     </div>
+                    </a>
 
+                    <a href="./?view=manadmin">
                     <div class="col-md-4 col-sm-12">
                         <div class="dashboard-tile detail tile-black">
                             <div class="content">                                
                                 <p>Mantenimiento</p>
                             </div>
-                            <a href="./?view=manadmin"><div class="icon"><i class="fa fa-search"></i></a>
+                            <div class="icon"><i class="fa fa-search"></i>
                             </div>
                         </div>
                     </div>
+                    </a>
+                    
                 </div>
                 <!--tiles end-->
             

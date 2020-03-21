@@ -4,10 +4,15 @@
 
     if ($_SESSION['dashboard']==1){
 
-        $empleados = mysqli_query($con, "select * from empleado");
-        $cliente = mysqli_query($con, "select * from cliente");
-        $vehiculos = mysqli_query($con, "select * from vehiculo");
+        $empleados = mysqli_query($con, "SELECT * FROM empleado");
+        $cliente = mysqli_query($con, "SELECT * FROM cliente");
+        $vehiculos = mysqli_query($con, "SELECT * FROM vehiculo");
 
+        $mantenimiento = mysqli_query($con, "SELECT * FROM mantenimiento");
+        $gestoria = mysqli_query($con, "SELECT * FROM gestoria");
+        $estetica = mysqli_query($con, "SELECT * FROM estetica");
+        $traslados = mysqli_query($con, "SELECT * FROM traslados");
+        $verificacion = mysqli_query($con, "SELECT * FROM estetica");
 
         function suma_reparaciones($month){
             global $con;
@@ -67,11 +72,12 @@
                         </div>
                     </a>
                     </div>
+
                     <div class="col-md-3 col-sm-6">
                         <a href="./?view=servicios">
                         <div class="dashboard-tile detail tile-blue">
                             <div class="content">
-                                <h1 class="text-left timer" data-from="" ></h1>
+                                <h1 class="text-left timer" data-to="<?php echo mysqli_num_rows($mantenimiento) + mysqli_num_rows($gestoria) + mysqli_num_rows($estetica) + mysqli_num_rows($traslados) + mysqli_num_rows($verificacion) ?>" data-speed="2500"></h1>
                                 <p>Servicios</p>
                             </div>
                             <div class="icon"><i class="fa fa-building-o"></i>
@@ -92,6 +98,7 @@
                                     <i class="fa fa-times"></i>
                                 </div>
                             </div>
+
                             <div class="panel-body text-center">
                                 <p class="text-center">
                                     <strong><span class="text-muted">Taller</span> & <span class="text-info">Mecanico</span> <b><?php echo date('Y');?></b></strong>

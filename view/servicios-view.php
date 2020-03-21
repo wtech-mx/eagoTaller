@@ -26,6 +26,7 @@ $active5="active";
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-3 col-sm-6">
                         <a href="./?view=gestoria">
                         <div class="dashboard-tile detail tile-gold">
