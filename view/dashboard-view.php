@@ -120,6 +120,7 @@
 <!--Page Level JS-->
 <script src="assets/plugins/countTo/jquery.countTo.js"></script>
 <script src="assets/plugins/weather/js/skycons.js"></script>
+
 <script>
 var barChartData = {
     labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],

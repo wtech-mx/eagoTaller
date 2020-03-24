@@ -56,86 +56,138 @@
 <div class="form-group">
     <label for="fecha_rep" class="col-sm-4 control-label">Fecha Registro: </label>
     <div class="col-sm-8">
-        <?php echo $fecha_rep;?>
+        <p><?php echo $fecha_rep;?></p>
     </div>
 </div>
+
 <div class="form-group">
     <label for="estado" class="col-sm-4 control-label">Estado: </label>
     <div class="col-sm-8">
-        <?php echo $lbl_status;?>
+       <p> <?php echo $lbl_status;?></p>
     </div>
 </div>
+
 <div class="form-group">
     <label for="id_cliente" class="col-sm-4 control-label">Cliente: </label>
     <div class="col-sm-8">
-        <?php echo $nombre_cliente;?>
+        <p><?php echo $nombre_cliente;?></p>
     </div>
 </div>
+
 <div class="form-group">
     <label for="idvehiculo" class="col-sm-4 control-label">Vehiculo: </label>
     <div class="col-sm-8">
-        <?php echo $patente_vehiculo;?>
+        <p><?php echo $patente_vehiculo;?></p>
     </div>
 </div>
+
 <div class="form-group">
     <label for="datos" class="col-sm-4 control-label">Descripción: </label>
     <div class="col-sm-8">
-        <?php echo $datos;?>
+        <p><?php echo $datos;?></p>
     </div>
 </div>
+
+
 <div class="form-group">
-    <label for="reparacion" class="col-sm-4 control-label">Reparación: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Costo de reparacion: </label>
     <div class="col-sm-8">
-        <?php echo $reparacion;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control"  value="<?php echo $reparacion;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="trasladistas_admin" class="col-sm-4 control-label">Trasladistas: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">costo de Vendedor: </label>
     <div class="col-sm-8">
-        <?php echo $nombre_trasladista;?> $
-       <?php echo $trasladistas_admin;?>
+         <?php echo $nombre_trasladista;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $trasladistas_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
     <label for="gasolina_admin" class="col-sm-4 control-label">Costo gasolina: </label>
     <div class="col-sm-8">
-       <?php echo $gasolina_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control"  value="<?php echo $gasolina_admin ?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="otros_admin" class="col-sm-4 control-label">Otros: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Otros: </label>
     <div class="col-sm-8">
-       <?php echo $otros_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $otros_admin ?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
+
 <div class="form-group">
-    <label for="asesor" class="col-sm-4 control-label">Asesor: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">costo de Asesor: </label>
     <div class="col-sm-8">
-       <?php echo $asesor;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $asesor;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="vendedor_admin" class="col-sm-4 control-label">Vendedor: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">costo de Vendedor: </label>
     <div class="col-sm-8">
-        <?php echo $vendedor;?> $
-       <?php echo $vendedor_admin;?>
+         <?php echo $vendedor;?> 
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $vendedor_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="subtotal_admin" class="col-sm-4 control-label">Subtotal: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Subtotal:</label>
     <div class="col-sm-8">
-       <?php echo $subtotal_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $subtotal_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="eago_admin" class="col-sm-4 control-label">EAGO: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">EAGO:</label>
     <div class="col-sm-8">
-       <?php echo $eago_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $eago_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="total_admin" class="col-sm-4 control-label">Total: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Total:</label>
     <div class="col-sm-8">
-       <?php echo $total_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $total_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
