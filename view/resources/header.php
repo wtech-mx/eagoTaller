@@ -1,7 +1,7 @@
     <?php
 
     //define('RUTA', 'http://eago.com.mx/Eago-frontend/index.php');
-    define('RUTA', 'http://eago.com.mx/eagoTaller/index.php');
+    define('RUTA', 'https://eago.com.mx/eagoTaller/index.php');
     
 
     if (!isset($_SESSION['user_id'])&& $_SESSION['user_id']==null) {
@@ -111,27 +111,33 @@
                     </li>
                     <?php } ?>
 
-                    <?php if ($_SESSION['vehiculo']==1) { ?>
-                    <li class="<?php if(isset($active2)){echo $active2;}?>">
-                        <a href="./?view=vehiculos"><i class="fa fa-truck"></i><span>Vehiculo</span></a>
-                        <ul>
-                            <li><a href="./?view=taller"><i class="fa fa-cog"></i>Taller</li></a>
-                        </ul>
-                    </li>
-                    <?php } ?>
-                    
-                    <?php if ($_SESSION['taller']==1) { ?>
-                    <li class="<?php if(isset($active3)){echo $active3;}?>">
-                        <a href="./?view=datCliente"><i class="fa fa-mobile"></i>Datos Cliente</a>
-                    </li>
-                    <?php } ?>
-                    
                     <?php if ($_SESSION['empresa']==1) { ?>
                     <li class="<?php if(isset($active4)){echo $active4;}?>">
                         <a href="./?view=empresas"><i class="fa fa-building-o"></i><span>Empresas</span></a>
                     </li>
                     <?php } ?>
-                    
+
+                    <?php if ($_SESSION['taller']==1) { ?>
+                    <li class="<?php if(isset($active3)){echo $active3;}?>">
+                        <a href="./?view=datCliente"><i class="fa fa-mobile"></i>Datos Cliente</a>
+                    </li>
+                    <?php } ?>
+
+                    <?php if ($_SESSION['vehiculo']==1) { ?>
+                    <li class="<?php if(isset($active2)){echo $active2;}?>">
+                        <a href="./?view=taller"><i class="fa fa-cog"></i><span>Taller</span></a>
+                        <ul>
+                            <li><a href="./?view=vehiculos"><i class="fa fa-truck"></i>Vehiculo</li></a>
+                        </ul>
+                    </li>
+                    <?php } ?>
+
+                    <?php if ($_SESSION['trasladista']==1) { ?>
+                    <li class="<?php if(isset($active12)){echo $active12;}?>">
+                        <a href="./?view=trasladistas"><i class="fa fa-users"></i><span>Trasladistas</span></a>
+                    </li>
+                    <?php } ?>
+
                     <?php if ($_SESSION['choque']==1) { ?>
                     <li class="<?php if(isset($active5)){echo $active5;}?>">
                         <a href="./?view=servicios"><i class="fa fa-wrench" data-toggle="dropdown"></i><span>Servicios</span></a>
@@ -143,36 +149,6 @@
                             <li><a href="./?view=traslados"><i class="fa fa-truck"></i>Traslados</li></a>
                             <li><a href="./?view=verificacion"><i class="fa fa-search"></i>Verificación</li></a>
                         </ul>
-                    </li>
-                    <?php } ?>
-
-                    <?php if ($_SESSION['seguro']==1) { ?>
-                    <li class="<?php if(isset($active6)){echo $active6;}?>">
-                        <a href="./?view=documentacion"><i class="fa fa-file-text"></i><span>Documentación</span></a>
-                    </li>
-                    <?php } ?>
-
-                    <?php if ($_SESSION['reparaciones']==1) { ?>
-                    <li class="<?php if(isset($active7)){echo $active7;}?>">
-                        <a href="./?view=blog"><i class="fa fa-pencil"></i><span>Noticias y Tips</span></a>
-                    </li>
-                    <?php } ?>
-
-                  <?php if ($_SESSION['tarjeta']==1) { ?>
-                   <li class="<?php if(isset($active9)){echo $active9;}?>">
-                        <a href="./?view=slide"><i class="fa fa-camera"></i><span>Slide</span></a>
-                    </li>
-                    <?php } ?>
-                    
-                    <?php if ($_SESSION['empleados']==1) { ?>
-                    <li class="<?php if(isset($active8)){echo $active8;}?>">
-                        <a href="./?view=empleados"><i class="fa fa-user"></i><span>Empleados</span></a>
-                    </li>
-                    <?php } ?>
-
-                    <?php if ($_SESSION['trasladista']==1) { ?>
-                    <li class="<?php if(isset($active12)){echo $active12;}?>">
-                        <a href="./?view=trasladistas"><i class="fa fa-users"></i><span>Trasladistas</span></a>
                     </li>
                     <?php } ?>
 
@@ -204,9 +180,33 @@
                     </li>                     
                     <?php } ?>
 
+                    <?php if ($_SESSION['seguro']==1) { ?>
+                    <li class="<?php if(isset($active6)){echo $active6;}?>">
+                        <a href="./?view=documentacion"><i class="fa fa-file-text"></i><span>Documentación</span></a>
+                    </li>
+                    <?php } ?>
+
                     <?php if ($_SESSION['cotizacion']==1) { ?>
                    <li class="<?php if(isset($active14)){echo $active14;}?>">
                         <a href="./?view=cotizacion"><i class="fa fa-file"></i><span>Cotizacion</span></a>
+                    </li>
+                    <?php } ?>
+
+                    <?php if ($_SESSION['empleados']==1) { ?>
+                    <li class="<?php if(isset($active8)){echo $active8;}?>">
+                        <a href="./?view=empleados"><i class="fa fa-user"></i><span>Empleados</span></a>
+                    </li>
+                    <?php } ?>
+
+                    <?php if ($_SESSION['reparaciones']==1) { ?>
+                    <li class="<?php if(isset($active7)){echo $active7;}?>">
+                        <a href="./?view=blog"><i class="fa fa-pencil"></i><span>Noticias y Tips</span></a>
+                    </li>
+                    <?php } ?>
+
+                  <?php if ($_SESSION['tarjeta']==1) { ?>
+                   <li class="<?php if(isset($active9)){echo $active9;}?>">
+                        <a href="./?view=slide"><i class="fa fa-camera"></i><span>Slide</span></a>
                     </li>
                     <?php } ?>
 
