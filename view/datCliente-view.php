@@ -39,7 +39,6 @@
                             include "modals/agregar/agregar_cliente.php";
                             include "modals/editar/editar_cliente.php";
                             include "modals/mostrar/mostrar_cliente.php";
-                            include "modals/editar/conexion_vehiclien.php";
                         ?>
                     <!-- /end modals -->
                     
@@ -184,30 +183,6 @@
                 $(".alert").fadeTo(500, 0).slideUp(500, function(){
                 $(this).remove();});}, 5000);
                 $('#modal_update').modal('hide');
-              }
-        });
-      event.preventDefault();
-    });
-</script>
-<script>
-    $( "#conexion_vehiclien" ).submit(function( event ) {
-      $('#guardar_datos').attr("disabled", true);
-     var parametros = $(this).serialize();
-         $.ajax({
-                type: "POST",
-                url: "view/ajax/agregar/agregar_vehiclien.php",
-                data: parametros,
-                 beforeSend: function(objeto){
-                    $("#resultados_ajax").html("Enviando...");
-                  },
-                success: function(datos){
-                $("#resultados_ajax").html(datos);
-                $('#guardar_datos').attr("disabled", false);
-                load(1);
-                window.setTimeout(function() {
-                $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                $(this).remove();});}, 5000);
-                $('#modal_conexion').modal('hide');
               }
         });
       event.preventDefault();

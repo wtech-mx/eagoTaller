@@ -77,7 +77,7 @@
                                     </div>
                                     <label for="patente" class="col-sm-2 control-label">Placas: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" required name="patente" class="form-control" id="patente" placeholder="Placas: ">
+                                        <input type="text" name="patente" class="form-control" id="patente" placeholder="Placas: ">
                                     </div>
                                 </div>
 
@@ -99,18 +99,18 @@
                                     </div>
                                     <label for="chasis" class="col-sm-2 control-label">Chasis: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" required name="chasis" class="form-control" id="chasis" placeholder="Numero Chasis: ">
+                                        <input type="text" name="chasis" class="form-control" id="chasis" placeholder="Numero Chasis: ">
                                     </div>
                                 </div>
 
                                 <div class="form-group">  
                                     <label for="vto_vtv" class="col-sm-2 control-label">Vencimiento de Tarjeta de circulación: </label>
                                     <div class="col-sm-4">
-                                        <input type="date" required name="vto_vtv" class="form-control" id="vto_vtv" placeholder="Vto Vtv: ">
+                                        <input type="date" name="vto_vtv" class="form-control" id="vto_vtv" placeholder="Vto Vtv: ">
                                     </div>                                                   
                                     <label for="motor" class="col-sm-2 control-label">Motor: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" required name="motor" class="form-control" id="motor" placeholder="Numero Motor: ">
+                                        <input type="text" name="motor" class="form-control" id="motor" placeholder="Numero Motor: ">
                                     </div>
                                 </div>
 
@@ -132,7 +132,7 @@
                                     </div>
                                     <label for="color" class="col-sm-2 control-label">Color: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" required name="color" class="form-control" id="color" placeholder="Color: ">
+                                        <input type="text" name="color" class="form-control" id="color" placeholder="Color: ">
                                     </div>
                                 </div>
                                     

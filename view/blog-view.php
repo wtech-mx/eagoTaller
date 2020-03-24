@@ -5,8 +5,8 @@
 	//DB TRABJANDO EN LOCALHOST
 	$bd_config = array(
 		'basedatos' => 'taller_eago',
-		'usuario' => 'root',
-		'pass' => ''
+		'usuario' => 'eagotaller',
+		'pass' => 'eago19taller'
 	);
 
 	$blog_config = array(

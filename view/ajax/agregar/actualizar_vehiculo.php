@@ -10,24 +10,12 @@
 		$errors[] = "Marca está vacío";
 	} else if (empty($_POST['modelo'])){
 		$errors[] = "Modelo está vacío";
-	} else if (empty($_POST['chasis'])){
-		$errors[] = "Numero Chasis está vacío";
-	} else if (empty($_POST['motor'])){
-		$errors[] = "Numero Motor está vacío";
-	} else if (empty($_POST['vto_vtv'])){
-		$errors[] = "Vto Vtv está vacío";
-	}  else if (empty($_POST['color'])){
-		$errors[] = "Color está vacío";
-	}  elseif (
+	} elseif (
 		!empty($_POST['cliente'])
 		&& !empty($_POST['vehiculo_code'])
 		&& !empty($_POST['patente'])
 		&& !empty($_POST['marca'])
 		&& !empty($_POST['modelo'])
-		&& !empty($_POST['chasis'])
-		&& !empty($_POST['motor'])
-		&& !empty($_POST['vto_vtv'])
-		&& !empty($_POST['color'])
 		) {
 	
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
