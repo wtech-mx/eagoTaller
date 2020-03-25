@@ -42,7 +42,23 @@
                             <input type="text"  class="form-control" id="edad" name="edad" placeholder="Edad ">
                         </div>
                     </div>
-                    
+                    <div class="form-group">
+                    <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="empresa" id="empresa" >
+                                            <?php 
+                                                $sql_tallers=mysqli_query($con,"select * from empresa where estado=1 order by nombre");
+                                                while ($rw=mysqli_fetch_array($sql_tallers)){
+                                                    $idempresa=$rw['id'];
+                                                    $nombre_empresa=$rw['nombre'];
+                                                ?>
+                                                <option value="<?php echo $idempresa;?>"><?php echo $nombre_empresa;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
+                                    </div>
+                    </div>
 <!-- ==========================================================================================
      ======================================FIN DATOS GENERALES=================================
      ==========================================================================================-->

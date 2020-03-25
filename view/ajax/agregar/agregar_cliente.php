@@ -27,6 +27,7 @@
     $telefono = mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
     $correo = mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
     $edad = mysqli_real_escape_string($con,(strip_tags($_POST["edad"],ENT_QUOTES)));
+    $empresa = mysqli_real_escape_string($con,(strip_tags($_POST["empresa"],ENT_QUOTES)));
 
     $manejo = mysqli_real_escape_string($con,(strip_tags($_POST["manejo"],ENT_QUOTES)));
     $colTrabajo = mysqli_real_escape_string($con,(strip_tags($_POST["colTrabajo"],ENT_QUOTES)));
@@ -39,7 +40,7 @@
            /* $kind = mysqli_real_escape_string($con,(strip_tags($_POST["kind"],ENT_QUOTES)));*/
 
             //Write register in to database 
-            $sql = "INSERT INTO cliente (nombre, apellido, telefono, correo, edad, manejo, colTrabajo, colCasa, cpTrabajo, cpCasa, km, entidad, tipo ) VALUES('".$nombre."','".$apellido."','".$telefono."','".$correo."','".$edad."','".$manejo."','".$colTrabajo."','".$colCasa."','".$cpTrabajo."','".$cpCasa."','".$km."','".$entidad."','".$tipo."');";
+            $sql = "INSERT INTO cliente (nombre, apellido, telefono, correo, edad, idempresa, manejo, colTrabajo, colCasa, cpTrabajo, cpCasa, km, entidad, tipo ) VALUES('".$nombre."','".$apellido."','".$telefono."','".$correo."','".$edad."','".$empresa."','".$manejo."','".$colTrabajo."','".$colCasa."','".$cpTrabajo."','".$cpCasa."','".$km."','".$entidad."','".$tipo."');";
             $query_new = mysqli_query($con,$sql);
             // si se ha agregado con éxito
             if ($query_new) {

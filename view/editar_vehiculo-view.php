@@ -15,6 +15,7 @@
             $patente=$rw['patente'];
             $marca=$rw['marca'];
             $submarca=$rw['submarca'];
+            $idempresa=$rw['id'];
             $modelo=$rw['modelo'];
             $nro_chasis=$rw['nro_chasis'];
             $nro_motor=$rw['nro_motor'];
@@ -76,7 +77,8 @@
                         <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
                                 <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_code;?>" >
                                 <input type="hidden"  id="id" name="id"  value="<?php echo $vehiculo_id;?>" >
-                                     <div class="form-group">
+
+                                <div class="form-group">
                                         <label for="cliente" class="col-sm-2 control-label">cliente: </label>
                                         <div class="col-sm-4">
                                             <select class="form-control" name="cliente" id="cliente">
@@ -92,32 +94,42 @@
                                             </select>
                                         </div>
 
-                                        <label for="patente" class="col-sm-2 control-label">Placas: </label>
+                                        
+                                            <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
+                                            <div class="col-sm-4">
+                                                <select class="form-control" name="empresa" id="empresa">
+                                                <?php
+                                                    $empresas=mysqli_query($con,"select * from empresa  where estado=1 order by nombre");
+                                                    while ($rw=mysqli_fetch_array($empresas)) {
+                                                        if ($idempresa==$rw['id']){$selected1="selected";}else{$selected1="";}
+                                                ?>
+                                                    <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
+                                                <?php 
+                                                    }
+                                                ?>
+                                                </select>
+                                            </div>
+                                    </div>
+
+                                <div class="form-group">
+                                    <label for="patente" class="col-sm-2 control-label">Placas: </label>
                                         <div class="col-sm-4">
                                             <input type="text" required name="patente" class="form-control" id="patente" placeholder="Placas " value="<?php echo $patente ?>">
                                         </div>
-                                     </div>
-
-                                <div class="form-group">
-
                                     <label for="marca" class="col-sm-2 control-label">Marca: </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="marca" class="form-control" id="marca" placeholder="Marca: " value="<?php echo $marca ?>">
                                     </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="submarca" class="col-sm-2 control-label">Submarca: </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="submarca" class="form-control" id="submarca" placeholder="Submarca: " value="<?php echo $submarca ?>">
                                     </div>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="modelo" class="col-sm-2 control-label">Modelo: </label>
                                     <div class="col-sm-4">
                                         <input type="text" required name="modelo" class="form-control" id="modelo" placeholder="Modelo: " value="<?php echo $modelo ?>">
-                                    </div>
-                                    <label for="chasis" class="col-sm-2 control-label">Chasis: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="chasis" class="form-control" id="chasis" placeholder="Numero Chasis: " value="<?php echo $nro_chasis ?>">
                                     </div>
                                 </div>
 
@@ -216,6 +228,10 @@
                                             <option value="1" <?php if ($status==1){echo "selected";}?>>Activo</option>
                                             <option value="2" <?php if ($status==2){echo "selected";}?>>Inactivo</option>
                                         </select>
+                                    </div>
+                                    <label for="chasis" class="col-sm-2 control-label">Chasis: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" required name="chasis" class="form-control" id="chasis" placeholder="Numero Chasis: " value="<?php echo $nro_chasis ?>">
                                     </div>
                                 </div>
 

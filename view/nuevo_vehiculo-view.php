@@ -9,7 +9,7 @@
         $estado=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/vehiculos/vehiculo.jpg";
-        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, id_cliente, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, color, seguro, poliza, vencimiento, foto4, estado, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$estado','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$created_at'); ");
+        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, id_cliente, empresa, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, color, seguro, poliza, vencimiento, foto4, estado, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '0', '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$estado','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$created_at'); ");
         $sql_vehiculo=mysqli_query($con,"SELECT * FROM vehiculo WHERE  vehiculo_code='$vehiculo_code'");
         $rw_vehiculo=mysqli_fetch_array($sql_vehiculo);
         $id_vehiculo=$rw_vehiculo['id'];
@@ -62,7 +62,7 @@
                                 <div class="form-group">
                                     <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" name="cliente" id="cliente" required>
+                                        <select class="form-control" name="cliente" id="cliente">
                                             <?php 
                                                 $sql_clientes=mysqli_query($con,"SELECT * FROM cliente");
                                                 while ($rw=mysqli_fetch_array($sql_clientes)){
@@ -75,64 +75,75 @@
                                             ?>
                                         </select>    
                                     </div>
-                                    <label for="patente" class="col-sm-2 control-label">Placas: </label>
+                                    <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="patente" class="form-control" id="patente" placeholder="Placas: ">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">                                    
-                                    <label for="marca" class="col-sm-2 control-label">Marca: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="marca" class="form-control" id="marca" placeholder="Marca: ">
-                                    </div>
-                                    <label for="submarca" class="col-sm-2 control-label">Submarca: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="submarca" class="form-control" id="submarca" placeholder="Submarca: ">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">                                   
-                                    <label for="modelo" class="col-sm-2 control-label">Modelo: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" required name="modelo" class="form-control" id="modelo" placeholder="Modelo: ">
-                                    </div>
-                                    <label for="chasis" class="col-sm-2 control-label">Chasis: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" name="chasis" class="form-control" id="chasis" placeholder="Numero Chasis: ">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">  
-                                    <label for="vto_vtv" class="col-sm-2 control-label">Vencimiento de Tarjeta de circulación: </label>
-                                    <div class="col-sm-4">
-                                        <input type="date" name="vto_vtv" class="form-control" id="vto_vtv" placeholder="Vto Vtv: ">
-                                    </div>                                                   
-                                    <label for="motor" class="col-sm-2 control-label">Motor: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" name="motor" class="form-control" id="motor" placeholder="Numero Motor: ">
-                                    </div>
-                                </div>
-
-                                <div class="form-group"> 
-                                    <label for="seguro" class="col-sm-2 control-label">Seguro: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text"  name="seguro" class="form-control" id="seguro" placeholder="seguro: ">
-                                    </div>
-                                    <label for="poliza" class="col-sm-2 control-label">Poliza de seguro: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text"  name="poliza" class="form-control" id="poliza" placeholder="Poliza: ">
+                                        <select class="form-control" name="empresa" id="empresa" >
+                                            <?php 
+                                                $sql_empresas=mysqli_query($con,"select * from empresa where estado=1 order by nombre");
+                                                while ($rw=mysqli_fetch_array($sql_empresas)){
+                                                    $idempresa=$rw['id'];
+                                                    $nombre_empresa=$rw['nombre'];
+                                                ?>
+                                                <option value="<?php echo $idempresa;?>"><?php echo $nombre_empresa;?></option>
+                                                <?php
+                                                }
+                                            ?>
+                                        </select>    
                                     </div>
                                 </div>
 
                                 <div class="form-group">    
+                                <label for="patente" class="col-sm-2 control-label">Placas: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="patente" class="form-control" id="patente" placeholder="Placas: ">
+                                    </div>                                
+                                    <label for="marca" class="col-sm-2 control-label">Marca: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" required name="marca" class="form-control" id="marca" placeholder="Marca: ">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">  
+                                    <label for="submarca" class="col-sm-2 control-label">Submarca: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" required name="submarca" class="form-control" id="submarca" placeholder="Submarca: ">
+                                    </div>                                 
+                                    <label for="modelo" class="col-sm-2 control-label">Modelo: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" required name="modelo" class="form-control" id="modelo" placeholder="Modelo: ">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="chasis" class="col-sm-2 control-label">Chasis: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="chasis" class="form-control" id="chasis" placeholder="Numero Chasis: ">
+                                    </div>  
+                                    <label for="vto_vtv" class="col-sm-2 control-label">Vencimiento de Tarjeta de circulación: </label>
+                                    <div class="col-sm-4">
+                                        <input type="date" name="vto_vtv" class="form-control" id="vto_vtv" placeholder="Vto Vtv: ">
+                                    </div>  
+                                </div>
+
+                                <div class="form-group"> 
+                                    <label for="motor" class="col-sm-2 control-label">Motor: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="motor" class="form-control" id="motor" placeholder="Numero Motor: ">
+                                    </div>
+                                    <label for="seguro" class="col-sm-2 control-label">Seguro: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text"  name="seguro" class="form-control" id="seguro" placeholder="seguro: ">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">  
+                                    <label for="poliza" class="col-sm-2 control-label">Poliza de seguro: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text"  name="poliza" class="form-control" id="poliza" placeholder="Poliza: ">
+                                    </div>  
                                     <label for="vencimiento" class="col-sm-2 control-label">Vencimiento de seguro: </label>
                                     <div class="col-sm-4">
                                         <input type="date"  name="vencimiento" class="form-control" id="vencimiento" placeholder="Vencimiento: ">
-                                    </div>
-                                    <label for="color" class="col-sm-2 control-label">Color: </label>
-                                    <div class="col-sm-4">
-                                        <input type="text" name="color" class="form-control" id="color" placeholder="Color: ">
                                     </div>
                                 </div>
                                     
@@ -199,6 +210,10 @@
                                         <option value="2">Inactivo</option>
                                     </select>
                                 </div>
+                                <label for="color" class="col-sm-2 control-label">Color: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="color" class="form-control" id="color" placeholder="Color: ">
+                                    </div>
                             </div>
 
                                 <div class="form-group">

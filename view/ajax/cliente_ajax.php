@@ -59,6 +59,7 @@ if($action == 'ajax'){
                 <th>Telefono</th>
                 <th>Correo Electrónico</th>
                 <th>Edad</th>
+                <th>Empresa</th>
                 <th>acciones</th>
             </tr>
         </thead>
@@ -72,6 +73,11 @@ if($action == 'ajax'){
 				$correo=$row['correo'];
 				$edad=$row['edad'];
 
+				$idempresa=$row['id'];
+				$empresas=mysqli_query($con, "SELECT * FROM empresa WHERE id=$idempresa");
+				$empresa_rw=mysqli_fetch_array($empresas);
+				$nombre_empresa=$empresa_rw['nombre'];
+
 				/*$kind=$row['kind'];*/
 				
 			$finales++;
@@ -83,6 +89,7 @@ if($action == 'ajax'){
                 <td><?php echo $telefono ?></td>
                 <td><?php echo $correo ?></td>
                 <td><?php echo $edad ?></td>
+                <td><?php echo $nombre_empresa ?></td>
                 <td class="text-right">
 
                 	

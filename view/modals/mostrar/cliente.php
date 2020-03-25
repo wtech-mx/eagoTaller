@@ -13,7 +13,13 @@
             $apellido=$rw['apellido'];
             $telefono=$rw['telefono'];
             $correo=$rw['correo'];
-            $edad=$rw['edad'];          
+            $edad=$rw['edad'];
+
+            $idempresa=$rw['idempresa'];
+            $empresas=mysqli_query($con, "select * from empresa where id=$idempresa");
+            $empresa_rw=mysqli_fetch_array($empresas);
+            $nombre_empresa=$empresa_rw['nombre']; 
+
             $manejo=$rw['manejo'];
             $colTrabajo=$rw['colTrabajo'];
             $colCasa=$rw['colCasa'];
@@ -55,6 +61,12 @@
     <label for="edad" class="col-sm-4 control-label">Edad: </label>
     <div class="col-sm-8">
         <?php echo $edad;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="empresa" class="col-sm-4 control-label">Empresa: </label>
+    <div class="col-sm-8">
+       <?php echo $nombre_empresa;?>
     </div>
 </div>
 <div class="form-group">

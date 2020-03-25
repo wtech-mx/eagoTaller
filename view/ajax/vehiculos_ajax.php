@@ -84,6 +84,7 @@ if($action == 'ajax'){
                 <th>Marca</th>
                 <th>Modelo</th>
                 <th>Color</th>
+                <th>Empresa</th>
                 <th>Estado</th>
                 <th>Fecha</th>
                 <th>Acciones</th>
@@ -98,6 +99,11 @@ if($action == 'ajax'){
 				$clientes=mysqli_query($con, "SELECT * FROM cliente WHERE id_cliente=$idcliente");
 				$cliente_rw=mysqli_fetch_array($clientes);
 				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
+
+				$idempresa=$row['id'];
+				$empresas=mysqli_query($con, "SELECT * FROM empresa WHERE id=$idempresa");
+				$empresa_rw=mysqli_fetch_array($empresas);
+				$nombre_empresa=$empresa_rw['nombre'];
 
 				$vehiculo_code=$row['vehiculo_code'];
 				$patente=$row['patente'];
@@ -133,6 +139,7 @@ if($action == 'ajax'){
                 <td><?php echo $marca ?></td>
                 <td><?php echo $modelo ?></td>
                 <td><?php echo $color ?></td>
+                <td><?php echo $nombre_empresa ?></td>
                 <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">

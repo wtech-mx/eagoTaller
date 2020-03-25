@@ -28,6 +28,7 @@
     $telefono = mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
     $correo = mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
     $edad = mysqli_real_escape_string($con,(strip_tags($_POST["edad"],ENT_QUOTES)));
+    $empresa = mysqli_real_escape_string($con,(strip_tags($_POST["empresa"],ENT_QUOTES)));
 
     $manejo = mysqli_real_escape_string($con,(strip_tags($_POST["manejo"],ENT_QUOTES)));
     $colTrabajo = mysqli_real_escape_string($con,(strip_tags($_POST["colTrabajo"],ENT_QUOTES)));
@@ -40,7 +41,7 @@
     $id=intval($_POST['id_cliente']);
 
     // UPDATE data into database
-    $sql = "UPDATE cliente SET nombre='".$nombre."', apellido='".$apellido."', telefono='".$telefono."', correo='".$correo."', edad='".$edad."', manejo='".$manejo."', colTrabajo='".$colTrabajo."', colCasa='".$colCasa."', cpTrabajo='".$cpTrabajo."', cpCasa='".$cpCasa."', km='".$km."', entidad='".$entidad."', tipo='".$tipo."' WHERE id_cliente='".$id."' ";
+    $sql = "UPDATE cliente SET nombre='".$nombre."', apellido='".$apellido."', telefono='".$telefono."', correo='".$correo."', edad='".$edad."', idempresa='".$empresa."', manejo='".$manejo."', colTrabajo='".$colTrabajo."', colCasa='".$colCasa."', cpTrabajo='".$cpTrabajo."', cpCasa='".$cpCasa."', km='".$km."', entidad='".$entidad."', tipo='".$tipo."' WHERE id_cliente='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if($query){
