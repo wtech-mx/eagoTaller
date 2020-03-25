@@ -9,6 +9,7 @@
         $num=mysqli_num_rows($query);
         if ($num==1){
             $rw=mysqli_fetch_array($query);
+            $fecha_man=$rw['fecha_man'];
             $id=$rw['id'];
 
                 $idcliente=$rw['id_cliente'];
@@ -39,62 +40,104 @@
 ?>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 <div class="form-group">
+    <label for="fecha_man" class="col-sm-4 control-label">Fecha Registro: </label>
+    <div class="col-sm-8">
+        <p><?php echo $fecha_man;?></p>
+    </div>
+</div>
+
+<div class="form-group">
 <label for="id_cliente" class="col-sm-4 control-label">Cliente: </label>
     <div class="col-sm-8">
         <?php echo $nombre_cliente;?>
     </div>
 </div>
+
 <div class="form-group">
     <label for="idvehiculo" class="col-sm-4 control-label">Vehiculo: </label>
     <div class="col-sm-8">
         <?php echo $patente_vehiculo;?>
     </div>
 </div>
-<div class="form-group">
-    <label for="otro_admin" class="col-sm-2 control-label">Otro: </label>
-    <div class="col-sm-10">
-        <textarea type="number" class="form-control" id="otro_admin" name="otro_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $otro_admin ?></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="gasolina" class="col-sm-2 control-label">Gasolina: </label>
-    <div class="col-sm-10">
-        <textarea type="number" class="form-control" id="gasolina" name="gasolina" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $gasolina ?></textarea>
-    </div>
-</div>
+
 <div class="form-group">
     <label for="trasladista_admin" class="col-sm-2 control-label">Trasladista: </label>
     <div class="col-sm-10">
-        <?php echo $nombre_trasladista;?>
-        <textarea type="number" class="form-control" id="trasladista_admin" name="trasladista_admin" placeholder="$$$" onchange="SumarAutomatico(this.value);" ><?php echo $trasladista_admin ?></textarea>
+        <p> <?php echo $nombre_trasladista;?></p>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="number" class="form-control" id="trasladista_admin" name="trasladista_admin" placeholder="costo-Trasladista" value="<?php echo $trasladista_admin ?>" onchange="SumarAutomatico(this.value);">
+          <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
+<div class="form-group">
+    <label for="gasolina" class="col-sm-2 control-label">Gasolina: </label>
+    <div class="col-sm-10">
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+             <input type="number" class="form-control" id="gasolina" name="gasolina" placeholder="costo-Gasolina" value="<?php echo $gasolina ?>" onchange="SumarAutomatico(this.value);">
+             <div class="input-group-addon">.00</div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="otro_admin" class="col-sm-2 control-label">otro: </label>
+    <div class="col-sm-10">
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+             <input type="number" class="form-control" id="otro_admin" name="otro_admin" placeholder="costo-admin" value="<?php echo $otro_admin ?>" onchange="SumarAutomatico(this.value);">
+             <div class="input-group-addon">.00</div>
+         </div>
+    </div>
+</div>
+
+
+
+<div class="form-group">
+    <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
+    <div class="col-sm-10">
+      <div class="input-group">
+           <div class="input-group-addon">$</div>
+           <textarea class="form-control" id="subtotal" name="subtotal" onchange="SumarAuto(this.value);"><?php echo $subtotal ?></textarea>
+           <!-- <input type="number" class="form-control" id="subtotal" name="subtotal" onchange="SumarAuto(this.value);" value="</?php echo $subtotal;?>">-->
+           <div class="input-group-addon">.00</div>
+       </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="eago" class="col-sm-2 control-label">EAGO: </label>
+    <div class="col-sm-10">
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type="number" class="form-control" id="eago" name="eago" placeholder="EAGO" value="<?php echo $eago ?>" onchange="SumarAutomatico(this.value);">
+            <div class="input-group-addon">.00</div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="total" class="col-sm-2 control-label">Total: </label>
+    <div class="col-sm-10">
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <textarea class="form-control" id="total" name="total"></textarea>
+            <div class="input-group-addon">.00</div>
+        </div>
+    </div>
+</div>
+
 <div class="form-group">
     <label for="estado" class="col-sm-2 control-label">Estado: </label>
         <div class="col-sm-4">
             <select class="form-control" name="estado" id="estado">
+                <option class="selected" value="1" <?php if ($status==1){echo "selected";}?>>Adeudo</option>
                 <option value="2" <?php if ($status==2){echo "selected";}?>>Pagado</option>
-                <option value="1" <?php if ($status==1){echo "selected";}?>>Adeudo</option>
             </select>
         </div>
-</div>
-<div class="form-group">
-    <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
-    <div class="col-sm-10">
-        <textarea class="form-control" id="subtotal" name="subtotal" onchange="SumarAuto(this.value);"></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="eago" class="col-sm-2 control-label">EAGO: </label>
-    <div class="col-sm-10">
-        <textarea type="number" class="form-control" id="eago" name="eago" placeholder="$$$" onchange="SumarAuto(this.value);" ><?php echo $eago ?></textarea>
-    </div>
-</div>
-<div class="form-group">
-    <label for="total" class="col-sm-2 control-label">Total: </label>
-    <div class="col-sm-10">
-        <textarea class="form-control" id="total" name="total"></textarea>
-    </div>
 </div>
 
 <script type="text/javascript">

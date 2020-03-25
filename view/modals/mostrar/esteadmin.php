@@ -159,7 +159,7 @@
 </div>
 
 <div class="form-group">
-    <label for="gasolina_admin" class="col-sm-4 control-label">Subtotal:</label>
+    <label for="eago" class="col-sm-4 control-label">Subtotal:</label>
     <div class="col-sm-8">
         <div class="input-group col-sm-6">
             <div class="input-group-addon">$</div>
@@ -170,7 +170,7 @@
 </div>
 
 <div class="form-group">
-    <label for="gasolina_admin" class="col-sm-4 control-label">EAGO:</label>
+    <label for="subtotal" class="col-sm-4 control-label">EAGO:</label>
     <div class="col-sm-8">
         <div class="input-group col-sm-6">
             <div class="input-group-addon">$</div>
@@ -181,7 +181,7 @@
 </div>
 
 <div class="form-group">
-    <label for="gasolina_admin" class="col-sm-4 control-label">Total:</label>
+    <label for="total" class="col-sm-4 control-label">Total:</label>
     <div class="col-sm-8">
         <div class="input-group col-sm-6">
             <div class="input-group-addon">$</div>

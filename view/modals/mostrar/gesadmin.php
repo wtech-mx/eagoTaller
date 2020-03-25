@@ -57,36 +57,29 @@
         <?php echo $fecha_ges;?>
     </div>
 </div>
-<div class="form-group">
-    <label for="estado" class="col-sm-4 control-label">Estado: </label>
-    <div class="col-sm-8">
-        <?php echo $lbl_status;?>
-    </div>
-</div>
+
+
 <div class="form-group">
     <label for="id_cliente" class="col-sm-4 control-label">Cliente: </label>
     <div class="col-sm-8">
         <?php echo $nombre_cliente;?>
     </div>
 </div>
+
 <div class="form-group">
     <label for="idvehiculo" class="col-sm-4 control-label">Vehiculo: </label>
     <div class="col-sm-8">
         <?php echo $patente_vehiculo;?>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="gastos" class="col-sm-4 control-label">Gastos: </label>
+    <label for="idvehiculo" class="col-sm-4 control-label">Descripción: </label>
     <div class="col-sm-8">
-       <?php echo $gastos;?>
+        <?php echo $datos;?>
     </div>
 </div>
-<div class="form-group">
-    <label for="mensajeria" class="col-sm-4 control-label">Mensajeria: </label>
-    <div class="col-sm-8">
-       <?php echo $mensajeria;?>
-    </div>
-</div>
+
 <div class="form-group">
     <label for="trasladista_admin" class="col-sm-4 control-label">Trasladista: </label>
     <div class="col-sm-8">
@@ -94,27 +87,80 @@
        <?php echo $trasladista_admin;?>
     </div>
 </div>
+
+<div class="form-group">
+    <label for="gastos" class="col-sm-4 control-label">Gastos: </label>
+    <div class="col-sm-8">
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $gastos;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="mensajeria" class="col-sm-4 control-label">Mensajeria: </label>
+    <div class="col-sm-8">
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $mensajeria;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
+    </div>
+</div>
+
 <div class="form-group">
     <label for="general" class="col-sm-4 control-label">General: </label>
     <div class="col-sm-8">
-       <?php echo $general;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $general;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
+
+
 <div class="form-group">
-    <label for="subtotal_admin" class="col-sm-4 control-label">Subtotal: </label>
+    <label for="general" class="col-sm-4 control-label">Subtotal: </label>
     <div class="col-sm-8">
-       <?php echo $subtotal_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $subtotal_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
+
 <div class="form-group">
     <label for="eago_admin" class="col-sm-4 control-label">EAGO: </label>
     <div class="col-sm-8">
-       <?php echo $eago_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $eago_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
     <label for="total_admin" class="col-sm-4 control-label">Total: </label>
     <div class="col-sm-8">
-       <?php echo $total_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $total_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
+<div class="form-group">
+    <label for="estado" class="col-sm-4 control-label">Estado: </label>
+    <div class="col-sm-8">
+        <?php echo $lbl_status;?>
+    </div>
+</div>
+

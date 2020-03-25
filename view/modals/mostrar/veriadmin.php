@@ -59,71 +59,114 @@
         <?php echo $fecha_veri;?>
     </div>
 </div>
+
 <div class="form-group">
     <label for="estado" class="col-sm-4 control-label">Estado: </label>
     <div class="col-sm-8">
         <?php echo $lbl_status;?>
     </div>
 </div>
+
 <div class="form-group">
     <label for="id_cliente" class="col-sm-4 control-label">Cliente: </label>
     <div class="col-sm-8">
         <?php echo $nombre_cliente;?>
     </div>
 </div>
+
 <div class="form-group">
     <label for="idvehiculo" class="col-sm-4 control-label">Vehiculo: </label>
     <div class="col-sm-8">
         <?php echo $patente_vehiculo;?>
     </div>
 </div>
+
 <div class="form-group">
     <label for="datos" class="col-sm-4 control-label">Datos: </label>
     <div class="col-sm-8">
        <?php echo $datos;?>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="derechos_admin" class="col-sm-4 control-label">Derechos: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Trasladistas: </label>
     <div class="col-sm-8">
-       <?php echo $derechos_admin;?>
+        <p><?php echo $nombre_trasladista;?></p>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $trasladistas_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="otros_admin" class="col-sm-4 control-label">Otros: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">vendedor: </label>
     <div class="col-sm-8">
-       <?php echo $otros_admin;?>
+        <p><?php echo $vendedor;?></p>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $vendedor_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
+
 <div class="form-group">
-    <label for="trasladistas_admin" class="col-sm-4 control-label">Trasladistas: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Derechos: </label>
     <div class="col-sm-8">
-        <?php echo $nombre_trasladista;?> $
-       <?php echo $trasladistas_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $derechos_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
+
 <div class="form-group">
-    <label for="vendedor_admin" class="col-sm-4 control-label">vendedor: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Otros: </label>
     <div class="col-sm-8">
-        <?php echo $vendedor;?> $
-       <?php echo $vendedor_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $otros_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
+
 <div class="form-group">
-    <label for="subtotal_admin" class="col-sm-4 control-label">Subtotal: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Subtotal: </label>
     <div class="col-sm-8">
-       <?php echo $subtotal_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $subtotal_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
+
 <div class="form-group">
-    <label for="eago_admin" class="col-sm-4 control-label">EAGO: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">EAGO: </label>
     <div class="col-sm-8">
-       <?php echo $eago_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $eago_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
+
 <div class="form-group">
-    <label for="total_admin" class="col-sm-4 control-label">Total: </label>
+    <label for="gasolina_admin" class="col-sm-4 control-label">Total: </label>
     <div class="col-sm-8">
-       <?php echo $total_admin;?>
+        <div class="input-group col-sm-6">
+            <div class="input-group-addon">$</div>
+             <input disabled type="number" class="form-control" value="<?php echo $total_admin;?>">
+             <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
