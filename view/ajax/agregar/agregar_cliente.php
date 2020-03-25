@@ -40,7 +40,7 @@
            /* $kind = mysqli_real_escape_string($con,(strip_tags($_POST["kind"],ENT_QUOTES)));*/
 
             //Write register in to database 
-            $sql = "INSERT INTO cliente (nombre, apellido, telefono, correo, edad, idempresa, manejo, colTrabajo, colCasa, cpTrabajo, cpCasa, km, entidad, tipo ) VALUES('".$nombre."','".$apellido."','".$telefono."','".$correo."','".$edad."','".$empresa."','".$manejo."','".$colTrabajo."','".$colCasa."','".$cpTrabajo."','".$cpCasa."','".$km."','".$entidad."','".$tipo."');";
+            $sql = "INSERT INTO cliente (nombre, apellido, telefono, correo, edad, id_empresa, manejo, colTrabajo, colCasa, cpTrabajo, cpCasa, km, entidad, tipo ) VALUES('".$nombre."','".$apellido."','".$telefono."','".$correo."','".$edad."','".$empresa."','".$manejo."','".$colTrabajo."','".$colCasa."','".$cpTrabajo."','".$cpCasa."','".$km."','".$entidad."','".$tipo."');";
             $query_new = mysqli_query($con,$sql);
             // si se ha agregado con éxito
             if ($query_new) {

@@ -125,9 +125,9 @@
 
                     <?php if ($_SESSION['vehiculo']==1) { ?>
                     <li class="<?php if(isset($active2)){echo $active2;}?>">
-                        <a href="./?view=taller"><i class="fa fa-cog"></i><span>Taller</span></a>
+                        <a href="./?view=vehiculos"><i class="fa fa-truck"></i><span>Vehiculo</span></a>
                         <ul>
-                            <li><a href="./?view=vehiculos"><i class="fa fa-truck"></i>Vehiculo</li></a>
+                            <li><a href="./?view=taller"><i class="fa fa-cog"></i>Taller</li></a>
                         </ul>
                     </li>
                     <?php } ?>

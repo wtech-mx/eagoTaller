@@ -14,7 +14,7 @@
             $telefono=$rw['telefono'];
             $correo=$rw['correo'];
             $edad=$rw['edad'];
-            $idempresa=$rw['idempresa'];
+            $idempresa=$rw['id_empresa'];
             $manejo=$rw['manejo'];
             $colTrabajo=$rw['colTrabajo'];
             $colCasa=$rw['colCasa'];
@@ -32,13 +32,13 @@
 <div class="form-group">
     <label for="nombre" class="col-sm-2 control-label">Nombre: </label>
     <div class="col-sm-10">
-        <input type="text" required class="form-control" id="nombre" name="nombre" value="<?php echo $nombre;?>" placeholder="Nombre: ">
+        <input type="text"  class="form-control" id="nombre" name="nombre" value="<?php echo $nombre;?>" placeholder="Nombre: ">
     </div>
 </div>
 <div class="form-group">
     <label for="apellido" class="col-sm-2 control-label">Apellido: </label>
     <div class="col-sm-10">
-        <input type="text" required class="form-control" id="apellido" name="apellido" value="<?php echo $apellido;?>" placeholder="Apellido: ">
+        <input type="text"  class="form-control" id="apellido" name="apellido" value="<?php echo $apellido;?>" placeholder="Apellido: ">
     </div>
 </div>
 <div class="form-group">
@@ -63,12 +63,13 @@
     <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
     <div class="col-sm-10">
         <select class="form-control" name="empresa" id="empresa">
+            <option value="0">Seleccionar Empresa</option>
         <?php
             $empresas=mysqli_query($con,"select * from empresa  where estado=1 order by nombre");
             while ($rw=mysqli_fetch_array($empresas)) {
-                if ($idempresa==$rw['id']){$selected1="selected";}else{$selected1="";}
+                if ($idempresa==$rw['id_empresa']){$selected1="selected";}else{$selected1="";}
         ?>
-            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
+            <option value="<?php echo $rw['id_empresa']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
         <?php 
             }
         ?>

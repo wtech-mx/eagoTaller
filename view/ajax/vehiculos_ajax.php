@@ -5,40 +5,17 @@
 	if (isset($_REQUEST["id"])){//codigo para eliminar 
 	$id=$_REQUEST["id"];
 	$id=intval($id);
-
-	$query_validate=mysqli_query($con,"select * from tarjeta where idvehiculo='".$id."'");
-	$count=mysqli_num_rows($query_validate);
-	if ($count==0){
-
-		$query_validate2=mysqli_query($con,"select * from reparaciones where idvehiculo='".$id."'");
-		$count2=mysqli_num_rows($query_validate2);
-		if ($count2==0){
-
-			if($delete=mysqli_query($con, "DELETE FROM vehiculo WHERE id='$id'")){
-				$aviso="Bien hecho!";
-				$msj="Datos eliminados satisfactoriamente.";
-				$classM="alert alert-success";
-				$times="&times;";	
-			}else{
-				$aviso="Aviso!";
-				$msj="Error al eliminar los datos ".mysqli_error($con);
-				$classM="alert alert-danger";
-				$times="&times;";					
-			}
-
-		}else{
-			$aviso="Aviso!";
-			$msj="Error al eliminar los datos. El vehiculo se encuentra vinculado con una reparacion";
-			$classM="alert alert-danger";
-			$times="&times;";
-		}	
-
+	if($delete=mysqli_query($con, "DELETE FROM vehiculo WHERE id='$id'")){
+		$aviso="Bien hecho!";
+		$msj="Datos eliminados satisfactoriamente.";
+		$classM="alert alert-success";
+		$times="&times;";	
 	}else{
 		$aviso="Aviso!";
-		$msj="Error al eliminar los datos. El vehiculo se encuentra vinculado con una tarjeta";
+		$msj="Error al eliminar los datos ".mysqli_error($con);
 		$classM="alert alert-danger";
-		$times="&times;";
-	}	
+		$times="&times;";					
+	}
 }
 
 $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
@@ -46,7 +23,7 @@ if($action == 'ajax'){
 	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
 	$tables="vehiculo";
 	$campos="*";
-	$sWhere=" patente LIKE '%".$query."%' and id_cliente>0";
+	$sWhere=" patente LIKE '%".$query."%'";
 	include 'pagination.php'; //include pagination file
 	//pagination variables
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
@@ -94,14 +71,13 @@ if($action == 'ajax'){
 			$finales=0;
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id'];
-
 				$idcliente=$row['id_cliente'];
 				$clientes=mysqli_query($con, "SELECT * FROM cliente WHERE id_cliente=$idcliente");
 				$cliente_rw=mysqli_fetch_array($clientes);
 				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
-				$idempresa=$row['id'];
-				$empresas=mysqli_query($con, "SELECT * FROM empresa WHERE id=$idempresa");
+				$idempresa=$row['id_empresa'];
+				$empresas=mysqli_query($con, "SELECT * FROM empresa WHERE id_empresa=$idempresa");
 				$empresa_rw=mysqli_fetch_array($empresas);
 				$nombre_empresa=$empresa_rw['nombre'];
 
@@ -109,7 +85,7 @@ if($action == 'ajax'){
 				$patente=$row['patente'];
 				$marca=$row['marca'];
 				$modelo=$row['modelo'];
-				$foto4=$row['foto4'];
+				$foto1=$row['foto1'];
 				$created_at=$row['fecha_carga'];
 				$color=$row['color'];
 				$estado=$row['estado'];
@@ -127,13 +103,14 @@ if($action == 'ajax'){
 				}
 				
 				$finales++;
+			
 		?>	
         <tbody>
             <tr>
                 <td><?php echo $vehiculo_code ?></td>
                 <td><?php echo $nombre_cliente ?></td>
                 <td class='text-center'>
-                	<img src="<?php echo $foto4;?>" alt="<?php echo $patente;?>" class='img-rounded' width="60">
+                	<img src="<?php echo $foto1;?>" alt="<?php echo $patente;?>" class='img-rounded' width="60">
                 </td>
                 <td><?php echo $patente ?></td>
                 <td><?php echo $marca ?></td>

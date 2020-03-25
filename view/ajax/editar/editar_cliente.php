@@ -41,7 +41,7 @@
     $id=intval($_POST['id_cliente']);
 
     // UPDATE data into database
-    $sql = "UPDATE cliente SET nombre='".$nombre."', apellido='".$apellido."', telefono='".$telefono."', correo='".$correo."', edad='".$edad."', idempresa='".$empresa."', manejo='".$manejo."', colTrabajo='".$colTrabajo."', colCasa='".$colCasa."', cpTrabajo='".$cpTrabajo."', cpCasa='".$cpCasa."', km='".$km."', entidad='".$entidad."', tipo='".$tipo."' WHERE id_cliente='".$id."' ";
+    $sql = "UPDATE cliente SET nombre='".$nombre."', apellido='".$apellido."', telefono='".$telefono."', correo='".$correo."', edad='".$edad."', id_empresa='".$empresa."', manejo='".$manejo."', colTrabajo='".$colTrabajo."', colCasa='".$colCasa."', cpTrabajo='".$cpTrabajo."', cpCasa='".$cpCasa."', km='".$km."', entidad='".$entidad."', tipo='".$tipo."' WHERE id_cliente='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if($query){

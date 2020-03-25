@@ -9,7 +9,7 @@
         $estado=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/vehiculos/vehiculo.jpg";
-        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, id_cliente, empresa, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, color, seguro, poliza, vencimiento, foto4, estado, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '0', '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$estado','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$created_at'); ");
+        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, id_cliente, idempresa, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, color, seguro, poliza, vencimiento, foto4, estado, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '0', '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$estado','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$created_at'); ");
         $sql_vehiculo=mysqli_query($con,"SELECT * FROM vehiculo WHERE  vehiculo_code='$vehiculo_code'");
         $rw_vehiculo=mysqli_fetch_array($sql_vehiculo);
         $id_vehiculo=$rw_vehiculo['id'];
@@ -63,6 +63,7 @@
                                     <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
                                     <div class="col-sm-4">
                                         <select class="form-control" name="cliente" id="cliente">
+                                            <option value="0">Seleccionar Cliente</option>
                                             <?php 
                                                 $sql_clientes=mysqli_query($con,"SELECT * FROM cliente");
                                                 while ($rw=mysqli_fetch_array($sql_clientes)){
@@ -78,13 +79,14 @@
                                     <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
                                     <div class="col-sm-4">
                                         <select class="form-control" name="empresa" id="empresa" >
+                                            <option value="0">Seleccionar Empresa</option>
                                             <?php 
                                                 $sql_empresas=mysqli_query($con,"select * from empresa where estado=1 order by nombre");
                                                 while ($rw=mysqli_fetch_array($sql_empresas)){
-                                                    $idempresa=$rw['id'];
+                                                    $idempresa=$rw['id_empresa'];
                                                     $nombre_empresa=$rw['nombre'];
                                                 ?>
-                                                <option value="<?php echo $idempresa;?>"><?php echo $nombre_empresa;?></option>
+                                                <option value="<?php echo $id_empresa;?>"><?php echo $nombre_empresa;?></option>
                                                 <?php
                                                 }
                                             ?>

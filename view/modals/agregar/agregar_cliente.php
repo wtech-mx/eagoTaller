@@ -15,13 +15,13 @@
                     <div class="form-group">
                         <label for="nombre" class="col-sm-2 control-label">Nombre: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="col-sm-2 control-label">Apellido: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="apellido" name="apellido" placeholder="Apellido">
+                            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
                         </div>
                     </div>
                     <div class="form-group">
@@ -46,13 +46,14 @@
                     <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
                                     <div class="col-sm-10">
                                         <select class="form-control" name="empresa" id="empresa" >
+                                            <option value="0">Seleccionar Empresa</option>
                                             <?php 
                                                 $sql_tallers=mysqli_query($con,"select * from empresa where estado=1 order by nombre");
                                                 while ($rw=mysqli_fetch_array($sql_tallers)){
-                                                    $idempresa=$rw['id'];
+                                                    $idempresa=$rw['id_empresa'];
                                                     $nombre_empresa=$rw['nombre'];
                                                 ?>
-                                                <option value="<?php echo $idempresa;?>"><?php echo $nombre_empresa;?></option>
+                                                <option value="<?php echo $id_empresa;?>"><?php echo $nombre_empresa;?></option>
                                                 <?php
                                                 }
                                             ?>

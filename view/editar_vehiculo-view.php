@@ -82,6 +82,7 @@
                                         <label for="cliente" class="col-sm-2 control-label">cliente: </label>
                                         <div class="col-sm-4">
                                             <select class="form-control" name="cliente" id="cliente">
+                                                <option value="0">Seleccionar Cliente</option>
                                             <?php
                                                 $clientes=mysqli_query($con,"select * from cliente");
                                                 while ($rw=mysqli_fetch_array($clientes)) {
@@ -98,12 +99,13 @@
                                             <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
                                             <div class="col-sm-4">
                                                 <select class="form-control" name="empresa" id="empresa">
+                                                    <option value="0">Seleccionar Empresa</option>
                                                 <?php
                                                     $empresas=mysqli_query($con,"select * from empresa  where estado=1 order by nombre");
                                                     while ($rw=mysqli_fetch_array($empresas)) {
-                                                        if ($idempresa==$rw['id']){$selected1="selected";}else{$selected1="";}
+                                                        if ($idempresa==$rw['id_empresa']){$selected1="selected";}else{$selected1="";}
                                                 ?>
-                                                    <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
+                                                    <option value="<?php echo $rw['id_empresa']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                                 <?php 
                                                     }
                                                 ?>
@@ -136,11 +138,11 @@
                                 <div class="form-group">
                                     <label for="vto_vtv" class="col-sm-2 control-label">Vencimiento de Tarjeta de circulación: </label>
                                     <div class="col-sm-4">
-                                        <input type="date" required name="vto_vtv" class="form-control" id="vto_vtv" placeholder="Vto Vtv: " value="<?php echo $vto_vtv ?>">
+                                        <input type="date" name="vto_vtv" class="form-control" id="vto_vtv" placeholder="Vto Vtv: " value="<?php echo $vto_vtv ?>">
                                     </div>
                                     <label for="motor" class="col-sm-2 control-label">Motor: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" required name="motor" class="form-control" id="motor" placeholder="Numero Motor: " value="<?php echo $nro_motor ?>">
+                                        <input type="text" name="motor" class="form-control" id="motor" placeholder="Numero Motor: " value="<?php echo $nro_motor ?>">
                                     </div>
                                 </div>
 
@@ -162,14 +164,14 @@
                                     </div>
                                     <label for="color" class="col-sm-2 control-label">Color: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" required name="color" class="form-control" id="color" placeholder="Color: " value="<?php echo $color ?>">
+                                        <input type="text" name="color" class="form-control" id="color" placeholder="Color: " value="<?php echo $color ?>">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="imagefile" class="col-sm-2 control-label">Foto 1: </label>
+                                    <label for="imagefile1" class="col-sm-2 control-label">Foto 1: </label>
                                     <div class="col-sm-4">
-                                        <input type="file" name="imagefile" class="form-control" id="imagefile" onchange="upload_foto1(<?php echo $vehiculo_id; ?>);">
+                                        <input type="file" name="imagefile1" class="form-control" id="imagefile1" onchange="upload_foto1(<?php echo $vehiculo_id; ?>);">
                                     </div>
                                     <label for="imagefile2" class="col-sm-2 control-label">Foto 2: </label>
                                     <div class="col-sm-4">
@@ -261,30 +263,6 @@
                                 <input type="hidden"  id="id" name="id"  value="<?php echo $vehiculo_id;?>" >
 
                                 <div class="col-md-3">
-                                    <div class="box box-primary"><!-- Profile Image 4-->
-                                        <div class="box-body box-profile">
-                                            <div id="load_img4">
-                                                <img class=" img-responsive" src="<?php echo  $foto4;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
-                                            </div>
-                                            <br>
-                                            <div id="myModal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                            <h4 class="modal-title">&nbsp;</h4>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <img src="<?php echo $foto4;?>" class="img-responsive">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
                                     <div class="box box-primary"><!-- Profile Image 1-->
                                         <div class="box-body box-profile">
                                             <div id="load_img">
@@ -348,6 +326,30 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <img src="<?php echo $foto3;?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                                                <div class="col-md-3">
+                                    <div class="box box-primary"><!-- Profile Image 4-->
+                                        <div class="box-body box-profile">
+                                            <div id="load_img4">
+                                                <img class=" img-responsive" src="<?php echo  $foto4;?>" alt="Foto del vehiculo" data-toggle="modal" data-target="#myModal4" style='cursor:pointer'>
+                                            </div>
+                                            <br>
+                                            <div id="myModal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">&nbsp;</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="<?php echo $foto4;?>" class="img-responsive">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -516,10 +518,10 @@
 <script>
     function upload_foto1(vehiculo_id){
         $("#load_img").text('Cargando...');
-        var inputFileImage = document.getElementById("imagefile");
+        var inputFileImage = document.getElementById("imagefile1");
         var file = inputFileImage.files[0];
         var data = new FormData();
-        data.append('imagefile',file);
+        data.append('imagefile1',file);
         data.append('id',vehiculo_id);
         
         $.ajax({

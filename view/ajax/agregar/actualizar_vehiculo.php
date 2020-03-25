@@ -1,8 +1,6 @@
 <?php
 	include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
-	if (empty($_POST['cliente'])) {
-        $errors[] = "Cliente está vacío.";
-    } else if (empty($_POST['vehiculo_code'])){
+	if (empty($_POST['vehiculo_code'])){
 		$errors[] = "Código del vehiculo está vacío";
 	}else if (empty($_POST['patente'])){
 		$errors[] = "Patente del vehiculo está vacío";
@@ -11,8 +9,7 @@
 	} else if (empty($_POST['modelo'])){
 		$errors[] = "Modelo está vacío";
 	} elseif (
-		!empty($_POST['cliente'])
-		&& !empty($_POST['vehiculo_code'])
+		!empty($_POST['vehiculo_code'])
 		&& !empty($_POST['patente'])
 		&& !empty($_POST['marca'])
 		&& !empty($_POST['modelo'])
@@ -40,7 +37,7 @@
 		$id=intval($_POST['id']);
 			
 		// update data
-        $sql = "UPDATE vehiculo SET id_cliente='".$cliente."', idempresa='".$empresa."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', marca='".$marca."', submarca='".$submarca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', seguro='".$seguro."', poliza='".$poliza."', vencimiento='".$vencimiento."', estado='".$estado."', color='".$color."' WHERE id='$id' ";
+        $sql = "UPDATE vehiculo SET id_cliente='".$cliente."', id_empresa='".$empresa."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', marca='".$marca."', submarca='".$submarca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', seguro='".$seguro."', poliza='".$poliza."', vencimiento='".$vencimiento."', estado='".$estado."', color='".$color."' WHERE id='$id' ";
         $query = mysqli_query($con,$sql);
 
         // if user has been update successfully

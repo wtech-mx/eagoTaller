@@ -3,13 +3,13 @@
 	/* Connect To Database*/
 	require_once ("../../config/config.php");
 	if (isset($_REQUEST["id"])){//codigo para eliminar 
-	$id=$_REQUEST["id"];
+	$id=$_REQUEST["id_empresa"];
 	$id=intval($id);
 
-	$query_validate=mysqli_query($con,"select * from sector where idempresa='".$id."'");
+	$query_validate=mysqli_query($con,"select * from sector where id_empresa='".$id."'");
 	$count=mysqli_num_rows($query_validate);
 	if ($count==0){
-		if($delete=mysqli_query($con, "DELETE FROM empresa WHERE id='$id'")){
+		if($delete=mysqli_query($con, "DELETE FROM empresa WHERE id_empresa='$id'")){
 			$aviso="Bien hecho!";
 			$msj="Datos eliminados satisfactoriamente.";
 			$classM="alert alert-success";
@@ -76,7 +76,7 @@ if($action == 'ajax'){
         <?php 
 			$finales=0;
 			while($row = mysqli_fetch_array($query)){	
-				$id=$row['id'];
+				$id=$row['id_empresa'];
 				$nombre=$row['nombre'];
 				$cuit=$row['cuit'];
 				$estado=$row['estado'];

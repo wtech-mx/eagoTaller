@@ -73,8 +73,8 @@ if($action == 'ajax'){
 				$correo=$row['correo'];
 				$edad=$row['edad'];
 
-				$idempresa=$row['id'];
-				$empresas=mysqli_query($con, "SELECT * FROM empresa WHERE id=$idempresa");
+				$idempresa=$row['id_empresa'];
+				$empresas=mysqli_query($con, "SELECT * FROM empresa WHERE id_empresa=$idempresa");
 				$empresa_rw=mysqli_fetch_array($empresas);
 				$nombre_empresa=$empresa_rw['nombre'];
 

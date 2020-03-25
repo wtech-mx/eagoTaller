@@ -17,9 +17,9 @@
         $nombre = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
         $cuit = mysqli_real_escape_string($con,(strip_tags($_POST["cuit"],ENT_QUOTES)));
         $estado = mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));
-        $id=intval($_POST['id']);
+        $id=intval($_POST['id_empresa']);
 	// UPDATE data into database
-    $sql = "UPDATE empresa SET nombre='".$nombre."', cuit='".$cuit."',estado='".$estado."' WHERE id='".$id."' ";
+    $sql = "UPDATE empresa SET nombre='".$nombre."', cuit='".$cuit."',estado='".$estado."' WHERE id_empresa='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

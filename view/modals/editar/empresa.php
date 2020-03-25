@@ -1,15 +1,14 @@
 <?php
 	session_start();
 	require_once ("../../../config/config.php");
-	if (isset($_GET["id"])){
-		$id=$_GET["id"];
+	if (isset($_GET["id_empresa"])){
+		$id=$_GET["id_empresa"];
 		$id=intval($id);
-		$sql="select * from empresa where id='$id'";
+		$sql="select * from empresa where id_empresa='$id'";
 		$query=mysqli_query($con,$sql);
 		$num=mysqli_num_rows($query);
 		if ($num==1){
 			$rw=mysqli_fetch_array($query);
-			$id=$rw['id'];
             $nombre=$rw['nombre'];
             $cuit=$rw['cuit'];
             $status=$rw['estado'];
@@ -18,7 +17,7 @@
 	}	
 	else{exit;}
 ?>
-<input type="hidden" value="<?php echo $id;?>" name="id" id="id">
+<input type="hidden" value="<?php echo $id;?>" name="id_empresa" id="id_empresa">
 <div class="form-group">
     <label for="nombre" class="col-sm-2 control-label">Nombre: </label>
     <div class="col-sm-10">
