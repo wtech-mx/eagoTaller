@@ -86,7 +86,7 @@ if($action == 'ajax'){
                 <th>Color</th>
                 <th>Estado</th>
                 <th>Fecha</th>
-                <th></th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <?php 

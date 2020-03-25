@@ -37,6 +37,10 @@
                     <div id="loader" class="text-center"></div>
                 </div>
 
+                <div class="col-md-6">
+                    <a class="btn btn-primary" href="./?view=nuevo_documentacion"><i class='fa fa-file-text'></i> Agregar Documentacion</a>
+                </div>
+
                 <div class="col-md-offset-10">
                     <!-- modals -->
                         <?php 
@@ -44,8 +48,7 @@
                            // include "modals/editar/editar_sector.php";
                         ?>
                     <!-- /end modals -->
-                    <a class="btn btn-primary" href="./?view=nuevo_vehiculo"><i class='fa fa-plus'></i> Nuevo</a>
-                    
+                    <a class="btn btn-primary" href="./?view=nuevo_vehiculo"><i class='fa fa-plus'></i> Nuevo</a>                    
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             Mostrar <span class="caret"></span>
