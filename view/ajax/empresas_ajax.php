@@ -2,7 +2,7 @@
 	include("is_logged.php");//Archivo comprueba si el usuario esta logueado
 	/* Connect To Database*/
 	require_once ("../../config/config.php");
-	if (isset($_REQUEST["id"])){//codigo para eliminar 
+	if (isset($_REQUEST["id_empresa"])){//codigo para eliminar 
 	$id=$_REQUEST["id_empresa"];
 	$id=intval($id);
 

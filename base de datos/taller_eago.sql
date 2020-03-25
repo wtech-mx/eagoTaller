@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-03-2020 a las 02:30:10
+-- Tiempo de generación: 25-03-2020 a las 22:21:29
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -99,6 +99,7 @@ CREATE TABLE `cliente` (
   `telefono` varchar(20) NOT NULL,
   `correo` varchar(30) NOT NULL,
   `edad` int(10) NOT NULL,
+  `id_empresa` int(10) NOT NULL,
   `idvehiculo` varchar(50) NOT NULL,
   `manejo` date NOT NULL,
   `colTrabajo` varchar(50) NOT NULL,
@@ -115,8 +116,8 @@ CREATE TABLE `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `idvehiculo`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`) VALUES
-(1, 'dayanna', 'Espinosa', '(553) 990-7266', 'itzel@gmail.com', 25, '', '2020-02-13', 'aeropuerto', 'upiicsa', 7580, 7580, 43, 'Mexicano', '2', 0);
+INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `id_empresa`, `idvehiculo`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`) VALUES
+(1, 'dayanna', 'Espinosa', '(553) 990-7266', 'itzel@gmail.com', 25, 2, '', '2020-02-13', 'aeropuerto', 'upiicsa', 7580, 7580, 43, 'Mexicano', '2', 0);
 
 -- --------------------------------------------------------
 
@@ -203,13 +204,6 @@ CREATE TABLE `documentacion` (
   `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `documentacion`
---
-
-INSERT INTO `documentacion` (`id`, `id_cliente`, `idvehiculo`, `documento_code`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `fecha_carga`) VALUES
-(1, 0, 0, '1584808883-1', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', '2020-03-21 17:41:23');
-
 -- --------------------------------------------------------
 
 --
@@ -281,7 +275,7 @@ INSERT INTO `empleado_permisos` (`idempleado_permiso`, `idempleado`, `idpermiso`
 --
 
 CREATE TABLE `empresa` (
-  `id` int(11) NOT NULL,
+  `id_empresa` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `cuit` varchar(30) NOT NULL,
   `estado` tinyint(4) NOT NULL,
@@ -292,8 +286,9 @@ CREATE TABLE `empresa` (
 -- Volcado de datos para la tabla `empresa`
 --
 
-INSERT INTO `empresa` (`id`, `nombre`, `cuit`, `estado`, `fecha_carga`) VALUES
-(1, 'Itzel', '54', 1, '2020-01-30 18:32:16');
+INSERT INTO `empresa` (`id_empresa`, `nombre`, `cuit`, `estado`, `fecha_carga`) VALUES
+(1, 'Itzel', '54', 1, '2020-01-30 18:32:16'),
+(2, 'Escuderia', 'Federativa', 1, '2020-03-25 04:29:34');
 
 -- --------------------------------------------------------
 
@@ -651,6 +646,7 @@ CREATE TABLE `traslados` (
 CREATE TABLE `vehiculo` (
   `id` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
+  `id_empresa` int(11) NOT NULL,
   `vehiculo_code` varchar(100) NOT NULL,
   `patente` varchar(40) NOT NULL,
   `marca` varchar(255) NOT NULL,
@@ -681,8 +677,9 @@ CREATE TABLE `vehiculo` (
 -- Volcado de datos para la tabla `vehiculo`
 --
 
-INSERT INTO `vehiculo` (`id`, `id_cliente`, `vehiculo_code`, `patente`, `marca`, `submarca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `color`, `seguro`, `poliza`, `vencimiento`, `foto4`, `estado`, `foto1`, `foto2`, `foto3`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `fecha_carga`) VALUES
-(1, 1, '1', 'LO-300', 'benz', 'add', '2019', '', '0932', '2020-02-03', '33', '897', 'EAGO', '2020-02-02', '1584808891-1', 1, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-03-21 17:41:31');
+INSERT INTO `vehiculo` (`id`, `id_cliente`, `id_empresa`, `vehiculo_code`, `patente`, `marca`, `submarca`, `modelo`, `nro_chasis`, `nro_motor`, `vto_vtv`, `color`, `seguro`, `poliza`, `vencimiento`, `foto4`, `estado`, `foto1`, `foto2`, `foto3`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `fecha_carga`) VALUES
+(1, 2, 2, '1', 'LO-300', 'benz', 'add', '2019', 'ofl', '0932', '2020-02-03', '33', '897', 'EAGO', '2020-02-02', '1584808891-1', 1, 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-03-21 17:41:31'),
+(3, 1, 2, '2', 'ASL-093', 'ferrari', 'add', '2019', 'fjgh', '245', '2020-05-08', 'blanco', '897', '', '0000-00-00', 'view/resources/images/vehiculos/1585166992_1.jpeg', 1, 'view/resources/images/vehiculos/1585167056_4.jpeg', 'view/resources/images/vehiculos/1585166982_3.jpeg', 'view/resources/images/vehiculos/1585166986_4.jpeg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', 'view/resources/images/vehiculos/vehiculo.jpg', '2020-03-25 20:56:18');
 
 -- --------------------------------------------------------
 
@@ -817,7 +814,7 @@ ALTER TABLE `empleado_permisos`
 -- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_empresa`);
 
 --
 -- Indices de la tabla `estetica`
@@ -941,7 +938,7 @@ ALTER TABLE `choque`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `configuracion`
@@ -959,7 +956,7 @@ ALTER TABLE `cotizacion`
 -- AUTO_INCREMENT de la tabla `documentacion`
 --
 ALTER TABLE `documentacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -977,7 +974,7 @@ ALTER TABLE `empleado_permisos`
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `estetica`
@@ -1055,7 +1052,7 @@ ALTER TABLE `traslados`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo_cliente`
