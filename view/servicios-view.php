@@ -43,6 +43,7 @@ $active5="active";
                         </div>
                     </a>
                     </div>
+
                     <div class="col-md-6 col-sm-6">
                         <a href="./?view=estetica" data-toggle="tooltip" data-placement="top" title="Selecciona el servicio de Mecanica/Estetica para poder crear, editar y/o elimincar un servicio ">
                         <div class="dashboard-tile detail tile-steelblue">
@@ -55,6 +56,7 @@ $active5="active";
                         </div>
                     </a>
                     </div>
+
                     <div class="col-md-6 col-sm-6">
                         <a href="./?view=traslados" data-toggle="tooltip" data-placement="top" title="Selecciona el servicio de Traslados para poder crear, editar y/o elimincar un servicio ">
                         <div class="dashboard-tile detail tile-teal">
@@ -67,9 +69,10 @@ $active5="active";
                         </div>
                     </a>
                     </div>
+
                     <div class="col-md-12 col-sm-6">
                         <a href="./?view=verificacion" data-toggle="tooltip" data-placement="bottom" title="Selecciona el servicio de Verificacion para poder crear, editar y/o elimincar un servicio ">
-                        <div class="dashboard-tile detail tile-lategray">
+                        <div class="dashboard-tile detail tile-purple">
                             <div class="content">
                                 <h1 class="text-left timer" data-to="<?php echo mysqli_num_rows($verificacion) ?>" data-speed="2500"> </h1>
                                 <p>Verificacion</p>
@@ -85,11 +88,6 @@ $active5="active";
         </section>
         <!--main content end-->
     </section>
-        <script>
-        $(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        })
-    </script>
 <?php
     include "resources/footer.php";
 ?>
@@ -114,3 +112,9 @@ $active5="active";
     }
     ob_end_flush(); 
 ?>
+
+        <script>
+        $(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        })
+    </script>

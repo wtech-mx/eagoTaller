@@ -28,9 +28,25 @@
                       </span>
                     </div><!-- /input-group -->
                 </div>
+                
                 <div class="col-xs-3"></div>
                 <div class="col-xs-1">
                     <div id="loader" class="text-center"></div>
+                </div>
+
+               <div class="col-md-6">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class='fa fa-wrench'></i>
+                            Agregar Servicio <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li class='active'><a href="./?view=mantenimiento">Mantenimiento</a></li>
+                            <li><a href="./?view=gestoria">Gestoria</a></li>
+                            <li><a href="./?view=estetica">Mecanica/Estética</a></li>
+                            <li><a href="./?view=traslados">Traslados</a></li>
+                            <li><a href="./?view=verificacion">Verificacion</a></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="col-md-offset-10">

@@ -37,8 +37,20 @@
                     <div id="loader" class="text-center"></div>
                 </div>
 
-                <div class="col-md-6">
-                    <a class="btn btn-primary" href="./?view=nuevo_documentacion"><i class='fa fa-file-text'></i> Agregar Documentacion</a>
+               <div class="col-md-6">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class='fa fa-wrench'></i>
+                            Agregar Servicio <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li class=''><a href="./?view=mantenimiento"><i class='fa fa-file-text'></i> Mantenimiento</a></li>
+                            <li><a href="./?view=gestoria"><i class='fa fa-cog'></i> Gestoria</a></li>
+                            <li><a href="./?view=estetica"><i class='fa fa-code-fork'></i> Mecanica/Estética</a></li>
+                            <li><a href="./?view=traslados"><i class='fa fa-truck'></i> Traslados</a></li>
+                            <li><a href="./?view=verificacion"><i class='fa fa-search'></i> Verificacion</a></li>
+                            <li><a href="./?view=nuevo_documentacion"><i class='fa fa-file-text'></i> Documentacion</a></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="col-md-offset-10">
