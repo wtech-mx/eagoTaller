@@ -1,14 +1,6 @@
 <?php
     include("../is_logged.php");//Archivo comprueba si el usuario esta logueado 
-    if (empty($_POST['nombre'])) {
-            $errors[] = "Nombre está vacío.";
-        }  /* elseif (empty($_POST['kind'])) {
-            $errors[] = "Kind está vacío.";
-        }*/ elseif (
-            !empty($_POST['nombre'])
-            && !empty($_POST['correo'])
-            /*&& !empty($_POST['password'])*/
-        ){
+    
         require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 
     // escaping, additionally removing everything that could be (html/javascript-) code
@@ -61,9 +53,7 @@
         $errors[] = "Lo sentimos, la actualizaión falló. Por favor, regrese y vuelva a intentarlo.";
     }
         
-    } else {
-        $errors[] = "desconocido.";
-    }
+    
 if (isset($errors)){
             
             ?>

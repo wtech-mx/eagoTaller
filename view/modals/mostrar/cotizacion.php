@@ -116,9 +116,8 @@
                                 </div>
                             </div>
 
-            
                                 <div class="col-sm-6">
-                                    <input type="text" disabled class="form-control" id="descripcion" name="descripcion" placeholder="<?php $descripcion ?>">
+                                    <input type="text" disabled class="form-control" id="descripcion" name="descripcion" placeholder="<?php echo $descripcion ?>">
                                 </div>
                         </div>      
                 <hr>
@@ -154,7 +153,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" disabled class="form-control" id="Descripcion2" name="Descripcion2" placeholder="<?php $descripcion2 ?> ">
+                                <input type="text" disabled class="form-control" id="Descripcion2" name="Descripcion2" placeholder="<?php echo $descripcion2 ?> ">
                             </div>
                         </div>  
 
@@ -191,7 +190,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" disabled class="form-control" id="Descripcion3" name="Descripcion3" placeholder=" <?php $descripcion3 ?> ">
+                                <input type="text" disabled class="form-control" id="Descripcion3" name="Descripcion3" placeholder=" <?php echo $descripcion3 ?> ">
                             </div>
                         </div> 
 
@@ -227,7 +226,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" disabled class="form-control" id="descripcion4" name="descripcion4" placeholder=" <?php $descripcion4 ?> ">
+                                <input type="text" disabled class="form-control" id="descripcion4" name="descripcion4" placeholder=" <?php echo $descripcion4 ?> ">
                             </div>
                         </div> 
 
@@ -262,7 +261,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" disabled class="form-control" id="descripcion5" name="descripcion5" placeholder=" <?php $descripcion5 ?> ">
+                                <input type="text" disabled class="form-control" id="descripcion5" name="descripcion5" placeholder=" <?php echo $descripcion5 ?> ">
                             </div>
                         </div>                   
 
@@ -275,7 +274,7 @@
                         <div class="col-sm-10">
                             <div class="input-group">
                                 <div class="input-group-addon">$</div>
-                                <input type="number" disabled class="form-control" id="subtotal" name="subtotal" placeholder=" <?php $subtotal ?> " value="" onchange="SumarAutomatico(this.value);">
+                                <input type="number" disabled class="form-control" id="subtotal" name="subtotal" placeholder=" <?php echo $subtotal ?> " value="" onchange="SumarAutomatico(this.value);">
                                 <div class="input-group-addon">.00</div>
                             </div>
                         </div>
@@ -286,7 +285,7 @@
                         <div class="col-sm-10">
                             <div class="input-group">
                                 <div class="input-group-addon">$</div>
-                                <input type="number" disabled class="form-control" id="total" name="total" placeholder=" <?php $total ?> " value="" onchange="SumarAutomatico(this.value);">
+                                <input type="number" disabled class="form-control" id="total" name="total" placeholder=" <?php echo $total ?> " value="" onchange="SumarAutomatico(this.value);">
                                 <div class="input-group-addon">.00</div>
                             </div>
                         </div>
