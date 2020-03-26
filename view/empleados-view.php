@@ -58,8 +58,6 @@
                 </div>
             </div>
 
-            
-
             <div id="resultados_ajax"></div>
             <div class="row">
                 <div class="col-md-12">
@@ -115,6 +113,7 @@
         $("#"+valor).addClass( "active" );
     }
 </script>
+
 <script>
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente al empleado \n\n Desea continuar?')){
@@ -140,6 +139,7 @@
         }
     }
 </script>
+
 <script>
     $( "#new_register" ).submit(function( event ) {
       $('#guardar_datos').attr("disabled", true);

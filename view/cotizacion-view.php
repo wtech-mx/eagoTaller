@@ -36,6 +36,8 @@
                     <!-- modals -->
                         <?php 
                             include "modals/agregar/agregar_cotizacion.php";
+                            //include "modals/editar/editar_cotizacion.php";
+                            include "modals/mostrar/cotizacion.php";
                         ?>
                     <!-- /end modals -->
                     
@@ -62,7 +64,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Datos de los Servicios</h3>
+                            <h3 class="panel-title">Datos de la cotizacion</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -82,6 +84,9 @@
 <?php
     include "resources/footer.php";
 ?>
+
+<!--imprimir y traer datos a la tabla-->
+
 <script>
     $(function() {
         load(1);
@@ -112,7 +117,10 @@
         $("#"+valor).addClass( "active" );
     }
 </script>
-<script>
+
+<!--eliminar los datos de la db-->
+
+<!--<script>
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente el servicio \n\n Desea continuar?')){
             var page=1;
@@ -121,7 +129,7 @@
             var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id":id};
             
             $.ajax({
-                url:'view/ajax/estetica_ajax.php',
+                url:'view/ajax/cotizacion_ajax.php',
                 data: parametros,
                  beforeSend: function(objeto){
                 $("#loader").html("<img src='./assets/img/ajax-loader.gif'>");
@@ -136,7 +144,10 @@
             })
         }
     }
-</script>
+</script>-->
+
+<!--agregar datos en el modall-->
+
 <script>
     $( "#new_register" ).submit(function( event ) {
       $('#guardar_datos').attr("disabled", true);
@@ -162,13 +173,15 @@
     })
 </script>
 
+<!--editar indormacion ajax-->
+
 <script>
     $( "#update_register" ).submit(function( event ) {
       $('#actualizar_datos').attr("disabled", true);
      var parametros = $(this).serialize();
          $.ajax({
                 type: "POST",
-                url: "view/ajax/editar/editar_estetica.php",
+                url: "view/ajax/editar/editar_cotizacion.php",
                 data: parametros,
                  beforeSend: function(objeto){
                     $("#resultados_ajax").html("Enviando...");
@@ -186,11 +199,14 @@
       event.preventDefault();
     });
 </script>
+
+<!--mostrar la informacio y editar de la cotizacion  ojito-->
+
 <script>
     function editar(id){
         var parametros = {"action":"ajax","id":id};
         $.ajax({
-                url:'view/modals/editar/estetica.php',
+                url:'view/modals/editar/cotizacion.php',
                 data: parametros,
                  beforeSend: function(objeto){
                 $("#loader2").html("<img src='./assets/img/ajax-loader.gif'>");
@@ -205,7 +221,7 @@
     function mostrar(id){
         var parametros = {"action":"ajax","id":id};
         $.ajax({
-                url:'view/modals/mostrar/estetica.php',
+                url:'view/modals/mostrar/cotizacion.php',
                 data: parametros,
                  beforeSend: function(objeto){
                 $("#loader3").html("<img src='./assets/img/ajax-loader.gif'>");

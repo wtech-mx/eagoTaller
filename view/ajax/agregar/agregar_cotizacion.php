@@ -11,34 +11,44 @@
 			// escaping, additionally removing everything that could be (html/javascript-) code
             $nombre = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
             $correo = mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
+            $mensaje = mysqli_real_escape_string($con,(strip_tags($_POST["mensaje"],ENT_QUOTES)));
             
             $servicio = mysqli_real_escape_string($con,(strip_tags($_POST["servicio"],ENT_QUOTES)));
             $cantidad = mysqli_real_escape_string($con,(strip_tags($_POST["cantidad"],ENT_QUOTES)));
             $descripcion = mysqli_real_escape_string($con,(strip_tags($_POST["descripcion"],ENT_QUOTES)));
+            $entidad = mysqli_real_escape_string($con,(strip_tags($_POST["entidad"],ENT_QUOTES)));
+            $precio = mysqli_real_escape_string($con,(strip_tags($_POST["precio"],ENT_QUOTES)));
 
             $servicio2 = mysqli_real_escape_string($con,(strip_tags($_POST["servicio2"],ENT_QUOTES)));
             $cantidad2 = mysqli_real_escape_string($con,(strip_tags($_POST["cantidad2"],ENT_QUOTES)));
             $descripcion2 = mysqli_real_escape_string($con,(strip_tags($_POST["descripcion2"],ENT_QUOTES)));
+            $entidad2 = mysqli_real_escape_string($con,(strip_tags($_POST["entidad2"],ENT_QUOTES)));
+            $precio2 = mysqli_real_escape_string($con,(strip_tags($_POST["precio2"],ENT_QUOTES)));
 
             $servicio3 = mysqli_real_escape_string($con,(strip_tags($_POST["servicio3"],ENT_QUOTES)));
             $cantidad3 = mysqli_real_escape_string($con,(strip_tags($_POST["cantidad3"],ENT_QUOTES)));
             $descripcion3 = mysqli_real_escape_string($con,(strip_tags($_POST["descripcion3"],ENT_QUOTES)));
+            $entidad3 = mysqli_real_escape_string($con,(strip_tags($_POST["entidad3"],ENT_QUOTES)));
+            $precio3 = mysqli_real_escape_string($con,(strip_tags($_POST["precio3"],ENT_QUOTES)));
 
             $servicio4 = mysqli_real_escape_string($con,(strip_tags($_POST["servicio4"],ENT_QUOTES)));
             $cantidad4 = mysqli_real_escape_string($con,(strip_tags($_POST["cantidad4"],ENT_QUOTES)));
             $descripcion4 = mysqli_real_escape_string($con,(strip_tags($_POST["descripcion4"],ENT_QUOTES)));
+            $entidad4 = mysqli_real_escape_string($con,(strip_tags($_POST["entidad4"],ENT_QUOTES)));
+            $precio4 = mysqli_real_escape_string($con,(strip_tags($_POST["precio4"],ENT_QUOTES)));
 
             $servicio5 = mysqli_real_escape_string($con,(strip_tags($_POST["servicio5"],ENT_QUOTES)));
             $cantidad5 = mysqli_real_escape_string($con,(strip_tags($_POST["cantidad5"],ENT_QUOTES)));
             $descripcion5 = mysqli_real_escape_string($con,(strip_tags($_POST["descripcion5"],ENT_QUOTES)));
+            $entidad5 = mysqli_real_escape_string($con,(strip_tags($_POST["entidad5"],ENT_QUOTES)));
+            $precio5 = mysqli_real_escape_string($con,(strip_tags($_POST["precio5"],ENT_QUOTES)));
 
-            $precio = mysqli_real_escape_string($con,(strip_tags($_POST["precio"],ENT_QUOTES)));
             $subtotal = mysqli_real_escape_string($con,(strip_tags($_POST["subtotal"],ENT_QUOTES)));
             $total = mysqli_real_escape_string($con,(strip_tags($_POST["total"],ENT_QUOTES)));
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO cotizacion (nombre, correo, servicio, cantidad, descripcion, servicio2, cantidad2, descripcion2, servicio3, cantidad3, descripcion3, servicio4, cantidad4, descripcion4, servicio5, cantidad5, descripcion5, precio, subtotal, total, fecha_carga) VALUES('".$nombre."','".$correo."','".$servicio."','".$cantidad."','".$descripcion."','".$servicio2."','".$cantidad2."','".$descripcion2."','".$servicio3."','".$cantidad3."','".$descripcion3."','".$servicio4."','".$cantidad4."','".$descripcion4."','".$servicio5."','".$cantidad5."','".$descripcion5."','".$precio."','".$subtotal."','".$total."','".$fecha_carga."');";
+			$sql = "INSERT INTO cotizacion (nombre, correo, servicio, cantidad, descripcion, entidad, precio, servicio2, cantidad2, descripcion2, entidad2, precio2, servicio3, cantidad3, descripcion3, entidad3, ,precio3, servicio4, cantidad4, descripcion4, entidad4, precio4, servicio5, cantidad5, descripcion5, entidad5, precio5, precio, subtotal, total, fecha_carga) VALUES('".$nombre."','".$correo."','".$servicio."','".$cantidad."','".$descripcion."', '".$entidad."', '".$precio."','".$servicio2."','".$cantidad2."','".$descripcion2."','".$entidad2."','".$precio2."','".$servicio3."','".$cantidad3."','".$descripcion3."','".$entidad3."','".$precio3."','".$servicio4."','".$cantidad4."','".$descripcion4."','".$entidad4."','".$precio4."','".$servicio5."','".$cantidad5."','".$descripcion5."',,'".$entidad5."',,'".$precio5."','".$precio."','".$subtotal."','".$total."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {
