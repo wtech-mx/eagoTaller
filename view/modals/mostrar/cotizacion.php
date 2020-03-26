@@ -45,7 +45,6 @@
                 $entidads=mysqli_query($con, "select * from estados where id=$entidad");
                 $entidad_rw=mysqli_fetch_array($entidads);
                 $nombre_entidad=$entidad_rw['nombre'];
-
                 $servicio=$rw['servicio'];
                 $servicios=mysqli_query($con, "select * from servicios where id=$servicio");
                 $servicio_rw=mysqli_fetch_array($servicios);
@@ -55,11 +54,37 @@
                 $entidad2s=mysqli_query($con, "select * from estados where id=$entidad2");
                 $entidad2_rw=mysqli_fetch_array($entidad2s);
                 $nombre_entidad2=$entidad2_rw['nombre'];
-
                 $servicio2=$rw['servicio2'];
                 $servicio2s=mysqli_query($con, "select * from servicios where id=$servicio2");
                 $servicio2_rw=mysqli_fetch_array($servicio2s);
                 $nombre_servicio2=$servicio2_rw['nombre'];
+
+                $entidad3=$rw['entidad3'];
+                $entidad3s=mysqli_query($con, "select * from estados where id=$entidad3");
+                $entidad3_rw=mysqli_fetch_array($entidad3s);
+                $nombre_entidad3=$entidad3_rw['nombre'];
+                $servicio3=$rw['servicio3'];
+                $servicio3s=mysqli_query($con, "select * from servicios where id=$servicio3");
+                $servicio3_rw=mysqli_fetch_array($servicio3s);
+                $nombre_servicio3=$servicio3_rw['nombre'];
+
+                $entidad4=$rw['entidad4'];
+                $entidad4s=mysqli_query($con, "select * from estados where id=$entidad4");
+                $entidad4_rw=mysqli_fetch_array($entidad4s);
+                $nombre_entidad4=$entidad4_rw['nombre'];
+                $servicio4=$rw['servicio4'];
+                $servicio4s=mysqli_query($con, "select * from servicios where id=$servicio4");
+                $servicio4_rw=mysqli_fetch_array($servicio4s);
+                $nombre_servicio4=$servicio4_rw['nombre'];
+
+                $entidad5=$rw['entidad5'];
+                $entidad5s=mysqli_query($con, "select * from estados where id=$entidad5");
+                $entidad5_rw=mysqli_fetch_array($entidad5s);
+                $nombre_entidad5=$entidad5_rw['nombre'];
+                $servicio5=$rw['servicio5'];
+                $servicio5s=mysqli_query($con, "select * from servicios where id=$servicio5");
+                $servicio5_rw=mysqli_fetch_array($servicio5s);
+                $nombre_servicio5=$servicio5_rw['nombre'];
 
         }
     }   
@@ -168,13 +193,13 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" disabled name="servicio3" id="servicio3" >
-                                    <option value=""><?php echo $nombre_servicios;?></option>
+                                    <option value=""><?php echo $nombre_servicio3;?></option>
                                 </select>
                             </div>
 
                             <div class="col-sm-3">
                                 <select class="form-control" disabled name="entidad3" id="entidad3" >
-                                    <option value=""><?php echo $nombre_estados;?></option>
+                                    <option value=""><?php echo $nombre_entidad3;?></option>
                                 </select>
                             </div>                    
                         </div>
@@ -204,12 +229,12 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" disabled name="servicio4" id="servicio4" >
-                                    <option value=""><?php echo $nombre_servicios;?></option>
+                                    <option value=""><?php echo $nombre_servicio4;?></option>
                                 </select>
                             </div>
                             <div class="col-sm-3">
                                 <select class="form-control" disabled name="entidad4" id="entidad4" >
-                                    <option value=""><?php echo $nombre_estados;?></option>
+                                    <option value=""><?php echo $nombre_entidad4;?></option>
                                 </select>
                             </div>
 
@@ -240,12 +265,12 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" disabled name="servicio5" id="servicio5" >
-                                    <option value=""><?php echo $nombre_servicios;?></option>
+                                    <option value=""><?php echo $nombre_servicio5;?></option>
                                 </select>
                             </div>
                             <div class="col-sm-3">
                                 <select class="form-control" disabled name="entidad5" id="entidad5" >
-                                    <option value=""><?php echo $nombre_estados;?></option>
+                                    <option value=""><?php echo $nombre_entidad5;?></option>
                                 </select>
                             </div>
                         </div>

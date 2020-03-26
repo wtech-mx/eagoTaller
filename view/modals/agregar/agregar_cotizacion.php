@@ -268,6 +268,7 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="servicio5" id="servicio5" >
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php 
                                         $sql_tallers=mysqli_query($con,"SELECT * FROM servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($sql_tallers)){

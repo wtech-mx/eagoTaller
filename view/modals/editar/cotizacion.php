@@ -81,7 +81,8 @@
 
                         
                             <div class="col-sm-3">
-                                <select class="form-control" name="servicio" id="servicio"> 
+                                <select class="form-control" name="servicio" id="servicio">
+                                <option value="0">Seleccionar Empresa</option> 
                                     <?php
                                         $servicios=mysqli_query($con,"select * from servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($servicios)) {
@@ -96,6 +97,7 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad" id="entidad">
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php
                                         $entidads=mysqli_query($con,"select * from estados order by nombre");
                                         while ($rw=mysqli_fetch_array($entidads)) {
@@ -135,6 +137,7 @@
                         
                             <div class="col-sm-3">
                                 <select class="form-control" name="servicio2" id="servicio2">
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php
                                         $servicio2s=mysqli_query($con,"select * from servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($servicio2s)) {
@@ -149,6 +152,7 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad2" id="entidad2">
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php
                                         $entidad2s=mysqli_query($con,"select * from estados order by nombre");
                                         while ($rw=mysqli_fetch_array($entidad2s)) {
@@ -189,6 +193,7 @@
                         
                             <div class="col-sm-3">
                                 <select class="form-control" name="servicio3" id="servicio3">
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php
                                         $servicio3s=mysqli_query($con,"select * from servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($servicio3s)) {
@@ -203,6 +208,7 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad3" id="entidad3">
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php
                                         $entidad3s=mysqli_query($con,"select * from estados order by nombre");
                                         while ($rw=mysqli_fetch_array($entidad3s)) {
@@ -243,6 +249,7 @@
                         
                             <div class="col-sm-3">
                                 <select class="form-control" name="servicio4" id="servicio4">
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php
                                         $servicio4s=mysqli_query($con,"select * from servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($servicio4s)) {
@@ -257,6 +264,7 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad4" id="entidad4">
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php
                                         $entidad4s=mysqli_query($con,"select * from estados order by nombre");
                                         while ($rw=mysqli_fetch_array($entidad4s)) {
@@ -297,6 +305,7 @@
                         
                             <div class="col-sm-3">
                                 <select class="form-control" name="servicio5" id="servicio5">
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php
                                         $servicio5s=mysqli_query($con,"select * from servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($servicio5s)) {
@@ -311,6 +320,7 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad5" id="entidad5">
+                                    <option value="0">Seleccionar Empresa</option>
                                     <?php
                                         $entidad5s=mysqli_query($con,"select * from estados order by nombre");
                                         while ($rw=mysqli_fetch_array($entidad5s)) {
