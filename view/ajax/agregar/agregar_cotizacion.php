@@ -4,8 +4,34 @@
             $errors[] = "Nombre está vacío.";
         }  elseif (
         	!empty($_POST['nombre'])
-        	
-        ){
+            && !empty($_POST['apellido'])
+            && !empty($_POST['correo'])
+            && !empty($_POST['mensaje'])
+
+            && !empty($_POST['servicio'])
+            && !empty($_POST['cantidad'])
+            && !empty($_POST['descripcion'])
+            && !empty($_POST['entidad'])
+
+            && !empty($_POST['servicio2'])
+            && !empty($_POST['cantidad2'])
+            && !empty($_POST['descripcion2'])
+            && !empty($_POST['entidad2'])
+
+            && !empty($_POST['servicio3'])
+            && !empty($_POST['cantidad3'])
+            && !empty($_POST['descripcion3'])
+            && !empty($_POST['entidad3'])
+
+            && !empty($_POST['servicio4'])
+            && !empty($_POST['cantidad4'])
+            && !empty($_POST['descripcion4'])
+            && !empty($_POST['entidad4'])
+
+            && !empty($_POST['servicio5'])
+            && !empty($_POST['cantidad5'])
+            && !empty($_POST['descripcion5'])
+            && !empty($_POST['entidad5'])){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 			
 			// escaping, additionally removing everything that could be (html/javascript-) code
@@ -48,11 +74,11 @@
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO cotizacion (nombre, correo, mensaje, servicio, cantidad, descripcion, entidad, precio, servicio2, cantidad2, descripcion2, entidad2, precio2, servicio3, cantidad3, descripcion3, entidad3, ,precio3, servicio4, cantidad4, descripcion4, entidad4, precio4, servicio5, cantidad5, descripcion5, entidad5, precio5, precio, subtotal, total, fecha_carga) VALUES('".$nombre."','".$correo."','".$mensaje."','".$servicio."','".$cantidad."','".$descripcion."', '".$entidad."', '".$precio."','".$servicio2."','".$cantidad2."','".$descripcion2."','".$entidad2."','".$precio2."','".$servicio3."','".$cantidad3."','".$descripcion3."','".$entidad3."','".$precio3."','".$servicio4."','".$cantidad4."','".$descripcion4."','".$entidad4."','".$precio4."','".$servicio5."','".$cantidad5."','".$descripcion5."',,'".$entidad5."',,'".$precio5."','".$precio."','".$subtotal."','".$total."','".$fecha_carga."');";
+			$sql = "INSERT INTO cotizacion (nombre, correo, mensaje, servicio, cantidad, descripcion, entidad, precio, servicio2, cantidad2, descripcion2, entidad2, precio2, servicio3, cantidad3, descripcion3, entidad3, ,precio3, servicio4, cantidad4, descripcion4, entidad4, precio4, servicio5, cantidad5, descripcion5, entidad5, precio5, precio, subtotal, total, fecha_carga) VALUES('".$nombre."','".$correo."','".$mensaje."','".$servicio."','".$cantidad."','".$descripcion."', '".$entidad."', '".$precio."','".$servicio2."','".$cantidad2."','".$descripcion2."','".$entidad2."','".$precio2."','".$servicio3."','".$cantidad3."','".$descripcion3."','".$entidad3."','".$precio3."','".$servicio4."','".$cantidad4."','".$descripcion4."','".$entidad4."','".$precio4."','".$servicio5."','".$cantidad5."','".$descripcion5."','".$entidad5."','".$precio5."','".$precio."','".$subtotal."','".$total."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {
-                $messages[] = "Cotizacion ha sido agregado con éxito.";
+                $messages[] = "Empresa ha sido agregado con éxito.";
 				//save_log('Categorías','Registro de categoría',$_SESSION['user_id']);
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
