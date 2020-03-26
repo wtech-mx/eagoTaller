@@ -60,6 +60,7 @@ if($action == 'ajax'){
                 <th>Vehiculo</th>
                 <th>Descripción</th>
                 <th>Dirección</th>
+                <th>Empresa</th>
                 <th>Fecha</th>
                 <th></th>
             </tr>
@@ -74,6 +75,11 @@ if($action == 'ajax'){
 				$clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
 				$cliente_rw=mysqli_fetch_array($clientes);
 				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
+
+				$idempresa=$row['id_empresa'];
+				$empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
+				$empresa_rw=mysqli_fetch_array($empresas);
+				$nombre_empresa=$empresa_rw['nombre'];
 
 				$idvehiculo=$row['idvehiculo'];
 				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
@@ -99,6 +105,7 @@ if($action == 'ajax'){
                 <td><?php echo $patente_vehiculo ?></td>
                 <td><?php echo $datos ?></td>
                 <td><?php echo $origen ?></td>
+                <td><?php echo $nombre_empresa ?></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">
 

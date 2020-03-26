@@ -18,11 +18,12 @@
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		
 		$cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
+		$id_empresa = $_POST['empresa'];
         $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
         $documento_code = mysqli_real_escape_string($con,(strip_tags($_POST["documento_code"],ENT_QUOTES)));
 		$id=intval($_POST['id']);
 		// update data
-        $sql = "UPDATE documentacion SET id_cliente='".$cliente."',documento_code='".$documento_code."', idvehiculo='".$vehiculo."' WHERE id='$id' ";
+        $sql = "UPDATE documentacion SET id_cliente='".$cliente."', id_empresa='".$id_empresa."',documento_code='".$documento_code."', idvehiculo='".$vehiculo."' WHERE id='$id' ";
         $query = mysqli_query($con,$sql);
 
         // if user has been update successfully

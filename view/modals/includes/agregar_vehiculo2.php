@@ -1,8 +1,8 @@
 <?php
 	require ('../../../config/config.php');
-	$id_cliente = $_POST['id_cliente'];
+	$id_empresa = $_POST['id_empresa'];
 	
-	$queryM = "SELECT id, patente FROM vehiculo WHERE id_cliente = '$id_cliente' ORDER BY patente";
+	$queryM = "SELECT id, patente FROM vehiculo WHERE id_empresa = '$id_empresa' ORDER BY patente";
 	$resultadoM = $con->query($queryM);
 	
 	$html= "<option value='0'>Seleccionar Vehiculo</option>";

@@ -1,6 +1,7 @@
 <?php 
     $active14="active"; 
     include "resources/header.php";
+    if ($_SESSION['cotizacion']==1){
 ?>
     <!--main content start-->
     <section class="main-content-wrapper">
@@ -37,7 +38,7 @@
                         <?php 
                             include "modals/agregar/agregar_cotizacion.php";
                             //include "modals/editar/editar_cotizacion.php";
-                            include "modals/mostrar/cotizacion.php";
+                            include "modals/mostrar/mostrar_cotizacion.php";
                         ?>
                     <!-- /end modals -->
                     
@@ -234,5 +235,8 @@
     }
 </script>
 <?php     
+    }else{
+      require 'resources/acceso_prohibido.php';
+    }
     ob_end_flush(); 
 ?>

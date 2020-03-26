@@ -19,6 +19,7 @@
        // escaping, additionally removing everything that could be (html/javascript-) code
         $fecha_man = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_man"],ENT_QUOTES)));
         $id_cliente = $_POST['cliente'];
+        $id_empresa = $_POST['empresa'];
         $idvehiculo = $_POST['vehiculo'];
         $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
         $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
@@ -28,7 +29,7 @@
         $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE mantenimiento SET fecha_man='".$fecha_man."', id_cliente='".$id_cliente."', idvehiculo='".$idvehiculo."', datos='".$datos."', idtrasladista='".$trasladista."', idtaller='".$taller."', otros='".$otros."', vendedor='".$vendedor."', origen='".$origen."' WHERE id='".$id."' ";
+    $sql = "UPDATE mantenimiento SET fecha_man='".$fecha_man."', id_cliente='".$id_cliente."', id_empresa='".$id_empresa."', idvehiculo='".$idvehiculo."', datos='".$datos."', idtrasladista='".$trasladista."', idtaller='".$taller."', otros='".$otros."', vendedor='".$vendedor."', origen='".$origen."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

@@ -9,7 +9,7 @@
         $estado=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/vehiculos/vehiculo.jpg";
-        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, id_cliente, idempresa, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, color, seguro, poliza, vencimiento, foto4, estado, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '0', '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$estado','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$created_at'); ");
+        $inser=mysqli_query($con,"INSERT INTO vehiculo (id, id_cliente, id_empresa, vehiculo_code, patente, marca, submarca, modelo, nro_chasis, nro_motor, vto_vtv, color, seguro, poliza, vencimiento, foto4, estado, foto1, foto2, foto3, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '0', '0','$vehiculo_code', '', '', '', '', '', '', '', '', '', '', '','$estado','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$created_at'); ");
         $sql_vehiculo=mysqli_query($con,"SELECT * FROM vehiculo WHERE  vehiculo_code='$vehiculo_code'");
         $rw_vehiculo=mysqli_fetch_array($sql_vehiculo);
         $id_vehiculo=$rw_vehiculo['id'];
@@ -86,7 +86,7 @@
                                                     $idempresa=$rw['id_empresa'];
                                                     $nombre_empresa=$rw['nombre'];
                                                 ?>
-                                                <option value="<?php echo $id_empresa;?>"><?php echo $nombre_empresa;?></option>
+                                                <option value="<?php echo $idempresa;?>"><?php echo $nombre_empresa;?></option>
                                                 <?php
                                                 }
                                             ?>

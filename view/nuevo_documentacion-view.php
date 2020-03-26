@@ -5,7 +5,7 @@
         $documento_code=time()."-".$_SESSION['user_id'];
         $created_at=date("Y-m-d H:i:s");
         $target_dir="view/resources/images/documentos/doc.png";
-        $inser=mysqli_query($con,"INSERT INTO documentacion (id, id_cliente, documento_code, idvehiculo, foto1, foto2, foto3, foto4, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '0' ,'$documento_code', '','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir', '$created_at'); ");
+        $inser=mysqli_query($con,"INSERT INTO documentacion (id, id_cliente, id_empresa, documento_code, idvehiculo, foto1, foto2, foto3, foto4, foto5, foto6, foto7, foto8, foto9, foto10, fecha_carga) VALUES (NULL, '0' , '0' ,'$documento_code', '','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir','$target_dir', '$created_at'); ");
         $sql_documento=mysqli_query($con,"SELECT * FROM documentacion WHERE  documento_code='$documento_code'");
         $rw_documento=mysqli_fetch_array($sql_documento);
         $id_documento=$rw_documento['id'];
@@ -16,6 +16,9 @@
 
     $query = "SELECT id_cliente, nombre, apellido FROM cliente ORDER BY nombre";
     $resultado=$con->query($query);
+
+    $query = "SELECT id_empresa, nombre FROM empresa ORDER BY nombre";
+    $resultado2=$con->query($query);
 ?>
 <script language="javascript">
         $(document).ready(function(){
@@ -29,6 +32,19 @@
                 });
             })
         });
+</script>
+<script language="javascript">
+            $(document).ready(function(){
+                $("#empresa").change(function () {
+                    
+                    $("#empresa option:selected").each(function () {
+                        id_empresa = $(this).val();
+                        $.post("view/modals/includes/agregar_vehiculo2.php", { id_empresa:id_empresa }, function(data){
+                            $("#vehiculo").html(data);
+                        });            
+                    });
+                })
+            });
 </script>
     <!--main content start-->
     <section class="main-content-wrapper">
@@ -65,6 +81,17 @@
                         <input type="hidden" class="form-control" id="documento_code" name="documento_code"  value="<?php echo $documento_codes;?>" >
                         <input type="hidden"  id="id" name="id"  value="<?php echo $id_documento;?>" >
 
+        <div class="form-group">                
+            <label class="col-sm-2 control-label">Empresa: </label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="empresa" id="empresa">
+                    <option value="0">Seleccionar Empresa</option>
+                        <?php while($row = $resultado2->fetch_assoc()) { ?>
+                        <option value="<?php echo $row['id_empresa']; ?>"><?php echo $row['nombre']; ?></option>
+                    <?php } ?>
+                    </select>
+                </div>
+        </div>
 
             <div class="form-group">				
                 <label class="col-sm-2 control-label">Cliente: </label>

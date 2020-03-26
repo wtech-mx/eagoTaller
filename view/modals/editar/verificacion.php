@@ -12,6 +12,7 @@
             $id=$rw['id'];
             $fecha_veri=$rw['fecha_veri'];
             $id_cliente=$rw['id_cliente'];
+            $id_empresa=$rw['id_empresa'];
             $idvehiculo=$rw['idvehiculo'];
             $datos=$rw['datos'];
             $derechos=$rw['derechos'];
@@ -26,6 +27,9 @@
     else{exit;}
     $queryE = "SELECT id_cliente, nombre, apellido FROM cliente ORDER BY nombre";
     $resultadoE = $con->query($queryE);
+
+    $query2 = "SELECT id_empresa, nombre FROM empresa ORDER BY nombre";
+    $resultado2 = $con->query($query2);
     
     $queryM = "SELECT id, patente FROM vehiculo WHERE id_cliente = '$id_cliente' ORDER BY patente";
     $resultadoM = $con->query($queryM);  
@@ -43,12 +47,36 @@
                 })
             });
 </script>
+<script language="javascript">
+            $(document).ready(function(){
+                $("#empresa").change(function () {
+                                       
+                    $("#empresa option:selected").each(function () {
+                        id_empresa = $(this).val();
+                        $.post("../includes/agregar_vehiculo2.php", { id_empresa: id_empresa }, function(data){
+                            $("#vehiculo").html(data);
+                        });            
+                    });
+                })
+            });
+</script>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 <div class="form-group">
     <label for="fecha_veri" class="col-sm-2 control-label">Fecha Verificacion: </label>
     <div class="col-sm-10">
         <input type="date"  class="form-control" id="fecha_veri" name="fecha_veri" placeholder="Fecha Verificacion: " value="<?php echo $fecha_veri ?>">
     </div>
+</div>
+<div class="form-group">        
+    <label class="col-sm-2 control-label">Empresa: </label>
+        <div class="col-sm-10">
+            <select class="form-control" name="empresa" id="empresa">
+                <option value="0">Seleccionar Empresa</option>
+                <?php while($row2 = $resultado2->fetch_assoc()) { ?>
+                    <option value="<?php echo $row2['id_empresa']; ?>" <?php if($row2['id_empresa']==$id_empresa) { echo 'selected'; } ?>><?php echo $row2['nombre']; ?>
+                <?php } ?>
+            </select>
+        </div>
 </div>
 <div class="form-group">        
     <label class="col-sm-2 control-label">Cliente: </label>
