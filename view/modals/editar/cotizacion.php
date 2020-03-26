@@ -54,28 +54,29 @@
                         <div class="form-group">
                             <label for="nombre" class="col-sm-2 control-label">Nombre/Empresa</label>
                             <div class="col-sm-10">
-                                <textarea type="text" required class="form-control" id="nombre" name="nombre" placeholder="Nombre "><?php echo $nombre ?></textarea>
+                                <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="<?php echo $nombre ?>">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="correo" class="col-sm-2 control-label">Correo</label>
                             <div class="col-sm-10">
-                                <textarea type="text" required class="form-control" id="correo" name="correo" placeholder="Correo Del Destinatario"><?php echo $correo ?></textarea>
+                                <input type="text" required class="form-control" id="correo" name="correo" placeholder="<?php echo $correo ?>">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="mensaje" class="col-sm-2 control-label">Mensaje</label>
                             <div class="col-sm-10">
-                                <textarea type="text" required class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje " rows="3"><?php echo $mensaje ?></textarea>
+                                <input type="text" required class="form-control" id="mensaje" name="mensaje" placeholder="<?php echo $mensaje ?>" rows="3">
                             </div>
                         </div>
 
+                    <hr>
                         <div class="form-group">
                             <label for="cantidad" class="col-sm-2 control-label">Servicio</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad" name="cantidad" placeholder="Cant. "><?php echo $cantidad ?></textarea>
+                                <input type="number" required class="form-control" id="cantidad" name="cantidad" placeholder="<?php echo $cantidad ?>">
                             </div>
 
                         
@@ -106,20 +107,20 @@
                                     ?>
                                 </select>
                             </div>
-
+                        </div>
                          <div class="form-group">
                             <label for="" class="col-sm-2 control-label">precio: </label>
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="input-group-addon">$</div>
-                                        <textarea type="number" class="form-control" id="precio" name="precio" placeholder="Precio" onchange="SumarAutomatico(this.value);"><?php echo $precio ?></textarea>
+                                        <input type="number" class="form-control" id="precio" name="precio" placeholder="<?php echo $precio ?>" onchange="SumarAutomatico(this.value);">
                                     <div class="input-group-addon">.00</div>
                                 </div>
                             </div>
 
             
                                 <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion" name="descripcion" placeholder="descripcion "><?php echo $descripcion ?></textarea>
+                                <input type="text" required class="form-control" id="descripcion" name="descripcion" placeholder="<?php echo $descripcion ?>">
                                 </div>
                         </div>      
                 <hr>
@@ -128,7 +129,7 @@
                         <div class="form-group">
                             <label for="cantidad2" class="col-sm-2 control-label">Servicio2</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad2" name="cantidad2" placeholder="Cant. "><?php echo $cantidad2 ?></textarea>
+                                <input type="number" required class="form-control" id="cantidad2" name="cantidad2" placeholder="<?php echo $cantidad2 ?>">
                             </div>
 
                         
@@ -159,20 +160,21 @@
                                     ?>
                                 </select>
                             </div>
+                        </div>
 
                          <div class="form-group">
                             <label for="" class="col-sm-2 control-label">precio2: </label>
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="input-group-addon">$</div>
-                                        <textarea type="number" class="form-control" id="precio2" name="precio2" placeholder="Precio2" onchange="SumarAutomatico(this.value);"><?php echo $precio2 ?></textarea>
+                                        <input type="number" class="form-control" id="precio2" name="precio2" placeholder="<?php echo $precio2 ?>" onchange="SumarAutomatico(this.value);">
                                     <div class="input-group-addon">.00</div>
                                 </div>
                             </div>
 
             
                                 <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion2" name="descripcion2" placeholder="descripcion2"><?php echo $descripcion2 ?></textarea>
+                                <input type="text" required class="form-control" id="descripcion2" name="descripcion2" placeholder="<?php echo $descripcion2 ?>">
                                 </div>
                         </div>
                 <hr>
@@ -182,7 +184,7 @@
                         <div class="form-group">
                             <label for="cantidad3" class="col-sm-2 control-label">Servicio3</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad3" name="cantidad3" placeholder="Cant."><?php echo $cantidad3 ?></textarea>
+                                <input type="number" required class="form-control" id="cantidad3" name="cantidad3" placeholder="<?php echo $cantidad3 ?>">
                             </div>
 
                         
@@ -213,20 +215,20 @@
                                     ?>
                                 </select>
                             </div>
-
+                        </div>
                          <div class="form-group">
                             <label for="" class="col-sm-2 control-label">precio3: </label>
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="input-group-addon">$</div>
-                                        <textarea type="number" class="form-control" id="precio3" name="precio3" placeholder="Precio3" onchange="SumarAutomatico(this.value);"><?php echo $precio3 ?></textarea>
+                                        <input type="number" class="form-control" id="precio3" name="precio3" placeholder="<?php echo $precio3 ?>" onchange="SumarAutomatico(this.value);">
                                     <div class="input-group-addon">.00</div>
                                 </div>
                             </div>
 
             
                                 <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion3" name="descripcion3" placeholder="descripcion3 "><?php echo $descripcion3 ?></textarea>
+                                <input type="text" required class="form-control" id="descripcion3" name="descripcion3" placeholder="<?php echo $descripcion3 ?>">
                                 </div>
                         </div>
 
@@ -236,7 +238,7 @@
                         <div class="form-group">
                             <label for="cantidad4" class="col-sm-2 control-label">Servicio4</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad4" name="cantidad4" placeholder="Cant. "><?php echo $cantidad4 ?></textarea>
+                                <input type="number" required class="form-control" id="cantidad4" name="cantidad4" placeholder="<?php echo $cantidad4 ?>">
                             </div>
 
                         
@@ -267,20 +269,20 @@
                                     ?>
                                 </select>
                             </div>
-
+                        </div>
                          <div class="form-group">
                             <label for="" class="col-sm-2 control-label">precio4: </label>
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="input-group-addon">$</div>
-                                        <textarea type="number" class="form-control" id="precio4" name="precio4" placeholder="Precio4" onchange="SumarAutomatico(this.value);"><?php echo $precio4 ?></textarea>
+                                        <input type="number" class="form-control" id="precio4" name="precio4" placeholder="<?php echo $precio4 ?>" onchange="SumarAutomatico(this.value);">
                                     <div class="input-group-addon">.00</div>
                                 </div>
                             </div>
 
             
                                 <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion4" name="descripcion4" placeholder="descripcion4 "><?php echo $descripcion4 ?></textarea>
+                                <input type="text" required class="form-control" id="descripcion4" name="descripcion4" placeholder="<?php echo $descripcion4 ?>">
                                 </div>
                         </div>
 
@@ -290,7 +292,7 @@
                         <div class="form-group">
                             <label for="cantidad5" class="col-sm-2 control-label">Servicio5</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad5" name="cantidad5" placeholder="Cant. "><?php echo $cantidad5 ?></textarea>
+                                <input type="number" required class="form-control" id="cantidad5" name="cantidad5" placeholder="<?php echo $cantidad5 ?>">
                             </div>
 
                         
@@ -321,20 +323,20 @@
                                     ?>
                                 </select>
                             </div>
-
+                        </div>
                          <div class="form-group">
                             <label for="" class="col-sm-2 control-label">precio5: </label>
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="input-group-addon">$</div>
-                                        <textarea type="number" class="form-control" id="precio5" name="precio5" placeholder="Precio5" onchange="SumarAutomatico(this.value);"><?php echo $precio5 ?></textarea>
+                                        <input type="number" class="form-control" id="precio5" name="precio5" placeholder="<?php echo $precio5 ?>" onchange="SumarAutomatico(this.value);">
                                     <div class="input-group-addon">.00</div>
                                 </div>
                             </div>
 
             
                             <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion5" name="descripcion5" placeholder="descripcion5 "><?php echo $descripcion5 ?></textarea>
+                                <input type="text" required class="form-control" id="descripcion5" name="descripcion5" placeholder="<?php echo $descripcion5 ?>">
                             </div>
                         </div>
 
@@ -347,7 +349,7 @@
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="input-group-addon">$</div>
-                                        <textarea type="number" class="form-control" id="subtotal" name="subtotal" placeholder="subtotal" onchange="SumarAutomatico(this.value);"><?php echo $subtotal ?></textarea>
+                                        <input type="number" class="form-control" id="subtotal" name="subtotal" placeholder="<?php echo $subtotal ?>" onchange="SumarAutomatico(this.value);">
                                     <div class="input-group-addon">.00</div>
                                 </div>
                             </div>
@@ -357,7 +359,7 @@
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="input-group-addon">$</div>
-                                        <textarea type="number" class="form-control" id="total" name="total" placeholder="total" onchange="SumarAutomatico(this.value);"><?php echo $total ?></textarea>
+                                        <input type="number" class="form-control" id="total" name="total" placeholder="<?php echo $total ?>" onchange="SumarAutomatico(this.value);">
                                     <div class="input-group-addon">.00</div>
                                 </div>
                             </div>

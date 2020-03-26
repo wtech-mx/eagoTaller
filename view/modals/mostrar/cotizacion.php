@@ -41,15 +41,25 @@
                 $subtotal=$rw['subtotal'];
                 $total=$rw['total'];
 
-                $idservicios=$rw['id'];
-                $servicios=mysqli_query($con, "SELECT * FROM servicios WHERE id=$idservicios");
-                $servicios_rw=mysqli_fetch_array($servicios);
-                $nombre_servicios=$servicios_rw['nombre'];
+                $entidad=$rw['entidad'];
+                $entidads=mysqli_query($con, "select * from estados where id=$entidad");
+                $entidad_rw=mysqli_fetch_array($entidads);
+                $nombre_entidad=$entidad_rw['nombre'];
 
-                $idestados=$rw['id'];
-                $estados=mysqli_query($con, "SELECT * FROM estados WHERE id=$idestados");
-                $estados_rw=mysqli_fetch_array($estados);
-                $nombre_estados=$estados_rw['nombre'];
+                $servicio=$rw['servicio'];
+                $servicios=mysqli_query($con, "select * from servicios where id=$servicio");
+                $servicio_rw=mysqli_fetch_array($servicios);
+                $nombre_servicio=$servicio_rw['nombre'];
+
+                $entidad2=$rw['entidad2'];
+                $entidad2s=mysqli_query($con, "select * from estados where id=$entidad2");
+                $entidad2_rw=mysqli_fetch_array($entidad2s);
+                $nombre_entidad2=$entidad2_rw['nombre'];
+
+                $servicio2=$rw['servicio2'];
+                $servicio2s=mysqli_query($con, "select * from servicios where id=$servicio2");
+                $servicio2_rw=mysqli_fetch_array($servicio2s);
+                $nombre_servicio2=$servicio2_rw['nombre'];
 
         }
     }   
@@ -74,7 +84,7 @@
                              <div class="form-group">
                                 <label for="mensaje" class="col-sm-2 control-label">Mensaje </label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" disabled id="mensaje" placeholder="<?php $mensaje ?>" rows="3"></textarea>
+                                    <textarea class="form-control" disabled id="mensaje" name="mensaje" placeholder="<?php echo $mensaje ?>" rows="3"></textarea>
                                 </div>
                             </div>
 
@@ -85,14 +95,13 @@
                                 </div>
 
                                 <div class="col-sm-3">
-                                    <select class="form-control" disabled name="servicio" id="servicio" >                                 
-                                            <option  value=""><?php echo $nombre_servicios;?></option>                                      
+                                    <select class="form-control" disabled name="servicio" id="servicio" >           <option  value=""><?php echo $nombre_servicio;?></option>
                                     </select>
                                 </div>
 
                                 <div class="col-sm-3">
                                     <select class="form-control" disabled name="entidad" id="entidad" >
-                                        <option  value="<?php echo $id;?>"><?php echo $nombre_estados;?></option>     
+                                        <option  value="<?php echo $id;?>"><?php echo $nombre_entidad;?></option>     
                                     </select>
                                 </div>
                             </div>
@@ -122,13 +131,13 @@
 
                             <div class="col-sm-4">
                                 <select class="form-control" disabled name="servicio2" id="servicio2" >
-                                    <option value=""><?php echo $nombre_servicios;?></option>
+                                    <option value=""><?php echo $nombre_servicio2;?></option>
                                 </select>
                             </div>
 
                             <div class="col-sm-3">
                                 <select class="form-control" disabled name="entidad2" id="entidad2" >
-                                    <option value=""><?php echo $nombre_estados;?></option>
+                                    <option value=""><?php echo $nombre_entidad2;?></option>
                                 </select>
                             </div>
 
