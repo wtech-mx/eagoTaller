@@ -45,8 +45,6 @@
 
             $subtotal=$rw['subtotal'];
             $total=$rw['total'];
-            $nombre_servicios=$rw['nombre_servicios'];
-            $nombre_estados=$rw['nombre_estados'];  
         }
     }   
     else{exit;}
@@ -82,26 +80,25 @@
 
                         
                             <div class="col-sm-3">
-                                <select class="form-control" name="servicio" id="servicio">
-                                    
-        <?php
-            $servicios=mysqli_query($con,"select * from servicios order by nombre");
-            while ($rw=mysqli_fetch_array($servicios)) {
-                if ($servicio==$rw['id']){$selected1="selected";}else{$selected1="";}
-        ?>
-            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
-        <?php 
-            }
-        ?>
+                                <select class="form-control" name="servicio" id="servicio"> 
+                                    <?php
+                                        $servicios=mysqli_query($con,"select * from servicios order by nombre");
+                                        while ($rw=mysqli_fetch_array($servicios)) {
+                                            if ($servicio==$rw['id']){$selected1="selected";}else{$selected1="";}
+                                    ?>
+                                        <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
+                                    <?php 
+                                        }
+                                    ?>
                                 </select>
                             </div>
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad" id="entidad">
                                     <?php
-                                        $entidads=mysqli_query($con,"select * from estados");
+                                        $entidads=mysqli_query($con,"select * from estados order by nombre");
                                         while ($rw=mysqli_fetch_array($entidads)) {
-                                            if ($entidads==$rw['id']){$selected1="selected";}else{$selected1="";}
+                                            if ($entidad==$rw['id']){$selected1="selected";}else{$selected1="";}
                                     ?>
                                         <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                     <?php 
@@ -138,11 +135,11 @@
                             <div class="col-sm-3">
                                 <select class="form-control" name="servicio2" id="servicio2">
                                     <?php
-                                        $servicioss=mysqli_query($con,"select * from servicios");
-                                        while ($rw=mysqli_fetch_array($servicioss)) {
-                                            if ($servicios==$rw['id']){$selected2="selected";}else{$selected2="";}
+                                        $servicio2s=mysqli_query($con,"select * from servicios order by nombre");
+                                        while ($rw=mysqli_fetch_array($servicio2s)) {
+                                            if ($servicio2==$rw['id']){$selected1="selected";}else{$selected1="";}
                                     ?>
-                                        <option value="<?php echo $rw['id']?>" <?php echo $selected2;?>><?php echo $rw['nombre']?></option>
+                                        <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                     <?php 
                                         }
                                     ?>
@@ -152,11 +149,11 @@
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad2" id="entidad2">
                                     <?php
-                                        $entidads=mysqli_query($con,"select * from estados");
-                                        while ($rw=mysqli_fetch_array($entidads)) {
-                                            if ($entidads==$rw['id']){$selected2="selected";}else{$selected2="";}
+                                        $entidad2s=mysqli_query($con,"select * from estados order by nombre");
+                                        while ($rw=mysqli_fetch_array($entidad2s)) {
+                                            if ($entidad2==$rw['id']){$selected1="selected";}else{$selected1="";}
                                     ?>
-                                        <option value="<?php echo $rw['id']?>" <?php echo $selected2;?>><?php echo $rw['nombre']?></option>
+                                        <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                     <?php 
                                         }
                                     ?>
@@ -192,11 +189,11 @@
                             <div class="col-sm-3">
                                 <select class="form-control" name="servicio3" id="servicio3">
                                     <?php
-                                        $servicioss=mysqli_query($con,"select * from servicios");
-                                        while ($rw=mysqli_fetch_array($servicioss)) {
-                                            if ($servicios==$rw['id']){$selected3="selected";}else{$selected3="";}
+                                        $servicio3s=mysqli_query($con,"select * from servicios order by nombre");
+                                        while ($rw=mysqli_fetch_array($servicio3s)) {
+                                            if ($servicio3==$rw['id']){$selected1="selected";}else{$selected1="";}
                                     ?>
-                                        <option value="<?php echo $rw['id']?>" <?php echo $selected3;?>><?php echo $rw['nombre']?></option>
+                                        <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                     <?php 
                                         }
                                     ?>
@@ -206,11 +203,11 @@
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad3" id="entidad3">
                                     <?php
-                                        $entidads=mysqli_query($con,"select * from estados");
-                                        while ($rw=mysqli_fetch_array($entidads)) {
-                                            if ($entidads==$rw['id']){$selected3="selected";}else{$selected3="";}
+                                        $entidad3s=mysqli_query($con,"select * from estados order by nombre");
+                                        while ($rw=mysqli_fetch_array($entidad3s)) {
+                                            if ($entidad3==$rw['id']){$selected1="selected";}else{$selected1="";}
                                     ?>
-                                        <option value="<?php echo $rw['id']?>" <?php echo $selected3;?>><?php echo $rw['nombre']?></option>
+                                        <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                     <?php 
                                         }
                                     ?>
@@ -246,11 +243,11 @@
                             <div class="col-sm-3">
                                 <select class="form-control" name="servicio4" id="servicio4">
                                     <?php
-                                        $servicioss=mysqli_query($con,"select * from servicios");
-                                        while ($rw=mysqli_fetch_array($servicioss)) {
-                                            if ($servicios==$rw['id']){$selected4="selected";}else{$selected4="";}
+                                        $servicio4s=mysqli_query($con,"select * from servicios order by nombre");
+                                        while ($rw=mysqli_fetch_array($servicio4s)) {
+                                            if ($servicio4==$rw['id']){$selected1="selected";}else{$selected1="";}
                                     ?>
-                                        <option value="<?php echo $rw['id']?>" <?php echo $selected4;?>><?php echo $rw['nombre']?></option>
+                                        <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                     <?php 
                                         }
                                     ?>
@@ -260,11 +257,11 @@
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad4" id="entidad4">
                                     <?php
-                                        $entidads=mysqli_query($con,"select * from estados");
-                                        while ($rw=mysqli_fetch_array($entidads)) {
-                                            if ($entidads==$rw['id']){$selected4="selected";}else{$selected4="";}
+                                        $entidad4s=mysqli_query($con,"select * from estados order by nombre");
+                                        while ($rw=mysqli_fetch_array($entidad4s)) {
+                                            if ($entidad4==$rw['id']){$selected1="selected";}else{$selected1="";}
                                     ?>
-                                        <option value="<?php echo $rw['id']?>" <?php echo $selected4;?>><?php echo $rw['nombre']?></option>
+                                        <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                     <?php 
                                         }
                                     ?>
@@ -300,11 +297,11 @@
                             <div class="col-sm-3">
                                 <select class="form-control" name="servicio5" id="servicio5">
                                     <?php
-                                        $servicioss=mysqli_query($con,"select * from servicios");
-                                        while ($rw=mysqli_fetch_array($servicioss)) {
-                                            if ($servicios==$rw['id']){$selected5="selected";}else{$selected5="";}
+                                        $servicio5s=mysqli_query($con,"select * from servicios order by nombre");
+                                        while ($rw=mysqli_fetch_array($servicio5s)) {
+                                            if ($servicio5==$rw['id']){$selected1="selected";}else{$selected1="";}
                                     ?>
-                                        <option value="<?php echo $rw['id']?>" <?php echo $selected5;?>><?php echo $rw['nombre']?></option>
+                                        <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                     <?php 
                                         }
                                     ?>
@@ -314,11 +311,11 @@
                             <div class="col-sm-4">
                                 <select class="form-control" name="entidad5" id="entidad5">
                                     <?php
-                                        $entidads=mysqli_query($con,"select * from estados");
-                                        while ($rw=mysqli_fetch_array($entidads)) {
-                                            if ($entidads==$rw['id']){$selected5="selected";}else{$selected5="";}
+                                        $entidad5s=mysqli_query($con,"select * from estados order by nombre");
+                                        while ($rw=mysqli_fetch_array($entidad5s)) {
+                                            if ($entidad5==$rw['id']){$selected1="selected";}else{$selected1="";}
                                     ?>
-                                        <option value="<?php echo $rw['id']?>" <?php echo $selected5;?>><?php echo $rw['nombre']?></option>
+                                        <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
                                     <?php 
                                         }
                                     ?>
