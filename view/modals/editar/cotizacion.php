@@ -38,18 +38,10 @@
 
             $cantidad5=$rw['cantidad5'];
             $descripcion5=$rw['descripcion5'];
-            $precio5=$rw['precio5'];         
+            $precio5=$rw['precio5'];  
 
-
-            $idservicios=$rw['id'];
-            $servicios=mysqli_query($con, "SELECT * FROM servicios WHERE id=$idservicios");
-            $servicios_rw=mysqli_fetch_array($servicios);
-            $nombre_servicios=$servicios_rw['nombre'];
-
-            $idestados=$rw['id'];
-            $estados=mysqli_query($con, "SELECT * FROM estados WHERE id=$idestados");
-            $estados_rw=mysqli_fetch_array($estados);
-            $nombre_estados=$estados_rw['nombre'];
+            $nombre_servicios=$rw['nombre_servicios'];
+            $nombre_estados=$rw['nombre_estados'];               
         }
     }   
     else{exit;}
