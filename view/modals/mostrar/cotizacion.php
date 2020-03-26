@@ -12,7 +12,7 @@
             $rw=mysqli_fetch_array($query);
                 $nombre=$rw['nombre'];
                 $correo=$rw['correo'];
-                //$mensaje=$rw['mensaje'];
+                $mensaje=$rw['mensaje'];
 
                 $cantidad=$rw['cantidad'];
                 $descripcion=$rw['descripcion'];
@@ -38,6 +38,9 @@
                 $descripcion5=$rw['descripcion5'];
                 $precio5=$rw['precio5'];  
 
+                $subtotal=$rw['subtotal'];
+                $total=$rw['total'];
+
                 $idservicios=$rw['id'];
                 $servicios=mysqli_query($con, "SELECT * FROM servicios WHERE id=$idservicios");
                 $servicios_rw=mysqli_fetch_array($servicios);
@@ -46,7 +49,7 @@
                 $idestados=$rw['id'];
                 $estados=mysqli_query($con, "SELECT * FROM estados WHERE id=$idestados");
                 $estados_rw=mysqli_fetch_array($estados);
-            $nombre_estados=$estados_rw['nombre'];
+                $nombre_estados=$estados_rw['nombre'];
 
         }
     }   
@@ -54,53 +57,230 @@
 ?>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 
-<div class="form-group">
-    <label for="nombre" class="col-sm-4 control-label">Nombre: </label>
-    <div class="col-sm-8">
-        <?php echo $nombre;?>
-    </div>
-</div>
+                        <div class="form-group">
+                            <label for="nombre" class="col-sm-2 control-label">Nombre o empresa: </label>
+                            <div class="col-sm-10">
+                                <input type="text" disabled  class="form-control" id="nombre" name="nombre" placeholder="<?php echo  $nombre ?> ">
+                            </div>
+                        </div>
 
-<div class="form-group">
-    <label for="correo" class="col-sm-4 control-label">Correo Electrónico: </label>
-    <div class="col-sm-8">
-       <?php echo $correo;?>
-    </div>
-</div>
+                            <div class="form-group">
+                                <label for="correo" class="col-sm-2 control-label">Correo: </label>
+                                <div class="col-sm-10">
+                                    <input type="email" disabled class="form-control" id="correo" name="correo" placeholder="<?php echo  $correo ?> ">
+                                </div>
+                            </div>
 
-<div class="form-group">
-    <label for="cantidad" class="col-sm-4 control-label">cantidad: </label>
-    <div class="col-sm-8">
-        <?php echo $cantidad;?>
-    </div>
-</div>
+                             <div class="form-group">
+                                <label for="mensaje" class="col-sm-2 control-label">Mensaje </label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" disabled id="mensaje" placeholder="<?php $mensaje ?>" rows="3"></textarea>
+                                </div>
+                            </div>
 
-<div class="form-group">
-    <label for="descripcion" class="col-sm-4 control-label">descripcion</label>
-    <div class="col-sm-8">
-        <?php echo $descripcion;?>
-    </div>
-</div>
+                            <div class="form-group">
+                                <label for="cantidad" class="col-sm-2 control-label">Servicio: </label>
+                                <div class="col-sm-3">
+                                    <input type="number" disabled class="form-control" id="cantidad" name="cantidad" placeholder="<?php echo  $cantidad ?>">
+                                </div>
 
-<div class="form-group">
-    <label for="precio" class="col-sm-4 control-label">precio: </label>
-    <div class="col-sm-8">
-        <?php echo $precio;?>
-    </div>
-</div>
+                                <div class="col-sm-3">
+                                    <select class="form-control" disabled name="servicio" id="servicio" >                                 
+                                            <option  value=""><?php echo $nombre_servicios;?></option>                                      
+                                    </select>
+                                </div>
 
-<div class="form-group">
-    <label for="empresa" class="col-sm-4 control-label">servicio: </label>
-    <div class="col-sm-8">
-       <?php echo $nombre_servicios;?>
-    </div>
-</div>
+                                <div class="col-sm-3">
+                                    <select class="form-control" disabled name="entidad" id="entidad" >
+                                        <option  value="<?php echo $id;?>"><?php echo $nombre_estados;?></option>     
+                                    </select>
+                                </div>
+                            </div>
 
-<div class="form-group">
-    <label for="manejo" class="col-sm-4 control-label">entidad </label>
-    <div class="col-sm-8">
-        <?php echo $nombre_estados;?>
-    </div>
-</div>
+                         <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">precio: </label>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                        <input type="number" disabled class="form-control" id="precio" name="precio" placeholder="<?php $precio ?>" value="" onchange="SumarAutomatico(this.value);">
+                                    <div class="input-group-addon">.00</div>
+                                </div>
+                            </div>
+
+            
+                                <div class="col-sm-6">
+                                    <input type="text" disabled class="form-control" id="descripcion" name="descripcion" placeholder="<?php $descripcion ?>">
+                                </div>
+                        </div>      
+                <hr>
+
+                        <div class="form-group">
+                                <label for="cantidad2" class="col-sm-2 control-label">Servicio2: </label>
+                                <div class="col-sm-2">
+                                    <input type="number" disabled class="form-control" id="cantidad2" name="cantidad2" disabled placeholder="<?php echo  $cantidad2 ?>">
+                            </div>
+
+                            <div class="col-sm-4">
+                                <select class="form-control" disabled name="servicio2" id="servicio2" >
+                                    <option value=""><?php echo $nombre_servicios;?></option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <select class="form-control" disabled name="entidad2" id="entidad2" >
+                                    <option value=""><?php echo $nombre_estados;?></option>
+                                </select>
+                            </div>
+
+                         </div>
+
+                         <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">precio: </label>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                        <input type="number" disabled class="form-control" id="precio2" name="precio2" placeholder=" <?php $precio2 ?> " value="" onchange="SumarAutomatico(this.value);">
+                                    <div class="input-group-addon">.00</div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <input type="text" disabled class="form-control" id="Descripcion2" name="Descripcion2" placeholder="<?php $descripcion2 ?> ">
+                            </div>
+                        </div>  
+
+                <hr>
+
+         <!-- **************************************SERVICIO 3******************************************** -->
+                        <div class="form-group">
+                            <label for="cantidad3" class="col-sm-2 control-label">Servicio3: </label>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="cantidad3" name="cantidad3" disabled placeholder="<?php echo  $cantidad3 ?>">
+                            </div>
+
+                            <div class="col-sm-4">
+                                <select class="form-control" disabled name="servicio3" id="servicio3" >
+                                    <option value=""><?php echo $nombre_servicios;?></option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <select class="form-control" disabled name="entidad3" id="entidad3" >
+                                    <option value=""><?php echo $nombre_estados;?></option>
+                                </select>
+                            </div>                    
+                        </div>
+
+                         <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">precio: </label>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                        <input type="number" disabled class="form-control" id="precio3" name="precio3" placeholder=" <?php $precio3 ?> " value="" onchange="SumarAutomatico(this.value);">
+                                    <div class="input-group-addon">.00</div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <input type="text" disabled class="form-control" id="Descripcion3" name="Descripcion3" placeholder=" <?php $descripcion3 ?> ">
+                            </div>
+                        </div> 
+
+                <hr>
+        <!-- **************************************SERVICIO 4******************************************** -->
+                        <div class="form-group">
+                            <label for="cantidad4" class="col-sm-2 control-label">Servicio4: </label>
+                            <div class="col-sm-2">
+                                <input type="number"  class="form-control" id="cantidad4" name="cantidad4" disabled placeholder="<?php echo  $cantidad4 ?>">
+                            </div>
+
+                            <div class="col-sm-4">
+                                <select class="form-control" disabled name="servicio4" id="servicio4" >
+                                    <option value=""><?php echo $nombre_servicios;?></option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select class="form-control" disabled name="entidad4" id="entidad4" >
+                                    <option value=""><?php echo $nombre_estados;?></option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                         <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">precio: </label>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                        <input type="number" disabled class="form-control" id="precio4" name="precio4" placeholder=" <?php $precio4 ?> " value="" onchange="SumarAutomatico(this.value);">
+                                    <div class="input-group-addon">.00</div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <input type="text" disabled class="form-control" id="descripcion4" name="descripcion4" placeholder=" <?php $descripcion4 ?> ">
+                            </div>
+                        </div> 
+
+                <hr>                 
+        <!-- **************************************SERVICIO 5******************************************** -->
+                        <div class="form-group">
+                            <label for="cantidad5" class="col-sm-2 control-label">Servicio5: </label>
+                            <div class="col-sm-2">
+                                <input type="number" disabled class="form-control" id="cantidad5" name="cantidad5" disabled placeholder="<?php echo  $cantidad5 ?>">
+                            </div>
+
+                            <div class="col-sm-4">
+                                <select class="form-control" disabled name="servicio5" id="servicio5" >
+                                    <option value=""><?php echo $nombre_servicios;?></option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select class="form-control" disabled name="entidad5" id="entidad5" >
+                                    <option value=""><?php echo $nombre_estados;?></option>
+                                </select>
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">precio: </label>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                        <input type="number" disabled class="form-control" id="precio5" name="precio5" placeholder=" <?php $precio5 ?> " value="" onchange="SumarAutomatico(this.value);">
+                                    <div class="input-group-addon">.00</div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <input type="text" disabled class="form-control" id="descripcion5" name="descripcion5" placeholder=" <?php $descripcion5 ?> ">
+                            </div>
+                        </div>                   
+
+                        <hr>
+
+         <!-- **************************************costos 5******************************************** -->
+
+                    <div class="form-group">
+                        <label for="subtotal" class="col-sm-2 control-label">Subtotal: </label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input type="number" disabled class="form-control" id="subtotal" name="subtotal" placeholder=" <?php $subtotal ?> " value="" onchange="SumarAutomatico(this.value);">
+                                <div class="input-group-addon">.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="total" class="col-sm-2 control-label">Total: </label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input type="number" disabled class="form-control" id="total" name="total" placeholder=" <?php $total ?> " value="" onchange="SumarAutomatico(this.value);">
+                                <div class="input-group-addon">.00</div>
+                            </div>
+                        </div>
+                    </div>
 
 </div>

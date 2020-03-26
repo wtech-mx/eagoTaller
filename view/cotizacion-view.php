@@ -37,10 +37,8 @@
                     <!-- modals -->
                         <?php 
                             include "modals/agregar/agregar_cotizacion.php";
-                            //include "modals/editar/editar_cotizacion.php";
-
+                            include "modals/editar/editar_cotizacion.php";
                             //include "modals/mostrar/cotizacion.php";
-
                             include "modals/mostrar/mostrar_cotizacion.php";
 
                         ?>

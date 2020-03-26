@@ -4,7 +4,7 @@
     if (isset($_GET["id"])){
         $id=$_GET["id"];
         $id=intval($id);
-        $sql="SELECT * FROM cliente WHERE id='$id'";
+        $sql="SELECT * FROM cotizacion WHERE id='$id'";
         $query=mysqli_query($con,$sql);
         $num=mysqli_num_rows($query);
         if ($num==1){
