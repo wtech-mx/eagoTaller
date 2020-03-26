@@ -45,6 +45,8 @@
 
             $subtotal=$rw['subtotal'];
             $total=$rw['total'];
+            $nombre_servicios=$rw['nombre_servicios'];
+            $nombre_estados=$rw['nombre_estados'];  
         }
     }   
     else{exit;}
