@@ -16,21 +16,21 @@
                         <div class="form-group">
                             <label for="nombre" class="col-sm-2 control-label">Nombre o empresa: </label>
                             <div class="col-sm-10">
-                                <input type="email" required class="form-control" id="nombre" name="nombre" placeholder="Nombre o empresa: ">
+                                <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="Nombre o empresa: ">
                             </div>
                         </div>
 
                             <div class="form-group">
                                 <label for="correo" class="col-sm-2 control-label">Correo: </label>
                                 <div class="col-sm-10">
-                                    <input type="email" required class="form-control" id="correo" name="correo" placeholder="Correo del destinatario ">
+                                    <input type="email"  class="form-control" id="correo" name="correo" placeholder="Correo del destinatario ">
                                 </div>
                             </div>
 
                              <div class="form-group">
                                 <label for="mensaje" class="col-sm-2 control-label">Mensaje </label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Mensaje de bienvenida a la empresa o cliente" rows="3"></textarea>
+                                    <textarea class="form-control" id="mensaje" placeholder="Mensaje de bienvenida a la empresa o cliente" rows="3"></textarea>
                                 </div>
                             </div>
 
@@ -85,7 +85,7 @@
 
             
                                 <div class="col-sm-6">
-                                    <input type="text" required class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion: ">
+                                    <input type="text"  class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion: ">
                                 </div>
                         </div>      
                 <hr>
@@ -141,7 +141,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" required class="form-control" id="Descripcion2" name="Descripcion2" placeholder="Descripcion2: ">
+                                <input type="text"  class="form-control" id="Descripcion2" name="Descripcion2" placeholder="Descripcion2: ">
                             </div>
                         </div>  
 
@@ -198,7 +198,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" required class="form-control" id="Descripcion3" name="Descripcion3" placeholder="Descripcion3: ">
+                                <input type="text"  class="form-control" id="Descripcion3" name="Descripcion3" placeholder="Descripcion3: ">
                             </div>
                         </div> 
 
@@ -254,7 +254,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" required class="form-control" id="descripcion4" name="descripcion4" placeholder="descripcion4: ">
+                                <input type="text"  class="form-control" id="descripcion4" name="descripcion4" placeholder="descripcion4: ">
                             </div>
                         </div> 
 
@@ -308,7 +308,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text" required class="form-control" id="descripcion5" name="descripcion5" placeholder="descripcion5: ">
+                                <input type="text"  class="form-control" id="descripcion5" name="descripcion5" placeholder="descripcion5: ">
                             </div>
                         </div>                   
 

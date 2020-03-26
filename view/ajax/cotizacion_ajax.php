@@ -70,13 +70,33 @@ if($action == 'ajax'){
 			$finales=0;
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id'];
-				$nombre=$row['nombre'];
-				$correo=$row['correo'];
+	            $nombre=$row['nombre'];
+	            $correo=$row['correo'];
+	            //$mensaje=$row['mensaje'];
 
+	            $cantidad=$row['cantidad'];
+	            $descripcion=$row['descripcion'];
+	            $precio=$row['precio'];
 
-				$cantidad=$row['cantidad'];
-				$descripcion=$row['descripcion'];
-				$precio=$row['precio'];
+	            $cantidad2=$row['cantidad2'];
+	            $descripcion2=$row['descripcion2'];
+	            $precio2=$row['precio2'];
+
+	            $cantidad3=$row['cantidad3'];
+	            $descripcion3=$row['descripcion3'];
+	            $precio3=$row['precio3'];
+
+	            $cantidad3=$row['cantidad3'];
+	            $descripcion3=$row['descripcion3'];
+	            $precio3=$row['precio3'];
+
+	            $cantidad4=$row['cantidad4'];
+	            $descripcion4=$row['descripcion4'];
+	            $precio4=$row['precio4'];
+
+	            $cantidad5=$row['cantidad5'];
+	            $descripcion5=$row['descripcion5'];
+	            $precio5=$row['precio5'];  
 
 				$idservicios=$row['id'];
 				$servicios=mysqli_query($con, "SELECT * FROM servicios WHERE id=$idservicios");

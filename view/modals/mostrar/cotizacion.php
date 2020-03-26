@@ -10,22 +10,42 @@
         if ($num==1){
 
             $rw=mysqli_fetch_array($query);
-            $nombre=$rw['nombre'];
-            $correo=$rw['correo'];
+                $nombre=$rw['nombre'];
+                $correo=$rw['correo'];
+                //$mensaje=$rw['mensaje'];
 
+                $cantidad=$rw['cantidad'];
+                $descripcion=$rw['descripcion'];
+                $precio=$rw['precio'];
 
-            $cantidad=$rw['cantidad'];
-            $descripcion=$rw['descripcion'];
-            $precio=$rw['precio'];
+                $cantidad2=$rw['cantidad2'];
+                $descripcion2=$rw['descripcion2'];
+                $precio2=$rw['precio2'];
 
-            $idservicios=$rw['id'];
-            $servicios=mysqli_query($con, "SELECT * FROM servicios WHERE id=$idservicios");
-            $servicios_rw=mysqli_fetch_array($servicios);
-            $nombre_servicios=$servicios_rw['nombre'];
+                $cantidad3=$rw['cantidad3'];
+                $descripcion3=$rw['descripcion3'];
+                $precio3=$rw['precio3'];
 
-            $idestados=$rw['id'];
-            $estados=mysqli_query($con, "SELECT * FROM estados WHERE id=$idestados");
-            $estados_rw=mysqli_fetch_array($estados);
+                $cantidad3=$rw['cantidad3'];
+                $descripcion3=$rw['descripcion3'];
+                $precio3=$rw['precio3'];
+
+                $cantidad4=$rw['cantidad4'];
+                $descripcion4=$rw['descripcion4'];
+                $precio4=$rw['precio4'];
+
+                $cantidad5=$rw['cantidad5'];
+                $descripcion5=$rw['descripcion5'];
+                $precio5=$rw['precio5'];  
+
+                $idservicios=$rw['id'];
+                $servicios=mysqli_query($con, "SELECT * FROM servicios WHERE id=$idservicios");
+                $servicios_rw=mysqli_fetch_array($servicios);
+                $nombre_servicios=$servicios_rw['nombre'];
+
+                $idestados=$rw['id'];
+                $estados=mysqli_query($con, "SELECT * FROM estados WHERE id=$idestados");
+                $estados_rw=mysqli_fetch_array($estados);
             $nombre_estados=$estados_rw['nombre'];
 
         }
