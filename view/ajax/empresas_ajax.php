@@ -6,7 +6,7 @@
 	$id=$_REQUEST["id_empresa"];
 	$id=intval($id);
 
-	$query_validate=mysqli_query($con,"select * from sector where id_empresa='".$id."'");
+	$query_validate=mysqli_query($con,"select * from sector where id='".$id."'");
 	$count=mysqli_num_rows($query_validate);
 	if ($count==0){
 		if($delete=mysqli_query($con, "DELETE FROM empresa WHERE id_empresa='$id'")){

@@ -115,12 +115,12 @@
     }
 </script>
 <script>
-    function eliminar(id){
+    function eliminar(id_empresa){
         if(confirm('Esta acción  eliminará de forma permanente la empresa \n\n Desea continuar?')){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();
-            var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id":id};
+            var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id_empresa":id_empresa};
             
             $.ajax({
                 url:'view/ajax/empresas_ajax.php',
@@ -189,8 +189,8 @@
     });
 </script>
 <script>
-    function editar(id){
-        var parametros = {"action":"ajax","id":id};
+    function editar(id_empresa){
+        var parametros = {"action":"ajax","id_empresa":id_empresa};
         $.ajax({
                 url:'view/modals/editar/empresa.php',
                 data: parametros,

@@ -1,14 +1,11 @@
 <?php
 	include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
-	if (empty($_POST['cliente'])) {
-            $errors[] = "Cliente está vacío.";
-        }  elseif (empty($_POST['vehiculo'])) {
+	if (empty($_POST['vehiculo'])) {
             $errors[] = "Vehiculo está vacío.";
         } elseif (empty($_POST['datos'])) {
             $errors[] = "Datos está vacío.";
         }  elseif (
-        	!empty($_POST['cliente'])
-        	&& !empty($_POST['vehiculo'])
+        	!empty($_POST['vehiculo'])
         	&& !empty($_POST['datos'])
         ){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
@@ -16,10 +13,11 @@
 			// escaping, additionally removing everything that could be (html/javascript-) code
             $fecha_ges = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_ges"],ENT_QUOTES)));
             $id_cliente = $_POST['cliente'];
+            $id_empresa = $_POST['empresa'];
             $idvehiculo = $_POST['vehiculo'];
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
             $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
-            $taller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
+            $idtaller = mysqli_real_escape_string($con,(strip_tags($_POST["taller"],ENT_QUOTES)));
             $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
             $aplaca = mysqli_real_escape_string($con,(strip_tags($_POST["aplaca"],ENT_QUOTES)));
             $bplaca = mysqli_real_escape_string($con,(strip_tags($_POST["bplaca"],ENT_QUOTES)));
@@ -29,7 +27,7 @@
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO gestoria (fecha_ges, id_cliente, idvehiculo, datos, idtrasladista, idtaller, otro, aplaca, bplaca, rplaca, tarjeta, origen, fecha_carga) VALUES('".$fecha_ges."','".$id_cliente."','".$idvehiculo."','".$datos."','".$trasladista."','".$taller."','".$otro."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$origen."','".$fecha_carga."');";
+			$sql = "INSERT INTO gestoria (fecha_ges, id_cliente, id_empresa, idvehiculo, datos, idtrasladista, idtaller, otro, aplaca, bplaca, rplaca, tarjeta, origen, fecha_carga) VALUES('".$fecha_ges."','".$id_cliente."','".$id_empresa."','".$idvehiculo."','".$datos."','".$trasladista."','".$idtaller."','".$otro."','".$aplaca."','".$bplaca."','".$rplaca."','".$tarjeta."','".$origen."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

@@ -2,15 +2,12 @@
     include("../is_logged.php");//Archivo comprueba si el usuario esta logueado	
 	if (empty($_POST['fecha_ges'])){
 			$errors[] = "Fecha de gestoria está vacío.";
-		}  elseif (empty($_POST['cliente'])) {
-            $errors[] = "cliente está vacío.";
-        }	elseif (empty($_POST['vehiculo'])) {
+		}  elseif (empty($_POST['vehiculo'])) {
             $errors[] = "Vehiculo está vacío.";
         } elseif (empty($_POST['datos'])) {
             $errors[] = "Datos está vacío.";
         }  elseif (
         	!empty($_POST['fecha_ges'])
-        	&& !empty($_POST['cliente'])
         	&& !empty($_POST['vehiculo'])
         	&& !empty($_POST['datos'])
         ){
@@ -19,6 +16,7 @@
        // escaping, additionally removing everything that could be (html/javascript-) code
         $fecha_ges = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_ges"],ENT_QUOTES)));
         $id_cliente = $_POST['cliente'];
+        $id_empresa = $_POST['empresa'];
         $idvehiculo = $_POST['vehiculo'];
         $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
         $otro = mysqli_real_escape_string($con,(strip_tags($_POST["otro"],ENT_QUOTES)));
@@ -31,7 +29,7 @@
         $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
         $id=intval($_POST['id']);
 	// UPDATE data into database
-    $sql = "UPDATE gestoria SET fecha_ges='".$fecha_ges."', id_cliente='".$id_cliente."', idvehiculo='".$idvehiculo."', datos='".$datos."', otro='".$otro."', idtaller='".$taller."', idtrasladista='".$trasladista."', origen='".$origen."' WHERE id='".$id."' ";
+    $sql = "UPDATE gestoria SET fecha_ges='".$fecha_ges."', id_cliente='".$id_cliente."', id_empresa='".$id_empresa."', idvehiculo='".$idvehiculo."', datos='".$datos."', otro='".$otro."', idtaller='".$taller."', idtrasladista='".$trasladista."', origen='".$origen."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if ($query) {

@@ -16,6 +16,7 @@
 			// escaping, additionally removing everything that could be (html/javascript-) code
             $fecha_man = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_man"],ENT_QUOTES)));
             $id_cliente = $_POST['cliente'];
+            $id_empresa = $_POST['empresa'];
             $idvehiculo = $_POST['vehiculo'];
             $datos = mysqli_real_escape_string($con,(strip_tags($_POST["datos"],ENT_QUOTES)));
             $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
@@ -26,7 +27,7 @@
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO mantenimiento (fecha_man, id_cliente, idvehiculo, datos, idtrasladista, idtaller, otros, vendedor, origen, fecha_carga) VALUES('".$fecha_man."','".$id_cliente."','".$idvehiculo."','".$datos."','".$trasladista."','".$taller."','".$otros."','".$vendedor."','".$origen."','".$fecha_carga."');";
+			$sql = "INSERT INTO mantenimiento (fecha_man, id_cliente, id_empresa, idvehiculo, datos, idtrasladista, idtaller, otros, vendedor, origen, fecha_carga) VALUES('".$fecha_man."','".$id_cliente."','".$id_empresa."','".$idvehiculo."','".$datos."','".$trasladista."','".$taller."','".$otros."','".$vendedor."','".$origen."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

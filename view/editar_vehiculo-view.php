@@ -15,7 +15,7 @@
             $patente=$rw['patente'];
             $marca=$rw['marca'];
             $submarca=$rw['submarca'];
-            $idempresa=$rw['id'];
+            $idempresa=$rw['id_empresa'];
             $modelo=$rw['modelo'];
             $nro_chasis=$rw['nro_chasis'];
             $nro_motor=$rw['nro_motor'];

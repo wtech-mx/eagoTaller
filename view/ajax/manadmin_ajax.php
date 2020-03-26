@@ -55,8 +55,9 @@ if($action == 'ajax'){
         <thead>
             <tr>
                 <th>#ID</th>
+                <th>Empresa</th>
                 <th>Cliente</th>
-                <th>Vehiculo</th>
+                <th>Placa</th>
                 <th>Trasladista</th>
                 <th>Total</th>
                 <th>Estado</th>
@@ -73,10 +74,15 @@ if($action == 'ajax'){
 				$cliente_rw=mysqli_fetch_array($clientes);
 				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
+				$idempresa=$row['id_empresa'];
+				$empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
+				$empresa_rw=mysqli_fetch_array($empresas);
+				$nombre_empresa=$empresa_rw['nombre'];
+
 				$idvehiculo=$row['idvehiculo'];
 				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
 				$vehiculo_rw=mysqli_fetch_array($vehiculos);
-				$patente_vehiculo=$vehiculo_rw['marca'];
+				$patente_vehiculo=$vehiculo_rw['patente'];
 
 				$idtrasladista=$row['idtrasladista'];
                 $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
@@ -101,6 +107,7 @@ if($action == 'ajax'){
         <tbody>
             <tr>
                 <td><?php echo $id ?></td>
+                <td><?php echo $nombre_empresa ?></td>
                 <td><?php echo $nombre_cliente ?></td>
                 <td><?php echo $patente_vehiculo ?></td>
                 <td><?php echo $nombre_trasladista ?></td>

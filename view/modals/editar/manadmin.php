@@ -17,6 +17,11 @@
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
+                $idempresa=$rw['id_empresa'];
+                $empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
+                $empresa_rw=mysqli_fetch_array($empresas);
+                $nombre_empresa=$empresa_rw['nombre'];
+
                 $idvehiculo=$rw['idvehiculo'];
                 $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
@@ -52,9 +57,14 @@
         <?php echo $nombre_cliente;?>
     </div>
 </div>
-
 <div class="form-group">
-    <label for="idvehiculo" class="col-sm-4 control-label">Vehiculo: </label>
+    <label for="id_empresa" class="col-sm-4 control-label">Empresa: </label>
+    <div class="col-sm-8">
+        <?php echo $nombre_empresa;?>
+    </div>
+</div>
+<div class="form-group">
+    <label for="idvehiculo" class="col-sm-4 control-label">Placa: </label>
     <div class="col-sm-8">
         <?php echo $patente_vehiculo;?>
     </div>
