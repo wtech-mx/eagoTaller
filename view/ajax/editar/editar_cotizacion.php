@@ -2,14 +2,6 @@
     include("../is_logged.php");//Archivo comprueba si el usuario esta logueado 
     if (empty($_POST['nombre'])) {
             $errors[] = "Nombre está vacío.";
-        }  elseif (empty($_POST['apellido'])) {
-            $errors[] = "Apellido está vacío.";
-        }  elseif (empty($_POST['telefono'])) {
-            $errors[] = "Telefono está vacío.";
-        }  elseif (empty($_POST['correo'])) {
-            $errors[] = "Correo Electronico está vacío.";
-        }  elseif (empty($_POST['edad'])) {
-            $errors[] = "Edad está vacío.";
         }  /* elseif (empty($_POST['kind'])) {
             $errors[] = "Kind está vacío.";
         }*/ elseif (
@@ -59,12 +51,12 @@
         $id=intval($_POST['id']);
 
     // UPDATE data into database
-    $sql = "UPDATE cotizacion SET nombre='".$nombre."', apellido='".$apellido."', telefono='".$telefono."', correo='".$correo."',  mensaje='".$mensaje."', edad='".$edad."', id_empresa='".$empresa."', manejo='".$manejo."', colTrabajo='".$colTrabajo."', colCasa='".$colCasa."', cpTrabajo='".$cpTrabajo."', cpCasa='".$cpCasa."', km='".$km."', entidad='".$entidad."', tipo='".$tipo."' WHERE id='".$id."' ";
+     $sql = "UPDATE cotizacion SET nombre='".$nombre."', mensaje='".$mensaje."', correo='".$correo."', servicio='".$servicio."',  cantidad='".$cantidad."', descripcion='".$descripcion."', entidad='".$entidad."', precio='".$precio."', servicio2='".$servicio2."',  cantidad2='".$cantidad2."', descripcion2='".$descripcion2."', entidad2='".$entidad2."', precio2='".$precio2."', servicio3='".$servicio3."',  cantidad3='".$cantidad3."', descripcion3='".$descripcion3."', entidad3='".$entidad3."', precio3='".$precio3."', servicio4='".$servicio4."',  cantidad4='".$cantidad4."', descripcion4='".$descripcion4."', entidad4='".$entidad4."', precio4='".$precio4."', servicio5='".$servicio5."',  cantidad5='".$cantidad5."', descripcion5='".$descripcion5."', entidad5='".$entidad5."', precio5='".$precio5."', subtotal='".$subtotal."', total='".$total."' WHERE id='".$id."' ";
     $query = mysqli_query($con,$sql);
 
     if($query){
 
-        $messages[] = "El cliente ha sido actualizado con éxito.";
+        $messages[] = "Cotizacion ha sido actualizado con éxito.";
     } else {
         $errors[] = "Lo sentimos, la actualizaión falló. Por favor, regrese y vuelva a intentarlo.";
     }

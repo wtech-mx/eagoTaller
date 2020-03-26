@@ -30,7 +30,7 @@
                              <div class="form-group">
                                 <label for="mensaje" class="col-sm-2 control-label">Mensaje </label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" id="mensaje" placeholder="Mensaje de bienvenida a la empresa o cliente" rows="3"></textarea>
+                                    <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje de bienvenida a la empresa o cliente" rows="3"></textarea>
                                 </div>
                             </div>
 
@@ -60,12 +60,12 @@
                                     <select class="form-control" name="entidad" id="entidad" >
                                         <option value="0">Seleccionar </option>
                                         <?php 
-                                            $sql_tallers=mysqli_query($con,"SELECT * FROM estados order by nombre");
-                                            while ($rw=mysqli_fetch_array($sql_tallers)){
+                                            $sql_estadoss=mysqli_query($con,"SELECT * FROM estados order by nombre");
+                                            while ($rw=mysqli_fetch_array($sql_estadoss)){
                                                 $id=$rw['id'];
-                                                $nombre_servicio=$rw['nombre'];
+                                                $nombre_estados=$rw['nombre'];
                                             ?>
-                                            <option value="<?php echo $id;?>"><?php echo $nombre_servicio;?></option>
+                                            <option value="<?php echo $id;?>"><?php echo $nombre_estados;?></option>
                                             <?php
                                             }
                                         ?>
@@ -74,7 +74,7 @@
                             </div>
 
                          <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">precio: </label>
+                            <label for="precio" class="col-sm-2 control-label">precio: </label>
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="input-group-addon">$</div>
@@ -116,12 +116,12 @@
                                 <select class="form-control" name="entidad2" id="entidad2" >
                                     <option value="0">Seleccionar </option>
                                     <?php 
-                                        $sql_tallers=mysqli_query($con,"SELECT * FROM estados order by nombre");
-                                        while ($rw=mysqli_fetch_array($sql_tallers)){
+                                        $sql_estadoss=mysqli_query($con,"SELECT * FROM estados order by nombre");
+                                        while ($rw=mysqli_fetch_array($sql_estadoss)){
                                             $id=$rw['id'];
-                                            $nombre_servicio=$rw['nombre'];
+                                            $nombre_estados=$rw['nombre'];
                                         ?>
-                                        <option value="<?php echo $id;?>"><?php echo $nombre_servicio;?></option>
+                                        <option value="<?php echo $id;?>"><?php echo $nombre_estados;?></option>
                                         <?php
                                         }
                                     ?>
@@ -141,7 +141,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text"  class="form-control" id="Descripcion2" name="Descripcion2" placeholder="Descripcion2: ">
+                                <input type="text"  class="form-control" id="descripcion2" name="descripcion2" placeholder="descripcion2: ">
                             </div>
                         </div>  
 
@@ -174,12 +174,12 @@
                                 <select class="form-control" name="entidad3" id="entidad3" >
                                     <option value="0">Seleccionar </option>
                                     <?php 
-                                        $sql_tallers=mysqli_query($con,"SELECT * FROM estados order by nombre");
-                                        while ($rw=mysqli_fetch_array($sql_tallers)){
+                                        $sql_estadoss=mysqli_query($con,"SELECT * FROM estados order by nombre");
+                                        while ($rw=mysqli_fetch_array($sql_estadoss)){
                                             $id=$rw['id'];
-                                            $nombre_servicio=$rw['nombre'];
+                                            $nombre_estados=$rw['nombre'];
                                         ?>
-                                        <option value="<?php echo $id;?>"><?php echo $nombre_servicio;?></option>
+                                        <option value="<?php echo $id;?>"><?php echo $nombre_estados;?></option>
                                         <?php
                                         }
                                     ?>
@@ -198,7 +198,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <input type="text"  class="form-control" id="Descripcion3" name="Descripcion3" placeholder="Descripcion3: ">
+                                <input type="text"  class="form-control" id="descripcion3" name="descripcion3" placeholder="Descripcion3: ">
                             </div>
                         </div> 
 
@@ -229,12 +229,12 @@
                                 <select class="form-control" name="entidad4" id="entidad4" >
                                     <option value="0">Seleccionar </option>
                                     <?php 
-                                        $sql_tallers=mysqli_query($con,"SELECT * FROM estados order by nombre");
-                                        while ($rw=mysqli_fetch_array($sql_tallers)){
+                                        $sql_estadoss=mysqli_query($con,"SELECT * FROM estados order by nombre");
+                                        while ($rw=mysqli_fetch_array($sql_estadoss)){
                                             $id=$rw['id'];
-                                            $nombre_servicio=$rw['nombre'];
+                                            $nombre_estados=$rw['nombre'];
                                         ?>
-                                        <option value="<?php echo $id;?>"><?php echo $nombre_servicio;?></option>
+                                        <option value="<?php echo $id;?>"><?php echo $nombre_estados;?></option>
                                         <?php
                                         }
                                     ?>
@@ -284,12 +284,12 @@
                                 <select class="form-control" name="entidad5" id="entidad5" >
                                     <option value="0">Seleccionar </option>
                                     <?php 
-                                        $sql_tallers=mysqli_query($con,"SELECT * FROM estados order by nombre");
-                                        while ($rw=mysqli_fetch_array($sql_tallers)){
+                                        $sql_estadoss=mysqli_query($con,"SELECT * FROM estados order by nombre");
+                                        while ($rw=mysqli_fetch_array($sql_estadoss)){
                                             $id=$rw['id'];
-                                            $nombre_servicio=$rw['nombre'];
+                                            $nombre_estados=$rw['nombre'];
                                         ?>
-                                        <option value="<?php echo $id;?>"><?php echo $nombre_servicio;?></option>
+                                        <option value="<?php echo $id;?>"><?php echo $nombre_estados;?></option>
                                         <?php
                                         }
                                     ?>
