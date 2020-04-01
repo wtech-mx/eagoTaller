@@ -2,6 +2,7 @@
 
     //define('RUTA', 'http://eago.com.mx/Eago-frontend/index.php');
     define('RUTA', 'https://eago.com.mx/eagoTaller/index.php');
+
     
 
     if (!isset($_SESSION['user_id'])&& $_SESSION['user_id']==null) {

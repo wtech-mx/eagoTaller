@@ -1,8 +1,10 @@
 <?php 
+    
     $active14="active"; 
     include "resources/header.php";
     if ($_SESSION['cotizacion']==1){
 ?>
+
     <!--main content start-->
     <section class="main-content-wrapper">
         <section id="main-content">
@@ -38,7 +40,6 @@
                         <?php 
                             include "modals/agregar/agregar_cotizacion.php";
                             include "modals/editar/editar_cotizacion.php";
-                            //include "modals/mostrar/cotizacion.php";
                             include "modals/mostrar/mostrar_cotizacion.php";
 
                         ?>
@@ -121,35 +122,7 @@
     }
 </script>
 
-<!--eliminar los datos de la db-->
 
-<!--<script>
-    function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente el servicio \n\n Desea continuar?')){
-            var page=1;
-            var query=$("#q").val();
-            var per_page=$("#per_page").val();
-            var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id":id};
-            
-            $.ajax({
-                url:'view/ajax/cotizacion_ajax.php',
-                data: parametros,
-                 beforeSend: function(objeto){
-                $("#loader").html("<img src='./assets/img/ajax-loader.gif'>");
-              },
-                success:function(data){
-                    $(".outer_div").html(data).fadeIn('slow');
-                    $("#loader").html("");
-                    window.setTimeout(function() {
-                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                    $(this).remove();});}, 5000);
-                }
-            })
-        }
-    }
-</script>-->
-
-<!--agregar datos en el modall-->
 
 <script>
     $( "#new_register" ).submit(function( event ) {
@@ -235,7 +208,23 @@
                 }
             })
     }
+
+    function enviar(id){
+        var parametros = {"action":"ajax","id":id};
+        $.ajax({
+                url:'view/modals/mostrar/enviar-email.php',
+                data: parametros,
+                 beforeSend: function(objeto){
+                $("#loader4").html("<img src='./assets/img/ajax-loader.gif'>");
+              },
+                success:function(data){
+                    $(".outer_div4").html(data).fadeIn('slow');
+                    $("#loader4").html("");
+                }
+            })
+    }
 </script>
+
 <?php     
     }else{
       require 'resources/acceso_prohibido.php';
