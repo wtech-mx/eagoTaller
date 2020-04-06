@@ -54,21 +54,21 @@
                         <div class="form-group">
                             <label for="nombre" class="col-sm-2 control-label">Nombre/Empresa</label>
                             <div class="col-sm-10">
-                                <textarea type="text" required class="form-control" id="nombre" name="nombre" placeholder="Nombre "><?php echo $nombre ?></textarea>
+                                <textarea type="text"  class="form-control" id="nombre" name="nombre" placeholder="Nombre "><?php echo $nombre ?></textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="correo" class="col-sm-2 control-label">Correo</label>
                             <div class="col-sm-10">
-                                <textarea type="text" required class="form-control" id="correo" name="correo" placeholder="Correo Del Destinatario"><?php echo $correo ?></textarea>
+                                <textarea type="text"  class="form-control" id="correo" name="correo" placeholder="Correo Del Destinatario"><?php echo $correo ?></textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="mensaje" class="col-sm-2 control-label">Mensaje</label>
                             <div class="col-sm-10">
-                                <textarea type="text" required class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje " rows="3"><?php echo $mensaje ?></textarea>
+                                <textarea type="text"  class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje " rows="3"><?php echo $mensaje ?></textarea>
                             </div>
                         </div>
 
@@ -76,7 +76,7 @@
                         <div class="form-group">
                             <label for="cantidad" class="col-sm-2 control-label">Servicio</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad" name="cantidad" placeholder="Cant. "><?php echo $cantidad ?></textarea>
+                                <textarea type="number"  class="form-control" id="cantidad" name="cantidad" placeholder="Cant. "><?php echo $cantidad ?></textarea>
                             </div>
 
                         
@@ -122,7 +122,7 @@
 
             
                                 <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion" name="descripcion" placeholder="descripcion "><?php echo $descripcion ?></textarea>
+                                <textarea type="text"  class="form-control" id="descripcion" name="descripcion" placeholder="descripcion "><?php echo $descripcion ?></textarea>
                                 </div>
                         </div>      
                 <hr>
@@ -131,7 +131,7 @@
                         <div class="form-group">
                             <label for="cantidad2" class="col-sm-2 control-label">Servicio2</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad2" name="cantidad2" placeholder="Cant. "><?php echo $cantidad2 ?></textarea>
+                                <textarea type="number"  class="form-control" id="cantidad2" name="cantidad2" placeholder="Cant. "><?php echo $cantidad2 ?></textarea>
                             </div>
 
                         
@@ -177,7 +177,7 @@
 
             
                                 <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion2" name="descripcion2" placeholder="descripcion2"><?php echo $descripcion2 ?></textarea>
+                                <textarea type="text"  class="form-control" id="descripcion2" name="descripcion2" placeholder="descripcion2"><?php echo $descripcion2 ?></textarea>
                                 </div>
                         </div>
                 <hr>
@@ -187,7 +187,7 @@
                         <div class="form-group">
                             <label for="cantidad3" class="col-sm-2 control-label">Servicio3</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad3" name="cantidad3" placeholder="Cant."><?php echo $cantidad3 ?></textarea>
+                                <textarea type="number"  class="form-control" id="cantidad3" name="cantidad3" placeholder="Cant."><?php echo $cantidad3 ?></textarea>
                             </div>
 
                         
@@ -233,7 +233,7 @@
 
             
                                 <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion3" name="descripcion3" placeholder="descripcion3 "><?php echo $descripcion3 ?></textarea>
+                                <textarea type="text"  class="form-control" id="descripcion3" name="descripcion3" placeholder="descripcion3 "><?php echo $descripcion3 ?></textarea>
                                 </div>
                         </div>
 
@@ -243,7 +243,7 @@
                         <div class="form-group">
                             <label for="cantidad4" class="col-sm-2 control-label">Servicio4</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad4" name="cantidad4" placeholder="Cant. "><?php echo $cantidad4 ?></textarea>
+                                <textarea type="number"  class="form-control" id="cantidad4" name="cantidad4" placeholder="Cant. "><?php echo $cantidad4 ?></textarea>
                             </div>
 
                         
@@ -289,7 +289,7 @@
 
             
                                 <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion4" name="descripcion4" placeholder="descripcion4 "><?php echo $descripcion4 ?></textarea>
+                                <textarea type="text"  class="form-control" id="descripcion4" name="descripcion4" placeholder="descripcion4 "><?php echo $descripcion4 ?></textarea>
                                 </div>
                         </div>
 
@@ -299,7 +299,7 @@
                         <div class="form-group">
                             <label for="cantidad5" class="col-sm-2 control-label">Servicio5</label>
                             <div class="col-sm-2">
-                                <textarea type="number" required class="form-control" id="cantidad5" name="cantidad5" placeholder="Cant. "><?php echo $cantidad5 ?></textarea>
+                                <textarea type="number"  class="form-control" id="cantidad5" name="cantidad5" placeholder="Cant. "><?php echo $cantidad5 ?></textarea>
                             </div>
 
                         
@@ -345,7 +345,7 @@
 
             
                             <div class="col-sm-6">
-                                <textarea type="text" required class="form-control" id="descripcion5" name="descripcion5" placeholder="descripcion5 "><?php echo $descripcion5 ?></textarea>
+                                <textarea type="text"  class="form-control" id="descripcion5" name="descripcion5" placeholder="descripcion5 "><?php echo $descripcion5 ?></textarea>
                             </div>
                         </div>
 

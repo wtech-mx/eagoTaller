@@ -210,6 +210,18 @@
     }
 
     function enviar(id){
+        swal({
+          title: "¿Deseas enviar la cotizacion?",
+          text: "Seran enviado los datos proporcionados ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            swal("Mensaje enviado correctamente", {
+              icon: "success",
+            });
         var parametros = {"action":"ajax","id":id};
         $.ajax({
                 url:'view/modals/mostrar/enviar-email.php',
@@ -222,8 +234,16 @@
                     $("#loader4").html("");
                 }
             })
+          } else {
+            swal("Se ha cancelado el envio de la cotizacion");
+          }
+        });
+
+
     }
 </script>
+
+
 
 <?php     
     }else{

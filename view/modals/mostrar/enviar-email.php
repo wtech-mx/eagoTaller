@@ -110,7 +110,7 @@ if (isset($_GET["id"])) {
 
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication ACCESO A CUENTA
         $mail->Username   = 'dinopiza@gmail.com';                     // SMTP username ACCESO A CUENTA
-        $mail->Password   = 'Ytumamatambien16486';                               // SMTP password
+        $mail->Password   = 'Ytumamatambien16486&';                               // SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
         $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
@@ -151,7 +151,7 @@ if (isset($_GET["id"])) {
 		    <div class="container">
 			<div class="row">
 				<div class="col-md-4 mt-5">
-					<img alt="Bootstrap Image Preview" src="https://eago.com.mx/eago-newpag/vistas/img/LOGO-AGO-BLANCO-6.png">
+					<img alt="Bootstrap Image Preview" src="https://eago.com.mx/eago-newpag/vistas/img/LOGO-AGO-BLANCO-6.png" width="30%">
 				</div>
 				<div class="col-md-8 mt-5">
 					<h1 class="display-3 text-right" style="color: #1993B8">
@@ -167,10 +167,10 @@ if (isset($_GET["id"])) {
 				<div class="col-md-3">
 					<blockquote class="blockquote">
 						<p class="mb-0 display-4" style="color: #1993B8">
-							<strong>' . $mensaje . '; </strong>
+							<strong>' . $mensaje . ' </strong>
 						</p>
 						<p class="blockquote-footer text-white" style="color: #ccc">
-						'. $nombre.'; 
+						'. $nombre. '
 						</p>
 					</blockquote>
 				</div>
@@ -183,14 +183,12 @@ if (isset($_GET["id"])) {
 					<table class="table text-white" style="color: #ccc">
 						<thead>
 							<tr style="background-color: #1993B8">
-								<th>
-									#
-								</th>
+
 								<th >
 									SERVICIO
 								</th>
 								<th>
-									TRAMITE
+									Descripcion
 								</th>
 								<th>
 									ENTIDAD
@@ -203,107 +201,104 @@ if (isset($_GET["id"])) {
 								</th>
 							</tr>
 						</thead>
+
 						<tbody>
 							<tr>
-								<td>
-									1
-								</td>
-								<td>
-									TB - Monthly
-								</td>
-								<td>
-									01/04/2012
-								</td>
-								<td>
-									Default
-								</td>
-								<td>
-									03/04/2012
-								</td>
-								<td>
-									Pending
-								</td>
-							</tr>
-							<tr class="bg-light " style="color: #ccc">
-								<td>
-									1
-								</td>
-								<td>
-									TB - Monthly
-								</td>
-								<td>
-									01/04/2012
-								</td>
-								<td>
-									Approved
-								</td>
-								<td>
-									03/04/2012
-								</td>
-								<td>
-									Pending
-								</td>
 
-							</tr>
-							<tr class="">
 								<td>
-									2
+									' . $nombre_servicio . ' 
 								</td>
 								<td>
-									TB - Monthly
+									' . $descripcion . ' 
 								</td>
 								<td>
-									02/04/2012
+									' . $nombre_entidad . ' 
 								</td>
 								<td>
-									Declined
+									' . $cantidad . ' 
 								</td>
 								<td>
-									Pending
-								</td>
-								<td>
-									Pending
+									$' . $precio . ' 
 								</td>
 							</tr>
-							<tr class="bg-light " style="color: #ccc">
+							<tr>
+
 								<td>
-									3
+									' . $nombre_servicio2 . ' 
 								</td>
 								<td>
-									TB - Monthly
+									' . $descripcion2 . ' 
 								</td>
 								<td>
-									03/04/2012
+									' . $nombre_entidad2 . ' 
 								</td>
 								<td>
-									Pending
+									' . $cantidad2 . ' 
 								</td>
 								<td>
-									03/04/2012
-								</td>
-								<td>
-									Pending
+									$' . $precio2 . ' 
 								</td>
 							</tr>
-							<tr class="">
+							
+							<tr>
+
 								<td>
-									4
+									' . $nombre_servicio3 . ' 
 								</td>
 								<td>
-									TB - Monthly
+									' . $descripcion3 . ' 
 								</td>
 								<td>
-									04/04/2012
+									' . $nombre_entidad3 . ' 
 								</td>
 								<td>
-									Call in to confirm
+									' . $cantidad3 . ' 
 								</td>
 								<td>
-									04/04/2012
+									$' . $precio3 . ' 
+								</td>
+							</tr>
+							<tr>
+
+								<td>
+									' . $nombre_servicio4 . ' 
 								</td>
 								<td>
-									Call in to confirm
+									' . $descripcion4 . ' 
 								</td>
+								<td>
+									' . $nombre_entidad4 . ' 
+								</td>
+								<td>
+									' . $cantidad4 . ' 
+								</td>
+								<td>
+									$' . $precio4 . ' 
+								</td>
+							</tr>
+							<tr>
+								<td>
+							<tbody>
+							<tr>
+
+								<td>
+									' . $nombre_servicio5 . ' 
+								</td>
+								<td>
+									' . $descripcion5 . ' 
+								</td>
+								<td>
+									' . $nombre_entidad5 . ' 
+								</td>
+								<td>
+									' . $cantidad5 . ' 
+								</td>
+								<td>
+									$' . $precio5 . ' 
+								</td>
+							</tr>
+						</tbody> 
+
 							</tr>
 						</tbody>
 					</table>
@@ -316,8 +311,8 @@ if (isset($_GET["id"])) {
 				<div class="col-md-3">
 					 
 					<address class="text-white" style="color: #ccc">
-						 <strong class="p-4">Subtotal</strong>$1750
-						 <strong class="p-4">TOTAL</strong>$1750			
+						 <strong class="p-4">Subtotal </strong>$'.$total.' <br>
+						 <strong class="p-4">TOTAL </strong>$'.$subtotal.' <br>	 	
 					</address>
 				</div>
 			</div>
