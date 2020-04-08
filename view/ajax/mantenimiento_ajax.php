@@ -21,9 +21,9 @@
 $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 if($action == 'ajax'){
 	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
-	$tables="mantenimiento";
+	$tables="vehiculo, cliente, mantenimiento";
 	$campos="*";
-	$sWhere=" fecha_man LIKE '%".$query."%'";
+	$sWhere=" patente LIKE '%".$query."%' OR nro_chasis LIKE '%".$query."%' OR nombre LIKE '%".$query."%' OR apellido LIKE '%".$query."%'" ;
 	include 'pagination.php'; //include pagination file
 	//pagination variables
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;

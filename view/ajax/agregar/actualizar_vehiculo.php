@@ -22,6 +22,7 @@
 		$cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
         $vehiculo_code = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo_code"],ENT_QUOTES)));
 		$patente = mysqli_real_escape_string($con,(strip_tags($_POST["patente"],ENT_QUOTES)));
+		$placa = mysqli_real_escape_string($con,(strip_tags($_POST["placa"],ENT_QUOTES)));
 		$marca= mysqli_real_escape_string($con,(strip_tags($_POST["marca"],ENT_QUOTES)));
 		$submarca= mysqli_real_escape_string($con,(strip_tags($_POST["submarca"],ENT_QUOTES)));
 		$empresa = mysqli_real_escape_string($con,(strip_tags($_POST["empresa"],ENT_QUOTES)));
@@ -37,7 +38,7 @@
 		$id=intval($_POST['id']);
 			
 		// update data
-        $sql = "UPDATE vehiculo SET id_cliente='".$cliente."', id_empresa='".$empresa."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', marca='".$marca."', submarca='".$submarca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', seguro='".$seguro."', poliza='".$poliza."', vencimiento='".$vencimiento."', estado='".$estado."', color='".$color."' WHERE id='$id' ";
+        $sql = "UPDATE vehiculo SET id_cliente='".$cliente."', id_empresa='".$empresa."',vehiculo_code='".$vehiculo_code."', patente='".$patente."', placa='".$placa."', marca='".$marca."', submarca='".$submarca."', modelo='".$modelo."', nro_chasis='".$chasis."',nro_motor='".$motor."', vto_vtv='".$vto_vtv."', seguro='".$seguro."', poliza='".$poliza."', vencimiento='".$vencimiento."', estado='".$estado."', color='".$color."' WHERE id='$id' ";
         $query = mysqli_query($con,$sql);
 
         // if user has been update successfully
