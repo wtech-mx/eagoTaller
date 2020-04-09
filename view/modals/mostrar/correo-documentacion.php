@@ -9,16 +9,16 @@ require 'PHPMailer/SMTP.php';
 
 session_start();
 require_once("../../../config/config.php");
-if (isset($_GET["id"])){
-        $id=$_GET["id"];
-        $id=intval($id);
-        $sql="select * from estetica where id='$id'";
-        $query=mysqli_query($con,$sql);
-        $num=mysqli_num_rows($query);
-        if ($num==1){
-            $rw=mysqli_fetch_array($query);
+ if (isset($_GET["id"])){
+		$id=$_GET["id"];
+		$id=intval($id);
+		$sql="select * from documentacion where id='$id'";
+		$query=mysqli_query($con,$sql);
+		$num=mysqli_num_rows($query);
+		if ($num==1){
+			$rw=mysqli_fetch_array($query);
 
-                $idcliente=$rw['id_cliente'];
+			 	$idcliente=$rw['id_cliente'];
                 $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
@@ -38,29 +38,18 @@ if (isset($_GET["id"])){
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
                 $patente_vehiculo=$vehiculo_rw['patente'];
 
-                $idtrasladista=$rw['idtrasladista'];
-                $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
-                $trasladista_rw=mysqli_fetch_array($trasladistas);
-                $nombre_trasladista=$trasladista_rw['nombre']." ".$trasladista_rw['apellido'];
-
-                $idtrasladista=$rw['idtrasladista'];
-                $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
-                $trasladista_rw=mysqli_fetch_array($trasladistas);
-                $correo2=$trasladista_rw['correo'];
-
-
-                $idtaller=$rw['idtaller'];
-                $tallers=mysqli_query($con, "select * from taller where id=$idtaller");
-                $taller_rw=mysqli_fetch_array($tallers);
-                $nombre_taller=$taller_rw['nombre'];
-
-                $datos=$rw['datos'];
-                $otros=$rw['otros'];
-                $vendedor=$rw['vendedor'];
-                $origen=$rw['origen'];
-                $fecha_rep=$rw['fecha_rep'];
-        }
-
+				$foto1=$rw['foto1'];
+				$foto2=$rw['foto2'];
+				$foto3=$rw['foto3'];
+				$foto4=$rw['foto4'];
+				$foto5=$rw['foto5'];
+				$foto6=$rw['foto6'];
+				$foto7=$rw['foto7'];
+				$foto8=$rw['foto8'];
+				$foto9=$rw['foto9'];
+				$foto10=$rw['foto10'];
+				$fecha_carga=$rw['fecha_carga'];
+		}
     date_default_timezone_set("America/Mexico_City");
 
     $imgfondo = "https://eago.com.mx/eago-newpag/vistas/img/fondo.png";
@@ -69,20 +58,21 @@ if (isset($_GET["id"])){
 
     try {
         //Server settings
-      $mail->Host       = 'a2plcpnl0023.prod.iad2.secureserver.net';                    // Set the SMTP server to send through
+      $mail->SMTPDebug = 0;                      // Enable verbose debug output
+        $mail->isSMTP();                                            // Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
 
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication ACCESO A CUENTA
-        $mail->Username   = 'contacto@eago.com.mx';                     // SMTP username ACCESO A CUENTA
-        $mail->Password   = 'Eago123.';                               // SMTP password
-        $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = 587;                                // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $mail->Username   = 'dinopiza@gmail.com';                     // SMTP username ACCESO A CUENTA
+        $mail->Password   = 'Ytumamatambien16486&';                               // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Port       = 587;                               // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
         //Recipients
  
         //Recipients
         $mail->setFrom('adrianwebtech@yahoo.com', 'GOLDBN'); //DESDE DONDE SE VA AENVIAR
         $mail->addAddress('dinopiza@gmail.com');
         $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
-        $mail->addAddress($correo2);               // Name is optional
         $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
@@ -95,7 +85,7 @@ if (isset($_GET["id"])){
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Servicio de Estetica';
+        $mail->Subject = 'Servicio de Verificacion';
         $mail->Body    = '<!DOCTYPE html>
 		<html>
 
@@ -120,10 +110,10 @@ if (isset($_GET["id"])){
 				</div>
 				<div class="col-md-8 mt-5">
 					<h1 class="display-3 text-right" style="color: #1993B8">
-						<strong>Servicio Estetica</strong>
+						<strong>EAGO Documentacion</strong>
 					</h1>
 					<h3 class="display-6 text-right  text-white" style="color: #ccc">
-						<strong>Fecha:</strong>' . $fecha_rep . ';
+						<strong>Fecha:</strong>' . $fecha_carga . ';
 					</h3>
 				</div>
 			</div>
@@ -131,10 +121,10 @@ if (isset($_GET["id"])){
 			<div class="row">
 				<div class="col-md-3">
 					<blockquote class="blockquote">
-						<p class="blockquote-footer text-white" style="color: #ccc">
+						<p class="blockquote-footer text-white" style="color: #ccc">Nombre Cliente:
 						'. $nombre_cliente. '
 						</p>
-						<p class="blockquote-footer text-white" style="color: #ccc">
+						<p class="blockquote-footer text-white" style="color: #ccc">Nombre Empresa:
 						'. $nombre_empresa. '
 						</p>
 					</blockquote>
@@ -153,20 +143,9 @@ if (isset($_GET["id"])){
 									Vehiculo
 								</th>
 								<th>
-									Descripción
+									Foto 1
 								</th>
-								<th>
-									Trasladista
-								</th>
-								<th>
-									Taller
-								</th>
-								<th>
-									Otros
-								</th>
-								<th>
-									Recoger en
-								</th>
+								
 							</tr>
 						</thead>
 
@@ -177,19 +156,7 @@ if (isset($_GET["id"])){
 									' . $patente_vehiculo . ' 
 								</td>
 								<td>
-									' . $datos . ' 
-								</td>
-								<td>
-									' . $nombre_trasladista . ' 
-								</td>
-								<td>
-									' . $nombre_taller . ' 
-								</td>
-								<td>
-									' . $otros . ' 
-								</td>
-								<td>
-									' . $origen . ' 
+									' . upload_foto1(echo $id_documento;); . ' 
 								</td>
 							</tr>
 						</tbody> 
@@ -283,3 +250,27 @@ if (isset($messages)) {
 <?php
 }
 ?>
+<script>
+    function upload_foto1(id_documento){
+        $("#load_img1").text('Cargando...');
+        var inputFileImage = document.getElementById("imagefile1");
+        var file = inputFileImage.files[0];
+        var data = new FormData();
+        data.append('imagefile1',file);
+        data.append('id',id_documento);
+        
+        $.ajax({
+            url: "view/ajax/images/foto1_documentacion_ajax.php",        // Url to which the request is send
+            type: "POST",             // Type of request to be send, called as method
+            data: data,               // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+            success: function(data)   // A function to be called if request succeeds
+            {
+                $("#load_img1").html(data);
+                
+            }
+        });
+    }
+</script>

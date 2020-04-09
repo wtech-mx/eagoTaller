@@ -9,16 +9,16 @@ require 'PHPMailer/SMTP.php';
 
 session_start();
 require_once("../../../config/config.php");
-if (isset($_GET["id"])){
-        $id=$_GET["id"];
-        $id=intval($id);
-        $sql="select * from estetica where id='$id'";
-        $query=mysqli_query($con,$sql);
-        $num=mysqli_num_rows($query);
-        if ($num==1){
-            $rw=mysqli_fetch_array($query);
+ if (isset($_GET["id"])){
+		$id=$_GET["id"];
+		$id=intval($id);
+		$sql="select * from verificacion where id='$id'";
+		$query=mysqli_query($con,$sql);
+		$num=mysqli_num_rows($query);
+		if ($num==1){
+			$rw=mysqli_fetch_array($query);
 
-                $idcliente=$rw['id_cliente'];
+				$idcliente=$rw['id_cliente'];
                 $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
@@ -48,19 +48,18 @@ if (isset($_GET["id"])){
                 $trasladista_rw=mysqli_fetch_array($trasladistas);
                 $correo2=$trasladista_rw['correo'];
 
-
                 $idtaller=$rw['idtaller'];
                 $tallers=mysqli_query($con, "select * from taller where id=$idtaller");
                 $taller_rw=mysqli_fetch_array($tallers);
                 $nombre_taller=$taller_rw['nombre'];
-
-                $datos=$rw['datos'];
-                $otros=$rw['otros'];
-                $vendedor=$rw['vendedor'];
+                
+				$datos=$rw['datos'];
+				$derechos=$rw['derechos'];
+				$otros=$rw['otros'];
+				$vendedor=$rw['vendedor'];
                 $origen=$rw['origen'];
-                $fecha_rep=$rw['fecha_rep'];
-        }
-
+				$fecha_veri=$rw['fecha_veri'];
+		}
     date_default_timezone_set("America/Mexico_City");
 
     $imgfondo = "https://eago.com.mx/eago-newpag/vistas/img/fondo.png";
@@ -69,13 +68,15 @@ if (isset($_GET["id"])){
 
     try {
         //Server settings
-      $mail->Host       = 'a2plcpnl0023.prod.iad2.secureserver.net';                    // Set the SMTP server to send through
+      $mail->SMTPDebug = 0;                      // Enable verbose debug output
+        $mail->isSMTP();                                            // Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
 
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication ACCESO A CUENTA
-        $mail->Username   = 'contacto@eago.com.mx';                     // SMTP username ACCESO A CUENTA
-        $mail->Password   = 'Eago123.';                               // SMTP password
-        $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = 587;                                // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $mail->Username   = 'dinopiza@gmail.com';                     // SMTP username ACCESO A CUENTA
+        $mail->Password   = 'Ytumamatambien16486&';                               // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Port       = 587;                               // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
         //Recipients
  
         //Recipients
@@ -95,7 +96,7 @@ if (isset($_GET["id"])){
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Servicio de Estetica';
+        $mail->Subject = 'Servicio de Verificacion';
         $mail->Body    = '<!DOCTYPE html>
 		<html>
 
@@ -120,10 +121,10 @@ if (isset($_GET["id"])){
 				</div>
 				<div class="col-md-8 mt-5">
 					<h1 class="display-3 text-right" style="color: #1993B8">
-						<strong>Servicio Estetica</strong>
+						<strong>Servicio Verificacion</strong>
 					</h1>
 					<h3 class="display-6 text-right  text-white" style="color: #ccc">
-						<strong>Fecha:</strong>' . $fecha_rep . ';
+						<strong>Fecha:</strong>' . $fecha_veri . ';
 					</h3>
 				</div>
 			</div>
@@ -131,10 +132,10 @@ if (isset($_GET["id"])){
 			<div class="row">
 				<div class="col-md-3">
 					<blockquote class="blockquote">
-						<p class="blockquote-footer text-white" style="color: #ccc">
+						<p class="blockquote-footer text-white" style="color: #ccc">Nombre Cliente:
 						'. $nombre_cliente. '
 						</p>
-						<p class="blockquote-footer text-white" style="color: #ccc">
+						<p class="blockquote-footer text-white" style="color: #ccc">Nombre Empresa:
 						'. $nombre_empresa. '
 						</p>
 					</blockquote>
@@ -165,6 +166,9 @@ if (isset($_GET["id"])){
 									Otros
 								</th>
 								<th>
+									Derechos
+								</th>
+								<th>
 									Recoger en
 								</th>
 							</tr>
@@ -186,7 +190,10 @@ if (isset($_GET["id"])){
 									' . $nombre_taller . ' 
 								</td>
 								<td>
-									' . $otros . ' 
+									' . $otro . ' 
+								</td>
+								<td>
+									' . $derechos . ' 
 								</td>
 								<td>
 									' . $origen . ' 
