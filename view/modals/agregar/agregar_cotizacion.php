@@ -35,14 +35,14 @@
                             </div>
 
                             <div class="form-group">
-                            	<label for="cantidad" class="col-sm-2 control-label">Servicio: </label>
-                                <div class="col-sm-3">
+                                <label for="cantidad" class="col-sm-2 control-label">Servicio: </label>
+                                <div class="col-sm-2">
                                     <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Cant.">
                                 </div>
 
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <select class="form-control" name="servicio" id="servicio" >
-                                       <option value="0">Seleccionas</option>
+                                       <option value="0">Seleccionar Servicio</option>
                                         <?php 
                                             $sql_tallers=mysqli_query($con,"SELECT * FROM servicios order by nombre");
                                             while ($rw=mysqli_fetch_array($sql_tallers)){
@@ -91,14 +91,14 @@
                 <hr>
 
                         <div class="form-group">
-                            	<label for="cantidad2" class="col-sm-2 control-label">Servicio2: </label>
+                                <label for="cantidad2" class="col-sm-2 control-label">Servicio2: </label>
                                 <div class="col-sm-2">
                                     <input type="number" class="form-control" id="cantidad2" name="cantidad2" placeholder="Cant.">
                             </div>
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="servicio2" id="servicio2" >
-                                    <option value="0">Seleccionar </option>
+                                    <option value="0">Seleccionar Servicio</option>
                                     <?php 
                                         $sql_tallers=mysqli_query($con,"SELECT * FROM servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($sql_tallers)){
@@ -149,14 +149,14 @@
 
          <!-- **************************************SERVICIO 3******************************************** -->
                         <div class="form-group">
-                        	<label for="cantidad3" class="col-sm-2 control-label">Servicio3: </label>
+                            <label for="cantidad3" class="col-sm-2 control-label">Servicio3: </label>
                             <div class="col-sm-2">
                                 <input type="number" class="form-control" id="cantidad3" name="cantidad3" placeholder="Cant.">
                             </div>
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="servicio3" id="servicio3" >
-                                    <option value="0">Seleccionar </option>
+                                    <option value="0">Seleccionar Servicio</option>
                                     <?php 
                                         $sql_tallers=mysqli_query($con,"SELECT * FROM servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($sql_tallers)){
@@ -205,14 +205,14 @@
                 <hr>
         <!-- **************************************SERVICIO 4******************************************** -->
                         <div class="form-group">
-                        	<label for="cantidad4" class="col-sm-2 control-label">Servicio4: </label>
+                            <label for="cantidad4" class="col-sm-2 control-label">Servicio4: </label>
                             <div class="col-sm-2">
                                 <input type="number" class="form-control" id="cantidad4" name="cantidad4" placeholder="Cant.">
                             </div>
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="servicio4" id="servicio4" >
-                                    <option value="0">Seleccionar </option>
+                                    <option value="0">Seleccionar Servicio</option>
                                     <?php 
                                         $sql_tallers=mysqli_query($con,"SELECT * FROM servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($sql_tallers)){
@@ -261,14 +261,14 @@
                 <hr>                 
         <!-- **************************************SERVICIO 5******************************************** -->
                         <div class="form-group">
-                        	<label for="cantidad5" class="col-sm-2 control-label">Servicio5: </label>
+                            <label for="cantidad5" class="col-sm-2 control-label">Servicio5: </label>
                             <div class="col-sm-2">
                                 <input type="number" class="form-control" id="cantidad5" name="cantidad5" placeholder="Cant.">
                             </div>
 
                             <div class="col-sm-4">
                                 <select class="form-control" name="servicio5" id="servicio5" >
-                                    <option value="0">Seleccionar Empresa</option>
+                                    <option value="0">Seleccionar Servicio</option>
                                     <?php 
                                         $sql_tallers=mysqli_query($con,"SELECT * FROM servicios order by nombre");
                                         while ($rw=mysqli_fetch_array($sql_tallers)){
@@ -350,4 +350,4 @@
             </div>
         </div>
     </div>
-    <!-- End Form Modal -->				
+    <!-- End Form Modal -->             

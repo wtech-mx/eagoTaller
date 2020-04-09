@@ -13,6 +13,7 @@
             $vehiculo_code=$rw['vehiculo_code'];
             $idcliente=$rw['id_cliente'];
             $patente=$rw['patente'];
+            $placa=$rw['placa'];
             $marca=$rw['marca'];
             $submarca=$rw['submarca'];
             $idempresa=$rw['id_empresa'];
@@ -237,6 +238,12 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                <label for="placa" class="col-sm-2 control-label">Placa vieja: </label>
+                                        <div class="col-sm-4">
+                                            <input type="text" name="placa" class="form-control" id="placa" placeholder="Placa vieja ">
+                                        </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <button type="submit" class="btn btn-primary actualizar_datos">Guardar datos</button>

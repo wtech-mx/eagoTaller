@@ -91,7 +91,7 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="aplaca" class="col-sm-4 control-label">Aplaca placa: </label>
+    <label for="aplaca" class="col-sm-4 control-label">Alta placa: </label>
     <div class="col-sm-8">
        <?php echo $aplaca;?>
     </div>

@@ -40,7 +40,7 @@
 				$otros=$rw['otros'];
 				$vendedor=$rw['vendedor'];
                 $origen=$rw['origen'];
-				$fecha_carga=$rw['fecha_carga'];
+				$fecha_veri=$rw['fecha_veri'];
 		}
 	}	
 	else{exit;}
@@ -109,6 +109,6 @@
 <div class="form-group">
     <label for="fecha_carga" class="col-sm-4 control-label">Fecha: </label>
     <div class="col-sm-8">
-        <?php echo $fecha_carga;?>
+        <?php echo $fecha_veri;?>
     </div>
 </div>

@@ -1,5 +1,13 @@
 <?php
     session_start();
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+
     require_once ("../../../config/config.php");
     if (isset($_GET["id"])){
         $id=$_GET["id"];

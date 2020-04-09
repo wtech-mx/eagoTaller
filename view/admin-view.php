@@ -14,69 +14,70 @@
                 </div>
             </div>
                 <!--tiles start-->
-                <div class="row">
-                   <a href="./?view=esteadmin">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="dashboard-tile detail tile-turquoise">
+                <div class="col-md-6 col-sm-6">
+                        <a href="./?view=manadmin" data-toggle="tooltip" data-placement="top" title="Selecciona el servicio de mantenimiento para poder crear, editar y/o elimincar un servicio ">
+                        <div class="dashboard-tile detail tile-crimson">
                             <div class="content">
-                                
-                                <p>Mecanica/Estética</p>
+                                <h1 class="text-left timer" data-from="0" data-to="<?php echo mysqli_num_rows($mantenimiento) ?>" data-speed="2500"> </h1>
+                                <p>Mantenimiento</p>
                             </div>
-                           <div class="icon"><i class="fa fa-code-fork"></i></div>
+                            <div class="icon"><i class="fa fa-cog"></i>
+                            </div>
                         </div>
-                    </div>
-                    </a>
+                </div>
 
-                    <a href="./?view=gesadmin">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="dashboard-tile detail tile-blue">
+                <div class="col-md-6 col-sm-6">
+                        <a href="./?view=gesadmin" data-toggle="tooltip" data-placement="top" title="Selecciona el servicio de Gestoria para poder crear, editar y/o elimincar un servicio ">
+                        <div class="dashboard-tile detail tile-gold">
                             <div class="content">
-                                
+                                <h1 class="text-left timer" data-from="0" data-to="<?php echo mysqli_num_rows($gestoria) ?>" data-speed="2500"> </h1>
                                 <p>Gestoria</p>
                             </div>
                             <div class="icon"><i class="fa fa-user"></i>
                             </div>
                         </div>
-                    </div>
                     </a>
+                    </div>
 
-                    <a href="./?view=veriadmin">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="dashboard-tile detail tile-purple">
+                <div class="col-md-6 col-sm-6">
+                        <a href="./?view=esteadmin" data-toggle="tooltip" data-placement="top" title="Selecciona el servicio de Mecanica/Estetica para poder crear, editar y/o elimincar un servicio ">
+                        <div class="dashboard-tile detail tile-steelblue">
                             <div class="content">
-                                
-                                <p>Verificación</p>
+                                <h1 class="text-left timer" data-to="<?php echo mysqli_num_rows($estetica) ?>" data-speed="2500"> </h1>
+                                <p>Mecanica/Estetica</p>
                             </div>
-                            <a href="./?view=veriadmin"><div class="icon"><i class="fa fa-search"></i>
+                            <div class="icon"><i class="fa fa-code-fork"></i>
                             </div>
                         </div>
-                    </div>
                     </a>
+                </div>
 
-                    <a href="./?view=trasadmin">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="dashboard-tile detail tile-red">
+                <div class="col-md-6 col-sm-6">
+                        <a href="./?view=trasser" data-toggle="tooltip" data-placement="top" title="Selecciona el servicio de Traslados para poder crear, editar y/o elimincar un servicio ">
+                        <div class="dashboard-tile detail tile-teal">
                             <div class="content">
-                                
+                                <h1 class="text-left timer" data-to="<?php echo mysqli_num_rows($traslados) ?>" data-speed="2500"> </h1>
                                 <p>Traslados</p>
                             </div>
                             <div class="icon"><i class="fa fa-truck"></i>
                             </div>
                         </div>
-                    </div>
                     </a>
+                </div>
 
-                    <a href="./?view=manadmin">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="dashboard-tile detail tile-black">
-                            <div class="content">                                
-                                <p>Mantenimiento</p>
+                <div class="col-md-12 col-sm-6">
+                        <a href="./?view=veriser" data-toggle="tooltip" data-placement="bottom" title="Selecciona el servicio de Verificacion para poder crear, editar y/o elimincar un servicio ">
+                        <div class="dashboard-tile detail tile-purple">
+                            <div class="content">
+                                <h1 class="text-left timer" data-to="<?php echo mysqli_num_rows($verificacion) ?>" data-speed="2500"> </h1>
+                                <p>Verificacion</p>
                             </div>
                             <div class="icon"><i class="fa fa-search"></i>
                             </div>
                         </div>
-                    </div>
                     </a>
+                </div>
+
                     
                 </div>
                 <!--tiles end-->
