@@ -238,8 +238,6 @@
             swal("Se ha cancelado el envio de la cotizacion");
           }
         });
-
-
     }
 </script>
 
