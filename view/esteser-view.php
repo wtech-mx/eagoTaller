@@ -197,6 +197,36 @@
                 }
             })
     }
+    function enviar(id){
+        swal({
+          title: "¿Deseas enviar comprobacion de servicio?",
+          text: "Seran enviado los datos proporcionados ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            swal("Mensaje enviado correctamente", {
+              icon: "success",
+            });
+        var parametros = {"action":"ajax","id":id};
+        $.ajax({
+                url:'view/modals/mostrar/correo-esteadmin.php',
+                data: parametros,
+                 beforeSend: function(objeto){
+                $("#loader4").html("<img src='./assets/img/ajax-loader.gif'>");
+              },
+                success:function(data){
+                    $(".outer_div4").html(data).fadeIn('slow');
+                    $("#loader4").html("");
+                }
+            })
+          } else {
+            swal("Se ha cancelado el envio comprobacion de servicio");
+          }
+        });
+    }
 </script>
 <?php     
     }else{

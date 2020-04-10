@@ -10,45 +10,49 @@ require 'PHPMailer/SMTP.php';
 session_start();
 require_once("../../../config/config.php");
  if (isset($_GET["id"])){
-		$id_documento=$_GET["id"];
-		$id_documento=intval($id_documento);
-		$sql="select * from documentacion where id='$id_documento'";
-		$query=mysqli_query($con,$sql);
-		$num=mysqli_num_rows($query);
-		if ($num==1){
-			$rw=mysqli_fetch_array($query);
+		$id=$_GET["id"];
+        $id=intval($id);
+        $sql="select * from gestoria where id='$id'";
+        $query=mysqli_query($con,$sql);
+        $num=mysqli_num_rows($query);
+        if ($num==1){
+            $rw=mysqli_fetch_array($query);
 
-			 	$idcliente=$rw['id_cliente'];
-                $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
-                $cliente_rw=mysqli_fetch_array($clientes);
-                $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
+            $fecha_ges=$rw['fecha_ges'];
 
-                $idcliente=$rw['id_cliente'];
+            $idcliente=$rw['id_cliente'];
+            $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
+            $cliente_rw=mysqli_fetch_array($clientes);
+            $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
+
+            $idempresa=$rw['id_empresa'];
+            $empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
+            $empresa_rw=mysqli_fetch_array($empresas);
+            $nombre_empresa=$empresa_rw['nombre'];
+
+            $idcliente=$rw['id_cliente'];
                 $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $correo=$cliente_rw['correo'];
 
-                $idempresa=$rw['id_empresa'];
-                $empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
-                $empresa_rw=mysqli_fetch_array($empresas);
-                $nombre_empresa=$empresa_rw['nombre'];
+            $idvehiculo=$rw['idvehiculo'];
+            $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
+            $vehiculo_rw=mysqli_fetch_array($vehiculos);
+            $patente_vehiculo=$vehiculo_rw['patente'];
 
-                $idvehiculo=$rw['idvehiculo'];
-                $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
-                $vehiculo_rw=mysqli_fetch_array($vehiculos);
-                $patente_vehiculo=$vehiculo_rw['patente'];
-
-				$foto1=$rw['foto1'];
-				$foto2=$rw['foto2'];
-				$foto3=$rw['foto3'];
-				$foto4=$rw['foto4'];
-				$foto5=$rw['foto5'];
-				$foto6=$rw['foto6'];
-				$foto7=$rw['foto7'];
-				$foto8=$rw['foto8'];
-				$foto9=$rw['foto9'];
-				$foto10=$rw['foto10'];
-				$fecha_carga=$rw['fecha_carga'];
+            $datos=$rw['datos'];
+            $foto4=$rw['foto4'];
+            $foto1=$rw['foto1'];
+            $foto2=$rw['foto2'];
+            $foto3=$rw['foto3'];
+            $foto4=$rw['foto4'];
+            $foto5=$rw['foto5'];
+            $foto6=$rw['foto6'];
+            $foto7=$rw['foto7'];
+            $foto8=$rw['foto8'];
+            $foto9=$rw['foto9'];
+            $foto10=$rw['foto10'];
+            $fecha_carga=$rw['fecha_carga'];
 		}
     date_default_timezone_set("America/Mexico_City");
 
@@ -86,14 +90,14 @@ require_once("../../../config/config.php");
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'EAGO Documentacion';
+        $mail->Subject = 'Comprobacion Servivio Gestoria';
         $mail->Body    = '<!DOCTYPE html>
 		<html>
 
 		<head>
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<title>Servicio EAGO</title>
+			<title>Comprobacion Servivio</title>
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		</head>
 
@@ -111,10 +115,10 @@ require_once("../../../config/config.php");
 				</div>
 				<div class="col-md-8 mt-5">
 					<h1 class="display-3 text-right" style="color: #1993B8">
-						<strong>EAGO Documentacion</strong>
+						<strong>Comprobacion Servivio</strong>
 					</h1>
 					<h3 class="display-6 text-right  text-white" style="color: #ccc">
-						<strong>Fecha:</strong>' . $fecha_carga . ';
+						<strong>Fecha:</strong>' . $fecha_ges . ';
 					</h3>
 				</div>
 			</div>
@@ -142,6 +146,9 @@ require_once("../../../config/config.php");
 
 								<th >
 									Vehiculo
+								</th>
+								<th >
+									Datos
 								</th>
 								<th >
 									foto 1
@@ -181,6 +188,9 @@ require_once("../../../config/config.php");
 
 								<td>
 									' . $patente_vehiculo . ' 
+								</td>
+								<td>
+									' . $datos . ' 
 								</td>
 								<td>
 								<img src="'. $rutaServ.'' . $foto1 . '" alt="'. $rutaServ .'' . $foto1 . '">
