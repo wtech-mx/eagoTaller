@@ -130,6 +130,7 @@ if($action == 'ajax'){
                 	<?php
                 	}
                 	?>
+                	<button type="button" class="btn btn-success btn-send btn-xs" onclick="enviar('<?php echo $id; ?>')"><i class="fa fa-envelope"></i></button>
 
 
                    <!-- <button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button>-->
