@@ -59,19 +59,18 @@ require_once("../../../config/config.php");
 
     try {
         //Server settings
-      $mail->SMTPDebug = 0;                      // Enable verbose debug output
+        $mail->SMTPDebug = 0;                      // Enable verbose debug output
         $mail->isSMTP();                                            // Send using SMTP
-        $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+        $mail->Host       = 'a2plcpnl0023.prod.iad2.secureserver.net';                    // Set the SMTP server to send through
 
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication ACCESO A CUENTA
-        $mail->Username   = 'dinopiza@gmail.com';                     // SMTP username ACCESO A CUENTA
-        $mail->Password   = 'Ytumamatambien16486&';                               // SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = 587;                               // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $mail->Username   = 'contacto@eago.com.mx';                     // SMTP username ACCESO A CUENTA
+        $mail->Password   = 'Eago123.';                               // SMTP password
+        $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
         //Recipients
- 
-        //Recipients
-        $mail->setFrom('adrianwebtech@yahoo.com', 'GOLDBN'); //DESDE DONDE SE VA AENVIAR
+        $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
         $mail->addAddress('dinopiza@gmail.com');
         $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
         $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');

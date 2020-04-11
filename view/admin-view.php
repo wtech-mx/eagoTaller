@@ -3,6 +3,11 @@
     include "resources/header.php";
     
     if ($_SESSION['admin']==1){
+        $mantenimiento = mysqli_query($con, "SELECT * FROM mantenimiento");
+        $gestoria = mysqli_query($con, "SELECT * FROM gestoria");
+        $estetica = mysqli_query($con, "SELECT * FROM estetica");
+        $traslados = mysqli_query($con, "SELECT * FROM traslados");
+        $verificacion = mysqli_query($con, "SELECT * FROM estetica");
 ?>
   
 <section class="main-content-wrapper">

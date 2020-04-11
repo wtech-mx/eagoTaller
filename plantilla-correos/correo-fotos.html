@@ -1,96 +1,4 @@
-<?php
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer/Exception.php';
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
-
-session_start();
-require_once("../../../config/config.php");
- if (isset($_GET["id"])){
-		$id=$_GET["id"];
-        $id=intval($id);
-        $sql="select * from verificacion where id='$id'";
-        $query=mysqli_query($con,$sql);
-        $num=mysqli_num_rows($query);
-        if ($num==1){
-            $rw=mysqli_fetch_array($query);
-
-            $fecha_rep=$rw['fecha_rep'];
-
-            $idcliente=$rw['id_cliente'];
-            $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
-            $cliente_rw=mysqli_fetch_array($clientes);
-            $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
-
-            $idempresa=$rw['id_empresa'];
-            $empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
-            $empresa_rw=mysqli_fetch_array($empresas);
-            $nombre_empresa=$empresa_rw['nombre'];
-
-            $idcliente=$rw['id_cliente'];
-                $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
-                $cliente_rw=mysqli_fetch_array($clientes);
-                $correo=$cliente_rw['correo'];
-
-            $idvehiculo=$rw['idvehiculo'];
-            $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
-            $vehiculo_rw=mysqli_fetch_array($vehiculos);
-            $patente_vehiculo=$vehiculo_rw['patente'];
-
-            $datos=$rw['datos'];
-            $foto4=$rw['foto4'];
-            $foto1=$rw['foto1'];
-            $foto2=$rw['foto2'];
-            $foto3=$rw['foto3'];
-            $foto4=$rw['foto4'];
-            $foto5=$rw['foto5'];
-            $foto6=$rw['foto6'];
-            $foto7=$rw['foto7'];
-            $foto8=$rw['foto8'];
-            $foto9=$rw['foto9'];
-            $foto10=$rw['foto10'];
-            $fecha_carga=$rw['fecha_carga'];
-		}
-    date_default_timezone_set("America/Mexico_City");
-
-    $imgfondo = "https://eago.com.mx/eago-newpag/vistas/img/fondo.png";
-    $rutaImg = "https://localhost/eagoTaller/";
-    $rutaServ = "https://eago.com.mx/eagoTaller/";
-    $mail = new PHPMailer(true);
-
-    try {
-        //Server settings
-        $mail->SMTPDebug = 0;                      // Enable verbose debug output
-        $mail->isSMTP();                                            // Send using SMTP
-        $mail->Host       = 'a2plcpnl0023.prod.iad2.secureserver.net';                    // Set the SMTP server to send through
-
-        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication ACCESO A CUENTA
-        $mail->Username   = 'contacto@eago.com.mx';                     // SMTP username ACCESO A CUENTA
-        $mail->Password   = 'Eago123.';                               // SMTP password
-        $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-
-        //Recipients
-        $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
-        $mail->addAddress('dinopiza@gmail.com');
-        $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
-        $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
-        //$mail->addCC('cc@example.com');
-        //$mail->addBCC('bcc@example.com');
-
-        // Attachments
-        //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-        //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-        //<body style="background-image: linear-gradient(to bottom, #01030c, #030718, #060a21, #070d2b, #061034, #041034, #031135, #011135, #020f2c, #020d23, #020b1a, #020710);">
-
-        // Content
-        $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Comprobacion Servivio Verificacion';
-        $mail->Body    = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
@@ -224,7 +132,7 @@ require_once("../../../config/config.php");
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:20px; padding-bottom:20px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.eago.com.mx" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/533119_514055/LOGO-AGO-BLANCO-6.png" alt="Logo" title="Logo" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 212px; display: block;" width="212"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/533119_514055/LOGO-AGO-BLANCO-6.png" alt="Logo" title="Logo" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 212px; display: block;" width="212"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if (!mso)&(!IE)]><!-->
@@ -250,7 +158,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #555555; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;"><span style="color: #ffffff;"><strong><span style="font-size: 20px;">Servivio Verificacion</span></strong></span></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;"><span style="color: #ffffff;"><strong><span style="font-size: 20px;">Título de servicio</span></strong></span></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -269,7 +177,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #555555; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;"><strong><span style="color: #ffffff; font-size: 20px;">Fecha:' . $fecha_veri . '</span></strong></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;"><strong><span style="color: #ffffff; font-size: 20px;">Fecha: 15/15/2020</span></strong></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -296,7 +204,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #555555; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 20px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 24px; margin: 0;"><span style="color: #ffffff; font-size: 20px;"><strong>Empresa: '. $nombre_empresa. '</strong></span></p>
+													<p style="font-size: 20px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 24px; margin: 0;"><span style="color: #ffffff; font-size: 20px;"><strong>Empresa:</strong></span></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -315,7 +223,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #555555; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 20px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 20px;"><strong><span style="color: #ffffff;">Cliente:'. $nombre_cliente. '</span></strong></span></p>
+													<p style="font-size: 20px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 20px;"><strong><span style="color: #ffffff;">Cliente</span></strong></span></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -334,7 +242,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 												<div style="line-height: 1.2; font-size: 12px; color: #555555; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 14px;">
-													<p style="line-height: 1.2; word-break: break-word; font-size: 20px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 20px;"><strong><span style="color: #ffffff;">Vehiculo:' . $patente_vehiculo . ' &nbsp;</span></strong></span></p>
+													<p style="line-height: 1.2; word-break: break-word; font-size: 20px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 20px;"><strong><span style="color: #ffffff;">Vehiculo:&nbsp;</span></strong></span></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -345,23 +253,6 @@ require_once("../../../config/config.php");
 								</div>
 								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
 								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-								<div class="col num3" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 159px; width: 160px;">
-									<div style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-											<!--<![endif]-->
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
-											<div style="color:#555555;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<div style="line-height: 1.2; font-size: 12px; color: #555555; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 14px;">
-													<p style="line-height: 1.2; word-break: break-word; font-size: 20px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 20px;"><strong><span style="color: #ffffff;">' . $datos . '  &nbsp;</span></strong></span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -401,129 +292,111 @@ require_once("../../../config/config.php");
 						</div>
 					</div>
 					<div style="background-color:transparent;">
-						<div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #1993B8;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#1993B8;">
-								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:640px"><tr class="layout-full-width" style="background-color:#1993B8"><![endif]-->
-								<!--[if (mso)|(IE)]><td align="center" width="640" style="background-color:#1993B8;width:640px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;"><![endif]-->
+						<div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #5dd38a;">
+							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#5dd38a;">
+								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:640px"><tr class="layout-full-width" style="background-color:#5dd38a"><![endif]-->
+								<!--[if (mso)|(IE)]><td align="center" width="640" style="background-color:#5dd38a;width:640px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;"><![endif]-->
 								<div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
 									<div style="width:100% !important;">
 										<!--[if (!mso)&(!IE)]><!-->
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto1 . '" alt="'. $rutaServ .'' . $foto1 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-05_7.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Help me Choose a Car</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto2 . '" alt="'. $rutaServ .'' . $foto2 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-05_7.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Help me Choose a Car</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto3 . '" alt="'. $rutaServ .'' . $foto3 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-05_7.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Help me Choose a Car</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto4 . '" alt="'. $rutaServ .'' . $foto4 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-05_7.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Help me Choose a Car</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto5 . '" alt="'. $rutaServ .'' . $foto5 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-05_7.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Help me Choose a Car</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto6 . '" alt="'. $rutaServ .'' . $foto6 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-05_7.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Help me Choose a Car</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto7 . '" alt="'. $rutaServ .'' . $foto7 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-05_7.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Help me Choose a Car</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto8 . '" alt="'. $rutaServ .'' . $foto8 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-05_7.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Help me Choose a Car</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto9 . '" alt="'. $rutaServ .'' . $foto9 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-05_7.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Help me Choose a Car</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -538,24 +411,23 @@ require_once("../../../config/config.php");
 						</div>
 					</div>
 					<div style="background-color:transparent;">
-						<div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #1993B8;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#1993B8;">
-								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:640px"><tr class="layout-full-width" style="background-color:#1993B8"><![endif]-->
-								<!--[if (mso)|(IE)]><td align="center" width="640" style="background-color:#1993B8;width:640px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;"><![endif]-->
+						<div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #5dd38a;">
+							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#5dd38a;">
+								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:640px"><tr class="layout-full-width" style="background-color:#5dd38a"><![endif]-->
+								<!--[if (mso)|(IE)]><td align="center" width="640" style="background-color:#5dd38a;width:640px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;"><![endif]-->
 								<div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
 									<div style="width:100% !important;">
 										<!--[if (!mso)&(!IE)]><!-->
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto10 . '" alt="'. $rutaServ .'' . $foto10 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> <img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/946/image-06_6.jpg" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Things to See</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -582,7 +454,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="http://www.example.com/" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong>Where to Stay</strong></span></a></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -607,8 +479,7 @@ require_once("../../../config/config.php");
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:40px; padding-bottom:15px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
 											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/533119_514055/logo-animado.gif" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 128px; display: block;" width="128">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/533119_514055/logo-animado.gif" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 128px; display: block;" width="128">
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 20px; padding-bottom: 20px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
@@ -653,51 +524,4 @@ require_once("../../../config/config.php");
 	<!--[if (IE)]></div><![endif]-->
 </body>
 
-</html>';
-
-    // if has been added successfully
-    if ($mail->send()) {
-        $messages[] = "correo  ha sido enviado con éxito.";
-    } else {
-        $errors[] = "Lo sentimos, el correo falló. Por favor, regrese y vuelva a intentarlo.";
-    }
-    } catch (Exception $e) {
-        echo "Hubo un error al enviar el mensaje: {$mail->ErrorInfo}";
-    }
-    
-    } else {
-        $errors[] = "desconocido.";
-    }
-
-if (isset($errors)) {
-?>
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Error!</strong>
-        <?php
-        foreach ($errors as $error) {
-            echo $error;
-        }
-        ?>
-    </div>
-<?php
-}
-if (isset($messages)) {
-?>
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien hecho!</strong>
-        <?php
-        foreach ($messages as $message) {
-            echo $message;
-        }
-        ?>
-    </div>
-    <script type="text/javascript">
-        $("#actualizar_datos").val("");
-        swal("¡Bien!", " <?php echo $message; ?> ", "success");
-    </script>
-</script>
-<?php
-}
-?>
+</html>
