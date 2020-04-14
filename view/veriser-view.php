@@ -18,7 +18,7 @@
                         </ul>
                         <!--breadcrumbs end -->
                         <br>
-                    <h1 class="h1">Comprobacion de servicio</h1>
+                    <h1 class="h1">Comprobacion de servicio Verificacion</h1>
                 </div>
             </div>
             
