@@ -2,25 +2,26 @@
 	include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
 	if (empty($_POST['nombre'])){
 			$errors[] = "Nombre está vacío.";
-		}  elseif (empty($_POST['cuit'])) {
+		}  elseif (empty($_POST['correo'])) {
             $errors[] = "Cuit está vacío.";
         }  elseif (empty($_POST['estado'])) {
             $errors[] = "Estado está vacío.";
         }  elseif (
         	!empty($_POST['nombre'])
-        	&& !empty($_POST['cuit'])
+        	&& !empty($_POST['correo'])
         	&& !empty($_POST['estado'])
         ){
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 			
 			// escaping, additionally removing everything that could be (html/javascript-) code
             $nombre = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
-            $cuit = mysqli_real_escape_string($con,(strip_tags($_POST["cuit"],ENT_QUOTES)));
+            $correo = mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
+            $telefono = mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
             $estado = mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));
 			$fecha_carga=date("Y-m-d H:i:s");
 
 			//Write register in to database 
-			$sql = "INSERT INTO empresa (nombre, cuit, estado, fecha_carga) VALUES('".$nombre."','".$cuit."','".$estado."','".$fecha_carga."');";
+			$sql = "INSERT INTO empresa (nombre, correo, telefono, estado, fecha_carga) VALUES('".$nombre."','".$correo."','".$telefono."','".$estado."','".$fecha_carga."');";
 			$query_new = mysqli_query($con,$sql);
             // if has been added successfully
             if ($query_new) {

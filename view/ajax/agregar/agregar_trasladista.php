@@ -24,10 +24,11 @@
     $telefono = mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
     $correo = mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
     $estado = mysqli_real_escape_string($con,(strip_tags($_POST["status"],ENT_QUOTES)));
+    $created_at=date("Y-m-d H:i:s");
            /* $kind = mysqli_real_escape_string($con,(strip_tags($_POST["kind"],ENT_QUOTES)));*/
 
             //Write register in to database 
-            $sql = "INSERT INTO trasladista (nombre, apellido, telefono, correo, status ) VALUES('".$nombre."','".$apellido."','".$telefono."','".$correo."','".$estado."');";
+            $sql = "INSERT INTO trasladista (nombre, apellido, telefono, correo, status, created_at ) VALUES('".$nombre."','".$apellido."','".$telefono."','".$correo."','".$estado."','".$created_at."');";
             $query_new = mysqli_query($con,$sql);
             // si se ha agregado con éxito
             if ($query_new) {

@@ -67,7 +67,8 @@ if($action == 'ajax'){
             <tr>
                 <th>#ID</th>
                 <th>Nombre</th>
-                <th>Identificación</th>
+                <th>Correo</th>
+                <th>Telefono</th>
                 <th>Estado</th>
                 <th>Fecha Carga</th>
                 <th></th>
@@ -78,7 +79,8 @@ if($action == 'ajax'){
 			while($row = mysqli_fetch_array($query)){	
 				$id=$row['id_empresa'];
 				$nombre=$row['nombre'];
-				$cuit=$row['cuit'];
+				$correo=$row['correo'];
+				$telefono=$row['telefono'];
 				$estado=$row['estado'];
 				$created_at=$row['fecha_carga'];
 				
@@ -102,7 +104,8 @@ if($action == 'ajax'){
             <tr>
                 <td><?php echo $id ?></td>
                 <td><?php echo $nombre ?></td>
-                <td><?php echo $cuit ?></td>
+                <td><?php echo $correo ?></td>
+                <td><?php echo $telefono ?></td>
                 <td><span class="<?php echo $lbl_class;?>"><?php echo $lbl_status;?></span></td>
                 <td><?php echo $fecha ?></td>
                 <td class="text-right">
