@@ -181,7 +181,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+            <div class="row">
                 <div class="col-md-12">
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
@@ -211,16 +211,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img2">
-                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
@@ -231,6 +222,54 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img5">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img7">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+               <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img9">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="box box-primary"><!-- Profile Image -->
+                        <div class="box-body box-profile">
+                            <div id="load_img2">
+                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+
+
 
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
@@ -246,16 +285,6 @@
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
-                            <div id="load_img5">
-                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
                             <div id="load_img6">
                                 <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
                             </div>
@@ -263,16 +292,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img7">
-                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
@@ -283,16 +303,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="box box-primary"><!-- Profile Image -->
-                        <div class="box-body box-profile">
-                            <div id="load_img9">
-                                <img class=" img-responsive" src="view/resources/images/documentos/doc.png" alt="Fotos">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
+ 
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
