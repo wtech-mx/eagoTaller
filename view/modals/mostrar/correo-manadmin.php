@@ -406,23 +406,131 @@ require_once("../../../config/config.php");
 								<!--[if (mso)|(IE)]><td align="center" width="640" style="background-color:#1993B8;width:640px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;"><![endif]-->
 								<div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
 									<div style="width:100% !important;">
-
-'.foreach($foto as $value){.'
+										<!--[if (!mso)&(!IE)]><!-->
+										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+											<!--<![endif]-->
+											
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="'. $rutaServ.'' . $foto . '" alt="'. $rutaServ .'' . $foto . '" target="_blank" style="outline:none" tabindex="-1"> 
-													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto . '" alt="'. $rutaServ .'' . $foto . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+													<a href="'. $rutaServ.'' . $foto1 . '" alt="'. $rutaServ .'' . $foto1 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto1 . '" alt="'. $rutaServ .'' . $foto1 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto . '" alt="'. $rutaServ .'' . $foto . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto1 . '" alt="'. $rutaServ .'' . $foto1 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
 												</div>
 											</div>
-'.}.'
 
+											<!--[if mso]></td></tr></table><![endif]-->
+											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+													<a href="'. $rutaServ.'' . $foto2 . '" alt="'. $rutaServ .'' . $foto2 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto2 . '" alt="'. $rutaServ .'' . $foto2 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]></td></tr></table><![endif]-->
+											</div>
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto2 . '" alt="'. $rutaServ .'' . $foto2 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+													<a href="'. $rutaServ.'' . $foto3 . '" alt="'. $rutaServ .'' . $foto3 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto3 . '" alt="'. $rutaServ .'' . $foto3 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]></td></tr></table><![endif]-->
+											</div>
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto3 . '" alt="'. $rutaServ .'' . $foto3 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+													<a href="'. $rutaServ.'' . $foto4 . '" alt="'. $rutaServ .'' . $foto4 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto4 . '" alt="'. $rutaServ .'' . $foto4 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]></td></tr></table><![endif]-->
+											</div>
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto4 . '" alt="'. $rutaServ .'' . $foto4 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+													<a href="'. $rutaServ.'' . $foto5 . '" alt="'. $rutaServ .'' . $foto5 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto5 . '" alt="'. $rutaServ .'' . $foto5 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]></td></tr></table><![endif]-->
+											</div>
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto5 . '" alt="'. $rutaServ .'' . $foto5 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+													<a href="'. $rutaServ.'' . $foto6 . '" alt="'. $rutaServ .'' . $foto6 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto6 . '" alt="'. $rutaServ .'' . $foto6 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]></td></tr></table><![endif]-->
+											</div>
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto6 . '" alt="'. $rutaServ .'' . $foto6 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+													<a href="'. $rutaServ.'' . $foto7 . '" alt="'. $rutaServ .'' . $foto7 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto7 . '" alt="'. $rutaServ .'' . $foto7 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]></td></tr></table><![endif]-->
+											</div>
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto7 . '" alt="'. $rutaServ .'' . $foto7 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+													<a href="'. $rutaServ.'' . $foto8 . '" alt="'. $rutaServ .'' . $foto8 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto8 . '" alt="'. $rutaServ .'' . $foto8 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]></td></tr></table><![endif]-->
+											</div>
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto8 . '" alt="'. $rutaServ .'' . $foto8 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+													<a href="'. $rutaServ.'' . $foto9 . '" alt="'. $rutaServ .'' . $foto9 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto9 . '" alt="'. $rutaServ .'' . $foto9 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]></td></tr></table><![endif]-->
+											</div>
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto9 . '" alt="'. $rutaServ .'' . $foto9 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<!--[if (!mso)&(!IE)]><!-->
+										</div>
 										<!--<![endif]-->
 									</div>
 								</div>
@@ -431,7 +539,38 @@ require_once("../../../config/config.php");
 							</div>
 						</div>
 					</div>
-
+					<div style="background-color:transparent;">
+						<div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #1993B8;">
+							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#1993B8;">
+								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:640px"><tr class="layout-full-width" style="background-color:#1993B8"><![endif]-->
+								<!--[if (mso)|(IE)]><td align="center" width="640" style="background-color:#1993B8;width:640px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;"><![endif]-->
+								<div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
+									<div style="width:100% !important;">
+										<!--[if (!mso)&(!IE)]><!-->
+										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+											<!--<![endif]-->
+											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="'. $rutaServ.'' . $foto10 . '" alt="'. $rutaServ .'' . $foto10 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto10 . '" alt="'. $rutaServ .'' . $foto10 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
+												<!--[if mso]></td></tr></table><![endif]-->
+											</div>
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#ffffff;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a style="text-decoration: none; color: #ffffff;" href="'. $rutaServ.'' . $foto10 . '" alt="'. $rutaServ .'' . $foto10 . '" target="_blank" rel="noopener"><span style="font-size: 18px;"><strong></strong></span></a></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<!--[if (!mso)&(!IE)]><!-->
+										</div>
+										<!--<![endif]-->
+									</div>
+								</div>
+								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+							</div>
+						</div>
+					</div>
 					<div style="background-color:transparent;">
 						<div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
