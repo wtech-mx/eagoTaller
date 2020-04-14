@@ -43,9 +43,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="estado" class="col-sm-2 control-label">Estado: </label>
+                        <label for="status" class="col-sm-2 control-label">Estado: </label>
                         <div class="col-sm-4">
-                            <select class="form-control" name="estado" id="estado">
+                            <select class="form-control" name="status" id="status">
                                 <option value="1">Activo</option>
                                 <option value="2">Inactivo</option>
                             </select>

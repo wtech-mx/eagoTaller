@@ -189,20 +189,6 @@
     });
 </script>
 <script>
-     function conexion(){
-        $.ajax({
-                url:'view/modals/editar/conexion_vehiclien.php',
-                data: parametros,
-                 beforeSend: function(objeto){
-                $("#loader1").html("<img src='./assets/img/ajax-loader.gif'>");
-              },
-                success:function(data){
-                    $(".outer_div1").html(data).fadeIn('slow');
-                    $("#loader1").html("");
-                }
-            })
-    }
-
     function editar(id_cliente){
         var parametros = {"action":"ajax","id_cliente":id_cliente};
         $.ajax({
