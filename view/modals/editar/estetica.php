@@ -15,16 +15,15 @@
             $id_empresa=$rw['id_empresa'];
             $idvehiculo=$rw['idvehiculo'];
             $datos=$rw['datos'];
-            $idtrasladista=$rw['idtrasladista'];
-            $idtaller=$rw['idtaller'];
-            $origen=$rw['origen'];
             $otros=$rw['otros'];
+            $idtaller=$rw['idtaller'];
+            $idtrasladista=$rw['idtrasladista'];
             $vendedor=$rw['vendedor'];
+            $origen=$rw['origen'];
             $created_at=$rw['fecha_carga'];
         }
     }   
     else{exit;}
-
     $queryE = "SELECT id_cliente, nombre, apellido FROM cliente ORDER BY nombre";
     $resultadoE = $con->query($queryE);
 
@@ -32,7 +31,7 @@
     $resultado2 = $con->query($query2);
     
     $queryM = "SELECT id, patente FROM vehiculo WHERE id_cliente = '$id_cliente' ORDER BY patente";
-    $resultadoM = $con->query($queryM);
+    $resultadoM = $con->query($queryM);  
 ?>
 <script language="javascript">
             $(document).ready(function(){
@@ -60,11 +59,11 @@
                 })
             });
 </script>
-<input type="hidden" value="<?php echo $id;?>" name="id" id="id" method="POST">
+<input type="hidden" value="<?php echo $id;?>" name="id" id="id">
 <div class="form-group">
-    <label for="fecha_rep" class="col-sm-2 control-label">Fecha Servicio: </label>
+    <label for="fecha_rep" class="col-sm-2 control-label">Fecha Estetica: </label>
     <div class="col-sm-10">
-        <input type="date"  class="form-control" id="fecha_rep" name="fecha_rep" placeholder="Fecha Servicio " value="<?php echo $fecha_rep ?>">
+        <input type="date"  class="form-control" id="fecha_rep" name="fecha_rep" placeholder="Fecha Estetica: " value="<?php echo $fecha_rep ?>">
     </div>
 </div>
 <div class="form-group">        
@@ -100,25 +99,15 @@
         </div>
 </div>
 <div class="form-group">
-    <label for="taller" class="col-sm-2 control-label">Taller: </label>
+    <label for="datos" class="col-sm-2 control-label">Descripcion: </label>
     <div class="col-sm-10">
-        <select class="form-control" name="taller" id="taller">
-        <?php
-            $tallers=mysqli_query($con,"select * from taller  where estado=1 order by nombre");
-            while ($rw=mysqli_fetch_array($tallers)) {
-                if ($idtaller==$rw['id']){$selected1="selected";}else{$selected1="";}
-        ?>
-            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
-        <?php 
-            }
-        ?>
-        </select>
+        <textarea type="text" required class="form-control" id="datos" name="datos" placeholder="Descripcion "><?php echo $datos ?></textarea>
     </div>
 </div>
 <div class="form-group">
-    <label for="datos" class="col-sm-2 control-label">Descripción: </label>
+    <label for="otros" class="col-sm-2 control-label">Otros: </label>
     <div class="col-sm-10">
-        <textarea type="text" required class="form-control" id="datos" name="datos" placeholder="Descripción "><?php echo $datos ?></textarea>
+        <textarea type="text" class="form-control" id="otros" name="otros" placeholder="otros "><?php echo $otros ?></textarea>
     </div>
 </div>
 <div class="form-group">
@@ -138,9 +127,19 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="otros" class="col-sm-2 control-label">Otros: </label>
+    <label for="taller" class="col-sm-2 control-label">Taller: </label>
     <div class="col-sm-10">
-        <textarea type="text" class="form-control" id="otros" name="otros" placeholder="otros "><?php echo $otros ?></textarea>
+        <select class="form-control" name="taller" id="taller">
+        <?php
+            $tallers=mysqli_query($con,"select * from taller  where estado=1 order by nombre");
+            while ($rw=mysqli_fetch_array($tallers)) {
+                if ($idtaller==$rw['id']){$selected1="selected";}else{$selected1="";}
+        ?>
+            <option value="<?php echo $rw['id']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
+        <?php 
+            }
+        ?>
+        </select>
     </div>
 </div>
 <div class="form-group">
