@@ -57,6 +57,15 @@
             $query = mysqli_query($con, $sql);
             $reg=mysqli_fetch_array($query);
             return $total=number_format($reg['id'],2,'.','');
+        }
+
+        function suma_verificacion($month){
+            global $con;
+            $year=date('Y');
+            $sql="SELECT count(id) as id from verificacion where year(fecha_carga) = '$year' and month(fecha_carga)= '$month' ";
+            $query = mysqli_query($con, $sql);
+            $reg=mysqli_fetch_array($query);
+            return $total=number_format($reg['id'],2,'.','');
         } 
 
         function suma_cliente($month){
@@ -149,7 +158,7 @@
                                 <p class="text-center">
                                     <strong><span class="text-muted">Servicio</span> & <span class="text-info">Mantenimiento</span> <b><?php echo date('Y');?></b></strong>
                                 </p>
-                                <canvas id="bar" height="auto" width="400%"></canvas><!-- datos estadisticos finales -->
+                                <canvas id="Mantenimiento" height="auto" width="400%"></canvas><!-- datos estadisticos finales -->
                             </div>
                         </div>
                     </div>
@@ -170,7 +179,7 @@
                                 <p class="text-center">
                                     <strong><span class="text-muted">Servicio</span> & <span class="text-info">Gestoria</span> <b><?php echo date('Y');?></b></strong>
                                 </p>
-                                <canvas id="bar2" height="auto" width="350%"></canvas><!-- datos estadisticos finales -->
+                                <canvas id="Gestoria" height="auto" width="350%"></canvas><!-- datos estadisticos finales -->
                             </div>
                         </div>
                     </div>
@@ -190,7 +199,7 @@
                                 <p class="text-center">
                                     <strong><span class="text-muted">Servicio</span> & <span class="text-info">Mecanica/Estatica</span> <b><?php echo date('Y');?></b></strong>
                                 </p>
-                                <canvas id="bar3" height="auto" width="350%"></canvas><!-- datos estadisticos finales -->
+                                <canvas id="Mecanica" height="Mecanica" width="350%"></canvas><!-- datos estadisticos finales -->
                             </div>
                         </div>
                     </div>
@@ -211,7 +220,7 @@
                                 <p class="text-center">
                                     <strong><span class="text-muted">Servicio</span> & <span class="text-info">Traslados</span> <b><?php echo date('Y');?></b></strong>
                                 </p>
-                                <canvas id="bar4" height="auto" width="350%"></canvas><!-- datos estadisticos finales -->
+                                <canvas id="Traslados" height="auto" width="350%"></canvas><!-- datos estadisticos finales -->
                             </div>
                         </div>
                     </div>
@@ -232,7 +241,7 @@
                                 <p class="text-center">
                                     <strong><span class="text-muted">Servicio</span> & <span class="text-info">Verificacion</span> <b><?php echo date('Y');?></b></strong>
                                 </p>
-                                <canvas id="bar5" height="auto" width="350%"></canvas><!-- datos estadisticos finales -->
+                                <canvas id="Verificacion" height="auto" width="350%"></canvas><!-- datos estadisticos finales -->
                             </div>
                         </div>
                     </div>
@@ -269,7 +278,7 @@ var barChartData = {
     ]
     
 }
-var myLine = new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+var myLine = new Chart(document.getElementById("Mantenimiento").getContext("2d")).Bar(barChartData);
 </script>
 
 <script>
@@ -289,7 +298,7 @@ var barChartData = {
     ]
     
 }
-var myLine = new Chart(document.getElementById("bar2").getContext("2d")).Bar(barChartData);
+var myLine = new Chart(document.getElementById("Gestotia").getContext("2d")).Bar(barChartData);
 </script>
 
 <script>
@@ -299,7 +308,7 @@ var barChartData = {
         {
             fillColor : "rgba(220,220,220,0.5)",
             strokeColor : "rgba(220,220,220,1)",
-            data : [<?php echo suma_gestoria(1);?>, <?php echo suma_gestoria(2);?>, <?php echo suma_gestoria(3);?>, <?php echo suma_gestoria(4);?>, <?php echo suma_gestoria(5);?>, <?php echo suma_gestoria(6);?>, <?php echo suma_gestoria(7);?>,<?php echo suma_gestoria(8);?>,<?php echo suma_gestoria(9);?>,<?php echo suma_gestoria(10);?>,<?php echo suma_gestoria(11);?>,<?php echo suma_gestoria(12);?>]
+            data : [<?php echo suma_estetica(1);?>, <?php echo suma_estetica(2);?>, <?php echo suma_estetica(3);?>, <?php echo suma_estetica(4);?>, <?php echo suma_estetica(5);?>, <?php echo suma_estetica(6);?>, <?php echo suma_estetica(7);?>,<?php echo suma_estetica(8);?>,<?php echo suma_estetica(9);?>,<?php echo suma_estetica(10);?>,<?php echo suma_estetica(11);?>,<?php echo suma_estetica(12);?>]
         },
         {
             fillColor : "rgba(151,187,205,0.5)",
@@ -309,7 +318,7 @@ var barChartData = {
     ]
     
 }
-var myLine = new Chart(document.getElementById("bar3").getContext("2d")).Bar(barChartData);
+var myLine = new Chart(document.getElementById("Estetica").getContext("2d")).Bar(barChartData);
 </script>
 
 <script>
@@ -329,7 +338,7 @@ var barChartData = {
     ]
     
 }
-var myLine = new Chart(document.getElementById("bar4").getContext("2d")).Bar(barChartData);
+var myLine = new Chart(document.getElementById("Traslados").getContext("2d")).Bar(barChartData);
 </script>
 
 <script>
@@ -339,7 +348,7 @@ var barChartData = {
         {
             fillColor : "rgba(220,220,220,0.5)",
             strokeColor : "rgba(220,220,220,1)",
-            data : [<?php echo suma_choques(1);?>, <?php echo suma_choques(2);?>, <?php echo suma_choques(3);?>, <?php echo suma_choques(4);?>, <?php echo suma_choques(5);?>, <?php echo suma_choques(6);?>, <?php echo suma_choques(7);?>,<?php echo suma_choques(8);?>,<?php echo suma_choques(9);?>,<?php echo suma_choques(10);?>,<?php echo suma_choques(11);?>,<?php echo suma_choques(12);?>]
+            data : [<?php echo suma_verificacion(1);?>, <?php echo suma_verificacion(2);?>, <?php echo suma_verificacion(3);?>, <?php echo suma_verificacion(4);?>, <?php echo suma_verificacion(5);?>, <?php echo suma_verificacion(6);?>, <?php echo suma_verificacion(7);?>,<?php echo suma_verificacion(8);?>,<?php echo suma_verificacion(9);?>,<?php echo suma_verificacion(10);?>,<?php echo suma_verificacion(11);?>,<?php echo suma_verificacion(12);?>]
         },
         {
             fillColor : "rgba(151,187,205,0.5)",
@@ -349,7 +358,7 @@ var barChartData = {
     ]
     
 }
-var myLine = new Chart(document.getElementById("bar5").getContext("2d")).Bar(barChartData);
+var myLine = new Chart(document.getElementById("Verificacion").getContext("2d")).Bar(barChartData);
 </script>
 
 
