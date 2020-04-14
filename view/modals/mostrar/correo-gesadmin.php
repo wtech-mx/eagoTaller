@@ -12,7 +12,7 @@ require_once("../../../config/config.php");
  if (isset($_GET["id"])){
 		$id=$_GET["id"];
         $id=intval($id);
-        $sql="select * from gestoria where id='$id'";
+        $sql="SELECT * from gestoria where id='$id'";
         $query=mysqli_query($con,$sql);
         $num=mysqli_num_rows($query);
         if ($num==1){
@@ -21,22 +21,22 @@ require_once("../../../config/config.php");
             $fecha_ges=$rw['fecha_ges'];
 
             $idcliente=$rw['id_cliente'];
-            $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
+            $clientes=mysqli_query($con, "SELECT * from cliente where id_cliente=$idcliente");
             $cliente_rw=mysqli_fetch_array($clientes);
             $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
             $idempresa=$rw['id_empresa'];
-            $empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
+            $empresas=mysqli_query($con, "SELECT * from empresa where id_empresa=$idempresa");
             $empresa_rw=mysqli_fetch_array($empresas);
             $nombre_empresa=$empresa_rw['nombre'];
 
             $idcliente=$rw['id_cliente'];
-                $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
+                $clientes=mysqli_query($con, "SELECT * from cliente where id_cliente=$idcliente");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $correo=$cliente_rw['correo'];
 
             $idvehiculo=$rw['idvehiculo'];
-            $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
+            $vehiculos=mysqli_query($con, "SELECT * from vehiculo where id=$idvehiculo");
             $vehiculo_rw=mysqli_fetch_array($vehiculos);
             $patente_vehiculo=$vehiculo_rw['patente'];
 
