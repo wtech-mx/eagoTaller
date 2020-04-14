@@ -255,7 +255,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 												<div style="line-height: 1.2; font-size: 12px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; color: #555555; mso-line-height-alt: 14px;">
-													<p style="font-size: 20px; line-height: 1.2; word-break: break-word; text-align: right; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 24px; margin: 0;"><span style="color: #ffffff; font-size: 20px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FECHA:&nbsp;' . $fecha_man . ';</span></p>
+													<p style="font-size: 20px; line-height: 1.2; word-break: break-word; text-align: right; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 24px; margin: 0;"><span style="color: #ffffff; font-size: 20px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FECHA:&nbsp;' . $fecha_carga . '</span></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -408,14 +408,14 @@ require_once("../../../config/config.php");
 							<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 							<div style="color:#555555;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 								<div style="line-height: 1.2; font-size: 12px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; color: #555555; mso-line-height-alt: 14px;">
-									<p style="font-size: 16px; line-height: 1.2; word-break: break-word; text-align: right; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 19px; margin: 0;"><span style="color: #ffffff;">SUBTOTAL: $'.$subtotal.' </span></p>
+									
 								</div>
 							</div>
 							<!--[if mso]></td></tr></table><![endif]-->
 							<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 							<div style="color:#555555;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 								<div style="line-height: 1.2; font-size: 12px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; color: #555555; mso-line-height-alt: 14px;">
-									<p style="font-size: 16px; line-height: 1.2; word-break: break-word; text-align: right; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 19px; margin: 0;"><span style="color: #ffffff;">TOTAL: $'.$total.'</span></p>
+									
 								</div>
 							</div>
 							<!--[if mso]></td></tr></table><![endif]-->
