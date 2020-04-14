@@ -10,7 +10,8 @@
 		if ($num==1){
 			$rw=mysqli_fetch_array($query);
             $nombre=$rw['nombre'];
-            $cuit=$rw['cuit'];
+            $correo=$rw['correo'];
+            $telefono=$rw['telefono'];
             $status=$rw['estado'];
             $created_at=$rw['fecha_carga'];
 		}
@@ -25,9 +26,15 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="cuit" class="col-sm-2 control-label">Identificación: </label>
+    <label for="correo" class="col-sm-2 control-label">Correo: </label>
     <div class="col-sm-10">
-        <input type="text" required class="form-control" id="cuit" name="cuit" value="<?php echo $cuit;?>" placeholder="Identificación ">
+        <input type="text" required class="form-control" id="correo" name="correo" value="<?php echo $correo;?>" placeholder="Correo ">
+    </div>
+</div>
+<div class="form-group">
+    <label for="telefono" class="col-sm-2 control-label">Telefono: </label>
+    <div class="col-sm-10">
+        <input type="text" required class="form-control" id="telefono" name="telefono" value="<?php echo $telefono;?>" placeholder="Telefono ">
     </div>
 </div>
 <div class="form-group">

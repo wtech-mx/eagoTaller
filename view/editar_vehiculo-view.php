@@ -26,7 +26,6 @@
             $vencimiento=$rw['vencimiento'];
             $color=$rw['color'];
             $status=$rw['estado'];
-            $foto4=$rw['foto4'];
             $foto1=$rw['foto1'];
             $foto2=$rw['foto2'];
             $foto3=$rw['foto3'];

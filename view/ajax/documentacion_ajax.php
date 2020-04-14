@@ -113,8 +113,6 @@ if($action == 'ajax'){
 					<a style="color: white;" class="btn btn-warning btn-square btn-xs" href="./?view=editar_documento&id=<?php echo $id;?>"><i class='fa fa-edit'></i></a>
 
 					<button type="button" class="btn btn-success btn-send btn-xs" onclick="enviar('<?php echo $id; ?>')"><i class="fa fa-envelope"></i></button>
-
-                    <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $id;?>')"><i class="fa fa-trash-o"></i></button>
                     
                 </td>
             </tr>

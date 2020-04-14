@@ -18,9 +18,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="cuit" class="col-sm-2 control-label">Identificación: </label>
+                        <label for="correo" class="col-sm-2 control-label">Correo: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="cuit" name="cuit" placeholder="Identificación ">
+                            <input type="text" required class="form-control" id="correo" name="correo" placeholder="Correo ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono" class="col-sm-2 control-label">Telefono: </label>
+                        <div class="col-sm-10">
+                            <input type="text" required class="form-control" id="telefono" name="telefono" placeholder="Telefono">
                         </div>
                     </div>
                     <div class="form-group">
