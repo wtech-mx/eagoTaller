@@ -41,7 +41,6 @@ require_once("../../../config/config.php");
             $patente_vehiculo=$vehiculo_rw['patente'];
 
             $datos=$rw['datos'];
-            $foto4=$rw['foto4'];
             $foto1=$rw['foto1'];
             $foto2=$rw['foto2'];
             $foto3=$rw['foto3'];
