@@ -1,16 +1,13 @@
 <?php
-    include("../is_logged.php");//Archivo comprueba si el usuario esta logueado	
+    include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
 	if (empty($_POST['fecha_rep'])){
 			$errors[] = "Fecha de verificación está vacío.";
-		}  elseif (empty($_POST['cliente'])) {
-            $errors[] = "cliente está vacío.";
-        }	elseif (empty($_POST['vehiculo'])) {
+		}  elseif (empty($_POST['vehiculo'])) {
             $errors[] = "Vehiculo está vacío.";
         } elseif (empty($_POST['datos'])) {
             $errors[] = "Datos está vacío.";
         }  elseif (
         	!empty($_POST['fecha_rep'])
-        	&& !empty($_POST['cliente'])
         	&& !empty($_POST['vehiculo'])
         	&& !empty($_POST['datos'])
         ){
@@ -27,7 +24,7 @@
         $trasladista = mysqli_real_escape_string($con,(strip_tags($_POST["trasladista"],ENT_QUOTES)));
         $vendedor = mysqli_real_escape_string($con,(strip_tags($_POST["vendedor"],ENT_QUOTES)));
         $origen = mysqli_real_escape_string($con,(strip_tags($_POST["origen"],ENT_QUOTES)));
-        
+
         $id=intval($_POST['id']);
 	// UPDATE data into database
     $sql = "UPDATE estetica SET fecha_rep='".$fecha_rep."', id_cliente='".$cliente."', id_empresa='".$id_empresa."', idvehiculo='".$vehiculo."', datos='".$datos."', idtaller='".$taller."', otros='".$otros."', idtrasladista='".$trasladista."', vendedor='".$vendedor."', origen='".$origen."' WHERE id='".$id."' ";
@@ -38,16 +35,16 @@
     } else {
         $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
     }
-		
+
 	} else {
 		$errors[] = "desconocido.";
 	}
 if (isset($errors)){
-			
+
 			?>
 			<div class="alert alert-danger" role="alert">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>Error!</strong> 
+					<strong>Error!</strong>
 					<?php
 						foreach ($errors as $error) {
 								echo $error;
@@ -57,7 +54,7 @@ if (isset($errors)){
 			<?php
 			}
 			if (isset($messages)){
-				
+
 				?>
 				<div class="alert alert-success" role="alert">
 						<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -74,4 +71,4 @@ if (isset($errors)){
                 </script>
 				<?php
 			}
-?>			
+?>

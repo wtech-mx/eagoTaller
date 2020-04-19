@@ -2,7 +2,7 @@
 	session_start();
 
 	/*if (isset($_POST['token']) && $_POST['token']!=='') {*/
-			
+
 	//Contiene las variables de configuracion para conectar a la base de datos
 	include "../../config/config.php";
 
@@ -12,7 +12,7 @@
     $query = mysqli_query($con,"SELECT * FROM empleado WHERE username=\"$email\" OR email =\"$email\" AND password = \"$password\";");
 
 		if ($row = mysqli_fetch_array($query)) {
-			
+
 				//$marcados = $user->list_mark($fetch->iduser);
 				$idempleado=intval($row['id']);
 				$marcados=mysqli_query($con, "SELECT * FROM empleado_permisos WHERE idempleado=$idempleado");
@@ -26,8 +26,8 @@
 				in_array(1,$valores)?$_SESSION['dashboard']=1:$_SESSION['dashboard']=0;
 				in_array(2,$valores)?$_SESSION['empleados']=1:$_SESSION['empleados']=0;
 				in_array(3,$valores)?$_SESSION['taller']=1:$_SESSION['taller']=0;
-				in_array(5,$valores)?$_SESSION['seguro']=1:$_SESSION['seguro']=0;
-				in_array(4,$valores)?$_SESSION['empresa']=1:$_SESSION['empresa']=0;
+				in_array(4,$valores)?$_SESSION['seguro']=1:$_SESSION['seguro']=0;
+				in_array(5,$valores)?$_SESSION['empresa']=1:$_SESSION['empresa']=0;
 				in_array(6,$valores)?$_SESSION['admin']=1:$_SESSION['admin']=0;
 				in_array(7,$valores)?$_SESSION['vehiculo']=1:$_SESSION['vehiculo']=0;
 				in_array(8,$valores)?$_SESSION['tarjeta']=1:$_SESSION['tarjeta']=0;
@@ -44,7 +44,7 @@
 				}else{
 					header("location: ../../?view=perfil");
 				}
-				
+
 
 		}else{
 			header("location: ../../index.php?invalid");

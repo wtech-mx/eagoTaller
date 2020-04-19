@@ -1,16 +1,13 @@
 <?php
-    include("../is_logged.php");//Archivo comprueba si el usuario esta logueado	
+    include("../is_logged.php");//Archivo comprueba si el usuario esta logueado
 	if (empty($_POST['fecha_man'])){
 			$errors[] = "Fecha de servicio está vacío.";
-		}  elseif (empty($_POST['cliente'])) {
-            $errors[] = "cliente está vacío.";
-        }	elseif (empty($_POST['vehiculo'])) {
+		}  elseif (empty($_POST['vehiculo'])) {
             $errors[] = "Vehiculo está vacío.";
         } elseif (empty($_POST['datos'])) {
             $errors[] = "Datos está vacío.";
         }  elseif (
         	!empty($_POST['fecha_man'])
-        	&& !empty($_POST['cliente'])
         	&& !empty($_POST['vehiculo'])
         	&& !empty($_POST['datos'])
         ){
@@ -37,16 +34,16 @@
     } else {
         $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
     }
-		
+
 	} else {
 		$errors[] = "desconocido.";
 	}
 if (isset($errors)){
-			
+
 			?>
 			<div class="alert alert-danger" role="alert">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>Error!</strong> 
+					<strong>Error!</strong>
 					<?php
 						foreach ($errors as $error) {
 								echo $error;
@@ -56,7 +53,7 @@ if (isset($errors)){
 			<?php
 			}
 			if (isset($messages)){
-				
+
 				?>
 				<div class="alert alert-success" role="alert">
 						<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -73,4 +70,4 @@ if (isset($errors)){
                 </script>
 				<?php
 			}
-?>			
+?>

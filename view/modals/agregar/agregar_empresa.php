@@ -20,13 +20,13 @@
                     <div class="form-group">
                         <label for="correo" class="col-sm-2 control-label">Correo: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="correo" name="correo" placeholder="Correo ">
+                            <input type="text"class="form-control" id="correo" name="correo" placeholder="Correo ">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="telefono" class="col-sm-2 control-label">Telefono: </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="telefono" name="telefono" placeholder="Telefono">
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
                         </div>
                     </div>
                     <div class="form-group">
