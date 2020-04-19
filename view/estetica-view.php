@@ -1,5 +1,5 @@
-<?php 
-    $active5="active"; 
+<?php
+    $active5="active";
     include "resources/header.php";
 ?>
     <!--main content start-->
@@ -17,7 +17,7 @@
                     <h1 class="h1">Estética/Mecanica</h1>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-xs-3">
                     <div class="input-group">
@@ -32,15 +32,24 @@
                     <div id="loader" class="text-center"></div>
                 </div>
 
+               <div class="col-md-6">
+                    <div class="btn-group ">
+                        <a type="button" href="./?view=esteser" class="btn btn-success" style="color: #fff">
+                            <i class='fa fa-check'></i>
+                            Comporbar Servicio
+                        </a>
+                    </div>
+                </div>
+
                 <div class="col-md-offset-10">
                     <!-- modals -->
-                        <?php 
+                        <?php
                             include "modals/agregar/agregar_estetica.php";
                             include "modals/editar/editar_estetica.php";
                             include "modals/mostrar/mostrar_estetica.php";
                         ?>
                     <!-- /end modals -->
-                    
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             Mostrar <span class="caret"></span>
@@ -57,14 +66,14 @@
                 </div>
             </div>
 
-            
+
 
             <div id="resultados_ajax"></div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Datos de los Servicios</h3>
+                            <h3 class="panel-title">Datos de servicios mecanica/estetica</h3>
                             <div class="actions pull-right">
                                 <i class="fa fa-chevron-down"></i>
                                 <i class="fa fa-times"></i>
@@ -72,12 +81,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <div class="outer_div"></div><!-- Datos ajax Final --> 
+                                <div class="outer_div"></div><!-- Datos ajax Final -->
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
 
         </section>
     </section><!--main content end-->
@@ -106,7 +115,7 @@
             }
         })
     }
-    
+
     function per_page(valor){
         $("#per_page").val(valor);
         load(1);
@@ -121,7 +130,7 @@
             var query=$("#q").val();
             var per_page=$("#per_page").val();
             var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id":id};
-            
+
             $.ajax({
                 url:'view/ajax/estetica_ajax.php',
                 data: parametros,
@@ -203,7 +212,7 @@
                 }
             })
     }
-    
+
     function mostrar(id){
         var parametros = {"action":"ajax","id":id};
         $.ajax({
@@ -249,6 +258,6 @@
         });
     }
 </script>
-<?php     
-    ob_end_flush(); 
+<?php
+    ob_end_flush();
 ?>

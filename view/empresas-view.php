@@ -1,4 +1,4 @@
-<?php 
+<?php
     $active4="active";
     include "resources/header.php";
     if ($_SESSION['empresa']==1){
@@ -18,7 +18,7 @@
                     <h1 class="h1">Empresas</h1>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-xs-3">
                     <div class="input-group">
@@ -33,14 +33,23 @@
                     <div id="loader" class="text-center"></div>
                 </div>
 
+               <div class="col-md-6">
+                    <div class="btn-group ">
+                        <a type="button" href="./?view=veriser" class="btn btn-info" style="color: #fff">
+                            <i class='fa fa-truck'></i>
+                             Agregar vehiculos
+                        </a>
+                    </div>
+                </div>
+
                 <div class="col-md-offset-10">
                     <!-- modals -->
-                        <?php 
+                        <?php
                             include "modals/agregar/agregar_empresa.php";
                             include "modals/editar/editar_empresa.php";
                         ?>
                     <!-- /end modals -->
-                    
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             Mostrar <span class="caret"></span>
@@ -57,7 +66,7 @@
                 </div>
             </div>
 
-            
+
 
             <div id="resultados_ajax"></div>
             <div class="row">
@@ -72,12 +81,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <div class="outer_div"></div><!-- Datos ajax Final --> 
+                                <div class="outer_div"></div><!-- Datos ajax Final -->
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
 
         </section>
     </section><!--main content end-->
@@ -106,7 +115,7 @@
             }
         })
     }
-    
+
     function per_page(valor){
         $("#per_page").val(valor);
         load(1);
@@ -121,7 +130,7 @@
             var query=$("#q").val();
             var per_page=$("#per_page").val();
             var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id_empresa":id_empresa};
-            
+
             $.ajax({
                 url:'view/ajax/empresas_ajax.php',
                 data: parametros,
@@ -204,9 +213,9 @@
             })
     }
 </script>
-<?php     
+<?php
     }else{
       require 'resources/acceso_prohibido.php';
     }
-    ob_end_flush(); 
+    ob_end_flush();
 ?>

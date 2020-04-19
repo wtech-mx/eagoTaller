@@ -1,9 +1,9 @@
-<?php 
+<?php
     $active8="active";
     include "resources/header.php";
 
     if ($_SESSION['vehiculo']==1){
-    
+
         if (isset($_GET['id'])){
             $vehiculo_id=intval($_GET['id']);
             $sql_vehiculo=mysqli_query($con,"SELECT * FROM vehiculo WHERE id='$vehiculo_id'");
@@ -38,7 +38,7 @@
             $foto10=$rw['foto10'];
             $fecha_carga=$rw['fecha_carga'];
         }
-        
+
         if (!isset($_GET['id']) or $count!=1){
             header("location: ./?view=vehiculos");
         }
@@ -60,7 +60,7 @@
                     <h1 class="h1">Editar Vehiculo</h1>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-12">
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
@@ -89,13 +89,13 @@
                                                     if ($idcliente==$rw['id_cliente']){$selected1="selected";}else{$selected1="";}
                                             ?>
                                                 <option value="<?php echo $rw['id_cliente']?>" <?php echo $selected1;?>><?php echo $rw['nombre']." ".$rw['apellido']?></option>
-                                            <?php 
+                                            <?php
                                                 }
                                             ?>
                                             </select>
                                         </div>
 
-                                        
+
                                             <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
                                             <div class="col-sm-4">
                                                 <select class="form-control" name="empresa" id="empresa">
@@ -106,7 +106,7 @@
                                                         if ($idempresa==$rw['id_empresa']){$selected1="selected";}else{$selected1="";}
                                                 ?>
                                                     <option value="<?php echo $rw['id_empresa']?>" <?php echo $selected1;?>><?php echo $rw['nombre']?></option>
-                                                <?php 
+                                                <?php
                                                     }
                                                 ?>
                                                 </select>
@@ -127,7 +127,7 @@
                                 <div class="form-group">
                                     <label for="submarca" class="col-sm-2 control-label">Submarca: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" required name="submarca" class="form-control" id="submarca" placeholder="Submarca: " value="<?php echo $submarca ?>">
+                                        <input type="text"  name="submarca" class="form-control" id="submarca" placeholder="Submarca: " value="<?php echo $submarca ?>">
                                     </div>
                                     <label for="modelo" class="col-sm-2 control-label">Modelo: </label>
                                     <div class="col-sm-4">
@@ -163,8 +163,9 @@
                                         <input type="date" name="vencimiento" class="form-control" id="vencimiento" placeholder="Vencimiento: " value="<?php echo $vencimiento ?>">
                                     </div>
                                     <label for="color" class="col-sm-2 control-label">Color: </label>
+
                                     <div class="col-sm-4">
-                                        <input type="text" name="color" class="form-control" id="color" placeholder="Color: " value="<?php echo $color ?>">
+                                        <input type="color" name="color" class="form-control" id="color" placeholder="Color: "value="<?php echo $color ?>">
                                     </div>
                                 </div>
 
@@ -511,12 +512,12 @@
                             </form>
                         </div>
                 </div>
-            </div> 
+            </div>
 
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
 
         </section>
     </section><!--main content end-->
@@ -529,7 +530,7 @@
         var data = new FormData();
         data.append('imagefile1',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto1_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -540,7 +541,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img").html(data);
-                
+
             }
         });
     }
@@ -551,7 +552,7 @@
         var data = new FormData();
         data.append('imagefile2',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto2_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -562,7 +563,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img2").html(data);
-                
+
             }
         });
     }
@@ -573,7 +574,7 @@
         var data = new FormData();
         data.append('imagefile3',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto3_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -584,7 +585,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img3").html(data);
-                
+
             }
         });
     }
@@ -595,7 +596,7 @@
         var data = new FormData();
         data.append('imagefile4',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto4_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -606,7 +607,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img4").html(data);
-                
+
             }
         });
     }
@@ -617,7 +618,7 @@
         var data = new FormData();
         data.append('imagefile5',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto5_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -628,7 +629,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img5").html(data);
-                
+
             }
         });
     }
@@ -639,7 +640,7 @@
         var data = new FormData();
         data.append('imagefile6',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto6_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -650,7 +651,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img6").html(data);
-                
+
             }
         });
     }
@@ -661,7 +662,7 @@
         var data = new FormData();
         data.append('imagefile7',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto7_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -672,7 +673,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img7").html(data);
-                
+
             }
         });
     }
@@ -683,7 +684,7 @@
         var data = new FormData();
         data.append('imagefile8',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto8_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -694,7 +695,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img8").html(data);
-                
+
             }
         });
     }
@@ -705,7 +706,7 @@
         var data = new FormData();
         data.append('imagefile9',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto9_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -716,7 +717,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img9").html(data);
-                
+
             }
         });
     }
@@ -727,7 +728,7 @@
         var data = new FormData();
         data.append('imagefile10',file);
         data.append('id',vehiculo_id);
-        
+
         $.ajax({
             url: "view/ajax/images/foto10_vehiculo_ajax.php",        // Url to which the request is send
             type: "POST",             // Type of request to be send, called as method
@@ -738,7 +739,7 @@
             success: function(data)   // A function to be called if request succeeds
             {
                 $("#load_img10").html(data);
-                
+
             }
         });
     }
@@ -760,15 +761,15 @@
             window.setTimeout(function() {
             $(".alert").fadeTo(500, 0).slideUp(500, function(){
             $(this).remove();});}, 5000);
-            
+
           }
-    });     
+    });
       event.preventDefault();
     });
 </script>
-<?php     
+<?php
     }else{
       require 'resources/acceso_prohibido.php';
     }
-    ob_end_flush(); 
+    ob_end_flush();
 ?>
