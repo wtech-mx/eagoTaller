@@ -125,7 +125,19 @@
 </script>
 <script>
     function eliminar(id_empresa){
-        if(confirm('Esta acción  eliminará de forma permanente la empresa \n\n Desea continuar?')){
+swal({
+  title: "¿Deseas Eliminar una Empresa?",
+  text: "Esta acción  eliminará de forma permanente una Empresa",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Se ha eliminado :(", {
+      icon: "success",
+    });
+        if(confirm){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();
@@ -146,6 +158,11 @@
                 }
             })
         }
+  } else {
+    swal("¡¡No se ha eliminado ninguna Empresa :D!!");
+  }
+});
+
     }
 </script>
 <script>

@@ -1,4 +1,4 @@
-<?php 
+<?php
     $active8="active";
     include "resources/header.php";
     if ($_SESSION['empleados']==1){
@@ -18,7 +18,7 @@
                     <h1 class="h1">Empleados</h1>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-xs-3">
                     <div class="input-group">
@@ -35,13 +35,13 @@
 
                 <div class="col-md-offset-10">
                     <!-- modals -->
-                        <?php 
+                        <?php
                             include "modals/agregar/agregar_empleado.php";
                             include "modals/editar/editar_empleado.php";
                             include "modals/mostrar/mostrar_empleado.php";
                         ?>
                     <!-- /end modals -->
-                    
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             Mostrar <span class="caret"></span>
@@ -71,12 +71,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <div class="outer_div"></div><!-- Datos ajax Final --> 
+                                <div class="outer_div"></div><!-- Datos ajax Final -->
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
 
         </section>
     </section><!--main content end-->
@@ -105,7 +105,7 @@
             }
         })
     }
-    
+
     function per_page(valor){
         $("#per_page").val(valor);
         load(1);
@@ -116,12 +116,24 @@
 
 <script>
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente al empleado \n\n Desea continuar?')){
+swal({
+  title: "¿Deseas Eliminar un Empleado?",
+  text: "Esta acción  eliminará de forma permanente un Empleado",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Se ha eliminado :(", {
+      icon: "success",
+    });
+        if(confirm){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();
             var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id":id};
-            
+
             $.ajax({
                 url:'view/ajax/empleados_ajax.php',
                 data: parametros,
@@ -137,6 +149,11 @@
                 }
             })
         }
+  } else {
+    swal("¡¡No se ha eliminado un Empleado :D!!");
+  }
+});
+
     }
 </script>
 
@@ -204,7 +221,7 @@
                 }
             })
     }
-    
+
     function mostrar(id){
         var parametros = {"action":"ajax","id":id};
         $.ajax({
@@ -220,9 +237,9 @@
             })
     }
 </script>
-<?php     
+<?php
     }else{
       require 'resources/acceso_prohibido.php';
     }
-    ob_end_flush(); 
+    ob_end_flush();
 ?>

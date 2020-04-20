@@ -1,9 +1,9 @@
-<?php 
+<?php
     $active2="active";
     include "resources/header.php";
 
     if ($_SESSION['vehiculo']==1){
-        //esta funcion elimina todos los registros que no fueron llenados 
+        //esta funcion elimina todos los registros que no fueron llenados
         //tabla = "vehiculo"
         $eliminar=mysqli_query($con, "DELETE FROM vehiculo WHERE idcliente=0");
 ?>
@@ -22,7 +22,7 @@
                     <h1 class="h1">Vehiculos</h1>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-xs-3">
                     <div class="input-group">
@@ -55,12 +55,12 @@
 
                 <div class="col-md-offset-10">
                     <!-- modals -->
-                        <?php 
+                        <?php
                            // include "modals/agregar/agregar_sector.php";
                            // include "modals/editar/editar_sector.php";
                         ?>
                     <!-- /end modals -->
-                    <a class="btn btn-primary" href="./?view=nuevo_vehiculo"><i class='fa fa-plus'></i> Nuevo</a>                    
+                    <a class="btn btn-primary" href="./?view=nuevo_vehiculo"><i class='fa fa-plus'></i> Nuevo</a>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             Mostrar <span class="caret"></span>
@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-            
+
 
             <div id="resultados_ajax"></div>
             <div class="row">
@@ -92,19 +92,19 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <div class="outer_div"></div><!-- Datos ajax Final --> 
+                                <div class="outer_div"></div><!-- Datos ajax Final -->
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
 
         </section>
     </section><!--main content end-->
-<?php 
+<?php
     include "resources/footer.php";
 ?>
-   
+
 <script>
     $(function() {
         load(1);
@@ -127,7 +127,7 @@
             }
         })
     }
-    
+
     function per_page(valor){
         $("#per_page").val(valor);
         load(1);
@@ -137,12 +137,24 @@
 </script>
 <script>
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente al vehiculo \n\n Desea continuar?')){
+swal({
+  title: "¿Deseas Eliminar el vehiculo?",
+  text: "Esta acción  eliminará de forma permanente al vehiculo",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Se ha eliminado :(", {
+      icon: "success",
+    });
+        if(confirm){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();
             var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id":id};
-            
+
             $.ajax({
                 url:'view/ajax/vehiculos_ajax.php',
                 data: parametros,
@@ -158,6 +170,11 @@
                 }
             })
         }
+  } else {
+    swal("¡¡No se ha eliminado ningun vehiculo :D!!");
+  }
+});
+
     }
 </script>
 <script>
@@ -224,7 +241,7 @@
                 }
             })
     }
-    
+
     function mostrar(id){
         var parametros = {"action":"ajax","id":id};
         $.ajax({
@@ -240,9 +257,9 @@
             })
     }
 </script>
-<?php     
+<?php
     }else{
       require 'resources/acceso_prohibido.php';
     }
-    ob_end_flush(); 
+    ob_end_flush();
 ?>

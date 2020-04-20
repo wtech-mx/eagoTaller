@@ -1,4 +1,4 @@
-<?php 
+<?php
     $active12="active";
     include "resources/header.php";
      if ($_SESSION['trasladista']==1){
@@ -18,7 +18,7 @@
                     <h1 class="h1">Trasladistas</h1>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-xs-3">
                     <div class="input-group">
@@ -35,13 +35,13 @@
 
                 <div class="col-md-offset-10">
                     <!-- modals -->
-                        <?php 
+                        <?php
                             include "modals/agregar/agregar_trasladista.php";
                             include "modals/editar/editar_trasladista.php";
                             include "modals/mostrar/mostrar_trasladista.php";
                         ?>
                     <!-- /end modals -->
-                    
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Mostrar <span class="caret"></span>
                         </button>
@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            
+
 
             <div id="resultados_ajax"></div>
             <div class="row">
@@ -72,12 +72,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <div class="outer_div"></div> <!-- Datos ajax Final --> 
+                                <div class="outer_div"></div> <!-- Datos ajax Final -->
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
 
         </section>
     </section><!--main content end-->
@@ -106,7 +106,7 @@
             }
         })
     }
-    
+
     function per_page(valor){
         $("#per_page").val(valor);
         load(1);
@@ -116,12 +116,24 @@
 </script>
 <script>
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente al cliente \n\n Desea continuar?')){
+swal({
+  title: "¿Deseas Eliminar un Trasladista?",
+  text: "Esta acción  eliminará de forma permanente un Trasladista",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Se ha eliminado :(", {
+      icon: "success",
+    });
+        if(confirm){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();
             var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id":id};
-            
+
             $.ajax({
                 url:'view/ajax/trasladista_ajax.php',
                 data: parametros,
@@ -137,6 +149,11 @@
                 }
             })
         }
+  } else {
+    swal("¡¡No se ha eliminado un Trasladista :D!!");
+  }
+});
+
     }
 </script>
 <script>
@@ -203,7 +220,7 @@
                 }
             })
     }
-    
+
     function mostrar(id){
         var parametros = {"action":"ajax","id":id};
         $.ajax({
@@ -219,9 +236,9 @@
             })
     }
 </script>
-<?php     
+<?php
     }else{
       require 'resources/acceso_prohibido.php';
     }
-    ob_end_flush(); 
+    ob_end_flush();
 ?>

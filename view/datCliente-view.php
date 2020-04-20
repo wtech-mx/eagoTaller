@@ -125,7 +125,19 @@
 </script>
 <script>
     function eliminar(id_cliente){
-        if(confirm('Esta acción  eliminará de forma permanente al cliente \n\n Desea continuar?')){
+swal({
+  title: "¿Deseas Eliminar el Cliente?",
+  text: "Esta acción  eliminará de forma permanente al Cliente",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Se ha eliminado :(", {
+      icon: "success",
+    });
+        if(confirm){
             var page=1;
             var query=$("#q").val();
             var per_page=$("#per_page").val();
@@ -146,6 +158,11 @@
                 }
             })
         }
+  } else {
+    swal("¡¡No se ha eliminado ningun Cliente :D!!");
+  }
+});
+
     }
 </script>
 <script>
