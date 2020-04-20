@@ -35,7 +35,7 @@
 
                <div class="col-md-6">
                     <div class="btn-group ">
-                        <a type="button" href="./?view=veriser" class="btn btn-info" style="color: #fff">
+                        <a type="button" href="./?view=vehiculos" class="btn btn-info" style="color: #fff">
                             <i class='fa fa-truck'></i>
                              Agregar vehiculos
                         </a>
