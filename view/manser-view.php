@@ -169,7 +169,7 @@
 </script>
 
 <script type="text/javascript">
-        function enviar(id){
+    function enviar(id){
         swal({
           title: "¿Deseas enviar comprobacion de servicio?",
           text: "Seran enviado los datos proporcionados ",
@@ -200,7 +200,7 @@
         });
     }
 </script>
-|
+
 <script>
     function editar(id){
         var parametros = {"action":"ajax","id":id};

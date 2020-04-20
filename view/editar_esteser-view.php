@@ -77,11 +77,11 @@
                                 <i class="fa fa-times"></i>
                             </div>
                         </div>
-                            <div class="panel-body">
-                                <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
                                     <input type="hidden"  id="id" name="id"  value="<?php echo $esteser_id;?>" >
                                 <div class="form-group">
-                                <label for="idfecha_rep" class="col-sm-2 control-label">Fecha Registro: </label>
+                                    <label for="idfecha_rep" class="col-sm-2 control-label">Fecha Registro: </label>
                                     <div class="col-sm-4">
                                         <?php echo $fecha_rep;?>
                                     </div>
