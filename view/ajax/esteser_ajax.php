@@ -123,6 +123,7 @@ if($action == 'ajax'){
                 	if ($status==1) {
                 	?>
                 		<a style="color: white;display: none;" class="btn btn-warning btn-square btn-xs" href="" ><i class='fa fa-edit'></i></a>
+                	<button type="button" class="btn btn-success btn-send btn-xs" onclick="enviar('<?php echo $id; ?>')"><i class="fa fa-envelope"></i></button>
                 	<?php
                 	}else{
                 	?>
@@ -130,7 +131,7 @@ if($action == 'ajax'){
                 	<?php
                 	}
                 	?>
-                	<button type="button" class="btn btn-success btn-send btn-xs" onclick="enviar('<?php echo $id; ?>')"><i class="fa fa-envelope"></i></button>
+
 
 
                    <!-- <button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button>-->
