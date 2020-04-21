@@ -29,6 +29,7 @@
 
             $observaciones=$rw['observaciones'];
             $personal=$rw['personal'];
+
             $status=$rw['status'];
             $datos=$rw['datos'];
             $foto4=$rw['foto4'];

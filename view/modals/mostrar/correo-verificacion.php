@@ -52,7 +52,7 @@ require_once("../../../config/config.php");
                 $tallers=mysqli_query($con, "select * from taller where id=$idtaller");
                 $taller_rw=mysqli_fetch_array($tallers);
                 $nombre_taller=$taller_rw['nombre'];
-                
+
 				$datos=$rw['datos'];
 				$derechos=$rw['derechos'];
 				$otros=$rw['otros'];
@@ -80,7 +80,7 @@ require_once("../../../config/config.php");
 
         //Recipients
         $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
-        $mail->addAddress('dinopiza@gmail.com');
+        $mail->addAddress('aldiazm.11@gmail.com');
         $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
         $mail->addAddress($correo2);               // Name is optional
         $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
@@ -361,25 +361,25 @@ require_once("../../../config/config.php");
 							<tr>
 
 								<td>
-									' . $patente_vehiculo . ' 
+									' . $patente_vehiculo . '
 								</td>
 								<td>
-									' . $datos . ' 
+									' . $datos . '
 								</td>
 								<td>
-									' . $nombre_trasladista . ' 
+									' . $nombre_trasladista . '
 								</td>
 								<td>
-									' . $nombre_taller . ' 
+									' . $nombre_taller . '
 								</td>
 								<td>
-									' . $otro . ' 
+									' . $otro . '
 								</td>
 								<td>
-									' . $derechos . ' 
+									' . $derechos . '
 								</td>
 								<td>
-									' . $origen . ' 
+									' . $origen . '
 								</td>
 							</tr>
 						</tbody>
@@ -510,7 +510,7 @@ require_once("../../../config/config.php");
     } catch (Exception $e) {
         echo "Hubo un error al enviar el mensaje: {$mail->ErrorInfo}";
     }
-    
+
     } else {
         $errors[] = "desconocido.";
     }

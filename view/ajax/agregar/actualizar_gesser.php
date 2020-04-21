@@ -50,15 +50,15 @@
 							}
 						?>
 			</div>
-            <script type="text/javascript">
-                    $("#actualizar_datos").val("");
-            swal("¡Bien!", " <?php echo $message;?> ", "success");
-            </script>
 
 			<script type="text/javascript">
-			        $("#actualizar_datos").val("");
+			$("#actualizar_datos").val("");
 			swal("¡Bien!", " <?php echo $message;?> ", "success");
+		   setTimeout(function () {
+				window.location.replace('?view=gesser');
+		    }, 2000);//will call the function after 2 secs.
 			</script>
+
 			<?php
 		}
 ?>

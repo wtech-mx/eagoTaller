@@ -27,9 +27,10 @@
             $vehiculo_rw=mysqli_fetch_array($vehiculos);
             $patente_vehiculo=$vehiculo_rw['patente'];
 
+            $status=$rw['status'];
             $observaciones=$rw['observaciones'];
             $personal=$rw['personal'];
-            $status=$rw['status'];
+
             $datos=$rw['datos'];
             $foto4=$rw['foto4'];
             $foto1=$rw['foto1'];

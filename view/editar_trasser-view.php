@@ -6,24 +6,25 @@
 
         if (isset($_GET['id'])){
             $trasser_id=intval($_GET['id']);
-            $sql_trasser=mysqli_query($con,"select * from traslados where id='$trasser_id'");
+            $sql_trasser=mysqli_query($con,"SELECT * FROM traslados WHERE id='$trasser_id'");
             $count=mysqli_num_rows($sql_trasser);
             $rw=mysqli_fetch_array($sql_trasser);
 
             $fecha_tras=$rw['fecha_tras'];
 
              $idcliente=$rw['id_cliente'];
-                $clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
+                $clientes=mysqli_query($con, "SELECT * FROM cliente WHERE id_cliente=$idcliente");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
             $idempresa=$rw['id_empresa'];
-                $empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
+                $empresas=mysqli_query($con, "SELECT * FROM empresa WHERE id_empresa=$idempresa");
                 $empresa_rw=mysqli_fetch_array($empresas);
                 $nombre_empresa=$empresa_rw['nombre'];
 
             $observaciones=$rw['observaciones'];
             $personal=$rw['personal'];
+
             $status=$rw['status'];
             $datos=$rw['datos'];
             $foto4=$rw['foto4'];

@@ -74,7 +74,7 @@ require_once("../../../config/config.php");
 
         //Recipients
         $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
-        $mail->addAddress('dinopiza@gmail.com');
+        $mail->addAddress('aldiazm.11@gmail.com');
         $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
         $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
         //$mail->addCC('cc@example.com');
@@ -411,7 +411,7 @@ require_once("../../../config/config.php");
 											<!--<![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="'. $rutaServ.'' . $foto1 . '" alt="'. $rutaServ .'' . $foto1 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<a href="'. $rutaServ.'' . $foto1 . '" alt="'. $rutaServ .'' . $foto1 . '" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto1 . '" alt="'. $rutaServ .'' . $foto1 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -424,7 +424,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="'. $rutaServ.'' . $foto2 . '" alt="'. $rutaServ .'' . $foto2 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<a href="'. $rutaServ.'' . $foto2 . '" alt="'. $rutaServ .'' . $foto2 . '" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto2 . '" alt="'. $rutaServ .'' . $foto2 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -437,7 +437,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="'. $rutaServ.'' . $foto3 . '" alt="'. $rutaServ .'' . $foto3 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<a href="'. $rutaServ.'' . $foto3 . '" alt="'. $rutaServ .'' . $foto3 . '" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto3 . '" alt="'. $rutaServ .'' . $foto3 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -450,7 +450,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1"> 
+													<a href="http://www.example.com/" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto4 . '" alt="'. $rutaServ .'' . $foto4 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -463,7 +463,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="'. $rutaServ.'' . $foto5 . '" alt="'. $rutaServ .'' . $foto5 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<a href="'. $rutaServ.'' . $foto5 . '" alt="'. $rutaServ .'' . $foto5 . '" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto5 . '" alt="'. $rutaServ .'' . $foto5 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -476,7 +476,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="'. $rutaServ.'' . $foto6 . '" alt="'. $rutaServ .'' . $foto6 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<a href="'. $rutaServ.'' . $foto6 . '" alt="'. $rutaServ .'' . $foto6 . '" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto6 . '" alt="'. $rutaServ .'' . $foto6 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -489,7 +489,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="'. $rutaServ.'' . $foto7 . '" alt="'. $rutaServ .'' . $foto7 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<a href="'. $rutaServ.'' . $foto7 . '" alt="'. $rutaServ .'' . $foto7 . '" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto7 . '" alt="'. $rutaServ .'' . $foto7 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -502,7 +502,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="'. $rutaServ.'' . $foto8 . '" alt="'. $rutaServ .'' . $foto8 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<a href="'. $rutaServ.'' . $foto8 . '" alt="'. $rutaServ .'' . $foto8 . '" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto8 . '" alt="'. $rutaServ .'' . $foto8 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -515,7 +515,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-													<a href="'. $rutaServ.'' . $foto9 . '" alt="'. $rutaServ .'' . $foto9 . '" target="_blank" style="outline:none" tabindex="-1"> 
+													<a href="'. $rutaServ.'' . $foto9 . '" alt="'. $rutaServ .'' . $foto9 . '" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto9 . '" alt="'. $rutaServ .'' . $foto9 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -547,7 +547,7 @@ require_once("../../../config/config.php");
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="'. $rutaServ.'' . $foto10 . '" alt="'. $rutaServ .'' . $foto10 . '" target="_blank" style="outline:none" tabindex="-1"> 
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="'. $rutaServ.'' . $foto10 . '" alt="'. $rutaServ .'' . $foto10 . '" target="_blank" style="outline:none" tabindex="-1">
 													<img class="center autowidth" align="center" border="0" src="'. $rutaServ.'' . $foto10 . '" alt="'. $rutaServ .'' . $foto10 . '" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 640px; display: block;" width="640"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -663,7 +663,7 @@ require_once("../../../config/config.php");
     } catch (Exception $e) {
         echo "Hubo un error al enviar el mensaje: {$mail->ErrorInfo}";
     }
-    
+
     } else {
         $errors[] = "desconocido.";
     }

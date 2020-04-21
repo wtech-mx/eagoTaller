@@ -81,7 +81,7 @@ if (isset($_GET["id"])){
 
         //Recipients
         $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
-        $mail->addAddress('dinopiza@gmail.com');
+        $mail->addAddress('aldiazm.11@gmail.com');
         $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
         $mail->addAddress($correo2);               // Name is optional
         $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
@@ -359,22 +359,22 @@ if (isset($_GET["id"])){
 													<tr>
 
 														<td>
-															' . $patente_vehiculo . ' 
+															' . $patente_vehiculo . '
 														</td>
 														<td>
-															' . $datos . ' 
+															' . $datos . '
 														</td>
 														<td>
-															' . $nombre_trasladista . ' 
+															' . $nombre_trasladista . '
 														</td>
 														<td>
-															' . $nombre_taller . ' 
+															' . $nombre_taller . '
 														</td>
 														<td>
-															' . $otros . ' 
+															' . $otros . '
 														</td>
 														<td>
-															' . $origen . ' 
+															' . $origen . '
 														</td>
 													</tr>
 												</tbody>
@@ -505,7 +505,7 @@ if (isset($_GET["id"])){
     } catch (Exception $e) {
         echo "Hubo un error al enviar el mensaje: {$mail->ErrorInfo}";
     }
-    
+
     } else {
         $errors[] = "desconocido.";
     }

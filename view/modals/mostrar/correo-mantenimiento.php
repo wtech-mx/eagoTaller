@@ -80,7 +80,7 @@ require_once("../../../config/config.php");
 
         //Recipients
         $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
-        $mail->addAddress('dinopiza@gmail.com');
+        $mail->addAddress('aldiazm.11@gmail.com');
         $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
         $mail->addAddress($correo2);               // Name is optional
         $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
@@ -358,25 +358,25 @@ require_once("../../../config/config.php");
 							<tr>
 
 								<td>
-									' . $patente_vehiculo . ' 
+									' . $patente_vehiculo . '
 								</td>
 								<td>
-									' . $datos . ' 
+									' . $datos . '
 								</td>
 								<td>
-									' . $nombre_trasladista . ' 
+									' . $nombre_trasladista . '
 								</td>
 								<td>
-									' . $nombre_taller . ' 
+									' . $nombre_taller . '
 								</td>
 								<td>
-									' . $otros . ' 
+									' . $otros . '
 								</td>
 								<td>
-									' . $origen . ' 
+									' . $origen . '
 								</td>
 							</tr>
-						</tbody> 
+						</tbody>
 													</table>
 													</div>
 													</div>
@@ -408,14 +408,14 @@ require_once("../../../config/config.php");
 							<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 							<div style="color:#555555;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 								<div style="line-height: 1.2; font-size: 12px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; color: #555555; mso-line-height-alt: 14px;">
-									
+
 								</div>
 							</div>
 							<!--[if mso]></td></tr></table><![endif]-->
 							<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 							<div style="color:#555555;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 								<div style="line-height: 1.2; font-size: 12px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; color: #555555; mso-line-height-alt: 14px;">
-									
+
 								</div>
 							</div>
 							<!--[if mso]></td></tr></table><![endif]-->
@@ -504,7 +504,7 @@ require_once("../../../config/config.php");
     } catch (Exception $e) {
         echo "Hubo un error al enviar el mensaje: {$mail->ErrorInfo}";
     }
-    
+
     } else {
         $errors[] = "desconocido.";
     }

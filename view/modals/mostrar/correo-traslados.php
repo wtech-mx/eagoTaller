@@ -80,7 +80,7 @@ require_once("../../../config/config.php");
 
         //Recipients
         $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
-        $mail->addAddress('dinopiza@gmail.com');
+        $mail->addAddress('aldiazm.11@gmail.com');
         $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
         $mail->addAddress($correo2);               // Name is optional
         $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
@@ -351,7 +351,7 @@ require_once("../../../config/config.php");
 								<th>
 									Destino
 								</th>
-								
+
 							</tr>
 						</thead>
 
@@ -359,25 +359,25 @@ require_once("../../../config/config.php");
 							<tr>
 
 								<td>
-									' . $patente_vehiculo . ' 
+									' . $patente_vehiculo . '
 								</td>
 								<td>
-									' . $datos . ' 
+									' . $datos . '
 								</td>
 								<td>
-									' . $nombre_trasladista . ' 
+									' . $nombre_trasladista . '
 								</td>
 								<td>
-									' . $nombre_taller . ' 
+									' . $nombre_taller . '
 								</td>
 								<td>
-									' . $origen . ' 
+									' . $origen . '
 								</td>
 								<td>
-									' . $destino . ' 
+									' . $destino . '
 								</td>
 							</tr>
-						</tbody> 
+						</tbody>
 													</table>
 													</div>
 													</div>
@@ -505,7 +505,7 @@ require_once("../../../config/config.php");
     } catch (Exception $e) {
         echo "Hubo un error al enviar el mensaje: {$mail->ErrorInfo}";
     }
-    
+
     } else {
         $errors[] = "desconocido.";
     }
