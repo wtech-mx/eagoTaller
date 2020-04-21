@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-03-2020 a las 19:10:35
+-- Tiempo de generación: 21-04-2020 a las 20:58:17
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -117,7 +116,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `telefono`, `correo`, `edad`, `id_empresa`, `idvehiculo`, `manejo`, `colTrabajo`, `colCasa`, `cpTrabajo`, `cpCasa`, `km`, `entidad`, `tipo`, `status`) VALUES
-(1, 'dayanna', 'Espinosa', '(553) 990-7266', 'itzel@gmail.com', 25, 2, '', '2020-02-13', 'aeropuerto', 'upiicsa', 7580, 7580, 43, 'Mexicano', '2', 0),
+(1, 'dayanna', 'Espinosa', '(553) 990-7266', 'dayannaespinosa54@gmail.com', 25, 2, '', '2020-02-13', 'aeropuerto', 'upiicsa', 7580, 7580, 43, 'Mexicano', '2', 0),
 (3, 'josue', 'Espinosa', '(553) 990-7266', 'josue@gmail.com', 25, 0, '', '0000-00-00', '', '', 7580, 0, 0, '', '3', 0),
 (4, 'karla', 'Espinosa', '(553) 990-7266', 'karla@gmail.com', 25, 0, '', '2020-02-06', '', '', 7580, 0, 0, '', '2', 0);
 
@@ -222,10 +221,8 @@ CREATE TABLE `documentacion` (
 --
 
 INSERT INTO `documentacion` (`id`, `id_cliente`, `id_empresa`, `idvehiculo`, `documento_code`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `fecha_carga`) VALUES
-(7, 1, 0, 3, '1585184491-1', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', '2020-03-26 02:01:31'),
-(9, 1, 2, 3, '2', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', '2020-03-26 02:14:38'),
-(10, 0, 0, 0, '1585185362-1', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', '2020-03-26 02:16:02'),
-(11, 0, 0, 0, '1585186042-1', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', '2020-03-26 02:27:22');
+(7, 1, 2, 3, '1585184491-1', 'view/resources/images/documentos/1586811335_ayuda.jpg', 'view/resources/images/documentos/1586811397_cotizacion.pdf', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', '2020-03-26 02:01:31'),
+(9, 1, 2, 3, '2', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/1586835054_cotizacion.pdf', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', 'view/resources/images/documentos/doc.png', '2020-03-26 02:14:38');
 
 -- --------------------------------------------------------
 
@@ -257,7 +254,7 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id`, `dni`, `imagen`, `nombre`, `apellido`, `username`, `email`, `password`, `domicilio`, `localidad`, `telefono`, `celular`, `registro`, `status`, `kind`, `created_at`) VALUES
-(1, '543434', 'view/resources/images/1573849686_logoCar.png', 'Escuderia', 'AGO', 'admin', 'eago@gmail.com', '76e086b0c582427ea275bbdbde6a5e3852e516e7', 'AV SAN ANDRES', 'colchester', '9544534', '5533445340', '1', 1, 0, '2019-11-14 03:00:00');
+(1, '543434', 'view/resources/images/1573849686_logoCar.png', 'Escuderia', 'AGO', 'admin', 'eago@gmail.com', 'adcd7048512e64b48da55b027577886ee5a36350', 'AV SAN ANDRES', 'colchester', '9544534', '5533445340', '1', 1, 0, '2019-11-14 03:00:00');
 
 -- --------------------------------------------------------
 
@@ -276,20 +273,20 @@ CREATE TABLE `empleado_permisos` (
 --
 
 INSERT INTO `empleado_permisos` (`idempleado_permiso`, `idempleado`, `idpermiso`) VALUES
-(13, 1, 1),
-(14, 1, 2),
-(15, 1, 3),
-(16, 1, 4),
-(17, 1, 5),
-(18, 1, 6),
-(19, 1, 7),
-(20, 1, 8),
-(21, 1, 9),
-(22, 1, 10),
-(23, 1, 11),
-(24, 1, 12),
-(25, 1, 13),
-(26, 1, 14);
+(27, 1, 1),
+(28, 1, 2),
+(29, 1, 3),
+(30, 1, 4),
+(31, 1, 5),
+(32, 1, 6),
+(33, 1, 7),
+(34, 1, 8),
+(37, 1, 9),
+(38, 1, 10),
+(39, 1, 11),
+(40, 1, 12),
+(42, 1, 13),
+(43, 1, 14);
 
 -- --------------------------------------------------------
 
@@ -300,7 +297,8 @@ INSERT INTO `empleado_permisos` (`idempleado_permiso`, `idempleado`, `idpermiso`
 CREATE TABLE `empresa` (
   `id_empresa` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
-  `cuit` varchar(30) NOT NULL,
+  `correo` varchar(30) NOT NULL,
+  `telefono` varchar(30) NOT NULL,
   `estado` tinyint(4) NOT NULL,
   `fecha_carga` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -309,9 +307,9 @@ CREATE TABLE `empresa` (
 -- Volcado de datos para la tabla `empresa`
 --
 
-INSERT INTO `empresa` (`id_empresa`, `nombre`, `cuit`, `estado`, `fecha_carga`) VALUES
-(1, 'Itzel', '54', 1, '2020-01-30 18:32:16'),
-(2, 'Escuderia', 'Federativa', 1, '2020-03-25 04:29:34');
+INSERT INTO `empresa` (`id_empresa`, `nombre`, `correo`, `telefono`, `estado`, `fecha_carga`) VALUES
+(1, 'Itzel', 'dayannaespinosa54@gmail.com', '(553) 990-7266', 1, '2020-01-30 18:32:16'),
+(7, 'Itzel', 'itzel@gmail.com', '(553) 990-7266', 1, '2020-04-19 22:41:16');
 
 -- --------------------------------------------------------
 
@@ -381,6 +379,8 @@ CREATE TABLE `estetica` (
   `idtrasladista` int(11) NOT NULL,
   `gasolina` float NOT NULL,
   `otros` varchar(40) NOT NULL,
+  `personal` varchar(300) NOT NULL,
+  `observaciones` varchar(40) NOT NULL,
   `vendedor` varchar(40) NOT NULL,
   `fecha_carga` datetime NOT NULL,
   `reparacion` varchar(100) NOT NULL,
@@ -412,8 +412,9 @@ CREATE TABLE `estetica` (
 -- Volcado de datos para la tabla `estetica`
 --
 
-INSERT INTO `estetica` (`id`, `fecha_rep`, `id_cliente`, `id_empresa`, `idvehiculo`, `datos`, `idtrasladista`, `gasolina`, `otros`, `vendedor`, `fecha_carga`, `reparacion`, `trasladistas_admin`, `gasolina_admin`, `otros_admin`, `asesor`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`, `idtaller`, `origen`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `status`) VALUES
-(1, '2020-02-02', 1, 0, 1, 'asientos', 1, 0, '', 'carlos', '2020-03-21 17:45:59', '200', '50', '45', '151', '51', '84', '676', '95', '676', 2, 0, 'CDMX', '', '', '', '', '', '', '', '', '', '', 0);
+INSERT INTO `estetica` (`id`, `fecha_rep`, `id_cliente`, `id_empresa`, `idvehiculo`, `datos`, `idtrasladista`, `gasolina`, `otros`, `personal`, `observaciones`, `vendedor`, `fecha_carga`, `reparacion`, `trasladistas_admin`, `gasolina_admin`, `otros_admin`, `asesor`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`, `idtaller`, `origen`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `status`) VALUES
+(1, '2020-02-02', 1, 0, 1, 'asientos', 1, 0, '60626', '', '', 'carlos', '2020-03-21 17:45:59', '200', '50', '45', '151', '51', '84', '676', '95', '676', 2, 1, 'CDMX', 'view/resources/images/gastos/este/1587414401_bicycle-1869176_1280.jpg', 'view/resources/images/gastos/este/1587336849_2.jpg', '', '', 'view/resources/images/gastos/este/1587337040_ayuda.jpg', '', '', '', '', '', 1),
+(2, '2020-05-06', 3, 7, 12, 'asientos', 1, 0, '', ' jhgjghj\r\njkh\r\nhjkhjk\r\nfhgtfhgfh\r\nytuytu', '   hf', '', '2020-04-21 20:15:08', '', '', '', '', '', '', '', '', '', 0, 1, '', '', '', '', '', '', '', '', '', '', '', 2);
 
 -- --------------------------------------------------------
 
@@ -433,6 +434,8 @@ CREATE TABLE `gestoria` (
   `rplaca` date NOT NULL,
   `tarjeta` date NOT NULL,
   `otro` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `observaciones` varchar(300) NOT NULL,
+  `personal` varchar(40) NOT NULL,
   `idtrasladista` int(11) NOT NULL,
   `gasolina` float NOT NULL,
   `gestion` varchar(50) NOT NULL,
@@ -467,8 +470,8 @@ CREATE TABLE `gestoria` (
 -- Volcado de datos para la tabla `gestoria`
 --
 
-INSERT INTO `gestoria` (`id`, `id_cliente`, `id_empresa`, `idvehiculo`, `datos`, `fecha_ges`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`, `idtrasladista`, `gasolina`, `gestion`, `idcarro`, `gastos`, `mensajeria`, `mesa`, `vendedor`, `general`, `trasladista_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`, `fecha_carga`, `idtaller`, `origen`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `status`) VALUES
-(1, 1, 2, 1, 'asientos', '2020-07-06', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', 1, 0, '', 0, 0, '', '', '', '', 0, 0, 0, 0, 0, '2020-03-26 00:11:46', 1, '', '', '', '', '', '', '', '', '', '', '', 0);
+INSERT INTO `gestoria` (`id`, `id_cliente`, `id_empresa`, `idvehiculo`, `datos`, `fecha_ges`, `aplaca`, `bplaca`, `rplaca`, `tarjeta`, `otro`, `observaciones`, `personal`, `idtrasladista`, `gasolina`, `gestion`, `idcarro`, `gastos`, `mensajeria`, `mesa`, `vendedor`, `general`, `trasladista_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`, `fecha_carga`, `idtaller`, `origen`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `status`) VALUES
+(1, 1, 2, 1, 'asientos', '2020-07-06', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '', 1, 0, '', 0, 0, '', '', '', '', 0, 0, 0, 0, 0, '2020-03-26 00:11:46', 1, '', 'view/resources/images/gastos/ges/1587493073_2.jpg', 'view/resources/images/gastos/ges/1587493075_3.jpg', 'view/resources/images/gastos/ges/1587493079_4.jpg', 'view/resources/images/gastos/ges/1587493083_5dccf3a66f463.png', '', 'view/resources/images/gastos/ges/1587493090_ayuda.jpg', '', 'view/resources/images/gastos/ges/1587493182_prodcto4.jpg', '', 'view/resources/images/gastos/ges/1587493188_sus.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -498,6 +501,8 @@ CREATE TABLE `mantenimiento` (
   `idtrasladista` int(11) NOT NULL,
   `gasolina` float NOT NULL,
   `otros` varchar(50) NOT NULL,
+  `observaciones` varchar(50) NOT NULL,
+  `personal` varchar(300) NOT NULL,
   `vendedor` varchar(50) NOT NULL,
   `trasladista_admin` double NOT NULL,
   `otro_admin` double NOT NULL,
@@ -675,7 +680,7 @@ CREATE TABLE `trasladista` (
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `correo` varchar(255) NOT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
+  `telefono` varchar(20) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -700,6 +705,8 @@ CREATE TABLE `traslados` (
   `id_empresa` int(11) NOT NULL,
   `idvehiculo` int(11) NOT NULL,
   `datos` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `observaciones` varchar(30) NOT NULL,
+  `personal` varchar(300) NOT NULL,
   `gasolina` int(20) NOT NULL,
   `casetas` int(20) NOT NULL,
   `idtrasladista` int(11) NOT NULL,
@@ -812,6 +819,8 @@ CREATE TABLE `verificacion` (
   `idvehiculo` int(11) NOT NULL,
   `idtaller` int(11) NOT NULL,
   `datos` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `observaciones` varchar(30) NOT NULL,
+  `personal` varchar(300) NOT NULL,
   `fecha_carga` datetime NOT NULL,
   `derechos` varchar(50) NOT NULL,
   `otros` varchar(50) NOT NULL,
@@ -843,8 +852,8 @@ CREATE TABLE `verificacion` (
 -- Volcado de datos para la tabla `verificacion`
 --
 
-INSERT INTO `verificacion` (`id`, `fecha_veri`, `id_cliente`, `id_empresa`, `idvehiculo`, `idtaller`, `datos`, `fecha_carga`, `derechos`, `otros`, `idtrasladista`, `vendedor`, `derechos_admin`, `otros_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`, `origen`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `status`) VALUES
-(1, '2020-02-20', 1, 0, 1, 0, 'asientos', '2020-03-21 17:46:37', 'twe', '', 1, 'ter', 'hnjkn', '200', '100', '100', 400, 200, 600, 2, 'CDMX', '', '', '', '', '', '', '', '', '', '', 0);
+INSERT INTO `verificacion` (`id`, `fecha_veri`, `id_cliente`, `id_empresa`, `idvehiculo`, `idtaller`, `datos`, `observaciones`, `personal`, `fecha_carga`, `derechos`, `otros`, `idtrasladista`, `vendedor`, `derechos_admin`, `otros_admin`, `trasladistas_admin`, `vendedor_admin`, `subtotal_admin`, `eago_admin`, `total_admin`, `estado`, `origen`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `foto7`, `foto8`, `foto9`, `foto10`, `status`) VALUES
+(1, '2020-02-20', 1, 0, 1, 0, 'asientos', '', '', '2020-03-21 17:46:37', 'twe', '', 1, 'ter', 'hnjkn', '200', '100', '100', 400, 200, 600, 2, 'CDMX', '', '', '', '', '', '', '', '', '', '', 0);
 
 --
 -- Índices para tablas volcadas
@@ -1064,19 +1073,19 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `empleado_permisos`
 --
 ALTER TABLE `empleado_permisos`
-  MODIFY `idempleado_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `idempleado_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `estetica`
 --
 ALTER TABLE `estetica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `gestoria`
@@ -1136,7 +1145,7 @@ ALTER TABLE `tarjeta`
 -- AUTO_INCREMENT de la tabla `trasladista`
 --
 ALTER TABLE `trasladista`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `traslados`
@@ -1148,7 +1157,7 @@ ALTER TABLE `traslados`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo_cliente`

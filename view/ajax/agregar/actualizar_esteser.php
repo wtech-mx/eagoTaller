@@ -6,10 +6,12 @@
 
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$status= mysqli_real_escape_string($con,(strip_tags($_POST["status"],ENT_QUOTES)));
+		$observaciones= mysqli_real_escape_string($con,(strip_tags($_POST["observaciones"],ENT_QUOTES)));
+		$personal= mysqli_real_escape_string($con,(strip_tags($_POST["personal"],ENT_QUOTES)));
 		$id=intval($_POST['id']);
 
 		// update data
-        $sql = "UPDATE estetica SET status='".$status."' WHERE id='$id' ";
+        $sql = "UPDATE estetica SET status='".$status."', observaciones='".$observaciones."', personal='".$personal."' WHERE id='$id' ";
         $query = mysqli_query($con,$sql);
         // if user has been update successfully
         if ($query) {
