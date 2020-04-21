@@ -5,10 +5,10 @@
 
 	$id=intval($_REQUEST['id']);
 	$target_dir="../../resources/images/gastos/ges/";
-	$image_name = time()."_".basename($_FILES["imagefile25"]["name"]);
+	$image_name = time()."_".basename($_FILES["imagefile5"]["name"]);
 	$target_file = $target_dir .$image_name ;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-	$imageFileZise=$_FILES["imagefile25"]["size"];
+	$imageFileZise=$_FILES["imagefile5"]["size"];
 
 	/* Inicio Validacion*/
 	// Allow certain file formats
@@ -21,9 +21,9 @@
 	} else{
 		/* Fin Validacion*/
 		if ($imageFileZise>0){
-		move_uploaded_file($_FILES["imagefile25"]["tmp_name"], $target_file);
-		$imagen=basename($_FILES["imagefile25"]["name"]);
-		$img_update="foto25='view/resources/images/gastos/ges/$image_name' ";
+		move_uploaded_file($_FILES["imagefile5"]["tmp_name"], $target_file);
+		$imagen=basename($_FILES["imagefile5"]["name"]);
+		$img_update="foto5='view/resources/images/gastos/ges/$image_name' ";
 
 		}else { $img_update="";}
 		    $sql = "UPDATE gestoria SET $img_update WHERE id='$id';";
@@ -45,14 +45,14 @@
 				</div>
 		  	</div>
 		</div>
-		
+
 	<?php
 	    } else {
 	        $errors[] = "Lo sentimos, actualización falló. Intente nuevamente. ".mysqli_error($con);
 	    }
-	}			
+	}
 	?>
-<?php 
+<?php
 	if (isset($errors)){
 ?>
 	<div class="alert alert-danger">
@@ -63,11 +63,11 @@
 				echo $error;
 			}
 		?>
-	</div>	
+	</div>
 <?php
 	}
 ?>
-<?php 
+<?php
 	if (isset($messages)){
 ?>
 	<div class="alert alert-success">
@@ -78,7 +78,7 @@
 				echo $message;
 			}
 		?>
-	</div>	
+	</div>
 <?php
 	}
 ?>

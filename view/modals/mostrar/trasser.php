@@ -4,13 +4,13 @@
      if (isset($_GET["id"])){
         $id=$_GET["id"];
         $id=intval($id);
-        $sql="SELECT * FROM gestoria WHERE id='$id'";
+        $sql="SELECT * FROM traslados WHERE id='$id'";
         $query=mysqli_query($con,$sql);
         $num=mysqli_num_rows($query);
         if ($num==1){
             $rw=mysqli_fetch_array($query);
 
-            $fecha_ges=$rw['fecha_ges'];
+            $fecha_ges=$rw['fecha_carga'];
 
             $idcliente=$rw['id_cliente'];
             $clientes=mysqli_query($con, "SELECT * FROM cliente WHERE id_cliente=$idcliente");

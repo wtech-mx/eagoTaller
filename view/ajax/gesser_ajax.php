@@ -66,46 +66,46 @@ if($action == 'ajax'){
             </tr>
         </thead>
         <?php
-			$finales=0;
-			while($row = mysqli_fetch_array($query)){
-				$id=$row['id'];
+		$finales=0;
+		while($row = mysqli_fetch_array($query)){
+			$id=$row['id'];
 
-				$fecha_ges=$row['fecha_ges'];
+			$fecha_ges=$row['fecha_ges'];
 
-				$idcliente=$row['id_cliente'];
-				$clientes=mysqli_query($con, "select * from cliente where id_cliente=$idcliente");
-				$cliente_rw=mysqli_fetch_array($clientes);
-				$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
+			$idcliente=$row['id_cliente'];
+			$clientes=mysqli_query($con, "SELECT * FROM cliente WHERE id_cliente=$idcliente");
+			$cliente_rw=mysqli_fetch_array($clientes);
+			$nombre_cliente=$cliente_rw['nombre']." ".$cliente_rw['apellido'];
 
-				$idempresa=$row['id_empresa'];
-				$empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
-				$empresa_rw=mysqli_fetch_array($empresas);
-				$nombre_empresa=$empresa_rw['nombre'];
+			$idempresa=$row['id_empresa'];
+			$empresas=mysqli_query($con, "SELECT * FROM empresa WHERE id_empresa=$idempresa");
+			$empresa_rw=mysqli_fetch_array($empresas);
+			$nombre_empresa=$empresa_rw['nombre'];
 
-				$idvehiculo=$row['idvehiculo'];
-				$vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
-				$vehiculo_rw=mysqli_fetch_array($vehiculos);
-				$patente_vehiculo=$vehiculo_rw['patente'];
+			$idvehiculo=$row['idvehiculo'];
+			$vehiculos=mysqli_query($con, "SELECT * FROM vehiculo WHERE id=$idvehiculo");
+			$vehiculo_rw=mysqli_fetch_array($vehiculos);
+			$patente_vehiculo=$vehiculo_rw['patente'];
 
-				$created_at=$row['fecha_carga'];
-				list($date,$hora)=explode(" ",$created_at);
-				list($Y,$m,$d)=explode("-",$date);
-				$fecha=$d."-".$m."-".$Y;
+			$created_at=$row['fecha_carga'];
+			list($date,$hora)=explode(" ",$created_at);
+			list($Y,$m,$d)=explode("-",$date);
+			$fecha=$d."-".$m."-".$Y;
 
-				$datos=$row['datos'];
-                $status=$row['status'];
+			$datos=$row['datos'];
+            $status=$row['status'];
 
-                if ($status==1){
-					$lbl_status="Terminado";
-					$lbl_class='label label-success';
-				}else {
-					$lbl_status="Pendiente";
-					$lbl_class='label label-danger';
-				}
+            if ($status==1){
+				$lbl_status="Terminado";
+				$lbl_class='label label-success';
+			}else {
+				$lbl_status="Pendiente";
+				$lbl_class='label label-danger';
+			}
 
-				$finales++;
+			$finales++;
 
-		?>
+	?>
         <tbody>
             <tr>
                 <td><?php echo $id ?></td>
@@ -123,6 +123,8 @@ if($action == 'ajax'){
                 	?>
                 		<a style="color: white;display: none;" class="btn btn-warning btn-square btn-xs" href=""  disabled><i class='fa fa-edit'></i></a>
                 		<button type="button" class="btn btn-success btn-send btn-xs" onclick="enviar('<?php echo $id; ?>')"><i class="fa fa-envelope"></i></button>
+
+						<button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button>
                 	<?php
                 	}else{
                 	?>
@@ -131,7 +133,6 @@ if($action == 'ajax'){
                 	}
                 	?>
 
-				<button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button>
                 </td>
             </tr>
         </tbody>
