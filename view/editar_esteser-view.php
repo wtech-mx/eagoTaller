@@ -28,6 +28,8 @@
             $patente_vehiculo=$vehiculo_rw['patente'];
 
             $status=$rw['status'];
+            $observaciones=$rw['observaciones'];
+            $personal=$rw['personal'];
 
             $datos=$rw['datos'];
             $foto4=$rw['foto4'];
@@ -116,23 +118,15 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Observaciones: </label>
+                                    <label for="Observaciones" class="col-sm-2 control-label">Observaciones: </label>
                                     <div class="col-sm-4" >
-                                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                                        <textarea class="form-control" id="Observaciones" rows="3"> <?php echo $observaciones;?></textarea>
                                     </div>
 
-                                    <label for="" class="col-sm-2 control-label">Agregar Personal: </label>
+                                    <label for="personal" class="col-sm-2 control-label">Personal: </label>
                                     <div class="col-sm-4"style="padding: 5px">
-                                        <input class="form-control" type="text" value="" id="">
-                                    </div>
-
-                                     <label for="" class="col-sm-2 control-label">Personal: </label>
-                                    <div class="col-sm-2" style="padding: 5px">
-                                        <select class="form-control" name="" id="">
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2"style="padding: 5px">
-                                        <input class="form-control" type="date" value="" id="">
+                                        <P>Nombre ---------------- DÍAS LABORADOS</P>
+                                        <textarea class="form-control" id="personal" rows="3"> <?php echo $personal;?></textarea>
                                     </div>
                                 </div>
 
