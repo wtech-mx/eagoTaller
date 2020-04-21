@@ -118,19 +118,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="Observaciones" class="col-sm-2 control-label">Observaciones: </label>
-                                    <div class="col-sm-4" >
-                                        <textarea class="form-control" id="Observaciones" rows="3"> <?php echo $observaciones;?></textarea>
-                                    </div>
-
-                                    <label for="personal" class="col-sm-2 control-label">Personal: </label>
-                                    <div class="col-sm-4"style="padding: 5px">
-                                        <P>Nombre ---------------- DÍAS LABORADOS</P>
-                                        <textarea class="form-control" id="personal" rows="3"> <?php echo $personal;?></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="imagefile1" class="col-sm-2 control-label">Foto 1: </label>
                                     <div class="col-sm-4">
                                         <input type="file" name="imagefile1" class="form-control" id="imagefile1" onchange="upload_foto1(<?php echo $esteser_id; ?>);">
@@ -180,6 +167,20 @@
                                         <input type="file" name="imagefile10" class="form-control" id="imagefile10" onchange="upload_foto10(<?php echo $esteser_id; ?>);">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="observaciones" class="col-sm-2 control-label">Observaciones: </label>
+                                    <div class="col-sm-4" >
+                                        <textarea class="form-control" id="observaciones" name="observaciones" rows="3"> <?php echo $observaciones;?></textarea>
+                                    </div>
+
+                                    <label for="personal" class="col-sm-2 control-label">Personal: </label>
+                                    <div class="col-sm-4"style="padding: 5px">
+                                        <P>Nombre ---------------- Dias Laborados</P>
+                                       <textarea class="form-control" id="personal" name="personal" rows="3"><?php echo $personal;?></textarea>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
 
