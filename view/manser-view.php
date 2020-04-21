@@ -41,6 +41,7 @@
                         <?php
                            // include "modals/agregar/agregar_sector.php";
                            // include "modals/editar/editar_sector.php";
+                           include "modals/mostrar/mostrar_manser.php";
                         ?>
                     <!-- /end modals -->
 
