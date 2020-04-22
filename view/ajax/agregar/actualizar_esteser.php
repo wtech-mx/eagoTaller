@@ -50,11 +50,12 @@
 							}
 						?>
 			</div>
+
 			<script type="text/javascript">
 			$("#actualizar_datos").val("");
-			swal("¡Bien!", " <?php echo $message;?> ", "esteser");
+			swal("¡Bien!", " <?php echo $message;?> ", "success");
 		   setTimeout(function () {
-				window.location.replace('?view=manser');
+				window.location.replace('?view=esteser');
 		    }, 2000);//will call the function after 2 secs.
 			</script>
 			<?php

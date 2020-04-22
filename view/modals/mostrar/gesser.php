@@ -40,6 +40,8 @@
             $foto9=$rw['foto9'];
             $foto10=$rw['foto10'];
             $fecha_carga=$rw['fecha_carga'];
+            $observaciones=$rw['observaciones'];
+            $personal=$rw['personal'];
 
             if ($status==1){
                 $lbl_status="Terminado";
@@ -84,6 +86,19 @@
                                     <label for="status" class="col-sm-2 control-label">Estado: </label>
                                     <div class="col-sm-4">
                                          <?php echo $lbl_status;?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="observaciones" class="col-sm-2 control-label">Observaciones: </label>
+                                    <div class="col-sm-4" >
+                                       <?php echo $observaciones;?>
+                                    </div>
+
+                                    <label for="personal" class="col-sm-2 control-label">Personal: </label>
+                                    <div class="col-sm-4"style="padding: 5px">
+                                        <P>Nombre ---------------- Dias Laborados</P>
+                                       <?php echo $personal;?>
                                     </div>
                                 </div>
 
