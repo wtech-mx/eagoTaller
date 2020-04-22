@@ -10,13 +10,13 @@
 		!empty($_POST['cliente'])
 		&& !empty($_POST['documento_code'])
 		&& !empty($_POST['vehiculo'])
-		
+
 		) {
-	
+
 		require_once ("../../../config/config.php");//Contiene las variables de configuracion para conectar a la base de datos
 
 		// escaping, additionally removing everything that could be (html/javascript-) code
-		
+
 		$cliente = mysqli_real_escape_string($con,(strip_tags($_POST["cliente"],ENT_QUOTES)));
 		$id_empresa = $_POST['empresa'];
         $vehiculo = mysqli_real_escape_string($con,(strip_tags($_POST["vehiculo"],ENT_QUOTES)));
@@ -33,17 +33,17 @@
         } else {
             $errors[] = "Lo sentimos , el registro falló. Por favor, regrese y vuelva a intentarlo. ".mysqli_error($con);
         }
-            
-		
+
+
 	} else {
-		$errors[] = " Desconocido";	
+		$errors[] = " Desconocido";
 	}
 	if (isset($errors)){
-		
+
 		?>
 		<div class="alert alert-danger" role="alert">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Error!</strong> 
+				<strong>Error!</strong>
 				<?php
 					foreach ($errors as $error) {
 							echo $error;
@@ -53,7 +53,7 @@
 		<?php
 		}
 		if (isset($messages)){
-			
+
 			?>
 			<div class="alert alert-success" role="alert">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -70,4 +70,4 @@
                 </script>
 			<?php
 		}
-?>			
+?>

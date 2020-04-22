@@ -1,7 +1,9 @@
-<?php 
+<?php
     $active6="active";
     include "resources/header.php";
     if ($_SESSION['seguro']==1){
+
+    $eliminar=mysqli_query($con, "DELETE FROM documentacion WHERE idvehiculo=0");
 ?>
     <!--main content start-->
     <section class="main-content-wrapper">
@@ -18,7 +20,7 @@
                     <h1 class="h1">Documentos</h1>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-xs-3">
                     <div class="input-group">
@@ -28,7 +30,7 @@
                       </span>
                     </div><!-- /input-group -->
                 </div>
-                
+
                 <div class="col-xs-3"></div>
                 <div class="col-xs-1">
                     <div id="loader" class="text-center"></div>
@@ -51,13 +53,13 @@
 
                 <div class="col-md-offset-10">
                     <!-- modals -->
-                        <?php 
+                        <?php
                            // include "modals/agregar/agregar_sector.php";
                            // include "modals/editar/editar_sector.php";
                         ?>
                     <!-- /end modals -->
                     <a class="btn btn-primary" href="./?view=nuevo_documentacion"><i class='fa fa-plus'></i> Nuevo</a>
-                    
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             Mostrar <span class="caret"></span>
@@ -74,7 +76,7 @@
                 </div>
             </div>
 
-            
+
 
             <div id="resultados_ajax"></div>
             <div class="row">
@@ -89,19 +91,19 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <div class="outer_div"></div><!-- Datos ajax Final --> 
+                                <div class="outer_div"></div><!-- Datos ajax Final -->
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
 
         </section>
     </section><!--main content end-->
-<?php 
+<?php
     include "resources/footer.php";
 ?>
-   
+
 <script>
     $(function() {
         load(1);
@@ -124,7 +126,7 @@
             }
         })
     }
-    
+
     function per_page(valor){
         $("#per_page").val(valor);
         load(1);
@@ -139,7 +141,7 @@
             var query=$("#q").val();
             var per_page=$("#per_page").val();
             var parametros = {"action":"ajax","page":page,"query":query,"per_page":per_page,"id":id};
-            
+
             $.ajax({
                 url:'view/ajax/documentacion_ajax.php',
                 data: parametros,
@@ -187,9 +189,9 @@
         });
     }
 </script>
-<?php     
+<?php
     }else{
       require 'resources/acceso_prohibido.php';
     }
-    ob_end_flush(); 
+    ob_end_flush();
 ?>

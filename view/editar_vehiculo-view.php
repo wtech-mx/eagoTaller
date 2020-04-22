@@ -13,7 +13,6 @@
             $vehiculo_code=$rw['vehiculo_code'];
             $idcliente=$rw['id_cliente'];
             $patente=$rw['patente'];
-            $placa=$rw['placa'];
             $marca=$rw['marca'];
             $submarca=$rw['submarca'];
             $idempresa=$rw['id_empresa'];

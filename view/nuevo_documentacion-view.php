@@ -1,5 +1,5 @@
-<?php 
-   
+<?php
+
     include "resources/header.php";
 
         $documento_code=time()."-".$_SESSION['user_id'];
@@ -9,7 +9,7 @@
         $sql_documento=mysqli_query($con,"SELECT * FROM documentacion WHERE  documento_code='$documento_code'");
         $rw_documento=mysqli_fetch_array($sql_documento);
         $id_documento=$rw_documento['id'];
-        
+
         $count=mysqli_query($con,"SELECT count(*) as total FROM documentacion WHERE id_cliente>0");
         $rw=mysqli_fetch_array($count);
         $documento_codes=$rw['total']+1;
@@ -23,12 +23,12 @@
 <script language="javascript">
         $(document).ready(function(){
             $("#cliente").change(function () {
-                
+
                 $("#cliente option:selected").each(function () {
                     id_cliente = $(this).val();
                     $.post("view/modals/includes/agregar_vehiculo.php", { id_cliente:id_cliente }, function(data){
                         $("#vehiculo").html(data);
-                    });            
+                    });
                 });
             })
         });
@@ -36,12 +36,12 @@
 <script language="javascript">
             $(document).ready(function(){
                 $("#empresa").change(function () {
-                    
+
                     $("#empresa option:selected").each(function () {
                         id_empresa = $(this).val();
                         $.post("view/modals/includes/agregar_vehiculo2.php", { id_empresa:id_empresa }, function(data){
                             $("#vehiculo").html(data);
-                        });            
+                        });
                     });
                 })
             });
@@ -62,7 +62,7 @@
                     <h1 class="h1">Nuevo Documento</h1>
                 </div>
             </div>
-        
+
                 <div class="col-md-12">
                     <div id="resultados_ajax"></div><!-- resultados ajax -->
                     <div class="panel panel-default">
@@ -81,7 +81,7 @@
                         <input type="hidden" class="form-control" id="documento_code" name="documento_code"  value="<?php echo $documento_codes;?>" >
                         <input type="hidden"  id="id" name="id"  value="<?php echo $id_documento;?>" >
 
-        <div class="form-group">                
+        <div class="form-group">
             <label class="col-sm-2 control-label">Empresa: </label>
                 <div class="col-sm-10">
                     <select class="form-control" name="empresa" id="empresa">
@@ -93,7 +93,7 @@
                 </div>
         </div>
 
-            <div class="form-group">				
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Cliente: </label>
                 <div class="col-sm-10">
                     <select class="form-control" name="cliente" id="cliente">
@@ -105,13 +105,23 @@
                 </div>
             </div>
 
-            <div class="form-group">      
+
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Vehiculo: </label>
                     <div class="col-sm-10">
                         <select class="form-control" name="vehiculo" id="vehiculo"></select>
                     </div>
             </div>
-                                
+
+            <!--<div class="form-group">
+                <label class="col-sm-2 control-label">Servicio: </label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="servicios" id="servicios">
+                    <option value="0">Seleccionar Servicio</option>
+                        <option value="<?php echo $row['idservicios']; ?>"><?php echo $row['nombre']; ?></option>
+                    </select>
+                </div>
+            </div>-->
                                 <div class="form-group">
                                     <label for="imagefile1" class="col-sm-2 control-label">Documento: </label>
                                     <div class="col-sm-4">
@@ -169,7 +179,7 @@
                                             <input type="file" name="imagefile10" class="form-control" id="imagefile10" onchange="upload_foto10(<?php echo $id_documento; ?>);">
                                         </div>
                                 </div>
-                                
+
 
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
@@ -303,7 +313,7 @@
                         </div>
                     </div>
                 </div>
- 
+
                 <div class="col-md-3">
                     <div class="box box-primary"><!-- Profile Image -->
                         <div class="box-body box-profile">
@@ -318,7 +328,7 @@
                         </div>
                     </div>
                 </div>
-            </div>       
+            </div>
 
         </section>
     </section><!--main content end-->
@@ -331,8 +341,8 @@
             var data = new FormData();
             data.append('imagefile1',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto1_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -343,10 +353,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img1").html(data);
-                    
+
                 }
             });
-            
+
         }
         function upload_foto2(id_documento){
             $("#load_img2").text('Cargando...');
@@ -355,8 +365,8 @@
             var data = new FormData();
             data.append('imagefile2',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto2_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -367,10 +377,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img2").html(data);
-                    
+
                 }
             });
-            
+
         }
     function upload_foto3(id_documento){
             $("#load_img3").text('Cargando...');
@@ -379,8 +389,8 @@
             var data = new FormData();
             data.append('imagefile3',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto3_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -391,10 +401,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img3").html(data);
-                    
+
                 }
             });
-            
+
         }
     function upload_foto4(id_documento){
             $("#load_img4").text('Cargando...');
@@ -403,8 +413,8 @@
             var data = new FormData();
             data.append('imagefile4',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto4_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -415,10 +425,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img4").html(data);
-                    
+
                 }
             });
-            
+
         }
         function upload_foto5(id_documento){
             $("#load_img5").text('Cargando...');
@@ -427,8 +437,8 @@
             var data = new FormData();
             data.append('imagefile5',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto5_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -439,10 +449,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img5").html(data);
-                    
+
                 }
             });
-            
+
         }
         function upload_foto6(id_documento){
             $("#load_img6").text('Cargando...');
@@ -451,8 +461,8 @@
             var data = new FormData();
             data.append('imagefile6',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto6_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -463,10 +473,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img6").html(data);
-                    
+
                 }
             });
-            
+
         }
         function upload_foto7(id_documento){
             $("#load_img7").text('Cargando...');
@@ -475,8 +485,8 @@
             var data = new FormData();
             data.append('imagefile7',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto7_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -487,10 +497,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img7").html(data);
-                    
+
                 }
             });
-            
+
         }
         function upload_foto8(id_documento){
             $("#load_img8").text('Cargando...');
@@ -499,8 +509,8 @@
             var data = new FormData();
             data.append('imagefile8',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto8_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -511,10 +521,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img8").html(data);
-                    
+
                 }
             });
-            
+
         }
         function upload_foto9(id_documento){
             $("#load_img9").text('Cargando...');
@@ -523,8 +533,8 @@
             var data = new FormData();
             data.append('imagefile9',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto9_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -535,10 +545,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img9").html(data);
-                    
+
                 }
             });
-            
+
         }
         function upload_foto10(id_documento){
             $("#load_img10").text('Cargando...');
@@ -547,8 +557,8 @@
             var data = new FormData();
             data.append('imagefile10',file);
             data.append('id',id_documento);
-            
-            
+
+
             $.ajax({
                 url: "view/ajax/images/foto10_documentacion_ajax.php",        // Url to which the request is send
                 type: "POST",             // Type of request to be send, called as method
@@ -559,10 +569,10 @@
                 success: function(data)   // A function to be called if request succeeds
                 {
                     $("#load_img10").html(data);
-                    
+
                 }
             });
-            
+
         }
 </script>
     <script>
@@ -582,12 +592,12 @@
             window.setTimeout(function() {
             $(".alert").fadeTo(500, 0).slideUp(500, function(){
             $(this).remove();});}, 5000);
-            
+
           }
-    });     
+    });
       event.preventDefault();
     });
 </script>
-<?php 
-    ob_end_flush(); 
+<?php
+    ob_end_flush();
 ?>

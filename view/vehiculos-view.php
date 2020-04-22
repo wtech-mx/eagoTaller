@@ -5,7 +5,7 @@
     if ($_SESSION['vehiculo']==1){
         //esta funcion elimina todos los registros que no fueron llenados
         //tabla = "vehiculo"
-        $eliminar=mysqli_query($con, "DELETE FROM vehiculo WHERE idcliente=0");
+        $eliminar=mysqli_query($con, "DELETE FROM vehiculo WHERE patente='' ");
 ?>
     <!--main content start-->
     <section class="main-content-wrapper">
@@ -58,6 +58,7 @@
                         <?php
                            // include "modals/agregar/agregar_sector.php";
                            // include "modals/editar/editar_sector.php";
+                            include "modals/mostrar/mostrar_trasser.php";
                         ?>
                     <!-- /end modals -->
                     <a class="btn btn-primary" href="./?view=nuevo_vehiculo"><i class='fa fa-plus'></i> Nuevo</a>
