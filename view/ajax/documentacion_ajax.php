@@ -2,7 +2,7 @@
 	include("is_logged.php");//Archivo comprueba si el usuario esta logueado
 	/* Connect To Database*/
 	require_once ("../../config/config.php");
-	if (isset($_REQUEST["id"])){//codigo para eliminar 
+	if (isset($_REQUEST["id"])){//codigo para eliminar
 	$id=$_REQUEST["id"];
 	$id=intval($id);
 
@@ -10,15 +10,15 @@
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
 		$classM="alert alert-success";
-		$times="&times;";	
+		$times="&times;";
 	}else{
 		$aviso="Aviso!";
 		$msj="Error al eliminar los datos ".mysqli_error($con);
 		$classM="alert alert-danger";
-		$times="&times;";					
+		$times="&times;";
 	}
 
-		
+
 }
 
 $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
@@ -42,14 +42,14 @@ if($action == 'ajax'){
 	//main query to fetch the data
 	$query = mysqli_query($con,"SELECT $campos FROM  $tables where $sWhere LIMIT $offset,$per_page");
 	//loop through fetched data
-	
+
 	if (isset($_REQUEST["id"])){
 ?>
 		<div class="<?php echo $classM;?>">
 			<button type="button" class="close" data-dismiss="alert"><?php echo $times;?></button>
 			<strong><?php echo $aviso?> </strong>
 			<?php echo $msj;?>
-		</div>	
+		</div>
 <?php
 	}
 	if ($numrows>0){
@@ -65,9 +65,9 @@ if($action == 'ajax'){
                 <th></th>
             </tr>
         </thead>
-        <?php 
+        <?php
 			$finales=0;
-			while($row = mysqli_fetch_array($query)){	
+			while($row = mysqli_fetch_array($query)){
 				$id=$row['id'];
 				$documento_code=$row['documento_code'];
 
@@ -86,7 +86,7 @@ if($action == 'ajax'){
 				$vehiculo_rw=mysqli_fetch_array($vehiculos);
 				$marca_vehiculo=$vehiculo_rw['patente'];
 
-				
+
 				$fecha_carga=$row['fecha_carga'];
 				$foto1=$row['foto1'];
 				$foto2=$row['foto2'];
@@ -98,9 +98,9 @@ if($action == 'ajax'){
 				list($date,$hora)=explode(" ",$fecha_carga);
 				list($Y,$m,$d)=explode("-",$date);
 				$fecha_cargas=$d."-".$m."-".$Y;
-				
+
 				$finales++;
-		?>	
+		?>
         <tbody>
             <tr>
                 <td><?php echo $id ?></td>
@@ -113,15 +113,17 @@ if($action == 'ajax'){
 					<a style="color: white;" class="btn btn-warning btn-square btn-xs" href="./?view=editar_documento&id=<?php echo $id;?>"><i class='fa fa-edit'></i></a>
 
 					<button type="button" class="btn btn-success btn-send btn-xs" onclick="enviar('<?php echo $id; ?>')"><i class="fa fa-envelope"></i></button>
-                    
+
+					<button type="button" class="btn btn-info btn-square btn-xs" data-toggle="modal" data-target="#modal_show" onclick="mostrar('<?php echo $id;?>')"><i class="fa fa-eye"></i></button>
+
                 </td>
             </tr>
         </tbody>
-        <?php }?>	
+        <?php }?>
         <tfoot>
             <tr>
-				<td colspan='10'> 
-					<?php 
+				<td colspan='10'>
+					<?php
 						$inicios=$offset+1;
 						$finales+=$inicios -1;
 						echo "Mostrando $inicios al $finales de $numrows registros";
@@ -131,7 +133,7 @@ if($action == 'ajax'){
 			</tr>
 		</tfoot>
     </table>
-<?php	
+<?php
 	}else{
 		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <strong>Sin Resultados!</strong> No se encontraron resultados en la base de datos!.</div>';

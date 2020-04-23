@@ -73,7 +73,7 @@ require_once("../../../config/config.php");
         $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
         $mail->addAddress('aldiazm.11@gmail.com');
         $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
-        $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
+        $mail->addAddress('contacto_webtech@yahoo.com', 'Information-copia');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
 
@@ -347,13 +347,7 @@ require_once("../../../config/config.php");
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
-											<div style="color:#555555;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<div style="line-height: 1.2; font-size: 12px; color: #555555; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 14px;">
-													<p style="line-height: 1.2; word-break: break-word; font-size: 20px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 20px;"><strong><span style="color: #ffffff;">' . $datos . '  &nbsp;</span></strong></span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<!--[if (!mso)&(!IE)]><!-->
+
 										</div>
 										<!--<![endif]-->
 									</div>

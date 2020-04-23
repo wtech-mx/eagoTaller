@@ -56,6 +56,7 @@
                         <?php
                            // include "modals/agregar/agregar_sector.php";
                            // include "modals/editar/editar_sector.php";
+                           include "modals/mostrar/mostrar_trasser.php";
                         ?>
                     <!-- /end modals -->
                     <a class="btn btn-primary" href="./?view=nuevo_documentacion"><i class='fa fa-plus'></i> Nuevo</a>
@@ -158,6 +159,22 @@
             })
         }
     }
+
+    function mostrar(id){
+        var parametros = {"action":"ajax","id":id};
+        $.ajax({
+                url:'view/modals/mostrar/documentacion.php',
+                data: parametros,
+                 beforeSend: function(objeto){
+                $("#loader3").html("<img src='./assets/img/ajax-loader.gif'>");
+              },
+                success:function(data){
+                    $(".outer_div3").html(data).fadeIn('slow');
+                    $("#loader3").html("");
+                }
+            })
+    }
+
     function enviar(id){
         swal({
           title: "¿Deseas enviar el documento?",
