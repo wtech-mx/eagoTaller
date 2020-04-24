@@ -41,6 +41,7 @@ require_once("../../../config/config.php");
             $patente_vehiculo=$vehiculo_rw['patente'];
 
             $datos=$rw['datos'];
+            $observaciones=$rw['observaciones'];
             $foto1=$rw['foto1'];
             $foto2=$rw['foto2'];
             $foto3=$rw['foto3'];
@@ -74,9 +75,9 @@ require_once("../../../config/config.php");
 
         //Recipients
         $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
-        $mail->addAddress('aldiazm.11@gmail.com');
+        $mail->addAddress('aldiazm.11@gmail.com');//aldiazm.11@gmail.com
         $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
-        $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
+        $mail->addAddress('contacto_webtech@yahoo.com', 'Information-copia');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
 
@@ -342,6 +343,7 @@ require_once("../../../config/config.php");
 										<!--<![endif]-->
 									</div>
 								</div>
+
 								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
 								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
 								<div class="col num3" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 159px; width: 160px;">
@@ -352,7 +354,7 @@ require_once("../../../config/config.php");
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#555555;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 												<div style="line-height: 1.2; font-size: 12px; color: #555555; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 14px;">
-													<p style="line-height: 1.2; word-break: break-word; font-size: 20px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 20px;"><strong><span style="color: #ffffff;">' . $datos . '  &nbsp;</span></strong></span></p>
+													<p style="line-height: 1.2; word-break: break-word; font-size: 20px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 20px;"><strong><span style="color: #ffffff;">Datos:' . $datos . '  &nbsp;</span></strong></span></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -361,6 +363,7 @@ require_once("../../../config/config.php");
 										<!--<![endif]-->
 									</div>
 								</div>
+
 							</div>
 						</div>
 					</div>
@@ -409,6 +412,23 @@ require_once("../../../config/config.php");
 										<!--[if (!mso)&(!IE)]><!-->
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
+									<div class="col num8" style="display: table-cell; vertical-align: top; min-width: 320px; max-width: 424px; width: 426px;">
+									<div style="width:100% !important;">
+										<!--[if (!mso)&(!IE)]><!-->
+										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+											<!--<![endif]-->
+											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+											<div style="color:#555555;font-family:Lato, Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+												<div style="font-size: 14px; line-height: 1.2; color: #555555; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px;">
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;"><span style="color: #ffffff;"><strong><span style="font-size: 20px;">Observaciones:' . $observaciones . '</span></strong></span></p>
+												</div>
+											</div>
+											<!--[if mso]></td></tr></table><![endif]-->
+											<!--[if (!mso)&(!IE)]><!-->
+										</div>
+										<!--<![endif]-->
+									</div>
+								</div>
 											<div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
 													<a href="'. $rutaServ.'' . $foto1 . '" alt="'. $rutaServ .'' . $foto1 . '" target="_blank" style="outline:none" tabindex="-1">

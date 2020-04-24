@@ -56,7 +56,7 @@
                         <?php
                            // include "modals/agregar/agregar_sector.php";
                            // include "modals/editar/editar_sector.php";
-                           include "modals/mostrar/mostrar_trasser.php";
+                           include "modals/mostrar/mostrar_documentacion.php";
                         ?>
                     <!-- /end modals -->
                     <a class="btn btn-primary" href="./?view=nuevo_documentacion"><i class='fa fa-plus'></i> Nuevo</a>
