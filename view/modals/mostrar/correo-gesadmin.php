@@ -35,6 +35,11 @@ require_once("../../../config/config.php");
                 $cliente_rw=mysqli_fetch_array($clientes);
                 $correo=$cliente_rw['correo'];
 
+            $idempresa=$rw['id_empresa'];
+            $empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
+            $empresa_rw=mysqli_fetch_array($empresas);
+            $correo2=$empresa_rw['correo'];
+
             $idvehiculo=$rw['idvehiculo'];
             $vehiculos=mysqli_query($con, "SELECT * from vehiculo where id=$idvehiculo");
             $vehiculo_rw=mysqli_fetch_array($vehiculos);
@@ -75,8 +80,8 @@ require_once("../../../config/config.php");
 
         //Recipients
         $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
-        $mail->addAddress('aldiazm.11@gmail.com');//aldiazm.11@gmail.com
-        $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
+        $mail->addAddress('aldiazm.11@gmail.com', $correo2, $correo);//aldiazm.11@gmail.com
+        // Add a recipient
         $mail->addAddress('contacto_webtech@yahoo.com', 'Information-copia');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');

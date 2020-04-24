@@ -9,12 +9,12 @@
 <script language="javascript">
             $(document).ready(function(){
                 $("#cliente").change(function () {
-                    
+
                     $("#cliente option:selected").each(function () {
                         id_cliente = $(this).val();
                         $.post("view/modals/includes/agregar_vehiculo.php", { id_cliente:id_cliente }, function(data){
                             $("#vehiculo").html(data);
-                        });            
+                        });
                     });
                 })
             });
@@ -22,12 +22,12 @@
 <script language="javascript">
             $(document).ready(function(){
                 $("#empresa").change(function () {
-                    
+
                     $("#empresa option:selected").each(function () {
                         id_empresa = $(this).val();
                         $.post("view/modals/includes/agregar_vehiculo2.php", { id_empresa:id_empresa }, function(data){
                             $("#vehiculo").html(data);
-                        });            
+                        });
                     });
                 })
             });
@@ -50,7 +50,7 @@
                         </div>
                     </div>
 
-            <div class="form-group">                
+            <div class="form-group">
             <label class="col-sm-2 control-label">Empresa: </label>
                 <div class="col-sm-10">
                     <select class="form-control" name="empresa" id="empresa">
@@ -61,8 +61,8 @@
                     </select>
                 </div>
         </div>
-        
-            <div class="form-group">   
+
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Cliente: </label>
                 <div class="col-sm-10">
                     <select class="form-control" name="cliente" id="cliente">
@@ -74,18 +74,18 @@
                 </div>
             </div>
 
-        <div class="form-group">               
+        <div class="form-group">
             <label class="col-sm-2 control-label">Vehiculo: </label>
                 <div class="col-sm-10">
                 <select class="form-control" name="vehiculo" id="vehiculo"></select>
                 </div>
-            
+
         </div>
                     <div class="form-group">
                     <label for="taller" class="col-sm-2 control-label">Taller: </label>
                                     <div class="col-sm-10">
                                         <select class="form-control" name="taller" id="taller" >
-                                            <?php 
+                                            <?php
                                                 $sql_tallers=mysqli_query($con,"select * from taller where estado=1 order by nombre");
                                                 while ($rw=mysqli_fetch_array($sql_tallers)){
                                                     $idtaller=$rw['id'];
@@ -95,7 +95,7 @@
                                                 <?php
                                                 }
                                             ?>
-                                        </select>    
+                                        </select>
                                     </div>
                     </div>
                     <div class="form-group">
@@ -120,7 +120,7 @@
                         <label for="trasladista" class="col-sm-2 control-label">Trasladista </label>
                                     <div class="col-sm-10">
                                         <select class="form-control" name="trasladista" id="trasladista" required>
-                                            <?php 
+                                            <?php
                                                 $sql_trasladistas=mysqli_query($con,"select * from trasladista where status=1 order by nombre");
                                                 while ($rw=mysqli_fetch_array($sql_trasladistas)){
                                                     $idtrasladista=$rw['id'];
@@ -130,7 +130,7 @@
                                                 <?php
                                                 }
                                             ?>
-                                        </select>    
+                                        </select>
                                     </div>
                     </div>
                     <div class="form-group">

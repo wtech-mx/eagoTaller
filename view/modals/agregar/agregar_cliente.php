@@ -33,7 +33,8 @@
                     <div class="form-group">
                         <label for="correo" class="col-sm-2 control-label">Correo Electrónico: </label>
                         <div class="col-sm-10">
-                            <input type="email"  class="form-control" id="correo" name="correo" placeholder="Correo Electrónico: ">
+                            <p class=" text-muted">En caso de no tener correo, pasar al siguiente campo</p>
+                            <input type="text"class="form-control" id="correo" name="correo" value="contacto@eago.com.mx">
                         </div>
                     </div>
                     <div class="form-group">
@@ -47,7 +48,7 @@
                                     <div class="col-sm-10">
                                         <select class="form-control" name="empresa" id="empresa" >
                                             <option value="0">Seleccionar Empresa</option>
-                                            <?php 
+                                            <?php
                                                 $sql_tallers=mysqli_query($con,"select * from empresa where estado=1 order by nombre");
                                                 while ($rw=mysqli_fetch_array($sql_tallers)){
                                                     $idempresa=$rw['id_empresa'];
@@ -57,7 +58,7 @@
                                                 <?php
                                                 }
                                             ?>
-                                        </select>    
+                                        </select>
                                     </div>
                     </div>
 <!-- ==========================================================================================
@@ -70,7 +71,7 @@
                             <input type="date"  class="form-control" id="manejo" name="manejo" placeholder="Licencia de Manejo ">
                         </div>
                     </div>
-                   
+
                     <div class="form-group">
                         <label for="tipo" class="col-sm-2 control-label">Tipo de licencia </label>
                         <div class="col-sm-10">
@@ -85,7 +86,7 @@
                       </select>
                         </div>
                     </div>
-               
+
                     <div class="form-group">
                         <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
                         <div class="col-sm-10">
@@ -123,9 +124,9 @@
                             <input type="text" class="form-control" id="km" name="km" placeholder="KM por semana ">
                         </div>
                     </div>
-                </div> 
-                    
-                
+                </div>
+
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     <button type="submit" id="guardar_datos" class="btn btn-primary">Agregar</button>

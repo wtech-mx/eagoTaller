@@ -33,6 +33,11 @@ require_once("../../../config/config.php");
                 $empresa_rw=mysqli_fetch_array($empresas);
                 $nombre_empresa=$empresa_rw['nombre'];
 
+                $idempresa=$rw['id_empresa'];
+	            $empresas=mysqli_query($con, "select * from empresa where id_empresa=$idempresa");
+	            $empresa_rw=mysqli_fetch_array($empresas);
+	            $correo2=$empresa_rw['correo'];
+
                 $idvehiculo=$rw['idvehiculo'];
                 $vehiculos=mysqli_query($con, "select * from vehiculo where id=$idvehiculo");
                 $vehiculo_rw=mysqli_fetch_array($vehiculos);
@@ -46,7 +51,7 @@ require_once("../../../config/config.php");
                 $idtrasladista=$rw['idtrasladista'];
                 $trasladistas=mysqli_query($con, "select * from trasladista where id=$idtrasladista");
                 $trasladista_rw=mysqli_fetch_array($trasladistas);
-                $correo2=$trasladista_rw['correo'];
+                $correo3=$trasladista_rw['correo'];
 
                 $idtaller=$rw['idtaller'];
                 $tallers=mysqli_query($con, "select * from taller where id=$idtaller");
@@ -83,10 +88,9 @@ require_once("../../../config/config.php");
 
         //Recipients
         $mail->setFrom('contacto@eago.com.mx', 'EAGO'); //DESDE DONDE SE VA AENVIAR
-        $mail->addAddress('aldiazm.11@gmail.com');
-        $mail->addAddress($correo, ''. $nombre_cliente.';');     // Add a recipient
-        $mail->addAddress($correo2);               // Name is optional
-        $mail->addReplyTo('contacto_webtech@yahoo.com', 'Information-copia');
+        $mail->addAddress('aldiazm.11@gmail.com', $correo3, $correo2, $correo);//aldiazm.11@gmail.com
+        // Add a recipient
+        $mail->addAddress('contacto_webtech@yahoo.com', 'Information-copia');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
 

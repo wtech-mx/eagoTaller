@@ -39,7 +39,8 @@
                     <div class="form-group">
                         <label for="correo" class="col-sm-2 control-label">Correo Electrónico: </label>
                         <div class="col-sm-10">
-                            <input type="correo" required class="form-control" id="correo" name="correo" placeholder="Correo Electrónico: ">
+                            <p class=" text-muted">En caso de no tener correo, pasar al siguiente campo</p>
+                            <input type="text"class="form-control" id="correo" name="correo" value="contacto@eago.com.mx">
                         </div>
                     </div>
                     <div class="form-group">
@@ -56,10 +57,10 @@
      ======================================FIN DATOS GENERALES=================================
      ==========================================================================================-->
 
-                    
-                    
-                    
-                
+
+
+
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     <button type="submit" id="guardar_datos" class="btn btn-primary">Agregar</button>

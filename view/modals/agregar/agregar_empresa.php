@@ -20,7 +20,8 @@
                     <div class="form-group">
                         <label for="correo" class="col-sm-2 control-label">Correo: </label>
                         <div class="col-sm-10">
-                            <input type="text"class="form-control" id="correo" name="correo" placeholder="Correo ">
+                            <p class=" text-muted">En caso de no tener correo, pasar al siguiente campo</p>
+                            <input type="text"class="form-control" id="correo" name="correo" value="contacto@eago.com.mx">
                         </div>
                     </div>
                     <div class="form-group">
