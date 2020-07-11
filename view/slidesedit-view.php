@@ -21,7 +21,9 @@ if ($count==0){
 }
 $rw=mysqli_fetch_array($sql);
 $titulo=$rw['titulo'];
+$color_titulo=$rw['color_titulo'];
 $descripcion=$rw['descripcion'];
+$color_descripcion=$rw['color_descripcion'];
 $texto_boton=$rw['texto_boton'];
 $url_boton=$rw['url_boton'];
 $color=$rw['color'];
@@ -53,9 +55,23 @@ $active_slider="active";
                                   </div>
 
                                  <div class="form-group">
+                                    <label for="color_titulo" class="col-sm-3 control-label">Color de Titulo</label>
+                                    <div class="col-sm-9">
+                                      <input type="color" class="form-control" id="color_titulo" name="color_titulo" value="<?php echo $color_titulo;?>">
+                                    </div>
+                                  </div>
+
+                                 <div class="form-group">
                                     <label for="descripcion" class="col-sm-3 control-label">Descripción</label>
                                     <div class="col-sm-9">
                                       <textarea class="form-control " rows="5" id="descripcion" required name="descripcion"><?php echo $descripcion;?></textarea>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="color_descripcion" class="col-sm-3 control-label">Color de Descripción</label>
+                                    <div class="col-sm-9">
+                                      <input type="color" class="form-control" id="color_descripcion" name="color_descripcion" value="<?php echo $color_descripcion;?>">
                                     </div>
                                   </div>
 

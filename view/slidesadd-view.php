@@ -38,10 +38,24 @@ $active_slider="active";
                                 </div>
                               </div>
 
+                              <div class="form-group">
+                                <label for="color_titulo" class="col-sm-3 control-label">Color de Titulo</label>
+                                <div class="col-sm-9">
+                                  <input type="color" class="form-control" id="color_titulo" name="color_titulo" value="#000">
+                                </div>
+                              </div>
+
                              <div class="form-group">
                                 <label for="descripcion" class="col-sm-3 control-label">Descripción</label>
                                 <div class="col-sm-9">
                                   <textarea class="form-control " rows="5" id="descripcion" required name="descripcion"></textarea>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="color_descripcion" class="col-sm-3 control-label">Color de Descripción</label>
+                                <div class="col-sm-9">
+                                  <input type="color" class="form-control" id="color_descripcion" name="color_descripcion" value="#000">
                                 </div>
                               </div>
 

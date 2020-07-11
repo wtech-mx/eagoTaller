@@ -8,7 +8,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["titulo"])){
 	/* Llamar la Cadena de Conexion*/
 	// escaping, additionally removing everything that could be (html/javascript-) code
      $titulo = mysqli_real_escape_string($con,(strip_tags($_POST['titulo'], ENT_QUOTES)));
+     $color_titulo = mysqli_real_escape_string($con,(strip_tags($_POST['color_titulo'], ENT_QUOTES)));
 	 $descripcion = mysqli_real_escape_string($con,(strip_tags($_POST['descripcion'], ENT_QUOTES)));
+	 $color_descripcion = mysqli_real_escape_string($con,(strip_tags($_POST['color_descripcion'], ENT_QUOTES)));
 	 $texto_boton= mysqli_real_escape_string($con,(strip_tags($_POST['texto_boton'], ENT_QUOTES)));
 	 $url_boton = mysqli_real_escape_string($con,($_POST['url_boton']));
 	 $color = mysqli_real_escape_string($con,($_POST['color']));
@@ -16,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["titulo"])){
 	 $orden = intval($_POST['orden']);
 	 $estado = intval($_POST['estado']);
 	 $id_slide=intval($_POST['id_slide']);
-	 $sql="UPDATE slider SET titulo='$titulo',color='$color', descripcion='$descripcion', texto_boton='$texto_boton', url_boton='$url_boton',estilo_boton='$estilo', orden='$orden', estado='$estado' WHERE id='$id_slide'";
+	 $sql="UPDATE slider SET titulo='$titulo',color_descripcion='$color_descripcion',color_titulo='$color_titulo',color='$color', descripcion='$descripcion', texto_boton='$texto_boton', url_boton='$url_boton',estilo_boton='$estilo', orden='$orden', estado='$estado' WHERE id='$id_slide'";
 	 $query = mysqli_query($con,$sql);
 	// if user has been added successfully
 	if ($query) {
