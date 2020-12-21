@@ -36,63 +36,63 @@
                 </div>
             </div>
 
-            <div class="row">
+<div class="row">
 
 
 
-                <div class="col-md-12">
-                    <div id="resultados_ajax"></div><!-- resultados ajax -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Datos del Vehiculo</h3>
-                            <div class="actions pull-right">
-                                <i class="fa fa-chevron-down"></i>
-                                <i class="fa fa-times"></i>
-                            </div>
-                        </div>
+<div class="col-md-12">
+    <div id="resultados_ajax"></div><!-- resultados ajax -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Datos del Vehiculo</h3>
+            <div class="actions pull-right">
+                <i class="fa fa-chevron-down"></i>
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
 
-                        <div class="panel-body">
+        <div class="panel-body">
 
-                            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" role="form" name="update_register" id="update_register" method="post" enctype="multipart/form-data">
 
-                                <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_codes;?>" >
-                                <input type="hidden"  id="id" name="id"  value="<?php echo $id_vehiculo;?>" >
+                <input type="hidden" class="form-control" id="vehiculo_code" name="vehiculo_code"  value="<?php echo $vehiculo_codes;?>" >
+                <input type="hidden"  id="id" name="id"  value="<?php echo $id_vehiculo;?>" >
 
 
-                                <div class="form-group">
-                                    <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-control" name="cliente" id="cliente">
-                                            <option value="0">Seleccionar Cliente</option>
-                                            <?php
-                                                $sql_clientes=mysqli_query($con,"SELECT * FROM cliente");
-                                                while ($rw=mysqli_fetch_array($sql_clientes)){
-                                                    $idcliente=$rw['id_cliente'];
-                                                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
-                                                ?>
-                                                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
-                                                <?php
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
-                                    <div class="col-sm-4">
-                                        <select class="form-control" name="empresa" id="empresa" >
-                                            <option value="0">Seleccionar Empresa</option>
-                                            <?php
-                                                $sql_empresas=mysqli_query($con,"select * from empresa where estado=1 order by nombre");
-                                                while ($rw=mysqli_fetch_array($sql_empresas)){
-                                                    $idempresa=$rw['id_empresa'];
-                                                    $nombre_empresa=$rw['nombre'];
-                                                ?>
-                                                <option value="<?php echo $idempresa;?>"><?php echo $nombre_empresa;?></option>
-                                                <?php
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
+                <div class="form-group">
+                    <label for="cliente" class="col-sm-2 control-label">Cliente: </label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="cliente" id="cliente">
+                            <option value="0">Seleccionar Cliente</option>
+                            <?php
+                                $sql_clientes=mysqli_query($con,"SELECT * FROM cliente");
+                                while ($rw=mysqli_fetch_array($sql_clientes)){
+                                    $idcliente=$rw['id_cliente'];
+                                    $nombre_cliente=$rw['nombre']." ".$rw['apellido'];
+                                ?>
+                                <option value="<?php echo $idcliente;?>"><?php echo $nombre_cliente;?></option>
+                                <?php
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <label for="empresa" class="col-sm-2 control-label">Empresa: </label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="empresa" id="empresa" >
+                            <option value="0">Seleccionar Empresa</option>
+                            <?php
+                                $sql_empresas=mysqli_query($con,"select * from empresa where estado=1 order by nombre");
+                                while ($rw=mysqli_fetch_array($sql_empresas)){
+                                    $idempresa=$rw['id_empresa'];
+                                    $nombre_empresa=$rw['nombre'];
+                                ?>
+                                <option value="<?php echo $idempresa;?>"><?php echo $nombre_empresa;?></option>
+                                <?php
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
 
                                 <div class="form-group">
                                 <label for="patente" class="col-sm-2 control-label">Placas: </label>

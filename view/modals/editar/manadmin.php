@@ -40,7 +40,7 @@
             $total=$rw['total'];
             $status=$rw['estado'];
         }
-    }   
+    }
     else{exit;}
 ?>
 <input type="hidden" value="<?php echo $id;?>" name="id" id="id">
@@ -153,7 +153,7 @@
 <script type="text/javascript">
 /* Funcion suma. */
 function SumarAutomatico (valor) {
-    var TotalSuma = 0;  
+    var TotalSuma = 0;
     valor = parseInt(valor); // Convertir a numero entero (número).
     TotalSuma = document.getElementById('subtotal').innerHTML;
     // Valida y pone en cero "0".
@@ -168,7 +168,7 @@ function SumarAutomatico (valor) {
 <script type="text/javascript">
 /* Funcion suma. */
 function SumarAuto (valor) {
-    var TotalSuma = 0;  
+    var TotalSuma = 0;
     valor = parseInt(valor); // Convertir a numero entero (número).
     TotalSuma = document.getElementById('total').innerHTML;
     // Valida y pone en cero "0".

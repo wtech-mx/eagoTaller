@@ -63,7 +63,7 @@
         <?php echo $patente_vehiculo;?>
     </div>
 </div>
-<div class="col-md-3">
+    <div class="col-md-3">
         <div class="box box-primary"><!-- Profile Image -->
             <div class="box-body box-profile">
                 <div id="load_img">
