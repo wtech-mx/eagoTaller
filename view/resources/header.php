@@ -1,9 +1,9 @@
     <?php
 
-    //define('RUTA', 'http://eago.com.mx/Eago-frontend/index.php');
-    define('RUTA', 'https://eago.com.mx/eagoTaller/index.php');
+    define('RUTA', 'https://localhost/Eago-backend/index.php');
+    //define('RUTA', 'https://eago.com.mx/eagoTaller/index.php');
 
-    
+
 
     if (!isset($_SESSION['user_id'])&& $_SESSION['user_id']==null) {
         header("location: ./?view=index");
@@ -94,7 +94,7 @@
                                 <a href="<?php echo RUTA; ?>"><i class="fa fa-power-off"></i> Salir</a>
                             </li>
 
-                             
+
                         </ul>
                     </li>
                 </ul>
@@ -143,7 +143,7 @@
                     <li class="<?php if(isset($active5)){echo $active5;}?>">
                         <a href="./?view=servicios"><i class="fa fa-wrench" data-toggle="dropdown"></i><span>Servicios</span></a>
                         <ul>
-                            <li><a href="./?view=mantenimiento"><i class="fa fa-cog"></i>Mantenimiento</li></a>                                                                         
+                            <li><a href="./?view=mantenimiento"><i class="fa fa-cog"></i>Mantenimiento</li></a>
                             <li><a href="./?view=gestoria"><i class="fa fa-user"></i>Gestoría</li></a>
                             <li><a href="./?view=estetica"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
                             </li>
@@ -156,29 +156,29 @@
                     <?php if ($_SESSION['adminser']==1) { ?>
                      <li class="<?php if(isset($active13)){echo $active13;}?>">
                         <a href="./?view=adminser"><i class="fa fa-folder"></i><span>Comprobacion de Servicio</span></a>
-                        <ul>               
-                            <li><a href="./?view=manser"><i class="fa fa-user"></i>Mantenimiento</li></a>                                   
+                        <ul>
+                            <li><a href="./?view=manser"><i class="fa fa-user"></i>Mantenimiento</li></a>
                             <li><a href="./?view=esteser"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
-                            </li>                       
+                            </li>
                             <li><a href="./?view=gesser"><i class="fa fa-user"></i>Gestoría</li></a>
                             <li><a href="./?view=veriser"><i class="fa fa-search"></i>Verificación</li></a>
                             <li><a href="./?view=trasser"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
-                    </li>                     
+                    </li>
                     <?php } ?>
 
                     <?php if ($_SESSION['admin']==1) { ?>
                      <li class="<?php if(isset($active10)){echo $active10;}?>">
                         <a href="./?view=admin"><i class="fa fa-chevron-circle-right"></i><span>Gestor Administrativo</span></a>
-                        <ul>               
-                            <li><a href="./?view=manadmin"><i class="fa fa-user"></i>Mantenimiento</li></a>                                   
+                        <ul>
+                            <li><a href="./?view=manadmin"><i class="fa fa-user"></i>Mantenimiento</li></a>
                             <li><a href="./?view=esteadmin"><i class="fa fa-code-fork"></i><span>Mecanica/Estética</span></a>
-                            </li>                       
+                            </li>
                             <li><a href="./?view=gesadmin"><i class="fa fa-user"></i>Gestoría</li></a>
                             <li><a href="./?view=veriadmin"><i class="fa fa-search"></i>Verificación</li></a>
                             <li><a href="./?view=trasadmin"><i class="fa fa-truck"></i>Traslados</li></a>
                         </ul>
-                    </li>                     
+                    </li>
                     <?php } ?>
 
                     <?php if ($_SESSION['seguro']==1) { ?>
@@ -220,7 +220,7 @@
                             <i class="fa fa-circle"></i>
                             <span>Visita EAGO</span></a>
                     </li>
-                
+
                     <?php } ?>
                 </ul>
             </div>

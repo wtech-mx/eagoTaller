@@ -50,8 +50,6 @@
                             <input type="date"  class="form-control" id="fecha_man" name="fecha_man" placeholder="Fecha Servicio ">
                         </div>
                     </div>
-
-        <div class="form-group">
             <label class="col-sm-2 control-label">Empresa: </label>
                 <div class="col-sm-10">
                     <select class="form-control" name="empresa" id="empresa">
